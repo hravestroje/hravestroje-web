@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ukázková data ve formátu XML exportu produktů Shoptetu (smyšlené produkty). -->
+<SHOP>
+  <SHOPITEM id="101">
+    <NAME>Dřevěný vláček s vagóny</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-101/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=D%C5%99ev%C4%9Bn%C3%BD%20vl%C3%A1%C4%8Dek</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="4">Hračky &gt; Vláčky a vláčkodráhy</CATEGORY>
+      <DEFAULT_CATEGORY id="4">Hračky &gt; Vláčky a vláčkodráhy</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS101</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>549.00</PRICE_VAT>
+    <!-- neveřejné údaje: nesmí se objevit v produkty.json (kontroluje test) -->
+    <PURCHASE_PRICE>312.00</PURCHASE_PRICE>
+    <SUPPLIER>Tajny dodavatel s.r.o.</SUPPLIER>
+    <EAN>8590000000101</EAN>
+    <STOCK>
+      <AMOUNT>7</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="102">
+    <NAME>Lokomotiva na baterie</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-102/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Lokomotiva%20na</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="5">Hračky &gt; Vláčky a vláčkodráhy</CATEGORY>
+      <DEFAULT_CATEGORY id="5">Hračky &gt; Vláčky a vláčkodráhy</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS102</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>399.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>3</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="103">
+    <NAME>Vláčkodráha – startovní sada 40 dílů</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-103/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Vl%C3%A1%C4%8Dkodr%C3%A1ha%20%E2%80%93</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="6">Hračky &gt; Vláčky a vláčkodráhy</CATEGORY>
+      <DEFAULT_CATEGORY id="6">Hračky &gt; Vláčky a vláčkodráhy</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS103</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>1290.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>0</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="104">
+    <NAME>Pexeso Mašinky</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-104/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Pexeso%20Ma%C5%A1inky</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="7">Hry &gt; Pexesa</CATEGORY>
+      <DEFAULT_CATEGORY id="7">Hry &gt; Pexesa</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS104</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>159.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>25</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="105">
+    <NAME>Omalovánky Železnice</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-105/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Omalov%C3%A1nky%20%C5%BDeleznice</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="1">Tvoření &gt; Omalovánky</CATEGORY>
+      <DEFAULT_CATEGORY id="1">Tvoření &gt; Omalovánky</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS105</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>89.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>40</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="106">
+    <NAME>Traktor s vlečkou</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-106/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Traktor%20s</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="2">Hračky &gt; Zemědělské stroje</CATEGORY>
+      <DEFAULT_CATEGORY id="2">Hračky &gt; Zemědělské stroje</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS106</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>699.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>4</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="107">
+    <NAME>Kombajn kovový model 1:32</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-107/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Kombajn%20kovov%C3%BD</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="3">Hračky &gt; Zemědělské stroje</CATEGORY>
+      <DEFAULT_CATEGORY id="3">Hračky &gt; Zemědělské stroje</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS107</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>899.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>2</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="108">
+    <NAME>Puzzle Na farmě 60 dílků</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-108/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Puzzle%20Na</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="4">Hry &gt; Puzzle</CATEGORY>
+      <DEFAULT_CATEGORY id="4">Hry &gt; Puzzle</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS108</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>249.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>9</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="109">
+    <NAME>Velký traktor s radlicí</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-109/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Velk%C3%BD%20traktor</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="5">Hračky &gt; Zemědělské stroje</CATEGORY>
+      <DEFAULT_CATEGORY id="5">Hračky &gt; Zemědělské stroje</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS109</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>1190.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>0</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="110">
+    <NAME>Hasičské auto se světly</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-110/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Hasi%C4%8Dsk%C3%A9%20auto</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="6">Hračky &gt; Auta</CATEGORY>
+      <DEFAULT_CATEGORY id="6">Hračky &gt; Auta</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS110</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>599.00</PRICE_VAT>
+    <ACTION_PRICE>499.00</ACTION_PRICE>
+    <ACTION_PRICE_FROM>2026-01-01</ACTION_PRICE_FROM>
+    <ACTION_PRICE_UNTIL>2030-12-31</ACTION_PRICE_UNTIL>
+    <STOCK>
+      <AMOUNT>6</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="111">
+    <NAME>Bagr na písek</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-111/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Bagr%20na</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="7">Hračky &gt; Stavební stroje</CATEGORY>
+      <DEFAULT_CATEGORY id="7">Hračky &gt; Stavební stroje</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS111</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>329.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>12</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="112">
+    <NAME>Dřevěné autíčko – nákladák</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-112/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=D%C5%99ev%C4%9Bn%C3%A9%20aut%C3%AD%C4%8Dko</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="1">Hračky &gt; Auta</CATEGORY>
+      <DEFAULT_CATEGORY id="1">Hračky &gt; Auta</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS112</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>279.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>8</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="113">
+    <NAME>Autor knihy o strojích – kniha s podpisem</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-113/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Autor%20knihy</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="2">Knihy</CATEGORY>
+      <DEFAULT_CATEGORY id="2">Knihy</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS113</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>399.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>5</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="114">
+    <NAME>Adventní kalendář Mašinky</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-114/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Adventn%C3%AD%20kalend%C3%A1%C5%99</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="3">Vánoce &gt; Adventní kalendáře</CATEGORY>
+      <DEFAULT_CATEGORY id="3">Vánoce &gt; Adventní kalendáře</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS114</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>349.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>30</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="115">
+    <NAME>Vánoční vláček kolem stromečku</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-115/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=V%C3%A1no%C4%8Dn%C3%AD%20vl%C3%A1%C4%8Dek</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="4">Vánoce &gt; Dárky</CATEGORY>
+      <DEFAULT_CATEGORY id="4">Vánoce &gt; Dárky</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS115</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>990.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>5</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="116">
+    <NAME>Vánoční ozdoba traktor</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-116/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=V%C3%A1no%C4%8Dn%C3%AD%20ozdoba</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="5">Vánoce &gt; Ozdoby</CATEGORY>
+      <DEFAULT_CATEGORY id="5">Vánoce &gt; Ozdoby</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS116</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>129.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>50</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="117">
+    <NAME>Mikulášská sada omalovánek</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-117/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Mikul%C3%A1%C5%A1sk%C3%A1%20sada</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="6">Vánoce &gt; Tvoření</CATEGORY>
+      <DEFAULT_CATEGORY id="6">Vánoce &gt; Tvoření</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS117</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>99.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>0</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="118">
+    <NAME>Skrytý testovací produkt</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>hidden</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-118/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Skryt%C3%BD%20testovac%C3%AD</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="7">Hračky</CATEGORY>
+      <DEFAULT_CATEGORY id="7">Hračky</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS118</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>100.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>10</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+  <SHOPITEM id="119">
+    <NAME>Kreativní sada Stavíme město</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-119/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Kreativn%C3%AD%20sada</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="1">Tvoření</CATEGORY>
+      <DEFAULT_CATEGORY id="1">Tvoření</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS119</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>459.00</PRICE_VAT>
+    <VARIANTS>
+      <VARIANT id="119-1">
+        <CODE>HS119-M</CODE>
+        <VISIBILITY>visible</VISIBILITY>
+        <PRICE_VAT>459.00</PRICE_VAT>
+        <STOCK><AMOUNT>0</AMOUNT></STOCK>
+      </VARIANT>
+      <VARIANT id="119-2">
+        <CODE>HS119-V</CODE>
+        <VISIBILITY>visible</VISIBILITY>
+        <PRICE_VAT>649.00</PRICE_VAT>
+        <STOCK><AMOUNT>4</AMOUNT></STOCK>
+      </VARIANT>
+    </VARIANTS>
+  </SHOPITEM>
+  <SHOPITEM id="120">
+    <NAME>Pracovní listy Stroje</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <URL>https://www.hravestroje.cz/produkt-120/</URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Pracovn%C3%AD%20listy</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="2">Tvoření &gt; Pracovní listy</CATEGORY>
+      <DEFAULT_CATEGORY id="2">Tvoření &gt; Pracovní listy</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS120</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <PRICE_VAT>149.00</PRICE_VAT>
+    <STOCK>
+      <AMOUNT>99</AMOUNT>
+    </STOCK>
+  </SHOPITEM>
+</SHOP>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Testovací sitemap index. __ZAKLAD__ nahradí testovací skript adresou místního serveru. -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>__ZAKLAD__/sitemap-clanky.xml</loc></sitemap>
+  <sitemap><loc>__ZAKLAD__/sitemap-neexistuje.xml</loc></sitemap>
+</sitemapindex>

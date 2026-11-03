@@ -1,0 +1,141 @@
+# Každou noc:
+#  1) stáhne XML export produktů ze Shoptetu (adresa jen v secretu SHOPTET_FEED_URL) → produkty/produkty.json
+#  2) stáhne akce ze sitemapy hravestroje.cz → kalendar/akce.json (uloží i zpět do repozitáře)
+#  3) zveřejní kalendář i produkty na GitHub Pages (jen GITHUB_TOKEN, žádný osobní token)
+#
+# Výsledné adresy:
+#   https://hravestroje.github.io/hravestroje-web/kalendar/
+#   https://hravestroje.github.io/hravestroje-web/produkty/produkty.json
+#   https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js
+#
+# U pull requestů se spustí jen testy na ukázkových datech (bez secretů, nic se nezveřejní).
+
+name: Zveřejnění webu
+
+on:
+  schedule:
+    - cron: "23 1 * * *"     # každou noc v 1:23 UTC (2:23 v zimě, 3:23 v létě)
+  workflow_dispatch:           # ruční spuštění: Actions → Zveřejnění webu → Run workflow
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "kalendar/**"
+      - "produkty/**"
+      - "testy/**"
+      - ".github/workflows/web.yml"
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('test-{0}', github.ref) || 'zverejneni' }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Test na ukázkových datech
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: bash testy/spust-testy.sh
+
+  sestaveni:
+    name: Stažení dat a sestavení webu
+    if: github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write          # uložení kalendar/akce.json zpět do repozitáře
+    outputs:
+      akce: ${{ steps.akce.outcome }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Kontrola secretu SHOPTET_FEED_URL
+        env:
+          SHOPTET_FEED_URL: ${{ secrets.SHOPTET_FEED_URL }}
+        run: |
+          if [ -z "$SHOPTET_FEED_URL" ]; then
+            echo "::error title=Chybí secret SHOPTET_FEED_URL::V repozitáři není nastavený secret SHOPTET_FEED_URL s adresou XML exportu ze Shoptetu. Přidejte ho v Settings → Secrets and variables → Actions → New repository secret a spusťte workflow znovu. Nic se nezveřejnilo, na webu zůstávají data z posledního úspěšného běhu."
+            exit 1
+          fi
+          echo "Secret SHOPTET_FEED_URL je nastavený (adresa se z bezpečnostních důvodů nevypisuje)."
+
+      - name: Produkty – stáhnout export a vytvořit produkty.json
+        env:
+          SHOPTET_FEED_URL: ${{ secrets.SHOPTET_FEED_URL }}
+        run: python3 produkty/stahni_produkty.py --vystup _site/produkty/produkty.json --min-produktu 5
+
+      - name: Kalendář – stáhnout akce ze sitemapy hravestroje.cz
+        id: akce
+        continue-on-error: true   # při výpadku webu se zveřejní akce z minula a běh skončí červeně
+        env:
+          SITEMAP_URL: ${{ vars.SITEMAP_URL }}   # nepovinné; výchozí https://www.hravestroje.cz/sitemap.xml
+        run: node kalendar/scripts/stahni-akce.mjs
+
+      - name: Kalendář – uložit akce.json do repozitáře
+        if: steps.akce.outcome == 'success' && github.ref == 'refs/heads/main'
+        run: |
+          if git diff --quiet -- kalendar/akce.json; then
+            echo "akce.json se nezměnil."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kalendar/akce.json
+          git commit -q -m "Aktualizace akcí $(date -u +%Y-%m-%d)"
+          git push -q origin HEAD:main || echo "::warning::akce.json se nepodařilo uložit do repozitáře (mezitím přibyl jiný commit). Web se přesto zveřejní."
+
+      - name: Sestavit web
+        run: |
+          mkdir -p _site/kalendar/icons _site/produkty
+          cp index.html _site/
+          cp kalendar/index.html kalendar/styles.css kalendar/app.js kalendar/akce.json \
+             kalendar/manifest.webmanifest kalendar/sw.js _site/kalendar/
+          cp kalendar/icons/* _site/kalendar/icons/
+          cp produkty/hs-darky.js produkty/demo.html produkty/demo-data.js _site/produkty/
+          # pojistka: bez produktů ani akcí nic nezveřejňovat
+          test -s _site/produkty/produkty.json
+          test -s _site/kalendar/akce.json
+          find _site -type f | sort
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  zverejneni:
+    name: Zveřejnění na GitHub Pages
+    needs: sestaveni
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+  kontrola-akci:
+    name: Kontrola stažení akcí
+    needs: [sestaveni, zverejneni]
+    if: needs.sestaveni.outputs.akce == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::error title=Akce se nepodařilo stáhnout::Akce ze sitemapy hravestroje.cz se nepodařilo stáhnout (podrobnosti v kroku „Kalendář – stáhnout akce“). Produkty se zveřejnily, v kalendáři zůstaly akce z minula."
+          exit 1

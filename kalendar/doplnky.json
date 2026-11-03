@@ -1,0 +1,7 @@
+{
+ "_navod": "Ruční opravy pro jednotlivé články. Klíč = přesná adresa článku. Povolené typy: vlaky, traktory, auta. Tento řádek se ignoruje.",
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci-priklad/": {
+  "kraj": "Jihomoravský kraj",
+  "typy": ["vlaky"]
+ }
+}
