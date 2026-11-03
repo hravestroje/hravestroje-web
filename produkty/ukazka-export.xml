@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Ukázková data ve formátu XML exportu produktů Shoptetu (smyšlené produkty). -->
+<!-- Ukázková data ve formátu marketingového XML exportu Shoptetu (productsMarketing.xml), smyšlené produkty.
+     Odkaz je v ORIG_URL, cena s DPH v PRICE, akční cena v ACTION_PRICE (často prázdná). -->
 <SHOP>
   <SHOPITEM id="101">
     <NAME>Dřevěný vláček s vagóny</NAME>
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-101/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-101/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=D%C5%99ev%C4%9Bn%C3%BD%20vl%C3%A1%C4%8Dek</IMAGE>
     </IMAGES>
@@ -17,7 +18,8 @@
     <CODE>HS101</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>549.00</PRICE_VAT>
+    <PRICE>549.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <!-- neveřejné údaje: nesmí se objevit v produkty.json (kontroluje test) -->
     <PURCHASE_PRICE>312.00</PURCHASE_PRICE>
     <SUPPLIER>Tajny dodavatel s.r.o.</SUPPLIER>
@@ -31,7 +33,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-102/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-102/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Lokomotiva%20na</IMAGE>
     </IMAGES>
@@ -42,7 +44,8 @@
     <CODE>HS102</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>399.00</PRICE_VAT>
+    <PRICE>399.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>3</AMOUNT>
     </STOCK>
@@ -52,7 +55,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-103/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-103/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Vl%C3%A1%C4%8Dkodr%C3%A1ha%20%E2%80%93</IMAGE>
     </IMAGES>
@@ -63,7 +66,8 @@
     <CODE>HS103</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>1290.00</PRICE_VAT>
+    <PRICE>1290.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>0</AMOUNT>
     </STOCK>
@@ -73,7 +77,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-104/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-104/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Pexeso%20Ma%C5%A1inky</IMAGE>
     </IMAGES>
@@ -84,7 +88,8 @@
     <CODE>HS104</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>159.00</PRICE_VAT>
+    <PRICE>159.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>25</AMOUNT>
     </STOCK>
@@ -94,7 +99,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-105/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-105/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Omalov%C3%A1nky%20%C5%BDeleznice</IMAGE>
     </IMAGES>
@@ -105,7 +110,8 @@
     <CODE>HS105</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>89.00</PRICE_VAT>
+    <PRICE>89.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>40</AMOUNT>
     </STOCK>
@@ -115,7 +121,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-106/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-106/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Traktor%20s</IMAGE>
     </IMAGES>
@@ -126,7 +132,8 @@
     <CODE>HS106</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>699.00</PRICE_VAT>
+    <PRICE>699.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>4</AMOUNT>
     </STOCK>
@@ -136,7 +143,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-107/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-107/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Kombajn%20kovov%C3%BD</IMAGE>
     </IMAGES>
@@ -147,7 +154,8 @@
     <CODE>HS107</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>899.00</PRICE_VAT>
+    <PRICE>899.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>2</AMOUNT>
     </STOCK>
@@ -157,7 +165,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-108/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-108/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Puzzle%20Na</IMAGE>
     </IMAGES>
@@ -168,7 +176,8 @@
     <CODE>HS108</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>249.00</PRICE_VAT>
+    <PRICE>249.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>9</AMOUNT>
     </STOCK>
@@ -178,7 +187,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-109/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-109/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Velk%C3%BD%20traktor</IMAGE>
     </IMAGES>
@@ -189,7 +198,8 @@
     <CODE>HS109</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>1190.00</PRICE_VAT>
+    <PRICE>1190.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>0</AMOUNT>
     </STOCK>
@@ -199,7 +209,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-110/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-110/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Hasi%C4%8Dsk%C3%A9%20auto</IMAGE>
     </IMAGES>
@@ -210,7 +220,7 @@
     <CODE>HS110</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>599.00</PRICE_VAT>
+    <PRICE>599.00</PRICE>
     <ACTION_PRICE>499.00</ACTION_PRICE>
     <ACTION_PRICE_FROM>2026-01-01</ACTION_PRICE_FROM>
     <ACTION_PRICE_UNTIL>2030-12-31</ACTION_PRICE_UNTIL>
@@ -223,7 +233,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-111/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-111/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Bagr%20na</IMAGE>
     </IMAGES>
@@ -234,7 +244,8 @@
     <CODE>HS111</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>329.00</PRICE_VAT>
+    <PRICE>329.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>12</AMOUNT>
     </STOCK>
@@ -244,7 +255,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-112/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-112/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=D%C5%99ev%C4%9Bn%C3%A9%20aut%C3%AD%C4%8Dko</IMAGE>
     </IMAGES>
@@ -255,7 +266,8 @@
     <CODE>HS112</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>279.00</PRICE_VAT>
+    <PRICE>279.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>8</AMOUNT>
     </STOCK>
@@ -265,7 +277,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-113/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-113/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Autor%20knihy</IMAGE>
     </IMAGES>
@@ -276,7 +288,8 @@
     <CODE>HS113</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>399.00</PRICE_VAT>
+    <PRICE>399.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>5</AMOUNT>
     </STOCK>
@@ -286,7 +299,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-114/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-114/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Adventn%C3%AD%20kalend%C3%A1%C5%99</IMAGE>
     </IMAGES>
@@ -297,7 +310,8 @@
     <CODE>HS114</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>349.00</PRICE_VAT>
+    <PRICE>349.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>30</AMOUNT>
     </STOCK>
@@ -307,7 +321,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-115/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-115/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=V%C3%A1no%C4%8Dn%C3%AD%20vl%C3%A1%C4%8Dek</IMAGE>
     </IMAGES>
@@ -318,7 +332,8 @@
     <CODE>HS115</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>990.00</PRICE_VAT>
+    <PRICE>990.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>5</AMOUNT>
     </STOCK>
@@ -328,7 +343,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-116/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-116/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=V%C3%A1no%C4%8Dn%C3%AD%20ozdoba</IMAGE>
     </IMAGES>
@@ -339,7 +354,8 @@
     <CODE>HS116</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>129.00</PRICE_VAT>
+    <PRICE>129.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>50</AMOUNT>
     </STOCK>
@@ -349,7 +365,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-117/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-117/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Mikul%C3%A1%C5%A1sk%C3%A1%20sada</IMAGE>
     </IMAGES>
@@ -360,7 +376,8 @@
     <CODE>HS117</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>99.00</PRICE_VAT>
+    <PRICE>99.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>0</AMOUNT>
     </STOCK>
@@ -370,7 +387,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>hidden</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-118/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-118/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Skryt%C3%BD%20testovac%C3%AD</IMAGE>
     </IMAGES>
@@ -381,7 +398,8 @@
     <CODE>HS118</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>100.00</PRICE_VAT>
+    <PRICE>100.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
       <AMOUNT>10</AMOUNT>
     </STOCK>
@@ -391,7 +409,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-119/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-119/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Kreativn%C3%AD%20sada</IMAGE>
     </IMAGES>
@@ -402,19 +420,145 @@
     <CODE>HS119</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>459.00</PRICE_VAT>
     <VARIANTS>
       <VARIANT id="119-1">
         <CODE>HS119-M</CODE>
-        <VISIBILITY>visible</VISIBILITY>
-        <PRICE_VAT>459.00</PRICE_VAT>
+        <VISIBLE>1</VISIBLE>
+        <PRICE>459.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
         <STOCK><AMOUNT>0</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Kreativn%C3%AD%20sada</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>malá</VALUE></PARAMETER>
+        </PARAMETERS>
       </VARIANT>
       <VARIANT id="119-2">
         <CODE>HS119-V</CODE>
-        <VISIBILITY>visible</VISIBILITY>
-        <PRICE_VAT>649.00</PRICE_VAT>
+        <VISIBLE>1</VISIBLE>
+        <PRICE>649.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
         <STOCK><AMOUNT>4</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Kreativn%C3%AD%20sada</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>velká</VALUE></PARAMETER>
+        </PARAMETERS>
+      </VARIANT>
+    </VARIANTS>
+  </SHOPITEM>
+  <SHOPITEM id="121">
+    <NAME>Tričko Mašinka</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-121/</ORIG_URL>
+    <CATEGORIES>
+      <CATEGORY id="8">Oblečení &gt; Trička</CATEGORY>
+      <DEFAULT_CATEGORY id="8">Oblečení &gt; Trička</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS121</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <VARIANTS>
+      <!-- nejlevnější varianta, ale vyprodaná – cena se z ní nebere -->
+      <VARIANT id="121-1">
+        <CODE>HS121-98-MO</CODE>
+        <VISIBLE>1</VISIBLE>
+        <PRICE>499.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
+        <PURCHASE_PRICE>211.00</PURCHASE_PRICE>
+        <STOCK><AMOUNT>0</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Tri%C4%8Dko%20modr%C3%A9</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>98</VALUE></PARAMETER>
+          <PARAMETER><NAME>Barva</NAME><VALUE>modrá</VALUE></PARAMETER>
+        </PARAMETERS>
+      </VARIANT>
+      <!-- skrytá varianta skladem – nesmí ovlivnit cenu ani sklad -->
+      <VARIANT id="121-2">
+        <CODE>HS121-104-ZL</CODE>
+        <VISIBLE>0</VISIBLE>
+        <PRICE>399.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
+        <STOCK><AMOUNT>8</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Tri%C4%8Dko%20%C5%BElut%C3%A9</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>104</VALUE></PARAMETER>
+          <PARAMETER><NAME>Barva</NAME><VALUE>žlutá</VALUE></PARAMETER>
+        </PARAMETERS>
+      </VARIANT>
+      <VARIANT id="121-3">
+        <CODE>HS121-110-MO</CODE>
+        <VISIBLE>1</VISIBLE>
+        <PRICE>549.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
+        <STOCK><AMOUNT>3</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Tri%C4%8Dko%20modr%C3%A9</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>110</VALUE></PARAMETER>
+          <PARAMETER><NAME>Barva</NAME><VALUE>modrá</VALUE></PARAMETER>
+        </PARAMETERS>
+      </VARIANT>
+      <VARIANT id="121-4">
+        <CODE>HS121-122-MO</CODE>
+        <VISIBLE>1</VISIBLE>
+        <PRICE>599.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
+        <STOCK><AMOUNT>2</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Tri%C4%8Dko%20modr%C3%A9</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>122</VALUE></PARAMETER>
+          <PARAMETER><NAME>Barva</NAME><VALUE>modrá</VALUE></PARAMETER>
+        </PARAMETERS>
+      </VARIANT>
+    </VARIANTS>
+  </SHOPITEM>
+  <SHOPITEM id="122">
+    <NAME>Mikina Bagr</NAME>
+    <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
+    <ITEM_TYPE>product</ITEM_TYPE>
+    <VISIBILITY>visible</VISIBILITY>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-122/</ORIG_URL>
+    <IMAGES>
+      <IMAGE description="">https://placehold.co/400x400/png?text=Mikina%20Bagr</IMAGE>
+    </IMAGES>
+    <CATEGORIES>
+      <CATEGORY id="9">Oblečení &gt; Mikiny</CATEGORY>
+      <DEFAULT_CATEGORY id="9">Oblečení &gt; Mikiny</DEFAULT_CATEGORY>
+    </CATEGORIES>
+    <CODE>HS122</CODE>
+    <CURRENCY>CZK</CURRENCY>
+    <VAT>21</VAT>
+    <VARIANTS>
+      <!-- žádná viditelná varianta skladem → produkt není skladem -->
+      <VARIANT id="122-1">
+        <CODE>HS122-116</CODE>
+        <VISIBLE>1</VISIBLE>
+        <PRICE>790.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
+        <STOCK><AMOUNT>0</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Mikina%20Bagr</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>116</VALUE></PARAMETER>
+        </PARAMETERS>
+      </VARIANT>
+      <VARIANT id="122-2">
+        <CODE>HS122-128</CODE>
+        <VISIBLE>0</VISIBLE>
+        <PRICE>790.00</PRICE>
+        <ACTION_PRICE></ACTION_PRICE>
+        <STOCK><AMOUNT>5</AMOUNT></STOCK>
+        <AVAILABILITY_IN_STOCK>Skladem</AVAILABILITY_IN_STOCK>
+        <IMAGE_REF>https://placehold.co/400x400/png?text=Mikina%20Bagr</IMAGE_REF>
+        <PARAMETERS>
+          <PARAMETER><NAME>Velikost</NAME><VALUE>128</VALUE></PARAMETER>
+        </PARAMETERS>
       </VARIANT>
     </VARIANTS>
   </SHOPITEM>
@@ -423,7 +567,7 @@
     <SHORT_DESCRIPTION>&lt;p&gt;Krátký popis.&lt;/p&gt;</SHORT_DESCRIPTION>
     <ITEM_TYPE>product</ITEM_TYPE>
     <VISIBILITY>visible</VISIBILITY>
-    <URL>https://www.hravestroje.cz/produkt-120/</URL>
+    <ORIG_URL>https://www.hravestroje.cz/produkt-120/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Pracovn%C3%AD%20listy</IMAGE>
     </IMAGES>
@@ -434,9 +578,10 @@
     <CODE>HS120</CODE>
     <CURRENCY>CZK</CURRENCY>
     <VAT>21</VAT>
-    <PRICE_VAT>149.00</PRICE_VAT>
+    <PRICE>149.00</PRICE>
+    <ACTION_PRICE></ACTION_PRICE>
     <STOCK>
-      <AMOUNT>99</AMOUNT>
+      <AMOUNT>5000</AMOUNT>
     </STOCK>
   </SHOPITEM>
 </SHOP>

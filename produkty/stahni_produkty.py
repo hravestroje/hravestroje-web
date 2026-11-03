@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Stáhne XML export produktů ze Shoptetu a vytvoří z něj produkty.json
+Stáhne XML export produktů ze Shoptetu (marketingový export productsMarketing.xml,
+umí i starší formát) a vytvoří z něj produkty.json
 pro skript hs-darky.js (doporučené produkty v článcích).
 
 Použití:
@@ -137,6 +138,19 @@ class Temata:
 
 # ---------------------------------------------------------------- čtení exportu
 
+VIDITELNE = ("visible", "1", "true", "yes")
+
+
+def je_viditelna(el):
+    """Produkt/varianta je viditelná, pokud ji export neoznačí jako skrytou.
+    Produkt: <VISIBILITY>visible</VISIBILITY>, varianta: <VISIBLE>1</VISIBLE> (marketingový export)."""
+    for znacka in ("VISIBILITY", "VISIBLE"):
+        hodnota = txt(el, znacka)
+        if hodnota is not None and hodnota.lower() not in VIDITELNE:
+            return False
+    return True
+
+
 def je_skladem(mnozstvi, bez_poctu_je_skladem):
     if mnozstvi is None:
         return bez_poctu_je_skladem
@@ -144,8 +158,9 @@ def je_skladem(mnozstvi, bez_poctu_je_skladem):
 
 
 def cena_polozky(el, dnes):
-    """(cena, puvodni_cena) – zohlední akční cenu, pokud právě platí."""
-    cena = cislo(txt(el, "PRICE_VAT"))
+    """(cena, puvodni_cena) – zohlední akční cenu, pokud právě platí.
+    Cena s DPH je v <PRICE_VAT> (starší export) nebo v <PRICE> (marketingový export)."""
+    cena = cislo(txt(el, "PRICE_VAT", "PRICE"))
     akce = cislo(txt(el, "ACTION_PRICE", "ACTION_PRICE_VAT"))
     od, do = datum(txt(el, "ACTION_PRICE_FROM")), datum(txt(el, "ACTION_PRICE_UNTIL"))
     if akce and cena and akce < cena and (not od or od <= dnes) and (not do or dnes <= do):
@@ -158,12 +173,12 @@ def cena_polozky(el, dnes):
 
 def zpracuj_polozku(el, pravidla, temata, dnes):
     """Z jednoho <SHOPITEM> udělá slovník pro produkty.json, nebo None."""
-    viditelnost = (txt(el, "VISIBILITY") or "visible").lower()
-    if viditelnost not in ("visible", "1", "true"):
+    if not je_viditelna(el):
         return None  # skryté a blokované produkty vynecháme
 
     nazev = txt(el, "NAME", "PRODUCTNAME", "PRODUCT")
-    url = txt(el, "URL")
+    # marketingový export má odkaz v <ORIG_URL>, starší exporty v <URL>
+    url = txt(el, "ORIG_URL", "URL")
     if not nazev or not url or not url.startswith(("https://", "http://")):
         return None
 
@@ -180,12 +195,13 @@ def zpracuj_polozku(el, pravidla, temata, dnes):
 
     varianty = el.findall("VARIANTS/VARIANT")
     if varianty:
-        # produkt je skladem, když je skladem aspoň jedna varianta;
-        # cena = nejnižší cena ze skladových variant (jinak ze všech)
+        # produkt je skladem, když je skladem aspoň jedna viditelná varianta;
+        # cena = nejnižší cena ze skladových variant („od 549 Kč“), jinak ze všech viditelných
         skladem = False
         ceny_skladem, ceny_vse = [], []
+        obrazek_varianty = None
         for v in varianty:
-            if (txt(v, "VISIBILITY") or "visible").lower() not in ("visible", "1", "true"):
+            if not je_viditelna(v):
                 continue
             v_cena, v_puvodni = cena_polozky(v, dnes)
             v_skladem = je_skladem(cislo(txt(v, "STOCK/AMOUNT")), bez_poctu)
@@ -194,10 +210,11 @@ def zpracuj_polozku(el, pravidla, temata, dnes):
                 if v_skladem:
                     ceny_skladem.append((v_cena, v_puvodni))
             skladem = skladem or v_skladem
+            obrazek_varianty = obrazek_varianty or txt(v, "IMAGE_REF", "IMAGE")
         vyber = ceny_skladem or ceny_vse
         if vyber:
             cena, puvodni = min(vyber, key=lambda c: c[0])
-        obrazek = obrazek or txt(el, "VARIANTS/VARIANT/IMAGE")
+        obrazek = obrazek or obrazek_varianty
     else:
         mnozstvi = cislo(txt(el, "STOCK/AMOUNT"))
         if mnozstvi is None and txt(el, "DELIVERY_DATE") is not None:
@@ -235,18 +252,19 @@ def jen_verejne(produkt):
 def nacti_export(cesta, pravidla):
     temata = Temata(pravidla)
     dnes = dt.date.today()
-    produkty, videne_url, mena = [], set(), None
+    produkty, videne_url, mena, polozek = [], set(), None, 0
     with otevri(cesta) as f:
         for _, el in ET.iterparse(f, events=("end",)):
             if el.tag != "SHOPITEM":
                 continue
+            polozek += 1
             mena = mena or txt(el, "CURRENCY")
             p = zpracuj_polozku(el, pravidla, temata, dnes)
             if p and p["url"] not in videne_url:  # varianty v Heureka formátu mají stejnou URL
                 videne_url.add(p["url"])
                 produkty.append(p)
             el.clear()  # šetříme paměť u velkých exportů
-    return produkty, mena or "CZK"
+    return produkty, mena or "CZK", polozek
 
 
 # ---------------------------------------------------------------- hlavní program
@@ -276,13 +294,16 @@ def main():
             xml = os.path.join(tmp, "export.xml")
             stahni(url, xml)
         try:
-            produkty, mena = nacti_export(xml, pravidla)
+            produkty, mena, polozek = nacti_export(xml, pravidla)
         except ET.ParseError as e:
             raise SystemExit(f"CHYBA: stažený soubor není platné XML ({e}).")
 
     if len(produkty) < args.min_produktu:
-        raise SystemExit(f"CHYBA: v exportu je jen {len(produkty)} použitelných produktů – "
-                         "zkontrolujte, že jde o XML export produktů Shoptetu.")
+        raise SystemExit(f"CHYBA: v exportu je jen {len(produkty)} použitelných produktů "
+                         f"(položek SHOPITEM: {polozek}, potřeba aspoň {args.min_produktu}) – "
+                         "zkontrolujte, že jde o XML export produktů Shoptetu (marketingový export "
+                         "productsMarketing.xml) a že produkty mají název, odkaz (ORIG_URL/URL) a cenu "
+                         "(PRICE/PRICE_VAT). Nic se nezveřejnilo.")
 
     data = {
         "vygenerovano": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),

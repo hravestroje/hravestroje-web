@@ -1,6 +1,6 @@
 // Vygenerováno skriptem stahni_produkty.py z ukazka-export.xml
 window.HS_DARKY_DATA = {
- "vygenerovano": "2026-11-03T20:40:31Z",
+ "vygenerovano": "2026-11-03T21:09:43Z",
  "mena": "CZK",
  "sezony": [
   {
@@ -246,6 +246,32 @@ window.HS_DARKY_DATA = {
    ],
    "skladem": true,
    "temata": []
+  },
+  {
+   "nazev": "Tričko Mašinka",
+   "cena": 549,
+   "url": "https://www.hravestroje.cz/produkt-121/",
+   "obrazek": "https://placehold.co/400x400/png?text=Tri%C4%8Dko%20modr%C3%A9",
+   "kategorie": [
+    "Oblečení > Trička"
+   ],
+   "skladem": true,
+   "temata": [
+    "vlaky"
+   ]
+  },
+  {
+   "nazev": "Mikina Bagr",
+   "cena": 790,
+   "url": "https://www.hravestroje.cz/produkt-122/",
+   "obrazek": "https://placehold.co/400x400/png?text=Mikina%20Bagr",
+   "kategorie": [
+    "Oblečení > Mikiny"
+   ],
+   "skladem": false,
+   "temata": [
+    "auta"
+   ]
   },
   {
    "nazev": "Pracovní listy Stroje",
