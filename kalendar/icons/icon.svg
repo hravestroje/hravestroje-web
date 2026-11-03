@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#1f6f3d"/>
+  <g transform="translate(256 262) scale(0.82) translate(-256 -256)">
+    <!-- koleje -->
+    <rect x="70" y="392" width="372" height="14" rx="7" fill="#ffffff" opacity=".85"/>
+    <!-- komín -->
+    <rect x="140" y="132" width="44" height="74" rx="8" fill="#ffffff"/>
+    <rect x="128" y="118" width="68" height="24" rx="10" fill="#ffffff"/>
+    <!-- kotel -->
+    <rect x="96" y="200" width="200" height="118" rx="26" fill="#ffffff"/>
+    <!-- kabina -->
+    <rect x="276" y="128" width="140" height="190" rx="22" fill="#ffffff"/>
+    <rect x="262" y="112" width="168" height="30" rx="12" fill="#c0392b"/>
+    <rect x="306" y="166" width="80" height="62" rx="12" fill="#1f6f3d"/>
+    <!-- rám -->
+    <rect x="80" y="300" width="352" height="34" rx="12" fill="#c0392b"/>
+    <!-- kola -->
+    <circle cx="154" cy="350" r="40" fill="#c0392b" stroke="#ffffff" stroke-width="12"/>
+    <circle cx="256" cy="350" r="40" fill="#c0392b" stroke="#ffffff" stroke-width="12"/>
+    <circle cx="364" cy="350" r="40" fill="#c0392b" stroke="#ffffff" stroke-width="12"/>
+    <circle cx="154" cy="350" r="9" fill="#ffffff"/>
+    <circle cx="256" cy="350" r="9" fill="#ffffff"/>
+    <circle cx="364" cy="350" r="9" fill="#ffffff"/>
+  </g>
+</svg>

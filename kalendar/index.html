@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kalendář dopravních akcí pro děti | Hravé stroje</title>
+  <meta name="description" content="Nadcházející akce s vlaky, traktory a auty pro děti po celé České republice. Vybírá Hravestroje.cz.">
+  <meta name="theme-color" content="#1f6f3d">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Akce Hravé stroje">
+  <meta property="og:title" content="Kalendář dopravních akcí pro děti">
+  <meta property="og:description" content="Vlaky, traktory a auta – akce pro malé fanoušky strojů na jednom místě.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hlavicka">
+    <div class="obal">
+      <a class="znacka" href="https://www.hravestroje.cz/" rel="noopener">Hravé stroje</a>
+      <h1>Kalendář dopravních akcí</h1>
+      <p class="podtitul">Vlaky, traktory a auta pro malé fanoušky strojů</p>
+    </div>
+  </header>
+
+  <main class="obal">
+    <form class="filtry" id="filtry" role="search" onsubmit="return false">
+      <label class="hledani">
+        <span class="sr">Hledat akci</span>
+        <input type="search" id="hledat" placeholder="Hledat: název, město, místo…" autocomplete="off" enterkeyhint="search">
+      </label>
+
+      <div class="cipy" role="group" aria-label="Typ akce">
+        <button type="button" class="cip" data-typ="" aria-pressed="true">Vše</button>
+        <button type="button" class="cip" data-typ="vlaky" aria-pressed="false"><span aria-hidden="true">🚂</span> Vlaky</button>
+        <button type="button" class="cip" data-typ="traktory" aria-pressed="false"><span aria-hidden="true">🚜</span> Traktory</button>
+        <button type="button" class="cip" data-typ="auta" aria-pressed="false"><span aria-hidden="true">🚗</span> Auta</button>
+      </div>
+
+      <div class="radek">
+        <label class="vyber">
+          <span class="sr">Kraj</span>
+          <select id="kraj">
+            <option value="">Všechny kraje</option>
+          </select>
+        </label>
+        <button type="button" class="cip cip-vikend" id="vikend" aria-pressed="false">Tento víkend</button>
+      </div>
+    </form>
+
+    <div class="souhrn" aria-live="polite">
+      <p id="pocet"></p>
+      <button type="button" class="odkaz" id="zrusit" hidden>Zrušit filtry</button>
+    </div>
+
+    <div id="seznam" class="seznam">
+      <p class="info">Načítám akce…</p>
+    </div>
+  </main>
+
+  <footer class="paticka">
+    <div class="obal">
+      <p>Akce vybírá a ověřuje <a href="https://www.hravestroje.cz/" rel="noopener">Hravestroje.cz</a>.
+        Termíny se mohou změnit – před cestou si je prosím ověřte u pořadatele.</p>
+      <p id="aktualizace" class="drobne"></p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

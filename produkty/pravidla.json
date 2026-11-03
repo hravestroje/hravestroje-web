@@ -1,0 +1,32 @@
+{
+  "_napoveda": "Pravidla pro přiřazení produktů k tématům. Slova se píšou malými písmeny BEZ diakritiky a hledají se na začátku slov v názvu a kategoriích produktu (např. 'vlac' najde 'vláček', 'vláčkodráha'). 'vyjimky' jsou slova, která téma naopak vyloučí. Po úpravě souboru stačí uložit změnu do větve main, produkty.json se přegeneruje sám.",
+
+  "sezony": [
+    {
+      "_napoveda": "V měsících 'mesice' se produkty s tématem 'tema' zobrazují přednostně. Mimo tyto měsíce se v obecných a tematických boxech nezobrazují vůbec (kromě boxu s data-tema=\"vanoce\").",
+      "tema": "vanoce",
+      "mesice": [10, 11, 12]
+    }
+  ],
+
+  "temata": {
+    "vlaky": {
+      "slova": ["vlak", "vlac", "lokomotiv", "masink", "zeleznic", "kolejnic", "kolejiv", "vagon", "drezin", "tramvaj"],
+      "vyjimky": []
+    },
+    "traktory": {
+      "slova": ["traktor", "kombajn", "zemedel", "farm"],
+      "vyjimky": []
+    },
+    "auta": {
+      "slova": ["auto", "auta", "auticko", "autic", "nakladak", "nakladni", "hasic", "bagr", "jerab", "sklapec", "kamion", "dodavk", "autobus", "policejni", "zavodni", "garaz", "odtahov", "stavebni stroj"],
+      "vyjimky": ["autor", "automat"]
+    },
+    "vanoce": {
+      "slova": ["vanoc", "advent", "mikulas", "jezis", "stromec", "snehul", "cert", "andel"],
+      "vyjimky": ["certifik"]
+    }
+  },
+
+  "sklad_bez_poctu_je_skladem": true
+}
