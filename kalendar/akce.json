@@ -1,6 +1,2288 @@
 {
- "aktualizovano": null,
+ "aktualizovano": "2026-11-04T13:14:33.723Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 0,
- "akce": []
+ "pocet": 144,
+ "akce": [
+  {
+   "id": "fde8a041b891",
+   "nazev": "Výletní vlak Cyklohráček 2026 (Praha-Bubny – Slaný)",
+   "zacatek": "2026-03-21",
+   "konec": "2026-11-01",
+   "misto": "Železniční stanice Praha-Bubny",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vyletni-vlak-cyklohracek-praha-slany/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/kalendar-dopravnich-akci-2026/cyklohracek/letni-vyluka-cyklohracku-2026.jpg",
+   "popis": "Výletní vlak s hernami pro děti, jezdí o víkendech a svátcích za běžné jízdné PID a ČD."
+  },
+  {
+   "id": "44e987644201",
+   "nazev": "Lodní linka T91 2026 - výlet lodí po Labi z Ústí nad Labem do Mělníka",
+   "zacatek": "2026-03-28",
+   "konec": "2026-11-01",
+   "misto": "Labe, Ústí nad Labem - Litoměřice - Roudnice nad Labem - Mělník",
+   "adresa": "Ústí nad Labem",
+   "obec": "Ústí nad Labem",
+   "kraj": "Ústecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/lodni-linka-t91-labe/",
+   "obrazek": "https://www.hravestroje.cz/user/articles/images/autorsk___ilustrace_lo___hrav___stroje.png",
+   "popis": "Turistická lodní linka T91 pluje po Labi z Ústí nad Labem přes údolí Porta Bohemica do Litoměřic, Roudnice nad Labem a Mělníka."
+  },
+  {
+   "id": "e67dbca2ef24",
+   "nazev": "Historický vlak do Lednice 2026 - motoráček Hurvínek z Břeclavi",
+   "zacatek": "2026-05-01",
+   "konec": "2026-09-28",
+   "misto": "Železniční trať Břeclav - Lednice",
+   "adresa": "Lednice",
+   "obec": "Lednice",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/historicky-vlak-lednice-hurvinek/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/motorova-lokomotiva-sklenik.jpg",
+   "popis": "Historický motorový vůz M 131.1 přezdívaný Hurvínek jezdí o víkendech a státních svátcích z Břeclavi do Lednice, do Lednicko-valtického areálu na seznamu UNESCO."
+  },
+  {
+   "id": "c134f69e776f",
+   "nazev": "Oslava 10 let památkové ochrany nádraží Martinice v Krkonoších",
+   "zacatek": "2026-06-06T09:00:00+02:00",
+   "konec": "2026-06-06T18:00:00+02:00",
+   "misto": "Nádraží Martinice v Krkonoších",
+   "adresa": "Martinice v Krkonoších 93, 512 32 Martinice v Krkonoších",
+   "obec": "Martinice v Krkonoších",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce/oslava-nadrazi-martinice-krkonose-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/martinice-nadrazi-a-kolejiste.jpg",
+   "popis": "Oslava 10 let památkové ochrany nádraží: historický parní vlak do Rokytnice nad Jizerou, koncerty na peróně a živé obrazy."
+  },
+  {
+   "id": "63cfda91ac74",
+   "nazev": "Parní Olympia 2026 – 13. ročník mezinárodního modelářského srazu",
+   "zacatek": "2026-06-06T10:00:00+02:00",
+   "konec": "2026-06-07T18:00:00+02:00",
+   "misto": "Parková dráha Brno (OC Olympia)",
+   "adresa": "Brno",
+   "obec": "Brno",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce/parni-olympia-brno-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/parni-olympia-cervena-lokomotiva-a-parni-model.jpg",
+   "popis": "Mezinárodní modelářský sraz na Parkové dráze Brno: jízdy modelů na rozchodu 127 a 184 mm, živé parní modely G 45 mm a historické autobusy."
+  },
+  {
+   "id": "4d64695e1341",
+   "nazev": "Den otevřených dveří DP Most a Litvínov 2026 - 125 let MHD na Mostecku",
+   "zacatek": "2026-09-12T09:00",
+   "konec": "2026-09-12T12:00",
+   "misto": "Areál Dopravního podniku měst Mostu a Litvínova",
+   "adresa": "tř. Budovatelů 1395/23, 43401 Most",
+   "obec": "Most",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-dp-most-litvinov-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/125-let-mhd-mostecko.jpg",
+   "popis": "Den otevřených dveří v areálu dopravního podniku k 125. výročí MHD na Mostecku - historická vozidla, tramvaje a autobusy, šlapací kolejová drezína, skákací hrad zdarma a fotokoutek."
+  },
+  {
+   "id": "4e5a364f39c2",
+   "nazev": "Staň se železničářem – Výtopna Jaroměř 2026",
+   "zacatek": "2026-09-12T09:00:00+02:00",
+   "konec": "2026-09-13T16:00:00+02:00",
+   "misto": "Výtopna Jaroměř",
+   "adresa": "Nádražní 227, Jaroměř",
+   "obec": "Jaroměř",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vytopna-jaromer-akce-jizdy-motorackem/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/clanky/vytopna-jaromer/%C5%BDelezni%C4%8Dn%C3%AD%20muzeum%20V%C3%BDtopna%20Jarom%C4%9B%C5%99%20(2).jpg",
+   "popis": "Interaktivní víkend železničních profesí s jízdami Hradeckého motoráku, Dny evropského dědictví."
+  },
+  {
+   "id": "8b606c36681e",
+   "nazev": "Festival parních lokomotiv Benešov 2026",
+   "zacatek": "2026-09-18",
+   "konec": "2026-09-20T16:00",
+   "misto": "Depo Benešov",
+   "adresa": "Konopišťská 395, Benešov",
+   "obec": "Benešov",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/festival-parnich-lokomotiv-benesov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/festival-parnich-lokomotiv-benesov-2026.png",
+   "popis": "Sedmý ročník festivalu v depu Benešov: parní lokomotivy, přes čtyřicet zvláštních vlaků, točna, malodráha a kinovůz s pohádkami."
+  },
+  {
+   "id": "48057befdbe0",
+   "nazev": "150 let Kraslické dráhy – jízdy zvláštních vlaků Sokolov – Kraslice",
+   "zacatek": "2026-09-19T08:40+02:00",
+   "konec": "2026-09-19T18:08+02:00",
+   "misto": "Železniční stanice Kraslice",
+   "adresa": "Kraslice",
+   "obec": "Kraslice",
+   "kraj": "Karlovarský kraj",
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/150-let-kraslicke-drahy-sokolov-kraslice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/150-let-kraslicke-drahy-plakat-poradatele.jpg",
+   "popis": "Oslava 150 let trati Sokolov – Kraslice: dva páry zvláštních vlaků, motorové vlaky z Adorfu, přehlídka drážních vozidel, historický autobus Škoda RTO a komentované prohlídky hradu Hartenberg."
+  },
+  {
+   "id": "675a230337d4",
+   "nazev": "Regionální den železnice v České Třebové 2026",
+   "zacatek": "2026-09-19T09:00",
+   "konec": "2026-09-19T16:00",
+   "misto": "Železniční depo Česká Třebová",
+   "adresa": "Česká Třebová",
+   "obec": "Česká Třebová",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-ceska-trebova/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/regionalni-den-zeleznice-ceska-trebova-2026.png",
+   "popis": "Výstava historických i moderních kolejových vozidel, provoz parní lokomotivy, jízdy výletním vláčkem po areálu, pákové drezíny a modelová kolejiště. Vstup zdarma."
+  },
+  {
+   "id": "eaaa530de857",
+   "nazev": "Podzimní práce v muzeu 2026",
+   "zacatek": "2026-09-19T09:00:00+02:00",
+   "konec": "2026-09-19T17:00:00+02:00",
+   "misto": "Muzeum zemědělských strojů Hoštice-Heroltice",
+   "adresa": "Hoštice-Heroltice 161, 682 01 Hoštice-Heroltice",
+   "obec": "Hoštice-Heroltice",
+   "kraj": null,
+   "typy": [
+    "traktory"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-prace-muzeum-zemedelskych-stroju-hostice/",
+   "obrazek": "https://www.hravestroje.cz/user/documents/upload/podzimni-prace-hostice-plakat-2026.jpg",
+   "popis": "Ukázky podzimních polních prací: vyorávka brambor, sklizeň řepy a kukuřice, orba koňmi a traktory a výmlat mlátičkou."
+  },
+  {
+   "id": "9eb6b9af3a78",
+   "nazev": "Žamberský parostrojní festival 2026",
+   "zacatek": "2026-09-19T10:00",
+   "konec": "2026-09-19T18:00",
+   "misto": "Muzeum starých strojů a technologií",
+   "adresa": "Tovární 506, 564 01 Žamberk",
+   "obec": "Žamberk",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zambersky-parostrojni-festival/",
+   "obrazek": "https://www.hravestroje.cz/user/articles/images/zambersky-parostrojni-festival.jpg",
+   "popis": "Celodenní výstava parních strojů a historické techniky, provoz tovární úzkokolejky Vonwillerka a XIV. celorepublikový sraz historických parních stříkaček."
+  },
+  {
+   "id": "f0b8d777bda1",
+   "nazev": "Hornické slavnosti v Zastávce 2026",
+   "zacatek": "2026-09-19T10:00:00+02:00",
+   "konec": "2026-09-19T22:00:00+02:00",
+   "misto": "Zastávka u Brna – Dělnický dům a RIC Zastávka",
+   "adresa": "Nádražní 36, 664 84 Zastávka",
+   "obec": "Zastávka",
+   "kraj": null,
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornicke-slavnosti-zastavka-vlacky-zbysov/",
+   "obrazek": "https://www.hravestroje.cz/user/documents/upload/hornicke-slavnosti-zastavka-plakat-2026.jpg",
+   "popis": "Hornické slavnosti s programem pro rodiny a jízdami historických vláčků Zbýšov – Babice u Rosic – Zastávka u Brna."
+  },
+  {
+   "id": "be95a44f776e",
+   "nazev": "Ploutvobraní 2026 – podzimní setkání veteránů",
+   "zacatek": "2026-09-19T10:00:00+02:00",
+   "konec": "2026-09-19T17:00:00+02:00",
+   "misto": "Muzeum amerických veteránů JK CLASSICS",
+   "adresa": "Stará správa 72, 270 51 Lužná",
+   "obec": "Lužná",
+   "kraj": null,
+   "typy": [
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/ploutvobrani-muzeum-americkych-veteranu-jk-classics-luzna/",
+   "obrazek": "https://www.hravestroje.cz/user/documents/upload/ploutvobrani-jk-classics-luzna-plakat-2026.jpg",
+   "popis": "Podzimní setkání veteránů v Muzeu amerických veteránů JK CLASSICS v Lužné u Rakovníka s programem pro rodiny."
+  },
+  {
+   "id": "d95b64603051",
+   "nazev": "Festival železnice v Čelákovicích",
+   "zacatek": "2026-09-19T13:00",
+   "konec": "2026-09-19T21:00",
+   "misto": "Železniční stanice Čelákovice",
+   "adresa": "Čelákovice",
+   "obec": "Čelákovice",
+   "kraj": null,
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/festival-zeleznice-celakovice/",
+   "obrazek": "https://www.hravestroje.cz/user/articles/images/festival-zeleznice-celakovice.jpg",
+   "popis": "Festival železnice v Čelákovicích: zvláštní jízdy parního, elektrického a historického motorového vlaku s jízdným zdarma, jízdy historických autobusů a hudební program."
+  },
+  {
+   "id": "6db9523d3dde",
+   "nazev": "Safari Park Express – retro vlakem do Safari Parku Dvůr Králové",
+   "zacatek": "2026-09-26T07:50+02:00",
+   "konec": "2026-09-26T21:10+02:00",
+   "misto": "Safari Park Dvůr Králové nad Labem",
+   "adresa": "Dvůr Králové nad Labem",
+   "obec": "Dvůr Králové nad Labem",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/safari-park-express-vlak-dvur-kralove/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/safari-park-express-zirafy-dvur-kralove.jpg",
+   "popis": ""
+  },
+  {
+   "id": "ceb1fe75cc39",
+   "nazev": "140 let trati Velké Meziříčí – Studenec",
+   "zacatek": "2026-09-26T08:00+02:00",
+   "konec": "2026-09-26T17:00+02:00",
+   "misto": "Železniční stanice Velké Meziříčí",
+   "adresa": "Velké Meziříčí",
+   "obec": "Velké Meziříčí",
+   "kraj": null,
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/140-let-trati-velke-mezirici-studenec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/140-let-trati-velke-mezirici-studenec-plakat-2026-1.jpg",
+   "popis": ""
+  },
+  {
+   "id": "3b41d288bb60",
+   "nazev": "Prazske tunely a mosty - vyhlidkova jizda Prahou",
+   "zacatek": "2026-09-26T09:00",
+   "konec": "2026-09-26T16:03",
+   "misto": "Praha-Vrsovice",
+   "adresa": "Ukrajinska 304, Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/prazske-tunely-a-mosty-vyhlidkova-jizda/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/prazske-tunely-a-mosty-kralovstvi-zeleznic.jpg",
+   "popis": "Okruzni vyhlidkova jizda Prahou pres pet tunelu a pet mostu z nadrazi Praha-Vrsovice."
+  },
+  {
+   "id": "f18d8f061f6b",
+   "nazev": "Den mladějovské železnice 2026",
+   "zacatek": "2026-09-26T09:00+02:00",
+   "konec": "2026-09-26T17:30+02:00",
+   "misto": "Mladějovská průmyslová dráha",
+   "adresa": "Mladějov na Moravě 121, 569 35 Mladějov na Moravě",
+   "obec": "Mladějov na Moravě",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-mladejovske-zeleznice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/den-mladejovske-zeleznice-dulni-souprava.jpg",
+   "popis": ""
+  },
+  {
+   "id": "936f9c61eb6f",
+   "nazev": "Nostalgická jízda s Hydrou do Trutnova",
+   "zacatek": "2026-09-26T09:38+02:00",
+   "konec": "2026-09-26T20:07+02:00",
+   "misto": "Železniční stanice Praha-Vysočany",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/nostalgicka-jizda-hydra-trutnov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/nostalgicka-jizda-hydra-trutnov-martinice.jpg",
+   "popis": "Zvláštní vlak s motorovým vozem řady 854 Hydra z Prahy-Vysočan přes Chlumec nad Cidlinou, Starou Paku a Martinice v Krkonoších do Trutnova a zpět, s fotozastávkami a ČD Minibarem."
+  },
+  {
+   "id": "e99e37a01e7b",
+   "nazev": "130 let Jemnické dráhy",
+   "zacatek": "2026-09-26T09:40+02:00",
+   "konec": "2026-09-27T18:01+02:00",
+   "misto": "Železniční stanice Jemnice",
+   "adresa": "Jemnice",
+   "obec": "Jemnice",
+   "kraj": null,
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/130-let-jemnicke-drahy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/130-let-jemnicke-drahy-plakat-2026.jpg",
+   "popis": ""
+  },
+  {
+   "id": "ff261074f8be",
+   "nazev": "Řepánkovy slavnosti 2026 – Kolínská řepařská drážka",
+   "zacatek": "2026-09-26T09:45:00+02:00",
+   "konec": "2026-09-27T17:00:00+02:00",
+   "misto": "Kolínská řepařská drážka – stanice Kolín-Sendražice",
+   "adresa": "Ovčárecká 544, 280 02 Kolín",
+   "obec": "Kolín",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/repankovy-slavnosti-kolinska-reparska-drazka/",
+   "obrazek": "https://www.hravestroje.cz/user/documents/upload/repankovy-slavnosti-kolinska-reparska-drazka-plakat-2026.jpg",
+   "popis": "Víkend s parním provozem, přepadením vlaku kovboji, řepánky a dětským parkem v Býchorech."
+  },
+  {
+   "id": "cccb10a0730e",
+   "nazev": "Dvojitá parní jízda a loučení s ponorkami na Jindřichohradeckých úzkokolejkách 2026",
+   "zacatek": "2026-09-26T09:50:00+02:00",
+   "konec": "2026-09-27T00:13:00+02:00",
+   "misto": "Nádraží Jindřichův Hradec",
+   "adresa": "Nádražní 203/II, 377 01 Jindřichův Hradec",
+   "obec": "Jindřichův Hradec",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/dvojita-parni-jizda-uzkokolejka-jindrichuv-hradec/",
+   "obrazek": "https://www.hravestroje.cz/user/documents/upload/dvojita-parni-jizda-jh-polka-u46101-1.jpg",
+   "popis": "Parní lokomotivy Polka a Krausska poprvé na jednom vlaku a loučení s motorovými vozy M27 s programem v Černovicích."
+  },
+  {
+   "id": "f4aff780cd4d",
+   "nazev": "Bramborová sobota na Zubačce 2026",
+   "zacatek": "2026-09-26T10:00+02:00",
+   "konec": "2026-09-26T17:00+02:00",
+   "misto": "Železniční stanice Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/bramborova-sobota-na-zubacce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plakat-bramborova-sobota-na-zubacce-2026.jpg",
+   "popis": "Tradiční ukončení sezóny na Zubačce v Kořenově — bramborové hody, jízdy s ozubnicovou lokomotivou, Muzeum ozubnicové dráhy, výtopna Kořenov a důlní železnice.",
+   "geo": {
+    "lat": 50.7699497,
+    "lng": 15.3652619
+   }
+  },
+  {
+   "id": "2024ec5e51fe",
+   "nazev": "Poslední jízda Poldi vlaku v Hornickém skanzenu Mayrau",
+   "zacatek": "2026-09-26T10:30+02:00",
+   "konec": "2026-09-26T16:30+02:00",
+   "misto": "Hornický skanzen Mayrau",
+   "adresa": "Vinařice 56, 273 07 Vinařice",
+   "obec": "Vinařice",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/posledni-jizda-poldi-vlaku-mayrau/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/loko-a.jpg",
+   "popis": ""
+  },
+  {
+   "id": "ea92c6962dbb",
+   "nazev": "Vlakem do iQLANDIE a Babylonu se Zubačkou",
+   "zacatek": "2026-09-27T08:25+02:00",
+   "konec": "2026-09-27T17:24+02:00",
+   "misto": "Železniční stanice Kořenov",
+   "adresa": "Kořenov, 468 49 Kořenov",
+   "obec": "Kořenov",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlakem-do-iqlandie-a-babylonu-zubacka/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/iq-c.jpg",
+   "popis": ""
+  },
+  {
+   "id": "c9f9084b5f95",
+   "nazev": "Provozní den Zahradní železnice Zásmucka",
+   "zacatek": "2026-09-28T10:00",
+   "konec": "2026-09-28T16:00",
+   "misto": "Zahradní železnice Zásmucka",
+   "adresa": "Horní Chvatliny",
+   "obec": "Horní Chvatliny",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/provozni-dny-zahradni-zeleznice-zasmucka/",
+   "obrazek": "https://www.hravestroje.cz/user/documents/upload/kalendar-dopravnich-akci-2026/vlaky/zahradni-zeleznice-zasmucka-jizdy-2026.jpg",
+   "popis": "Poslední provozní den sezony 2026 na Zahradní železnici Zásmucka v Horních Chvatlinách. Otevřeno 10:00-16:00, vstupné dobrovolné."
+  },
+  {
+   "id": "26c1e3c0dbad",
+   "nazev": "Svět malých vláčků – výstava modelové železnice v Černošicích",
+   "zacatek": "2026-10-02T16:00+02:00",
+   "konec": "2026-10-03T16:00+02:00",
+   "misto": "Městská knihovna Františky Plamínkové",
+   "adresa": "Karlštejnská 259, 252 28 Černošice",
+   "obec": "Černošice",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/svet-malych-vlacku-cernosice/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/svet-malych-vlacku-cernosice-plakat.jpg",
+   "popis": "Modelové kolejiště H0, papírové modely lokomotiv a komiksy o trati 171 v černošické knihovně."
+  },
+  {
+   "id": "6ec49b0d9726",
+   "nazev": "Zubačka 2026 – jízdy historických vlaků Tanvald – Kořenov – Harrachov",
+   "zacatek": "2026-10-03",
+   "konec": "2026-12-30",
+   "misto": "Železniční stanice Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zubacka-korenov-jizdy-historickych-vlaku/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zubacka-cervenec-rakusanka-t426.jpg",
+   "popis": "Zvláštní vlaky na Zubačce: historické motoráčky, ozubnicová lokomotiva Rakušanka a parní vlak Kořenov – Harrachov, Muzeum ozubnicové dráhy a Výtopna Kořenov."
+  },
+  {
+   "id": "460eccdc9d1c",
+   "nazev": "Modelářské setkání v Oráčově",
+   "zacatek": "2026-10-03T09:00+02:00",
+   "konec": "2026-10-04T16:00+02:00",
+   "misto": "Hostinec U Paši, Oráčov",
+   "adresa": "Oráčov, 270 32 Oráčov",
+   "obec": "Oráčov",
+   "kraj": null,
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelarske-setkani-oracov/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/model-a.jpg",
+   "popis": ""
+  },
+  {
+   "id": "658ced9231be",
+   "nazev": "Podorlická parní sobota 2026",
+   "zacatek": "2026-10-03T09:00+02:00",
+   "konec": "2026-10-03T16:00+02:00",
+   "misto": "Železniční depo Letohrad",
+   "adresa": "Letohrad",
+   "obec": "Letohrad",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/podorlicka-parni-sobota-letohrad/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/podorlicka-parni-sobota-plakat-2026.jpg",
+   "popis": "Celodenní setkání dvanácti historických lokomotiv v železničním depu Letohrad, jízdy parních vlaků po podorlických tratích, přehlídka lokomotiv ve 12:00, jízdy pákovou drezínou a historický jídelní vůz Ringhoffer."
+  },
+  {
+   "id": "0061515852a1",
+   "nazev": "Regionální den železnice v Bohumíně",
+   "zacatek": "2026-10-03T09:00+02:00",
+   "konec": "2026-10-03T16:00+02:00",
+   "misto": "Železniční stanice a depo Bohumín",
+   "adresa": "Bohumín, 735 81 Bohumín",
+   "obec": "Bohumín",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-bohumin/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/bejcek.jpg",
+   "popis": ""
+  },
+  {
+   "id": "bd5940c670f9",
+   "nazev": "Setkání Hurvínků v Lužné u Rakovníka",
+   "zacatek": "2026-10-03T09:30+02:00",
+   "konec": "2026-10-04T17:00+02:00",
+   "misto": "ČD Muzeum Lužná u Rakovníka",
+   "adresa": "Lužná u Rakovníka",
+   "obec": "Lužná u Rakovníka",
+   "kraj": "Středočeský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/setkani-hurvinku-luzna-u-rakovnika/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/clanky/muzeum-luzna-u-rakovnika/kam-s-detmi-za-vlaky-muzeum-ceskych-drah-luzna-u-rakovnika-2.jpg",
+   "popis": "První Setkání Hurvínků v ČD Muzeu Lužná u Rakovníka: devět motorových vozů řady M 131.1, jízdy po depu a komentované prohlídky motoráčků."
+  },
+  {
+   "id": "ca2a85d68b2b",
+   "nazev": "Drakiáda na Plzenecké železnici",
+   "zacatek": "2026-10-03T14:00+02:00",
+   "konec": "2026-10-03T17:00+02:00",
+   "misto": "Areál dětského tábora – Plzenecká železnice",
+   "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
+   "obec": "Starý Plzenec",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/plzenecka-zeleznice-zluta-lokomotiva.jpg",
+   "popis": "Soutěž o nejhezčího doma vyrobeného draka a jízdy úzkorozchodné železnice 600 mm."
+  },
+  {
+   "id": "6f2577773410",
+   "nazev": "Historické motoráčky a trolejbusy v Pardubicích",
+   "zacatek": "2026-10-10T08:57:00+02:00",
+   "konec": "2026-10-11T13:39:00+02:00",
+   "misto": "Nádraží Pardubice centrum",
+   "adresa": "Pardubice",
+   "obec": "Pardubice",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pardubice-historicke-motoraky-trolejbusy-na-konicky-motorackem/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/na-konicky-motorackem-2026-plakat-pshzd.jpg",
+   "popis": "Zvláštní historické motorové vlaky Pardubice centrum – Rosice nad Labem a okružní jízdy historických trolejbusů 10. 10. 2026, jízdy Na koníčky motoráčkem na závodiště 11. 10. 2026."
+  },
+  {
+   "id": "73311a09c4f7",
+   "nazev": "5. modelářská výstava Ohnišťany",
+   "zacatek": "2026-10-10T09:00:00+02:00",
+   "konec": "2026-10-11T17:00:00+02:00",
+   "misto": "Obecní hospoda Ohnišťany",
+   "adresa": "Ohnišťany, Ohnišťany",
+   "obec": "Ohnišťany",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelarska-vystava-ohnistany/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/modelarska-vystava-ohnistany-2026-plakat.jpg",
+   "popis": "Modelová železnice, RC modely, 3D tisk, papírové modely, retro hračky a LEGO městečko."
+  },
+  {
+   "id": "e05fa41332b4",
+   "nazev": "Podzimní poježdění na Rajnochovické lesní železnici 2026",
+   "zacatek": "2026-10-10T09:00:00+02:00",
+   "konec": "2026-10-11T17:00:00+02:00",
+   "misto": "Rajnochovická lesní železnice",
+   "adresa": "Rajnochovice 126, 768 71 Rajnochovice",
+   "obec": "Rajnochovice",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/rajnochovicka-lesni-zeleznice-pojezdeni/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/rajnochovicka-zelena-lokomotiva.jpg",
+   "popis": "Jízdy historickým úzkorozchodným vláčkem kolem pasoucích se koníků, Stezka poznání, fotokoutek a dětské hřiště v Rajnochovicích."
+  },
+  {
+   "id": "df15698c3eb5",
+   "nazev": "Traktoriáda: Zlaté české ručičky 2026",
+   "zacatek": "2026-10-10T09:00:00+02:00",
+   "konec": "2026-10-10T17:00:00+02:00",
+   "misto": "NZM Čáslav – muzeum zemědělské techniky",
+   "adresa": "Jeníkovská 1762, 286 01 Čáslav",
+   "obec": "Čáslav",
+   "kraj": null,
+   "typy": [
+    "traktory"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/traktoriada-zlate-ceske-rucicky-caslav/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/traktoriada-zlate-ceske-rucicky-caslav-2026-plakat-nzm.jpg",
+   "popis": "Přehlídka traktorů domácí výroby, spanilá jízda, soutěže a program pro děti v Národním zemědělském muzeu Čáslav."
+  },
+  {
+   "id": "7f3f0a0b124c",
+   "nazev": "Nostalgická jízda s Hydrou do Chomutova",
+   "zacatek": "2026-10-10T09:28+02:00",
+   "konec": "2026-10-10T20:01+02:00",
+   "misto": "Nádraží Praha-Bubny",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/nostalgicka-jizda-hydra-chomutov/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/hydra-chomutov-t435-prejezd-1600.jpg",
+   "popis": "Nostalgická jízda motorovým vozem řady 854 Hydra z Prahy-Bubnů přes Hostivici, Slaný, Louny a Most do Chomutova a zpět, s fotozastávkami."
+  },
+  {
+   "id": "bfd8e8e5c5b7",
+   "nazev": "Parním vlakem z Krnova do Głuchołaz",
+   "zacatek": "2026-10-10T09:45:00+02:00",
+   "konec": "2026-10-10T15:35:00+02:00",
+   "misto": "Nádraží Krnov",
+   "adresa": "Krnov",
+   "obec": "Krnov",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-z-krnova-do-glucholaz/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/parni-vlak-krnov-glucholazy-plakat-cd-2026.jpg",
+   "popis": "Jízda historického parního vlaku Českých drah po přeshraniční trati z Krnova do polských Głuchołaz a zpět, s doprovodným programem na nádraží v Głuchołazech."
+  },
+  {
+   "id": "72d00772eedb",
+   "nazev": "Podzimní jízda na úzkokolejce Zastávka u Brna – Zbýšov",
+   "zacatek": "2026-10-10T10:15:00+02:00",
+   "konec": "2026-10-10T17:05:00+02:00",
+   "misto": "Muzeum průmyslových železnic, Zbýšov",
+   "adresa": "Zbýšov",
+   "obec": "Zbýšov",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-jizda-zbysov-parni-a-dulni-vlak/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/podzimni-jizda-zbysov-2026-letak-mpz.jpg",
+   "popis": "Podzimní jízda Muzea průmyslových železnic: parní lokomotivy BS 80 a Henschel a mimořádně důlní vlak na úzkokolejce Zbýšov – Zastávka u Brna."
+  },
+  {
+   "id": "c425f52dd7c7",
+   "nazev": "Zažijte skanzen v noci – noční jízdy Bronhildy",
+   "zacatek": "2026-10-10T19:00:00+02:00",
+   "konec": "2026-10-10T22:00:00+02:00",
+   "misto": "Skanzen Solvayovy lomy",
+   "adresa": "Solvayovy lomy, Bubovice",
+   "obec": "Bubovice",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zazijte-skanzen-v-noci-solvayovy-lomy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zazijte-skanzen-v-noci-solvayovy-lomy-2026-plakat.jpg",
+   "popis": "Noční jízdy parní lokomotivy Bronhilda a noční prohlídky muzea a štoly."
+  },
+  {
+   "id": "bd41abc4c584",
+   "nazev": "Den se železnicí na Liberecku 2026",
+   "zacatek": "2026-10-17T07:39:00+02:00",
+   "konec": "2026-10-17T19:45:00+02:00",
+   "misto": "Nádraží Liberec",
+   "adresa": "Nádražní, 460 01 Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-liberec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/regionalni-den-zeleznice-liberec-2026-plakat-1.jpg",
+   "popis": "Parní a motorové zvláštní vlaky, výstava vozidel, modelové kolejiště a jízdy do depa."
+  },
+  {
+   "id": "c71e333e6491",
+   "nazev": "Zvláštní vlaky na výlov Hradeckého rybníka Tovačov 2026",
+   "zacatek": "2026-10-17T08:17:00+02:00",
+   "konec": "2026-10-18T16:38:00+02:00",
+   "misto": "Trať Kroměříž – Kojetín – Tovačov",
+   "adresa": "nádraží Tovačov, Tovačov",
+   "obec": "Tovačov",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlakem-na-vylov-hradeckeho-rybnika-tovacov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vlakem-na-vylov-tovacov-2026-plakat.jpg",
+   "popis": "Zvláštní vlaky Kroměřížské dráhy s Brejlovcem a Osmsetdesítkou na slavnostní výlov Hradeckého rybníka."
+  },
+  {
+   "id": "31d8dd5db1f1",
+   "nazev": "Líbebona 2026 – výstava nejen železničních modelů",
+   "zacatek": "2026-10-17T09:00:00+02:00",
+   "konec": "2026-10-18T15:00:00+02:00",
+   "misto": "Sportovní hala Na Chrupavce",
+   "adresa": "Na Chrupavce 422, 250 65 Líbeznice",
+   "obec": "Líbeznice",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/libebona-vystava-modelu-libeznice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/libebona-2026-plakat.jpg",
+   "popis": "Výstava železničních modelů, RC modelů a 3D tisku s dětským koutkem a jízdami na zahradní železnici."
+  },
+  {
+   "id": "71f6f3c7d50e",
+   "nazev": "Olomoucké depo zblízka",
+   "zacatek": "2026-10-17T09:00:00+02:00",
+   "konec": "2026-10-17T16:00:00+02:00",
+   "misto": "Železniční depozitář v Olomouci",
+   "adresa": "Táborská 4, 779 00 Olomouc",
+   "obec": "Olomouc",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzim-na-kolejich-depozitar-olomouc/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/podzim-na-kolejich-depozitar-olomouc-2026.jpg",
+   "popis": "Poslední letošní otevření železničního depozitáře v Olomouci: historické lokomotivy s průvodci, okružní jízdy historickým motorovým vozem a vizualizace budoucí expozice."
+  },
+  {
+   "id": "d127f5f7a587",
+   "nazev": "Výstava modelové železnice Česká Skalice 2026",
+   "zacatek": "2026-10-17T09:00:00+02:00",
+   "konec": "2026-10-18T16:00:00+02:00",
+   "misto": "Klubovna zahrádkářů",
+   "adresa": "Pivovarská 496, Česká Skalice",
+   "obec": "Česká Skalice",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelove-zeleznice-ceska-skalice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-modelove-zeleznice-ceska-skalice-2026-plakat.jpg",
+   "popis": "18. ročník výstavy modelové železnice: domácí kolejiště, práce dětského kroužku, papírové a plastikové modely, hrací stolky pro děti."
+  },
+  {
+   "id": "096c19f5ca52",
+   "nazev": "Posázavským Pacifikem na Putování šternberskou historií 2026",
+   "zacatek": "2026-10-17T09:40:00+02:00",
+   "konec": "2026-10-17T16:32:00+02:00",
+   "misto": "Hrad Český Šternberk",
+   "adresa": "Český Šternberk, 257 26 Český Šternberk",
+   "obec": "Český Šternberk",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/posazavsky-pacifik-putovani-sternberskou-historii/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/posazavsky-pacifik-sternberk-2026-plakat.jpg",
+   "popis": "Zvláštní motorový rychlík s lokomotivou T 478 z Benešova do Kácova, zastávka pod hradem Český Šternberk."
+  },
+  {
+   "id": "bbc48adfeae4",
+   "nazev": "Rožnovskou párou na Všesvatský jarmark",
+   "zacatek": "2026-10-17T09:45:00+02:00",
+   "konec": "2026-10-17T16:34:00+02:00",
+   "misto": "Nádraží Valašské Meziříčí",
+   "adresa": "Valašské Meziříčí",
+   "obec": "Valašské Meziříčí",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/roznovskou-parou-parni-vlak-valasske-mezirici-roznov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/roznovskou-parou-17-10-2026.jpg",
+   "popis": "Parní vlak s lokomotivou 423.041 Velký bejček z Valašského Meziříčí do Rožnova pod Radhoštěm na Všesvatský jarmark."
+  },
+  {
+   "id": "9581f6395781",
+   "nazev": "Vlaky, vláčky, modely 2026",
+   "zacatek": "2026-10-17T10:00:00+02:00",
+   "konec": "2026-10-18T15:00:00+02:00",
+   "misto": "ZŠ Jugoslávská",
+   "adresa": "Jugoslávská 23, Ostrava-Zábřeh",
+   "obec": "Ostrava-Zábřeh",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlaky-vlacky-modely-ostrava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vlaky-vlacky-modely-ostrava-2026-plakat.jpg",
+   "popis": "Výstava modelové železnice se segmentovým kolejištěm H0, úzkokolejkou H0e a herní zónou pro děti."
+  },
+  {
+   "id": "74e8b503eb02",
+   "nazev": "Historická orba pod Točníkem 2026",
+   "zacatek": "2026-10-17T13:00:00+02:00",
+   "konec": "2026-10-17T17:00:00+02:00",
+   "misto": "Pole pod hájovnou Opyš (směr Točník)",
+   "adresa": "pole pod hájovnou Opyš, 267 53 Žebrák",
+   "obec": "Žebrák",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "traktory"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/historicka-orba-pod-tocnikem/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/historicka-orba-pod-tocnikem-2026-letak.jpg",
+   "popis": "Ukázka historické orby se starými traktory pod hradem Točník."
+  },
+  {
+   "id": "736bda772a73",
+   "nazev": "Podzimní Nechálovská traktoriáda",
+   "zacatek": "2026-10-17T13:00:00+02:00",
+   "konec": "2026-10-17T17:00:00+02:00",
+   "misto": "Trať v Důni u Nechálova",
+   "adresa": "Kobyly",
+   "obec": "Kobyly",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "traktory"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-nechalovska-traktoriada/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/nechalovska-traktoriada-2026.jpg",
+   "popis": "Závody malotraktorů s pohonem jedné či obou náprav a traktorů tovární výroby na trati v Důni u Nechálova.",
+   "geo": {
+    "lat": 50.6124478,
+    "lng": 15.0139439
+   }
+  },
+  {
+   "id": "65bde8477902",
+   "nazev": "Charitativní jízda po Švestkové dráze 2026",
+   "zacatek": "2026-10-17T15:00:00+02:00",
+   "konec": "2026-10-17T20:00:00+02:00",
+   "misto": "Teplice hlavní nádraží",
+   "adresa": "hlavní nádraží, 415 01 Teplice",
+   "obec": "Teplice",
+   "kraj": "Ústecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/charitativni-jizda-svestkovou-drahou/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/charitativni-jizda-svestkova-draha-2026-plakat.jpg",
+   "popis": "Charitativní jízda po Švestkové dráze s návštěvou pálírny AŽD v Libčevsi, výtěžek pro útulek AniDef."
+  },
+  {
+   "id": "1db514c82c76",
+   "nazev": "35. den otevřených dveří Muzea TT modelů Choceň",
+   "zacatek": "2026-10-24T10:00",
+   "konec": "2026-10-24T16:00",
+   "misto": "Muzeum TT modelů",
+   "adresa": "Pernerova 400, nádraží Choceň, 1a. nástupiště, 565 01 Choceň",
+   "obec": "Choceň",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-muzeum-tt-modelu-chocen/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/den-otevrenych-dveri-24-10-2026-muzeum-tt-modelu-chocen.jpg",
+   "popis": "Den otevřených dveří Muzea TT modelů v Chocni: kolejiště v provozu, nové exponáty a tematická výstava sedmdesáti lokomotiv řady 781 Sergej."
+  },
+  {
+   "id": "f3048ee9a926",
+   "nazev": "Halloween na Plzenecké železnici",
+   "zacatek": "2026-10-24T14:00:00+02:00",
+   "konec": "2026-10-24T17:00:00+02:00",
+   "misto": "Plzenecká železnice, areál dětského tábora",
+   "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
+   "obec": "Starý Plzenec",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-plzenecka-zeleznice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/plzenecka-zeleznice-halloween-2026.jpg",
+   "popis": "Halloweenské odpoledne s jízdami po úzkorozchodné železnici a rukodělnou dílničkou."
+  },
+  {
+   "id": "1702515bde6c",
+   "nazev": "Halloween na Plzenecké železnici",
+   "zacatek": "2026-10-24T14:00+02:00",
+   "konec": "2026-10-24T17:00+02:00",
+   "misto": "Areál dětského tábora – Plzenecká železnice",
+   "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
+   "obec": "Starý Plzenec",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/plzenecka-zeleznice-zluta-lokomotiva.jpg",
+   "popis": "Halloweenské jízdy a rukodělná dílnička."
+  },
+  {
+   "id": "d5ebefdf3546",
+   "nazev": "Legiovlak v Čáslavi",
+   "zacatek": "2026-10-27T08:00:00+01:00",
+   "konec": "2026-11-01T16:00:00+01:00",
+   "misto": "Vlaková stanice Čáslav",
+   "adresa": "Čáslav",
+   "obec": "Čáslav",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/legiovlak/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/legiovlak-vagon-pryc-s-okovy.jpg",
+   "popis": "Replika legionářského vlaku ze 14 vagonů, vstup zdarma."
+  },
+  {
+   "id": "c571ebea235f",
+   "nazev": "Vlakem za československou historií – zvláštní vlaky Trutnov – Žacléř",
+   "zacatek": "2026-10-28T09:10:00+01:00",
+   "konec": "2026-10-28T16:11:00+01:00",
+   "misto": "Železniční stanice Žacléř",
+   "adresa": "542 01 Žacléř",
+   "obec": "Žacléř",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zvlastni-vlak-trutnov-zacler-28-rijna/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zacler-motorak-na-koleji.jpg",
+   "popis": "Zvláštní vlaky Kolej-klubu Trutnov – Královec – Žacléř a zpět ve státní svátek 28. října 2026."
+  },
+  {
+   "id": "bf1c9d3ec501",
+   "nazev": "Halloween na Zubačce",
+   "zacatek": "2026-10-28T09:19:00+01:00",
+   "konec": "2026-10-28T18:33:00+01:00",
+   "misto": "Železniční stanice Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-na-zubacce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/halloween-na-zubacce-2026.jpg",
+   "popis": "Jízdy s ozubnicovou lokomotivou se strašidelným vozem, halloweenská výzdoba, promítání pohádek po staru a malování na obličej v Kořenově."
+  },
+  {
+   "id": "9e649064787c",
+   "nazev": "Republika přijíždí Úzkokolejkou 2026",
+   "zacatek": "2026-10-28T09:50:00+01:00",
+   "konec": "2026-10-28T18:05:00+01:00",
+   "misto": "Nádraží Nová Bystřice",
+   "adresa": "nádraží úzkokolejky, 378 33 Nová Bystřice",
+   "obec": "Nová Bystřice",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/republika-prijizdi-uzkokolejkou-nova-bystrice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/republika-prijizdi-uzkokolejkou-nova-bystrice-parni-vlak-1600.jpg",
+   "popis": "Parní vlak z Jindřichova Hradce do Nové Bystřice a prvorepublikové oslavy vzniku Československa."
+  },
+  {
+   "id": "731cd53588e9",
+   "nazev": "Den Středočeského kraje – historická vozidla na Mayrovce 2026",
+   "zacatek": "2026-10-28T10:00:00+01:00",
+   "konec": "2026-10-28T14:00:00+01:00",
+   "misto": "Hornický skanzen Mayrau",
+   "adresa": "Hornický skanzen Mayrau, 273 07 Vinařice",
+   "obec": "Vinařice",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-stredoceskeho-kraje-mayrau/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/den-stredoceskeho-kraje-mayrau-2026-plakat.jpg",
+   "popis": "Přehlídka veteránů, jízdy důlním i Poldi vlakem, kovárna a program pro děti."
+  },
+  {
+   "id": "774acdc828dd",
+   "nazev": "Hagenovy pověsti a prohlídky Chrustenické šachty 28. 10. 2026",
+   "zacatek": "2026-10-28T10:00:00+01:00",
+   "konec": "2026-10-28T16:00:00+01:00",
+   "misto": "Důlní expozice Chrustenická šachta",
+   "adresa": "Chrustenická šachta, 267 12 Chrustenice",
+   "obec": "Chrustenice",
+   "kraj": "Středočeský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/chrustenicka-sachta-hagenovy-povesti/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/chrustenicka-sachta-28-rijna-2026.jpg",
+   "popis": "Jízdy důlním vláčkem, prohlídky šachty a divadelní čtení Hagenových pověstí v podzemí."
+  },
+  {
+   "id": "c64921714b5d",
+   "nazev": "Výstava železničních modelů a kolejiště H0 – KŽM Liberec",
+   "zacatek": "2026-10-28T11:00:00+01:00",
+   "konec": "2026-11-01T17:00:00+01:00",
+   "misto": "Areál depa Liberec, kolejové depo",
+   "adresa": "Nádražní, 460 01 Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-kzm-liberec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/kzm-liberec-vystava-zeleznicnich-modelu-2026.jpg",
+   "popis": "Výstava železničních modelů a kolejiště H0 v areálu depa Liberec, denně 11–17 h."
+  },
+  {
+   "id": "17f0f495c35c",
+   "nazev": "Halloween zahrada Přestavlky 2026",
+   "zacatek": "2026-10-28T16:30",
+   "konec": "2026-11-08T20:00",
+   "misto": "Kouzelná zahrada Přestavlky",
+   "adresa": "Přestavlky 47",
+   "obec": "",
+   "kraj": "Plzeňský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-zahrada-prestavlky/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/halloween-zahrada-prestavlky-2026-og.jpg",
+   "popis": "Osvětlená zahrada s halloweenskou tematikou a animovanými strašidly, denně 16:30–20:00, vstupné dobrovolné."
+  },
+  {
+   "id": "ef5a8d8530ee",
+   "nazev": "Výstava železničních modelů a kolejišť s mezinárodní účastí",
+   "zacatek": "2026-10-29T09:30:00+01:00",
+   "konec": "2026-11-01T16:00:00+01:00",
+   "misto": "Hala ZŠ Rudolfa Frimla, Trutnov",
+   "adresa": "R. Frimla 816, Trutnov",
+   "obec": "Trutnov",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-trutnov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-zeleznicnich-modelu-trutnov-2026.jpg",
+   "popis": ""
+  },
+  {
+   "id": "1c64e0aff2cd",
+   "nazev": "Modulovka 1:32 – výstava kolejiště velikosti 1",
+   "zacatek": "2026-10-30",
+   "konec": "2026-10-31",
+   "misto": "Dolní Radechová, U Haly 67",
+   "adresa": "U Haly 67, 549 11 Dolní Radechová",
+   "obec": "Dolní Radechová",
+   "kraj": "Královéhradecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/modulovka-1-32-dolni-radechova/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/modulovka-1-32-dolni-radechova-2026.jpg",
+   "popis": "Výstava největšího kolejiště velikosti 1 (1:32) v ČR, vstupné dobrovolné."
+  },
+  {
+   "id": "8cad9ded2191",
+   "nazev": "Halloweenská jízda Teplice – Most – Moldava",
+   "zacatek": "2026-10-31T08:30:00+01:00",
+   "konec": "2026-10-31T13:10:00+01:00",
+   "misto": "Nádraží Teplice v Čechách",
+   "adresa": "Teplice",
+   "obec": "Teplice",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloweenska-jizda-ustecka-draha-moldava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/halloweenska-jizda-ustecka-draha-2026.jpg",
+   "popis": "Halloweenská zážitková jízda motorovým vlakem z Teplic a Mostu do Moldavy se soutěží o nejkrásnější masku."
+  },
+  {
+   "id": "4974635d714e",
+   "nazev": "Halloween v Muzeu MHD",
+   "zacatek": "2026-10-31T09:00:00+01:00",
+   "konec": "2026-10-31T17:00:00+01:00",
+   "misto": "Muzeum MHD – vozovna Střešovice",
+   "adresa": "Patočkova 460/4, Praha 6",
+   "obec": "Praha 6",
+   "kraj": "Hlavní město Praha",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-v-muzeu-mhd-stresovice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/halloween-v-muzeu-mhd-2026.jpg",
+   "popis": "Dlabání dýní, dárek za halloweenský kostým a v 16:45 rozsvícení dýní na nádvoří Muzea MHD."
+  },
+  {
+   "id": "3082ca43cc9e",
+   "nazev": "Retro Ostravanem na ukončení sezony v železniční expozici",
+   "zacatek": "2026-10-31T09:13:00+01:00",
+   "konec": "2026-10-31",
+   "misto": "Železniční muzeum ČD Lužná u Rakovníka",
+   "adresa": "Lužná, 270 51 Lužná",
+   "obec": "Lužná",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozlouceni-se-sezonou-luzna-retro-ostravan/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/luzna-rozlouceni-se-sezonou-2026.jpg",
+   "popis": "Historický motorový vlak Retro Ostravan z Prahy a program na ukončení sezony v železniční expozici."
+  },
+  {
+   "id": "cc13deb0ff05",
+   "nazev": "Halloween na lodi Král Jiří",
+   "zacatek": "2026-10-31T10:00:00+01:00",
+   "konec": "2026-10-31T16:00:00+01:00",
+   "misto": "Přístaviště pod zámkem Poděbrady",
+   "adresa": "290 01 Poděbrady",
+   "obec": "Poděbrady",
+   "kraj": "Středočeský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/tematicke-plavby-lod-kral-jiri-podebrady/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/halloween-lod-kral-jiri-2026.jpg",
+   "popis": "Halloweenská plavba po Labi s výzdobou, malováním na obličej a bingem."
+  },
+  {
+   "id": "0322a4609e9f",
+   "nazev": "Ukončení sezóny ve skanzenu Solvayovy lomy – kavalkáda vlaků",
+   "zacatek": "2026-10-31T11:00:00+01:00",
+   "konec": "2026-10-31T17:00:00+01:00",
+   "misto": "Skanzen Solvayovy lomy",
+   "adresa": "Svatý Jan pod Skalou",
+   "obec": "Svatý Jan pod Skalou",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/ukonceni-sezony-solvayovy-lomy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/solvayovy-lomy-zelena-lokomotiva.jpg",
+   "popis": "Slavnostní ukončení sezóny s kavalkádou vlaků všech provozních lokomotiv a parním provozem lokomotivy Bronhilda."
+  },
+  {
+   "id": "efcd99e8d62d",
+   "nazev": "Halloweenské jízdy parkové železnice Břasy",
+   "zacatek": "2026-10-31T13:00+01:00",
+   "konec": "2026-10-31T17:00+01:00",
+   "misto": "Parostrojní železnice Břasy",
+   "adresa": "Břasy, 338 24 Břasy",
+   "obec": "Břasy",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-parostrojni-zeleznice-brasy/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/brasy-halloweenske-jizdy-plakat.jpg",
+   "popis": ""
+  },
+  {
+   "id": "bfcafa72b968",
+   "nazev": "Halloweenský expres",
+   "zacatek": "2026-10-31T17:43:00+01:00",
+   "konec": "2026-10-31T20:17:00+01:00",
+   "misto": "Nádraží Osoblaha",
+   "adresa": "Osoblaha",
+   "obec": "Osoblaha",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloweensky-expres-osoblazska-uzkokolejka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/halloweensky-expres-osoblaha-2026.jpg",
+   "popis": "Tematická večerní jízda motorovým vlakem na lince S16 z Osoblahy do Třemešné ve Slezsku a zpět s doprovodným programem."
+  },
+  {
+   "id": "824222560108",
+   "nazev": "Ukončení sezony v železniční expozici",
+   "zacatek": "2026-11-01",
+   "konec": "2026-11-01",
+   "misto": "Železniční muzeum ČD Lužná u Rakovníka",
+   "adresa": "Lužná, 270 51 Lužná",
+   "obec": "Lužná",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozlouceni-se-sezonou-luzna-retro-ostravan/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/luzna-rozlouceni-se-sezonou-2026.jpg",
+   "popis": "Motorové lokomotivy na točně, parní vláček v areálu, komentované prohlídky a modelová kolejiště."
+  },
+  {
+   "id": "15181b991873",
+   "nazev": "Přijďte se rozloučit s Podřipským motoráčkem",
+   "zacatek": "2026-11-01T10:00:00+01:00",
+   "konec": "2026-11-01T17:41:00+01:00",
+   "misto": "Železniční stanice Roudnice nad Labem",
+   "adresa": "Nádražní, 413 01 Roudnice nad Labem",
+   "obec": "Roudnice nad Labem",
+   "kraj": "Ústecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/derniera-podripskeho-motoracku/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/podripsky-motoracek-derniera-2026-plakat.jpg",
+   "popis": "Poslední den provozu Podřipského motoráčku Roudnice nad Labem – Libochovice, posílené soupravy a barový vůz Bixovna."
+  },
+  {
+   "id": "4f11c3a18f13",
+   "nazev": "Legiovlak v Nymburce",
+   "zacatek": "2026-11-03T08:00:00+01:00",
+   "konec": "2026-11-08T16:00:00+01:00",
+   "misto": "Vlaková stanice Nymburk město",
+   "adresa": "Nymburk",
+   "obec": "Nymburk",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/legiovlak/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/legiovlak-vagon-pryc-s-okovy.jpg",
+   "popis": "Replika legionářského vlaku ze 14 vagonů, vstup zdarma."
+  },
+  {
+   "id": "13c1bde52376",
+   "nazev": "Podzimní výstava klubovních kolejišť 2026 – Výstava železničních modelů KMŽ Brno I",
+   "zacatek": "2026-11-05T16:30:00+01:00",
+   "konec": "2026-11-29T18:00:00+01:00",
+   "misto": "Klubovna KMŽ Brno I, SVČ Helceletka",
+   "adresa": "Dukelská třída 59b, 614 00 Brno-Husovice",
+   "obec": "Brno-Husovice",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-kmz-brno-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-zeleznicnich-modelu-brno-2026.jpg",
+   "popis": "Provoz modelového kolejiště H0 ve čtyřech historických obdobích, možnost řízení stanice, prodej modelů."
+  },
+  {
+   "id": "91a4ce3a502e",
+   "nazev": "Výstava železničních modelů v provozu – Pečky",
+   "zacatek": "2026-11-07T09:00+01:00",
+   "konec": "2026-11-08T15:00+01:00",
+   "misto": "Klubovna Spolku železničních modelářů Pečky",
+   "adresa": "Žerotínova 281, 289 11 Pečky",
+   "obec": "Pečky",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-pecky-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vystavy-zeleznicnich-modelu-pecky-2026.jpg",
+   "popis": "Výstava modelových kolejišť v provozu ve velikostech 0, H0, TT, N a Z, hrací zóna s dřevěnými vláčky, prodejna a občerstvení.",
+   "geo": {
+    "lat": 50.08893,
+    "lng": 15.0242
+   }
+  },
+  {
+   "id": "84c801ec78bb",
+   "nazev": "Plzeňská lokálka – výstava železničních modelů",
+   "zacatek": "2026-11-07T10:00:00+01:00",
+   "konec": "2026-11-08T16:00:00+01:00",
+   "misto": "Techmania Science Center",
+   "adresa": "U Planetária 2969/1, 301 00 Plzeň",
+   "obec": "Plzeň",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenska-lokalka-vystava-modelu-techmania/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/plzenska-lokalka-vystava-zeleznicnich-modelu-2026.jpg",
+   "popis": "Výstava železničních modelů v Techmanii Plzeň."
+  },
+  {
+   "id": "605f62731f64",
+   "nazev": "Parním vlakem na Svatomartinské hody",
+   "zacatek": "2026-11-07T10:05",
+   "konec": "2026-11-07T16:39",
+   "misto": "Třemešná ve Slezsku – Bohušov",
+   "adresa": "Bohušov",
+   "obec": "Bohušov",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-na-svatomartinske-hody-osoblaha/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/plakat-parnim-vlakem-na-svatomartinske-hody-2026.jpg",
+   "popis": "Parní vlak Osoblažské úzkokolejky z Třemešné ve Slezsku na Svatomartinské hody do Bohušova: svatý Martin na bílém koni, průvod, požehnání mladého vína, program a svatomartinské menu."
+  },
+  {
+   "id": "ac0663a194b6",
+   "nazev": "Halloweenská jízda na Dětské železnici Hradec Králové",
+   "zacatek": "2026-11-07T15:00:00+01:00",
+   "konec": "2026-11-07T18:30:00+01:00",
+   "misto": "Dětská železnice Hradec Králové",
+   "adresa": "náměstí 5. května 283/4, 500 02 Hradec Králové",
+   "obec": "Hradec Králové",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloweenska-jizda-detska-zeleznice-hradec-kralove/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/halloweenska-jizda-detska-zeleznice-hradec-kralove-2026.jpg",
+   "popis": "Tradiční Halloweenská jízda na Dětské železnici v Hradci Králové: vyzdobený a rozsvícený park, malá sladkost pro děti, masky vítány."
+  },
+  {
+   "id": "aac0ec0ffcea",
+   "nazev": "Legiovlak v Praze",
+   "zacatek": "2026-11-10T08:00:00+01:00",
+   "konec": "2026-11-29T13:30:00+01:00",
+   "misto": "Praha-Horní Počernice, Praha-Zličín, Praha hlavní nádraží",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/legiovlak/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/legiovlak-vagon-pryc-s-okovy.jpg",
+   "popis": "Replika legionářského vlaku ze 14 vagonů, vstup zdarma."
+  },
+  {
+   "id": "1cebbda706f8",
+   "nazev": "Svatomartinská jízda do Svobodných Heřmanic",
+   "zacatek": "2026-11-14T08:30",
+   "konec": "2026-11-14T14:46",
+   "misto": "Železniční stanice Svobodné Heřmanice",
+   "adresa": "Svobodné Heřmanice",
+   "obec": "Svobodné Heřmanice",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/svatomartinsky-vlak-svobodne-hermanice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/svatomartinsky-vlak-svobodne-hermanice-2026.jpg",
+   "popis": "Zvláštní spěšný vlak z Ostravy-Svinova přes Opavu do Svobodných Heřmanic a zpět, na nádraží Svatomartinská slavnost."
+  },
+  {
+   "id": "e9acd96fa638",
+   "nazev": "Výstava modelového kolejiště",
+   "zacatek": "2026-11-14T09:00:00+01:00",
+   "konec": "2026-11-22T17:00:00+01:00",
+   "misto": "Klubovna KŽM Přerov",
+   "adresa": "Tovární 3568/10, 750 02 Přerov",
+   "obec": "Přerov",
+   "kraj": "Olomoucký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modeloveho-kolejiste-kzm-prerov-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vystava-modeloveho-kolejiste-kzm-prerov-2026.jpg",
+   "popis": "Výstava klubového modelového kolejiště s vozidly z devadesátých let 20. století a prodejem modelů."
+  },
+  {
+   "id": "83959e22ffda",
+   "nazev": "Výstava modelů železnic 2026 – 41. ročník, KŽM Hradec Králové",
+   "zacatek": "2026-11-14T09:00:00+01:00",
+   "konec": "2026-11-22T18:00:00+01:00",
+   "misto": "Hlavní nádraží Hradec Králové (vstup z 1. nástupiště)",
+   "adresa": "Hradec Králové",
+   "obec": "Hradec Králové",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelu-zeleznic-hradec-kralove-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-modelu-zeleznic-hradec-kralove-2026.jpg",
+   "popis": "41. ročník výstavy modelů železnic s mezinárodní účastí: kolejiště H0 Vysočina, TT Kamenice, zimní kolejiště N, SouthWest USA, ukázka zahradní železnice."
+  },
+  {
+   "id": "17fa857d941a",
+   "nazev": "Výstava železničních modelů, modelového kolejiště a příslušenství – 70 let Plzeňského klubu železničních modelářů",
+   "zacatek": "2026-11-14T09:00:00+01:00",
+   "konec": "2026-12-13T18:00:00+01:00",
+   "misto": "Klubovna Plzeňského klubu železničních modelářů, Skvrňany",
+   "adresa": "Karla Steinera 10/A, Plzeň-Skvrňany",
+   "obec": "Plzeň-Skvrňany",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-plzen-skvrnany-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-zeleznicnich-modelu-plzen-skvrnany-2026.jpg",
+   "popis": "Modelové kolejiště H0 na 150 m², ukázky modelářské práce, o víkendech prodej modelů a prezentace firem."
+  },
+  {
+   "id": "d58722588bcb",
+   "nazev": "Výstava modulového kolejiště H0 – KŽM Praha 7 – Bubny",
+   "zacatek": "2026-11-20T10:00:00+01:00",
+   "konec": "2026-11-22T16:00:00+01:00",
+   "misto": "Budova SUDOPu (přízemí)",
+   "adresa": "Olšanská, 130 00 Praha 3",
+   "obec": "Praha 3",
+   "kraj": "Hlavní město Praha",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modulove-kolejiste-kzm-praha-bubny/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-modulove-kolejiste-kzm-praha-bubny-2026.jpg",
+   "popis": "Veřejné jízdy na modulovém kolejišti H0, vstupné dobrovolné."
+  },
+  {
+   "id": "29a656fba216",
+   "nazev": "Podzimní modelářské setkání KŽM Ostrava 2026",
+   "zacatek": "2026-11-20T14:00:00+01:00",
+   "konec": "2026-11-22T17:00:00+01:00",
+   "misto": "Národní zemědělské muzeum Ostrava",
+   "adresa": "Vítkovice 3033, 703 00 Ostrava",
+   "obec": "Ostrava",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-modelarske-setkani-kzm-ostrava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/podzimni-modelarske-setkani-kzm-ostrava-2026.jpg",
+   "popis": "Výstava modelových kolejišť H0, H0e a G a papírových modelů."
+  },
+  {
+   "id": "617d5dc39289",
+   "nazev": "Opakovaná zážitková jízda do Vejprt",
+   "zacatek": "2026-11-21T08:30:00+01:00",
+   "konec": "2026-11-21",
+   "misto": "Nádraží Teplice",
+   "adresa": "Teplice",
+   "obec": "Teplice",
+   "kraj": "Ústecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zazitkova-jizda-usteckou-drahou-do-vejprt/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/zazitkova-jizda-do-vejprt-21-11-2026-plakat-sud.jpg",
+   "popis": "Zážitková jízda motorovými vozy z Teplic přes Bílinu, Most a Chomutov do Vejprt s prohlídkou Výtopny Křimov a zastávkou v Kovářské."
+  },
+  {
+   "id": "b261bfb5eee8",
+   "nazev": "Výstava modelové železnice Mohelnice",
+   "zacatek": "2026-11-21T10:00",
+   "konec": "2026-11-22T16:00",
+   "misto": "DDM Magnet Mohelnice",
+   "adresa": "Spartakiádní 744/8, 789 85 Mohelnice",
+   "obec": "Mohelnice",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelove-zeleznice-mohelnice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vystava-modelove-zeleznice-mohelnice-2026.jpg",
+   "popis": "Výstava modelové železnice v DDM Magnet Mohelnice a tělocvičně Střední školy technické: modulová kolejiště, RC modely a tematické workshopy."
+  },
+  {
+   "id": "51420248e151",
+   "nazev": "Advent mezi traktory 2026",
+   "zacatek": "2026-11-21T14:00:00+01:00",
+   "konec": "2026-11-21T19:00:00+01:00",
+   "misto": "NZM Čáslav – muzeum zemědělské techniky",
+   "adresa": "Jeníkovská 1762, 286 01 Čáslav",
+   "obec": "Čáslav",
+   "kraj": null,
+   "typy": [
+    "traktory"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-mezi-traktory-caslav/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/advent-mezi-traktory-caslav-2026-plakat-nzm.jpg",
+   "popis": "Zakončení sezóny v adventním duchu: průvod a výstava vánočně ozdobených traktorů, adventní trhy a koncert v Národním zemědělském muzeu Čáslav."
+  },
+  {
+   "id": "dfbc61adad92",
+   "nazev": "Kouzelná vánoční zahrada Přestavlky",
+   "zacatek": "2026-11-26T16:30:00+01:00",
+   "konec": "2026-12-27T20:00:00+01:00",
+   "misto": "Kouzelná zahrada Přestavlky",
+   "adresa": "Přestavlky 47, Přestavlky",
+   "obec": "Přestavlky",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/kouzelna-vanocni-zahrada-prestavlky/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/kouzelna-vanocni-zahrada-prestavlky-2026.jpg",
+   "popis": "Kouzelně osvětlená zahrada s vánoční tematikou a zahradní železnicí velikosti G, vstupné dobrovolné."
+  },
+  {
+   "id": "4a7942c361da",
+   "nazev": "Čertohráček",
+   "zacatek": "2026-11-28",
+   "konec": "2026-11-29",
+   "misto": "Praha",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce-vlaky/mikulasske-jizdy-cyklohracku/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/cyklohracek-1.png",
+   "popis": "Výletní vlak Cyklohráček se o víkendu 28. a 29. listopadu 2026 promění v Čertohráček a vyjede po Praze s mikulášskou družinou. Trasy a časy pořadatel zatím nezveřejnil."
+  },
+  {
+   "id": "06caf518797d",
+   "nazev": "Čertovský vlak do Žacléře",
+   "zacatek": "2026-11-28",
+   "konec": "2026-11-28",
+   "misto": "Trať Trutnov – Žacléř",
+   "adresa": "Nádražní 201, Žacléř",
+   "obec": "Žacléř",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026.jpg",
+   "popis": "Zvláštní vlaky z Trutnova do Žacléře. Pořádá Kolej-klub a město Žacléř."
+  },
+  {
+   "id": "58e8185c8502",
+   "nazev": "Parním vlakem do Kryštofova údolí",
+   "zacatek": "2026-11-28",
+   "konec": "2026-11-28",
+   "misto": "Železniční stanice Liberec",
+   "adresa": "Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-do-krystofova-udoli/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/parnim-vlakem-do-krystofova-udoli-2026.jpg",
+   "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou na trase Liberec – Kryštofovo údolí – Křižany a zpět."
+  },
+  {
+   "id": "23a030329a71",
+   "nazev": "Vánoční expres na trhy do Trenčína",
+   "zacatek": "2026-11-28",
+   "konec": "2026-11-28",
+   "misto": "Železniční stanice Bylnice",
+   "adresa": "Brumov-Bylnice",
+   "obec": "Brumov-Bylnice",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-na-trhy-do-trencina/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vanocni-expres-trencin-2026.jpg",
+   "popis": "Jízda vlakem z Bylnice do Trenčína na vánoční trhy Čaro Vianoc pod hradom a zpět."
+  },
+  {
+   "id": "31246dfee814",
+   "nazev": "Předvánoční Liberec – zvláštní vlak z Kolína",
+   "zacatek": "2026-11-28T07:53:00+01:00",
+   "konec": "2026-11-28T20:55:00+01:00",
+   "misto": "Liberec, areál Babylon",
+   "adresa": "Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/predvanocni-liberec-vlakem-z-kolina/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/predvanocni-liberec-vlak-plakat.jpg",
+   "popis": "Zvláštní vlak Kolín – Liberec na adventní trhy."
+  },
+  {
+   "id": "e6cd97beb7dd",
+   "nazev": "Den otevřených dveří na modelovém kolejišti s výstavou modelů",
+   "zacatek": "2026-11-28T09:00:00+01:00",
+   "konec": "2026-11-28T18:00:00+01:00",
+   "misto": "DDM Stonožka Nová Paka",
+   "adresa": "Masarykovo náměstí 1, 509 01 Nová Paka",
+   "obec": "Nová Paka",
+   "kraj": "Královéhradecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-modelari-nova-paka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/den-otevrenych-dveri-modelari-nova-paka-2026.jpg",
+   "popis": "Modeláři Nová Paka zvou na den otevřených dveří na modelovém kolejišti s výstavou modelů, hosté SŽM Liptákov z Chuchelny u Semil."
+  },
+  {
+   "id": "8a5383cb3ee2",
+   "nazev": "Mikulášské vlaky z Pardubic do Praskačky a zpět",
+   "zacatek": "2026-11-28T09:15",
+   "konec": "2026-11-28T17:28",
+   "misto": "Pardubice centrum – Praskačka",
+   "adresa": "Pardubice",
+   "obec": "Pardubice",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-pardubice-praskacka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/mikulasske-vlaky-pardubice-praskacka-2026.jpg",
+   "popis": "Dva páry historických motorových vlaků Pardubice – Praskačka a zpět s Mikulášem a čertem, v cíli program v Museu bednářství Jaroslava Tománka a čertovská nadílka. Pořádá Pardubický spolek historie železniční dopravy."
+  },
+  {
+   "id": "6296519d98c2",
+   "nazev": "Jízdy Mikulášským vlakem",
+   "zacatek": "2026-11-28T09:25:00+01:00",
+   "konec": "2026-11-28T16:33:00+01:00",
+   "misto": "Nádraží Příbram",
+   "adresa": "Příbram",
+   "obec": "Příbram",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-mikulasskym-vlakem-pribram-rozmital/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/jizdy-mikulasskym-vlakem-pribram-2026.jpg",
+   "popis": "Historický motorový vlak s malou mikulášskou nadílkou z Příbrami do Březnice a Rožmitálu pod Třemšínem a zpět."
+  },
+  {
+   "id": "234f36f02172",
+   "nazev": "Mikulášská jízda – Muzeum průmyslových železnic Zbýšov",
+   "zacatek": "2026-11-28T10:00",
+   "konec": "2026-11-28T16:58",
+   "misto": "Muzeum průmyslových železnic, stanice Zbýšov-Důl Jindřich",
+   "adresa": "Zbýšov",
+   "obec": "Zbýšov",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikulasska-jizda-zbysov-2026-plakat.jpg",
+   "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna za účasti Mikuláše a jeho družiny."
+  },
+  {
+   "id": "a6dbc073b3f3",
+   "nazev": "Mikulášská nadílka na vláčku – Plzenecká železnice",
+   "zacatek": "2026-11-28T14:00+01:00",
+   "konec": "2026-11-28T17:00+01:00",
+   "misto": "Areál dětského tábora – Plzenecká železnice",
+   "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
+   "obec": "Starý Plzenec",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/plzenecka-zeleznice-zluta-lokomotiva.jpg",
+   "popis": "Vláčkem za Mikulášem a čerty, dílnička."
+  },
+  {
+   "id": "b54c38ba1136",
+   "nazev": "Mikulášský motorák",
+   "zacatek": "2026-11-29T11:32:00+01:00",
+   "konec": "2026-11-29T18:42:00+01:00",
+   "misto": "Plzeň hlavní nádraží",
+   "adresa": "Plzeň",
+   "obec": "Plzeň",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-motorak-vlaky-plzenskeho-kraje/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-motorak-vlaky-plzenskeho-kraje-2026.jpg",
+   "popis": "Mikulášský motorák Vlaků Plzeňského kraje po trasách Plzeň hl. n. – Vejprnice – Nýřany a Plzeň hl. n. – Plzeň-Křimice – Vochov – Kozolupy. Povinná rezervace místa."
+  },
+  {
+   "id": "da7df09e4843",
+   "nazev": "Mikulášský vlak Vimperk – Volyně",
+   "zacatek": "2026-11-29T14:55:00+01:00",
+   "konec": "2026-11-29T17:35:00+01:00",
+   "misto": "Železniční stanice Vimperk",
+   "adresa": "Vimperk",
+   "obec": "Vimperk",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-vimperk-volyne/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikulassky-vlak-vimperk-volyne-2026.jpg",
+   "popis": "Mikulášská jízda vlakem Vimperk – Volyně a zpět."
+  },
+  {
+   "id": "d8849930a36b",
+   "nazev": "Advent v Muzeu dopravy ve Strašicích – Rozsvícení vánoční tramvaje",
+   "zacatek": "2026-11-29T16:30:00+01:00",
+   "konec": "2026-11-29T18:00:00+01:00",
+   "misto": "Muzeum dopravy ve Strašicích",
+   "adresa": "Strašice 636-B, 338 45 Strašice",
+   "obec": "Strašice",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozsviceni-vanocni-tramvaje-strasice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/rozsviceni-vanocni-tramvaje-strasice-2026-plakat.jpg",
+   "popis": "Zpívání koled s lidovou muzikou, rozsvícení vánoční tramvaje a vánoční občerstvení v Muzeu dopravy ve Strašicích."
+  },
+  {
+   "id": "5f9447b1d938",
+   "nazev": "Mikołajkowy Express",
+   "zacatek": "2026-12-01",
+   "konec": "2026-12-22",
+   "misto": "Muzeum Kolejnictwa na Śląsku",
+   "adresa": "Towarowa 4, 58-140 Jaworzyna Śląska",
+   "obec": "Jaworzyna Śląska",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikolajkowy-express-jaworzyna-slaska/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikolajkowy-express-jaworzyna-2026.jpg",
+   "popis": "Vánoční stanice svatého Mikuláše v železničním muzeu: setkání s Mikulášem, poštovní vůz, vánoční dílny a venkovní hra."
+  },
+  {
+   "id": "b0827cb957a8",
+   "nazev": "Advent se Sergejem",
+   "zacatek": "2026-12-03T13:45:00+01:00",
+   "konec": "2026-12-03T20:00:00+01:00",
+   "misto": "Praha hlavní nádraží",
+   "adresa": "Wilsonova 300/8, 120 00 Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-se-sergejem/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/advent-se-sergejem-2026.jpg",
+   "popis": "Zážitková adventní jízda s lokomotivou 781 592-1 Sergej z Prahy přes Benešov a Tábor do Českých Budějovic a zpět, s prohlídkou lokomotivy s výkladem."
+  },
+  {
+   "id": "9eaae2fc40e9",
+   "nazev": "Čertovské jízdy na Kolínské řepařské drážce",
+   "zacatek": "2026-12-05",
+   "konec": "2026-12-06",
+   "misto": "Kolínská řepařská drážka, Kolín-Sendražice",
+   "adresa": "Kolín",
+   "obec": "Kolín",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/certovske-jizdy-kolinska-reparska-drazka-2026.jpg",
+   "popis": "Čertovské jízdy úzkorozchodného parního vláčku z Kolína-Sendražic do Býchor."
+  },
+  {
+   "id": "1955761fd3ce",
+   "nazev": "Parním vlakem za Mikulášem a Čertem",
+   "zacatek": "2026-12-05",
+   "konec": "2026-12-05",
+   "misto": "Železniční stanice Turnov",
+   "adresa": "Turnov",
+   "obec": "Turnov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-za-mikulasem-a-certem-turnov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/parnim-vlakem-za-mikulasem-a-certem-turnov-2026.jpg",
+   "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou z Turnova do Malé Skály a do Mnichova Hradiště a zpět."
+  },
+  {
+   "id": "dccbd9a82f3f",
+   "nazev": "Pekelná sobota v turnovském depu",
+   "zacatek": "2026-12-05",
+   "konec": "2026-12-05",
+   "misto": "Lokomotivní depo Turnov",
+   "adresa": "Za Viaduktem, Turnov",
+   "obec": "Turnov",
+   "kraj": "Liberecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pekelna-sobota-v-turnovskem-depu/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pekelna-sobota-v-turnovskem-depu-2026.jpg",
+   "popis": "Pekelný program v turnovském depu. Pořádá Kolej-klub, NPŽ a NPS."
+  },
+  {
+   "id": "6566f857f222",
+   "nazev": "Mochovský motoráček 2026",
+   "zacatek": "2026-12-05T08:33:00+01:00",
+   "konec": "2026-12-05T16:07:00+01:00",
+   "misto": "Železniční stanice Praha-Vysočany",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mochovsky-motoracek-praha-celakovice-mochov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mochovsky-motoracek-celakovice-mochov.jpg",
+   "popis": "Jízda motorového vlaku Praha-Vysočany – Čelákovice – Mochov a zpět."
+  },
+  {
+   "id": "59c229dbcc60",
+   "nazev": "Mikulášská jízda na křivoklátský advent",
+   "zacatek": "2026-12-05T08:48:00+01:00",
+   "konec": "2026-12-05T17:18:00+01:00",
+   "misto": "Plzeň hlavní nádraží",
+   "adresa": "Plzeň",
+   "obec": "Plzeň",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-na-krivoklatsky-advent/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/mikulasska-jizda-na-krivoklatsky-advent-2026.jpg",
+   "popis": "Mikulášský vlak ČD Nostalgie s lokomotivou Brejlovec z Plzně přes Rokycany a Beroun na adventní jarmark na hradě Křivoklát."
+  },
+  {
+   "id": "d385324afc66",
+   "nazev": "Mikulášské vlaky do Svobodných Heřmanic",
+   "zacatek": "2026-12-05T09:00",
+   "konec": "2026-12-05T16:34",
+   "misto": "Železniční stanice Opava východ",
+   "adresa": "Opava",
+   "obec": "Opava",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-svobodne-hermanice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikulasske-vlaky-svobodne-hermanice-2026.jpg",
+   "popis": "Zvláštní mikulášské vlaky z Opavy východ do Svobodných Heřmanic a zpět, ve vlaku prochází Mikulášská družina a rozdává dětem balíčky."
+  },
+  {
+   "id": "f785db7fbdf1",
+   "nazev": "Mikulášský vlak Praha – Vrané nad Vltavou",
+   "zacatek": "2026-12-05T09:00:00+01:00",
+   "konec": "2026-12-05T17:00:00+01:00",
+   "misto": "Praha hlavní nádraží",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-praha-vrane-nad-vltavou/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikulassky-vlak-praha-vrane-nad-vltavou-2026-1.jpg",
+   "popis": "Zážitková jízda historickým vlakem s lokomotivou Bardotka z Prahy hlavního nádraží přes Jarov do Vraného nad Vltavou a zpět, ve vlaku Mikuláš, čert a anděl."
+  },
+  {
+   "id": "b8f8c1c61123",
+   "nazev": "Výstava železničních modelů v provozu – Pečky",
+   "zacatek": "2026-12-05T09:00+01:00",
+   "konec": "2026-12-06T15:00+01:00",
+   "misto": "Klubovna Spolku železničních modelářů Pečky",
+   "adresa": "Žerotínova 281, 289 11 Pečky",
+   "obec": "Pečky",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-pecky-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vystavy-zeleznicnich-modelu-pecky-2026.jpg",
+   "popis": "Výstava modelových kolejišť v provozu ve velikostech 0, H0, TT, N a Z, hrací zóna s dřevěnými vláčky, prodejna a občerstvení.",
+   "geo": {
+    "lat": 50.08893,
+    "lng": 15.0242
+   }
+  },
+  {
+   "id": "4131b7601690",
+   "nazev": "Vánoční expres na křivoklátský advent",
+   "zacatek": "2026-12-05T09:05:00+01:00",
+   "konec": "2026-12-05T16:22:00+01:00",
+   "misto": "Plzeň hlavní nádraží",
+   "adresa": "Plzeň",
+   "obec": "Plzeň",
+   "kraj": "Plzeňský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-na-krivoklatsky-advent/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/adventni-jizdy-vlaky-plzenskeho-kraje-2026.jpg",
+   "popis": "Retro motorový vůz 810.100 z Plzně přes Rokycany na Křivoklátský advent, cukroví a čaj v ceně jízdenky."
+  },
+  {
+   "id": "7453cd261354",
+   "nazev": "Mikulášská plavba na lodi Král Jiří",
+   "zacatek": "2026-12-05T10:00:00+01:00",
+   "konec": "2026-12-05T16:30:00+01:00",
+   "misto": "Přístaviště pod zámkem Poděbrady",
+   "adresa": "290 01 Poděbrady",
+   "obec": "Poděbrady",
+   "kraj": "Středočeský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/tematicke-plavby-lod-kral-jiri-podebrady/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/halloween-lod-kral-jiri-2026.jpg",
+   "popis": "Mikulášská plavba po Labi s Mikulášem, andělem, čertem a nadílkou pro děti."
+  },
+  {
+   "id": "685c63ac0200",
+   "nazev": "Mikulášská jízda parním vlakem z Brna do Ivančic",
+   "zacatek": "2026-12-05T10:00+01:00",
+   "konec": "2026-12-05T15:00+01:00",
+   "misto": "Brno dolní nádraží",
+   "adresa": "Rosická, Brno",
+   "obec": "Brno",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-parnim-vlakem-brno-ivancice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/plakat-mikulasska-jizda-brno-ivancice-2026.jpg",
+   "popis": "Mikulášská jízda parní lokomotivou 213.901 s historickými vozy z Brna dolního nádraží do Ivančic a zpět, s mikulášskou družinou a sladkou odměnou pro děti."
+  },
+  {
+   "id": "37726b6f2f71",
+   "nazev": "Mikulášská parní jízda",
+   "zacatek": "2026-12-05T10:05",
+   "konec": "2026-12-05T15:17",
+   "misto": "Jindřichův Hradec – Kamenice nad Lipou",
+   "adresa": "Jindřichův Hradec",
+   "obec": "Jindřichův Hradec",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-parni-jizda-jindrichuv-hradec-kamenice-nad-lipou/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/plakat-mikulasska-parni-jizda-kamenice-2026.jpg",
+   "popis": "Mikulášská jízda parním vlakem Jindřichohradecké úzkokolejky z Jindřichova Hradce do Kamenice nad Lipou a zpět, ve vlaku Mikuláš, anděl a čert a drobná odměna pro děti."
+  },
+  {
+   "id": "d05cfcabce33",
+   "nazev": "Mikulášský vlak Cheb 2026",
+   "zacatek": "2026-12-05T11:00:00+01:00",
+   "konec": "2026-12-05T17:00:00+01:00",
+   "misto": "Železniční stanice Cheb",
+   "adresa": "Cheb",
+   "obec": "Cheb",
+   "kraj": "Karlovarský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-cheb/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikulassky-vlak-cheb-2026.jpg",
+   "popis": "Zvláštní mikulášský vlak po trase Cheb – Tršnice – Františkovy Lázně – Cheb s Mikulášem, čertem a andělem, bistro vůz."
+  },
+  {
+   "id": "9085a63f7f31",
+   "nazev": "Vánoční expres do Karlových Varů",
+   "zacatek": "2026-12-06T12:00:00+01:00",
+   "konec": "2026-12-06T12:00:00+01:00",
+   "misto": "Plzeň hlavní nádraží",
+   "adresa": "Plzeň",
+   "obec": "Plzeň",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-do-karlovych-varu/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-expres-do-karlovych-varu-og-ilu.jpg",
+   "popis": "Retro motoráčkem řady 810 z Plzně přes Bečov nad Teplou do Karlových Varů na vánoční trhy. Pořádají Vlaky Plzeňského kraje."
+  },
+  {
+   "id": "fd4d35de95e3",
+   "nazev": "Cyklohráček – zimní výlet na Advent na hradě Křivoklát",
+   "zacatek": "2026-12-12",
+   "konec": "2026-12-12",
+   "misto": "Hrad Křivoklát",
+   "adresa": "Křivoklát",
+   "obec": "Křivoklát",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/cyklohracek-advent-na-hrade-krivoklat/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/cyklohracek-advent-na-hrade-krivoklat-2026.jpg",
+   "popis": "Zimní výlet výletního vlaku Cyklohráček z Prahy přes Beroun a Křivoklát do Rakovníka na řemeslný jarmark Advent na hradě Křivoklát."
+  },
+  {
+   "id": "078b20978420",
+   "nazev": "Vánoční jízdy Kroměřížské dráhy – Kroměříž – Tovačov",
+   "zacatek": "2026-12-12",
+   "konec": "2026-12-13",
+   "misto": "Železniční stanice Kroměříž",
+   "adresa": "Kroměříž",
+   "obec": "Kroměříž",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-jizdy-kromerizske-drahy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vanocni-jizdy-kromerizske-drahy-2026.jpg",
+   "popis": "Zvláštní vánoční vlaky historickými motoráky mezi Kroměříží a Tovačovem."
+  },
+  {
+   "id": "a9be6b8b06c8",
+   "nazev": "Svařák na Zubačce",
+   "zacatek": "2026-12-12T09:00:00+01:00",
+   "konec": "2026-12-12T16:00:00+01:00",
+   "misto": "Nádraží Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/svarak-ve-vytopne-korenov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zubacka-cervenec-vytopna-korenov.jpg",
+   "popis": "Poslední akce roku na Zubačce: parní vlaky Kořenov – Harrachov, historický motoráček z Tanvaldu a otevřené Muzeum ozubnicové dráhy."
+  },
+  {
+   "id": "3592e44b3417",
+   "nazev": "Vánoční Modelové kolejiště v Nymburce",
+   "zacatek": "2026-12-12T10:00:00+01:00",
+   "konec": "2026-12-12T16:00:00+01:00",
+   "misto": "Modelové kolejiště Nymburk-Drahelice",
+   "adresa": "Drahelická 181, 288 02 Nymburk",
+   "obec": "Nymburk",
+   "kraj": "Středočeský kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-modelove-kolejiste-nymburk/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/vanocni-modelove-kolejiste-nymburk-2026.jpg",
+   "popis": "Vánoční den v Modelovém kolejišti Nymburk: provoz kolejiště, vánoční tvoření a prodej dekorací."
+  },
+  {
+   "id": "a0e073b40c82",
+   "nazev": "Vánoční jízdy Kroměřížské dráhy – Olomouc",
+   "zacatek": "2026-12-19",
+   "konec": "2026-12-20",
+   "misto": "Olomouc hl. n.",
+   "adresa": "Olomouc",
+   "obec": "Olomouc",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-jizdy-kromerizske-drahy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vanocni-jizdy-kromerizske-drahy-2026.jpg",
+   "popis": "Zvláštní vánoční vlaky po trati 309 kolem historického centra Olomouce."
+  },
+  {
+   "id": "0d726b54fed2",
+   "nazev": "Historickými vlaky na Vánoční trhy Olomouc",
+   "zacatek": "2026-12-19T07:00:00+01:00",
+   "konec": "2026-12-19T18:00:00+01:00",
+   "misto": "Olomouc hlavní nádraží",
+   "adresa": "Olomouc",
+   "obec": "Olomouc",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/historickymi-vlaky-na-vanocni-trhy-olomouc/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/historickymi-vlaky-na-vanocni-trhy-olomouc-2026.jpg",
+   "popis": "Zvláštní vlaky s historickými motoráčky Hurvínek a Osmsetdesítka z Kroměříže přes Prostějov na Vánoční trhy v Olomouci a jízdy kolem centra Olomouce."
+  },
+  {
+   "id": "c50dad79b87b",
+   "nazev": "Betlémský vlak",
+   "zacatek": "2026-12-20",
+   "konec": "2026-12-20",
+   "misto": "Liberecký kraj (trasa bude upřesněna)",
+   "adresa": "Turnov",
+   "obec": "Turnov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/betlemsky-vlak-kolej-klub/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/betlemsky-vlak-kolej-klub-2026.jpg",
+   "popis": "Zvláštní vlak s Betlémským světlem. Pořádá Kolej-klub a Skaut Lomnice nad Popelkou."
+  },
+  {
+   "id": "b9d28145bcc2",
+   "nazev": "Vánoční jízdy – Plzenecká železnice",
+   "zacatek": "2026-12-24T12:00+01:00",
+   "konec": "2026-12-24T15:00+01:00",
+   "misto": "Areál dětského tábora – Plzenecká železnice",
+   "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
+   "obec": "Starý Plzenec",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/",
+   "obrazek": "https://www.hravestroje.cz/user/front_images/ogImage/plzenecka-zeleznice-zluta-lokomotiva.jpg",
+   "popis": "Vánoční jízdy úzkorozchodné železnice."
+  },
+  {
+   "id": "5f2bcc85ff62",
+   "nazev": "Vánoční jízdy Kroměřížské dráhy – Otrokovice – Zlín – Vizovice",
+   "zacatek": "2026-12-27",
+   "konec": "2026-12-27",
+   "misto": "Železniční stanice Otrokovice",
+   "adresa": "Otrokovice",
+   "obec": "Otrokovice",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-jizdy-kromerizske-drahy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vanocni-jizdy-kromerizske-drahy-2026.jpg",
+   "popis": "Zvláštní vánoční vlaky mezi Otrokovicemi, Zlínem a Vizovicemi."
+  },
+  {
+   "id": "f9bfbb9d9d59",
+   "nazev": "Zimní poježdění na Zlínce",
+   "zacatek": "2026-12-27T07:00:00+01:00",
+   "konec": "2026-12-27T19:00:00+01:00",
+   "misto": "Trať Otrokovice – Zlín – Vizovice",
+   "adresa": "Otrokovice",
+   "obec": "Otrokovice",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zimni-pojezdeni-na-zlince/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zimni-pojezdeni-na-zlince-2026.jpg",
+   "popis": "Zvláštní vlaky s historickými motorovými vozy Hurvínek a Osmsetdesítka s vánoční výzdobou mezi Otrokovicemi, Zlínem a Vizovicemi."
+  },
+  {
+   "id": "8892d9d7f2c8",
+   "nazev": "Zimní jízdy – Muzeum průmyslových železnic Zbýšov",
+   "zacatek": "2026-12-27T10:00",
+   "konec": "2026-12-27T16:58",
+   "misto": "Muzeum průmyslových železnic, stanice Zbýšov-Důl Jindřich",
+   "adresa": "Zbýšov",
+   "obec": "Zbýšov",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/mikulasska-jizda-zbysov-2026-plakat.jpg",
+   "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna mezi svátky."
+  },
+  {
+   "id": "cba0decb09bd",
+   "nazev": "Výstava železničních modelů v provozu – Pečky",
+   "zacatek": "2026-12-29T09:00+01:00",
+   "konec": "2026-12-30T15:00+01:00",
+   "misto": "Klubovna Spolku železničních modelářů Pečky",
+   "adresa": "Žerotínova 281, 289 11 Pečky",
+   "obec": "Pečky",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-pecky-2026/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/articles/images/vystavy-zeleznicnich-modelu-pecky-2026.jpg",
+   "popis": "Výstava modelových kolejišť v provozu ve velikostech 0, H0, TT, N a Z, hrací zóna s dřevěnými vláčky, prodejna a občerstvení.",
+   "geo": {
+    "lat": 50.08893,
+    "lng": 15.0242
+   }
+  },
+  {
+   "id": "0a96a63218e3",
+   "nazev": "Silvestrovské jízdy na Kolínské řepařské drážce",
+   "zacatek": "2026-12-31",
+   "konec": "2026-12-31",
+   "misto": "Kolínská řepařská drážka, Kolín-Sendražice",
+   "adresa": "Kolín",
+   "obec": "Kolín",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/certovske-jizdy-kolinska-reparska-drazka-2026.jpg",
+   "popis": "Silvestrovské jízdy úzkorozchodného vláčku s motorovou lokomotivou."
+  },
+  {
+   "id": "06bf50e87499",
+   "nazev": "For Model 2027",
+   "zacatek": "2027-03-19",
+   "konec": "2027-03-21",
+   "misto": "Výstaviště Flora Olomouc, pavilon A",
+   "adresa": "Wolkerova 37/17, 779 00 Olomouc",
+   "obec": "Olomouc",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/for-model-olomouc/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/for-model-olomouc-modelarska-vystava.jpg",
+   "popis": "Modelářská výstava – modely vlaků, lodí, letadel a RC techniky."
+  },
+  {
+   "id": "2ef43fe1d456",
+   "nazev": "19. Dresdner Dampfloktreffen",
+   "zacatek": "2027-04-10T10:00:00+02:00",
+   "konec": "2027-04-11T18:00:00+02:00",
+   "misto": "Eisenbahnmuseum Bw Dresden-Altstadt",
+   "adresa": "Zwickauer Str. 86, 01187 Dresden",
+   "obec": "Dresden",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/dresdner-dampfloktreffen-drazdany/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/dresdner-dampfloktreffen-parni-lokomotivy.jpg",
+   "popis": "Setkání parních lokomotiv v železničním muzeu v Drážďanech."
+  },
+  {
+   "id": "0cea8f59175c",
+   "nazev": "Legendy 2027 – automobilová slavnost",
+   "zacatek": "2027-05-28T12:00:00+02:00",
+   "konec": "2027-05-30T17:00:00+02:00",
+   "misto": "Výstaviště Praha",
+   "adresa": "Výstaviště 67, 170 00 Praha 7 – Holešovice",
+   "obec": "Praha 7 – Holešovice",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/legendy-automobilova-slavnost-praha/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/legendy-2027-automobilova-slavnost.jpg",
+   "popis": "Automobilová a motocyklová slavnost s historickými i současnými vozy a programem pro celou rodinu, 14. ročník."
+  },
+  {
+   "id": "c491ae43ae33",
+   "nazev": "Den dětí na Zubačce 2027",
+   "zacatek": "2027-05-29",
+   "konec": "2027-05-29",
+   "misto": "Nádraží Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce/den-deti-na-zubacce-korenov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zubacka-korenov-jizdy-historickych-vlaku-14.jpg",
+   "popis": "Den dětí na ozubnicové trati Tanvald – Kořenov – Harrachov s ozubnicovou lokomotivou řady 715."
+  },
+  {
+   "id": "67ea143dc3cb",
+   "nazev": "Aviatická pouť 2027",
+   "zacatek": "2027-06-12",
+   "konec": "2027-06-13",
+   "misto": "Letiště Hradec Králové",
+   "adresa": "Hradec Králové",
+   "obec": "Hradec Králové",
+   "kraj": "Královéhradecký kraj",
+   "typy": [],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/aviaticka-pout-hradec-kralove/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/aviaticka-pout-letadla-ilustrace-hrave-stroje.jpg",
+   "popis": "35. ročník letecké akce Aviatická pouť na letišti Hradec Králové."
+  },
+  {
+   "id": "15d756498680",
+   "nazev": "Veteranfest 2027",
+   "zacatek": "2027-06-26",
+   "konec": "2027-06-26",
+   "misto": "Zámek Slavkov u Brna – zámecký park",
+   "adresa": "Slavkov u Brna",
+   "obec": "Slavkov u Brna",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/veteranfest-slavkov-u-brna/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/veteranfest-slavkov-ilustrace.jpg",
+   "popis": "Setkání historických vozidel v zámeckém parku ve Slavkově u Brna."
+  },
+  {
+   "id": "500234165bd3",
+   "nazev": "Pohádková sobota na Zubačce",
+   "zacatek": "2027-07-24",
+   "konec": "2027-07-24",
+   "misto": "Nádraží Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce-vlaky/pohadkova-sobota-na-zubacce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zubacka-cervenec-vytopna-korenov.jpg",
+   "popis": "Tematická sobota pro rodiny s dětmi na ozubnicové dráze Tanvald – Kořenov – Harrachov s jízdami s ozubnicovou lokomotivou."
+  },
+  {
+   "id": "d30a2cc138bb",
+   "nazev": "Modelová sobota na Zubačce",
+   "zacatek": "2027-08-07",
+   "konec": "2027-08-07",
+   "misto": "Nádraží Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelova-sobota-na-zubacce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zubacka-cervenec-vytopna-korenov.jpg",
+   "popis": "Tematická sobota na ozubnicové dráze Tanvald – Kořenov – Harrachov s jízdami s ozubnicovou lokomotivou."
+  },
+  {
+   "id": "a6bde37c2652",
+   "nazev": "Borůvková sobota na Zubačce",
+   "zacatek": "2027-08-21",
+   "konec": "2027-08-21",
+   "misto": "Nádraží Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-kraje/boruvkova-sobota-na-zubacce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/zubacka-cervenec-vytopna-korenov.jpg",
+   "popis": "Tematická sobota na ozubnicové dráze Tanvald – Kořenov – Harrachov s borůvkovými dobrotami a jízdami historických vlaků."
+  },
+  {
+   "id": "42d30a51ca7e",
+   "nazev": "Hornoplánská traktoriáda 2027",
+   "zacatek": "2027-08-21T13:00:00+02:00",
+   "konec": "2027-08-21T17:30:00+02:00",
+   "misto": "Hřiště Dobrá Voda",
+   "adresa": "Horní Planá",
+   "obec": "Horní Planá",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "traktory"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornoplanska-traktoriada-lipno/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/hornoplanska-traktoriada-ilustrace.jpg",
+   "popis": "Soutěžní jízdy traktorů na hřišti Dobrá Voda v Horní Plané, 11. ročník."
+  }
+ ]
 }
