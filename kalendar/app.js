@@ -1,169 +1,112 @@
 'use strict';
 
 (function () {
-  var TYPY = {
-    vlaky: { nazev: 'Vlaky', ikona: '🚂' },
-    traktory: { nazev: 'Traktory', ikona: '🚜' },
-    auta: { nazev: 'Auta', ikona: '🚗' }
-  };
+  var L = window.KalendarLogika;
+  var TYPY = L.TYPY, esc = L.esc;
   var PORADI_KRAJU = [
     'Hlavní město Praha', 'Středočeský kraj', 'Jihočeský kraj', 'Plzeňský kraj',
     'Karlovarský kraj', 'Ústecký kraj', 'Liberecký kraj', 'Královéhradecký kraj',
     'Pardubický kraj', 'Kraj Vysočina', 'Jihomoravský kraj', 'Olomoucký kraj',
     'Zlínský kraj', 'Moravskoslezský kraj'
   ];
-  var MESICE_2P = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července',
-    'srpna', 'září', 'října', 'listopadu', 'prosince'];
-  var MESICE_1P = ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec',
-    'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
-  var MESICE_ZKR = ['led', 'úno', 'bře', 'dub', 'kvě', 'čvn', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'];
-  var DNY = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+  // Kde hledat volitelné soubory. Chybějící soubor nevadí – část se prostě nezobrazí.
+  var SOUBOR_MONETIZACE = 'monetizace.json';
+  var SOUBOR_PRODUKTU = '../produkty/produkty.json';
+  var SOUBORY_NABIDEK = ['nabidky.json', '../nabidky/nabidky.json', '../nabidky.json'];
 
   var el = {
     hledat: document.getElementById('hledat'),
     kraj: document.getElementById('kraj'),
-    vikend: document.getElementById('vikend'),
-    typy: document.querySelectorAll('[data-typ]'),
+    mesic: document.getElementById('mesic'),
+    od: document.getElementById('od'),
+    do: document.getElementById('do'),
+    vlastni: document.getElementById('vlastni'),
+    cipyTyp: document.getElementById('cipy-typ'),
+    cipyKdy: document.getElementById('cipy-kdy'),
+    prepinac: document.getElementById('prepinac-filtru'),
+    panel: document.getElementById('panel-filtru'),
+    pocetFiltru: document.getElementById('pocet-filtru'),
+    hotovo: document.getElementById('hotovo'),
     seznam: document.getElementById('seznam'),
     pocet: document.getElementById('pocet'),
     zrusit: document.getElementById('zrusit'),
-    aktualizace: document.getElementById('aktualizace')
+    aktualizace: document.getElementById('aktualizace'),
+    partnerske: document.getElementById('partnerske'),
+    oznameni: document.getElementById('oznameni')
   };
 
-  var stav = { q: '', typ: '', kraj: '', vikend: false };
+  var stav = L.prazdnyStav();
+  var vlastniOtevreno = false;
   var akce = [];
+  var podleId = {};
+  var mon = null;       // monetizace.json
+  var produkty = null;  // ../produkty/produkty.json
+  var nabidky = null;   // nabidky.json (až vznikne)
 
-  // ---------- Pomocné funkce ----------
-  function bezDiakritiky(t) {
-    return String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  // ---------- Ovládací prvky ----------
+  function cip(atribut, hodnota, obsah) {
+    return '<button type="button" class="cip" ' + atribut + '="' + esc(hodnota) + '" aria-pressed="false">' + obsah + '</button>';
   }
 
-  function esc(t) {
-    return String(t == null ? '' : t)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  el.cipyTyp.innerHTML = cip('data-typ', '', 'Vše') + L.PORADI_TYPU.map(function (t) {
+    return cip('data-typ', t, (t === 'ostatni' ? '' : L.ikona(t)) + '<span>' + esc(TYPY[t].nazev) + '</span>');
+  }).join('');
+  el.cipyKdy.innerHTML = cip('data-kdy', '', 'Kdykoli') + L.KDY.map(function (k) {
+    return cip('data-kdy', k[0], esc(k[1]));
+  }).join('') + cip('data-kdy', 'vlastni', 'Vlastní termín');
+  el.mesic.innerHTML = '<option value="">Vybrat měsíc…</option>' + L.mesiceDopredu(new Date(), 12).map(function (m) {
+    return '<option value="' + m.hodnota + '">' + esc(m.nazev) + '</option>';
+  }).join('');
+  el.od.min = el.do.min = L.isoDen(new Date());
+
+  function pocetAktivnich() {
+    return (stav.typ ? 1 : 0) + (stav.kraj ? 1 : 0) + (L.filtrujeSeDatem(stav) ? 1 : 0);
   }
 
-  function bezpecnaUrl(u) {
-    if (!u || typeof u !== 'string') return '';
-    try {
-      var url = new URL(u, location.href);
-      return /^https?:$/.test(url.protocol) ? url.href : '';
-    } catch (e) {
-      return '';
-    }
-  }
-
-  // "2026-05-01" = celý den v místním čase, "2026-05-01T10:00+02:00" = konkrétní čas
-  function prectiDatum(s, jeKonec) {
-    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s || '').trim());
-    if (m) {
-      var d = new Date(+m[1], +m[2] - 1, +m[3]);
-      if (jeKonec) d.setHours(23, 59, 59, 999);
-      return { datum: d, sCasem: false };
-    }
-    var dt = new Date(s);
-    return isNaN(dt) ? null : { datum: dt, sCasem: true };
-  }
-
-  function zacatekDne(d) {
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
-  }
-
-  function stejnyDen(a, b) {
-    return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
-  }
-
-  function cas(d) {
-    return d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
-  }
-
-  function formatTermin(a) {
-    var z = a._z, k = a._k;
-    var rok = new Date().getFullYear();
-    function den(d, sRokem) {
-      return d.getDate() + '. ' + MESICE_2P[d.getMonth()] + (sRokem || d.getFullYear() !== rok ? ' ' + d.getFullYear() : '');
-    }
-    if (stejnyDen(z, k)) {
-      var t = DNY[z.getDay()] + ' ' + den(z);
-      if (a._sCasem) {
-        t += ', ' + cas(z) + (k > z ? '–' + cas(k) : '');
-      }
-      return t;
-    }
-    if (z.getFullYear() === k.getFullYear() && z.getMonth() === k.getMonth()) {
-      return z.getDate() + '.–' + den(k);
-    }
-    if (z.getFullYear() === k.getFullYear()) {
-      return z.getDate() + '. ' + MESICE_2P[z.getMonth()] + ' – ' + den(k);
-    }
-    return den(z, true) + ' – ' + den(k, true);
-  }
-
-  // Nejbližší víkend: v pracovní den nadcházející sobota+neděle, o víkendu ten aktuální.
-  function tentoVikend() {
-    var dnes = zacatekDne(new Date());
-    var d = dnes.getDay(); // 0 = neděle
-    var sobota = new Date(dnes);
-    if (d === 0) sobota.setDate(dnes.getDate() - 1);
-    else sobota.setDate(dnes.getDate() + (6 - d));
-    var od = d === 0 ? dnes : sobota;
-    var doKonce = new Date(sobota);
-    doKonce.setDate(sobota.getDate() + 1);
-    doKonce.setHours(23, 59, 59, 999);
-    return { od: od, do: doKonce };
-  }
-
-  // ---------- Stav v adrese (lze sdílet odkaz s filtrem) ----------
-  function nactiZAdresy() {
-    var p = new URLSearchParams(location.search);
-    stav.q = p.get('q') || '';
-    stav.typ = TYPY[p.get('typ')] ? p.get('typ') : '';
-    stav.kraj = p.get('kraj') || '';
-    stav.vikend = p.get('vikend') === '1';
+  function nejakyFiltr() {
+    return !!(stav.q || pocetAktivnich());
   }
 
   function ulozDoAdresy() {
-    var p = new URLSearchParams();
-    if (stav.q) p.set('q', stav.q);
-    if (stav.typ) p.set('typ', stav.typ);
-    if (stav.kraj) p.set('kraj', stav.kraj);
-    if (stav.vikend) p.set('vikend', '1');
-    var qs = p.toString();
+    var qs = L.adresaZeStavu(stav);
     history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
   }
 
   function promitniStav() {
-    el.hledat.value = stav.q;
+    if (el.hledat.value.trim() !== stav.q) el.hledat.value = stav.q;
     el.kraj.value = stav.kraj;
-    el.vikend.setAttribute('aria-pressed', String(stav.vikend));
-    el.typy.forEach(function (b) {
+    if (stav.mesic && !el.mesic.querySelector('option[value="' + stav.mesic + '"]')) {
+      var o = document.createElement('option');
+      o.value = stav.mesic;
+      o.textContent = stav.mesic;
+      el.mesic.appendChild(o);
+    }
+    el.mesic.value = stav.mesic;
+    el.od.value = stav.od;
+    el.do.value = stav.do;
+    var vlastni = vlastniOtevreno || !!(stav.od || stav.do);
+    el.vlastni.hidden = !vlastni;
+    el.cipyTyp.querySelectorAll('[data-typ]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-typ') === stav.typ));
     });
-    el.zrusit.hidden = !(stav.q || stav.typ || stav.kraj || stav.vikend);
+    el.cipyKdy.querySelectorAll('[data-kdy]').forEach(function (b) {
+      var k = b.getAttribute('data-kdy');
+      var aktivni = k === 'vlastni' ? vlastni : k === '' ? !L.filtrujeSeDatem(stav) && !vlastni : k === stav.kdy;
+      b.setAttribute('aria-pressed', String(aktivni));
+    });
+    var n = pocetAktivnich();
+    el.pocetFiltru.hidden = !n;
+    el.pocetFiltru.textContent = n;
+    el.zrusit.hidden = !nejakyFiltr();
+  }
+
+  function zmena() {
+    promitniStav();
+    ulozDoAdresy();
+    vykresli();
   }
 
   // ---------- Data ----------
-  function pripravAkce(data) {
-    var dnes = zacatekDne(new Date());
-    return (data.akce || [])
-      .map(function (a) {
-        var z = prectiDatum(a.zacatek, false);
-        var k = prectiDatum(a.konec || a.zacatek, true);
-        if (!z) return null;
-        if (!k || k.datum < z.datum) k = { datum: z.sCasem ? z.datum : new Date(z.datum.getTime() + 86399999) };
-        a._z = z.datum;
-        a._k = k.datum;
-        a._sCasem = z.sCasem;
-        a._typy = (a.typy || []).filter(function (t) { return TYPY[t]; });
-        a._hledat = bezDiakritiky([a.nazev, a.misto, a.adresa, a.obec, a.kraj, a.popis,
-          a._typy.map(function (t) { return TYPY[t].nazev; }).join(' ')].join(' '));
-        return a;
-      })
-      .filter(function (a) { return a && a._k >= dnes; })
-      .sort(function (a, b) { return a._z - b._z || String(a.nazev).localeCompare(b.nazev, 'cs'); });
-  }
-
   function naplnKraje() {
     var pocty = {};
     akce.forEach(function (a) { if (a.kraj) pocty[a.kraj] = (pocty[a.kraj] || 0) + 1; });
@@ -177,26 +120,43 @@
     }).join('');
   }
 
-  function filtruj() {
-    var slova = bezDiakritiky(stav.q).split(/\s+/).filter(Boolean);
-    var vikend = stav.vikend ? tentoVikend() : null;
-    return akce.filter(function (a) {
-      if (stav.typ && a._typy.indexOf(stav.typ) < 0) return false;
-      if (stav.kraj && a.kraj !== stav.kraj) return false;
-      if (vikend && (a._z > vikend.do || a._k < vikend.od)) return false;
-      for (var i = 0; i < slova.length; i++) {
-        if (a._hledat.indexOf(slova[i]) < 0) return false;
-      }
-      return true;
-    });
+  // ---------- Vykreslení ----------
+  var PARTNERSKY_REL = 'sponsored nofollow noopener';
+
+  function datumBadge(a, probiha) {
+    var d = probiha ? a._k : a._z;
+    return '<div class="datum' + (probiha ? ' datum-do' : '') + '" aria-hidden="true">' +
+      (probiha ? '<small>do</small>' : '') +
+      '<strong>' + d.getDate() + '</strong><span>' + L.MESICE_ZKR[d.getMonth()] + '</span></div>';
   }
 
-  // ---------- Vykreslení ----------
-  function karta(a) {
-    var url = bezpecnaUrl(a.url);
-    var img = bezpecnaUrl(a.obrazek);
-    var ikona = a._typy.length ? TYPY[a._typy[0]].ikona : '🚦';
-    var probiha = a._z < new Date() && a._k >= new Date();
+  function komercniPrvek(a, pouziteNabidky, ted) {
+    if (!L.monetizaceZapnuta(mon) || a.zruseno) return ''; // u zrušené akce nic neprodáváme
+    var typ = L.hlavniTyp(a);
+    if (mon.nabidky !== false && nabidky) {
+      var n = L.vyberNabidku(nabidky, a, pouziteNabidky, ted);
+      if (n) {
+        pouziteNabidky[n.url] = true;
+        return '<aside class="nabidka">' +
+          '<p class="oznaceni">Tip na výlet (reklama)</p>' +
+          '<a href="' + esc(L.pridejUtm(n.url, typ, 'nabidka')) + '" target="_blank" rel="' + PARTNERSKY_REL + '">' +
+            esc(n.nazev) + '</a>' +
+          (n.popis ? '<p>' + esc(n.popis) + '</p>' : '') +
+        '</aside>';
+      }
+    }
+    var booking = L.bookingOdkaz(a, mon, ted);
+    if (booking) {
+      return '<a class="tlacitko tlacitko-partner" href="' + esc(booking) + '" target="_blank" rel="' + PARTNERSKY_REL + '">' +
+        L.ikona('postel') + '<span>Ubytování poblíž</span><small>partnerský odkaz · Booking.com</small></a>';
+    }
+    return '';
+  }
+
+  function karta(a, probiha, pouziteNabidky, ted, trida) {
+    var typ = L.hlavniTyp(a);
+    var url = L.pridejUtm(a.url, typ, 'clanek');
+    var img = L.obrazekAkce(a);
     var misto = [a.misto, a.obec && (a.misto || '').indexOf(a.obec) < 0 ? a.obec : ''].filter(Boolean).join(', ');
 
     var stitky = [];
@@ -204,26 +164,47 @@
     if (a.presunuto) stitky.push('<li class="pozor">Přesunuto</li>');
     if (probiha) stitky.push('<li class="probiha">Právě probíhá</li>');
     a._typy.forEach(function (t) {
-      stitky.push('<li><span aria-hidden="true">' + TYPY[t].ikona + '</span> ' + TYPY[t].nazev + '</li>');
+      stitky.push('<li>' + (t === 'ostatni' ? '' : L.ikona(t)) + TYPY[t].nazev + '</li>');
     });
     if (a.kraj) stitky.push('<li>' + esc(a.kraj) + '</li>');
 
-    return '<article class="karta' + (a.zruseno ? ' zrusena' : '') + '">' +
-      '<div class="karta-obrazek">' +
-        (img
-          ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async" data-ikona="' + ikona + '">'
-          : '<div class="nahradni" aria-hidden="true">' + ikona + '</div>') +
-        '<div class="datum" aria-hidden="true"><strong>' + a._z.getDate() + '</strong><span>' +
-          MESICE_ZKR[a._z.getMonth()] + '</span></div>' +
+    return '<article class="karta' + (a.zruseno ? ' zrusena' : '') + (trida ? ' ' + trida : '') + '" id="akce-' + esc(a.id) + '">' +
+      '<div class="karta-obrazek" data-typ="' + typ + '">' +
+        (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : L.zastupnyObrazek(typ)) +
+        datumBadge(a, probiha) +
       '</div>' +
       '<div class="karta-telo">' +
         '<h3>' + esc(a.nazev) + '</h3>' +
-        '<p class="termin"><time datetime="' + esc(a.zacatek) + '">' + esc(formatTermin(a)) + '</time></p>' +
-        (misto ? '<p class="misto">📍 ' + esc(misto) + '</p>' : '') +
+        '<p class="termin"><time datetime="' + esc(a.zacatek) + '">' + esc(L.formatTermin(a, ted)) + '</time></p>' +
+        (misto ? '<p class="misto">' + L.ikona('misto') + '<span>' + esc(misto) + '</span></p>' : '') +
         (stitky.length ? '<ul class="stitky">' + stitky.join('') + '</ul>' : '') +
-        (url ? '<a class="tlacitko" href="' + esc(url) + '" target="_blank" rel="noopener">Více na Hravestroje.cz</a>' : '') +
+        '<div class="karta-akce">' +
+          (url ? '<a class="tlacitko" href="' + esc(url) + '" target="_blank" rel="noopener">Více na Hravestroje.cz</a>' : '') +
+          '<div class="male-akce">' +
+            '<button type="button" class="male" data-akce="ics" data-id="' + esc(a.id) + '">' + L.ikona('kalendar') + '<span>Přidat do kalendáře</span></button>' +
+            '<button type="button" class="male" data-akce="sdilet" data-id="' + esc(a.id) + '">' + L.ikona('sdilet') + '<span>Sdílet</span></button>' +
+          '</div>' +
+          komercniPrvek(a, pouziteNabidky, ted) +
+        '</div>' +
       '</div>' +
     '</article>';
+  }
+
+  function dlazdiceProduktu(p, typ, trida) {
+    var url = L.pridejUtm(p.url, typ, 'eshop');
+    var img = L.bezpecnaUrl(p.obrazek);
+    var cena = typeof p.cena === 'number' ? p.cena.toLocaleString('cs-CZ') + ' Kč' : '';
+    return '<aside class="karta produkt' + (trida ? ' ' + trida : '') + '">' +
+      '<a href="' + esc(url) + '" target="_blank" rel="noopener">' +
+        '<p class="oznaceni">Z našeho e-shopu</p>' +
+        '<div class="produkt-obrazek">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : L.zastupnyObrazek(typ)) + '</div>' +
+        '<div class="karta-telo">' +
+          '<h3>' + esc(p.nazev) + '</h3>' +
+          (cena ? '<p class="cena">' + (p.puvodni_cena > p.cena ? '<s>' + p.puvodni_cena.toLocaleString('cs-CZ') + ' Kč</s> ' : '') + esc(cena) + '</p>' : '') +
+          '<span class="tlacitko tlacitko-obrys">Prohlédnout v e-shopu</span>' +
+        '</div>' +
+      '</a>' +
+    '</aside>';
   }
 
   function sklonujAkce(n) {
@@ -233,86 +214,217 @@
   }
 
   function vykresli() {
-    var vysledek = filtruj();
-    var filtrovano = stav.q || stav.typ || stav.kraj || stav.vikend;
-    el.pocet.textContent = filtrovano
+    var ted = new Date();
+    var vysledek = L.filtruj(akce, stav, ted);
+    el.pocet.textContent = nejakyFiltr()
       ? 'Nalezeno: ' + sklonujAkce(vysledek.length)
       : 'Nadcházející akce: ' + vysledek.length;
 
     if (!vysledek.length) {
       el.seznam.innerHTML = '<p class="info">' + (akce.length
-        ? 'Pro zvolené filtry jsme nenašli žádnou akci. Zkuste jiný kraj nebo typ.'
+        ? 'Pro zvolené filtry jsme nenašli žádnou akci. Zkuste jiný termín, kraj nebo typ.'
         : 'Zatím tu nejsou žádné nadcházející akce. Mrkněte sem brzy znovu.') + '</p>';
       return;
     }
 
-    var dnes = zacatekDne(new Date());
+    var casti = L.rozdelAkce(vysledek, ted);
     var skupiny = [];
-    var posledni = null;
-    vysledek.forEach(function (a) {
-      var d = a._z < dnes ? dnes : a._z; // probíhající akce patří do aktuálního měsíce
-      var klic = d.getFullYear() + '-' + d.getMonth();
-      if (!posledni || posledni.klic !== klic) {
-        posledni = { klic: klic, nazev: MESICE_1P[d.getMonth()] + ' ' + d.getFullYear(), akce: [] };
-        skupiny.push(posledni);
-      }
-      posledni.akce.push(a);
-    });
+    if (casti.probiha.length) skupiny.push({ nazev: 'Právě probíhá', akce: casti.probiha, probiha: true });
+    skupiny = skupiny.concat(L.seskupPodleMesicu(casti.nadchazejici));
 
-    // jedna mřížka pro všechny měsíce, nadpis měsíce přes celou šířku
-    el.seznam.innerHTML = '<div class="mrizka">' + skupiny.map(function (s) {
-      return '<h2 class="mesic">' + esc(s.nazev) + '</h2>' + s.akce.map(karta).join('');
-    }).join('') + '</div>';
+    var kazda = L.monetizaceZapnuta(mon) && mon.eshop !== false && produkty ? Math.max(2, +mon.eshop_kazda_karta || 6) : 0;
+    var celkem = vysledek.length, poradi = 0;
+    var pouziteNabidky = {}, pouziteProdukty = {};
 
-    el.seznam.querySelectorAll('img[data-ikona]').forEach(function (img) {
-      img.addEventListener('error', function () {
-        var n = document.createElement('div');
-        n.className = 'nahradni';
-        n.setAttribute('aria-hidden', 'true');
-        n.textContent = img.getAttribute('data-ikona');
-        img.replaceWith(n);
-      }, { once: true });
+    el.seznam.innerHTML = skupiny.map(function (s) {
+      var polozky = [];
+      s.akce.forEach(function (a) {
+        polozky.push(function (trida) { return karta(a, !!s.probiha, pouziteNabidky, ted, trida); });
+        poradi++;
+        if (kazda && poradi % kazda === 0 && poradi < celkem) {
+          var typ = L.hlavniTyp(a);
+          var p = L.vyberProdukt(produkty, typ, a.id || a.nazev, pouziteProdukty);
+          if (p) {
+            pouziteProdukty[p.url] = true;
+            polozky.push(function (trida) { return dlazdiceProduktu(p, typ, trida); });
+          }
+        }
+      });
+      var siroke = L.sirokeNaKonci(polozky.length, 3);
+      return '<section class="skupina-akci' + (s.probiha ? ' probiha-sekce' : '') + '">' +
+        '<h2 class="mesic">' + esc(s.nazev) + '</h2>' +
+        '<div class="mrizka">' + polozky.map(function (f, i) {
+          return f(i >= polozky.length - siroke ? 'siroka' : '');
+        }).join('') + '</div></section>';
+    }).join('');
+  }
+
+  // Nefunkční obrázek → jednotný zástupný obrázek s ikonou typu
+  el.seznam.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG') return;
+    var obal = img.closest('[data-typ]');
+    var typ = obal ? obal.getAttribute('data-typ') : 'ostatni';
+    var div = document.createElement('div');
+    div.innerHTML = L.zastupnyObrazek(typ);
+    img.replaceWith(div.firstChild);
+  }, true);
+
+  // ---------- Přidat do kalendáře, sdílet ----------
+  var casovacOznameni;
+  function oznam(text) {
+    el.oznameni.textContent = text;
+    el.oznameni.hidden = false;
+    clearTimeout(casovacOznameni);
+    casovacOznameni = setTimeout(function () { el.oznameni.hidden = true; }, 2600);
+  }
+
+  function stahniIcs(a) {
+    var blob = new Blob([L.ics(a, new Date())], { type: 'text/calendar;charset=utf-8' });
+    var odkaz = document.createElement('a');
+    odkaz.href = URL.createObjectURL(blob);
+    odkaz.download = L.nazevSouboru(a);
+    document.body.appendChild(odkaz);
+    odkaz.click();
+    setTimeout(function () { URL.revokeObjectURL(odkaz.href); odkaz.remove(); }, 1000);
+  }
+
+  function zkopiruj(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (ok, chyba) {
+      var t = document.createElement('textarea');
+      t.value = text;
+      t.setAttribute('readonly', '');
+      t.style.position = 'fixed';
+      t.style.opacity = '0';
+      document.body.appendChild(t);
+      t.select();
+      try { document.execCommand('copy') ? ok() : chyba(); } catch (e) { chyba(e); }
+      t.remove();
     });
   }
 
-  function zmena() {
-    promitniStav();
-    ulozDoAdresy();
-    vykresli();
+  function sdilej(a) {
+    var url = location.origin + location.pathname + '#akce-' + a.id;
+    var data = { title: a.nazev, text: a.nazev + ' – ' + L.formatTermin(a, new Date()), url: url };
+    if (navigator.share) {
+      navigator.share(data).catch(function () {});
+      return;
+    }
+    zkopiruj(url).then(function () { oznam('Odkaz zkopírován do schránky'); },
+      function () { window.prompt('Zkopírujte odkaz:', url); });
   }
 
-  // ---------- Události ----------
+  el.seznam.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-akce]');
+    if (!b) return;
+    var a = podleId[b.getAttribute('data-id')];
+    if (!a) return;
+    if (b.getAttribute('data-akce') === 'ics') stahniIcs(a);
+    else sdilej(a);
+  });
+
+  // ---------- Události filtrů ----------
   var casovac;
   el.hledat.addEventListener('input', function () {
     clearTimeout(casovac);
     casovac = setTimeout(function () {
       stav.q = el.hledat.value.trim();
-      el.zrusit.hidden = !(stav.q || stav.typ || stav.kraj || stav.vikend);
+      el.zrusit.hidden = !nejakyFiltr();
       ulozDoAdresy();
       vykresli();
     }, 150);
   });
   el.kraj.addEventListener('change', function () { stav.kraj = el.kraj.value; zmena(); });
-  el.vikend.addEventListener('click', function () { stav.vikend = !stav.vikend; zmena(); });
-  el.typy.forEach(function (b) {
-    b.addEventListener('click', function () { stav.typ = b.getAttribute('data-typ'); zmena(); });
+  el.cipyTyp.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-typ]');
+    if (!b) return;
+    stav.typ = b.getAttribute('data-typ');
+    zmena();
   });
+  function vymazDatum() {
+    stav.kdy = stav.mesic = stav.od = stav.do = '';
+  }
+  el.cipyKdy.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-kdy]');
+    if (!b) return;
+    var k = b.getAttribute('data-kdy');
+    vymazDatum();
+    vlastniOtevreno = k === 'vlastni';
+    if (k !== 'vlastni') stav.kdy = k;
+    zmena();
+    if (vlastniOtevreno) el.od.focus();
+  });
+  el.mesic.addEventListener('change', function () {
+    vymazDatum();
+    vlastniOtevreno = false;
+    stav.mesic = el.mesic.value;
+    zmena();
+  });
+  function zmenaRozsahu() {
+    stav.kdy = stav.mesic = '';
+    stav.od = el.od.value;
+    stav.do = el.do.value;
+    if (stav.od) el.do.min = stav.od;
+    zmena();
+  }
+  el.od.addEventListener('change', zmenaRozsahu);
+  el.do.addEventListener('change', zmenaRozsahu);
   el.zrusit.addEventListener('click', function () {
-    stav = { q: '', typ: '', kraj: '', vikend: false };
+    stav = L.prazdnyStav();
+    vlastniOtevreno = false;
     zmena();
   });
 
+  // Mobil: filtry v rozbalovacím panelu
+  function nastavPanel(otevrit) {
+    el.prepinac.setAttribute('aria-expanded', String(otevrit));
+    el.panel.classList.toggle('otevreno', otevrit);
+  }
+  el.prepinac.addEventListener('click', function () {
+    nastavPanel(el.prepinac.getAttribute('aria-expanded') !== 'true');
+  });
+  el.hotovo.addEventListener('click', function () {
+    nastavPanel(false);
+    el.seznam.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
   // ---------- Start ----------
-  nactiZAdresy();
+  stav = L.stavZAdresy(location.search);
   promitniStav();
 
-  fetch('akce.json', { cache: 'no-cache' })
-    .then(function (r) {
+  function nactiJson(adresa) {
+    return fetch(adresa, { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
-    })
+    });
+  }
+  function volitelne(adresa) {
+    return nactiJson(adresa).catch(function () { return null; });
+  }
+  function prvniExistujici(adresy) {
+    return adresy.reduce(function (p, adresa) {
+      return p.then(function (v) { return v || volitelne(adresa); });
+    }, Promise.resolve(null));
+  }
+
+  var monetizaceHotova = volitelne(SOUBOR_MONETIZACE).then(function (m) {
+    mon = m;
+    if (!L.monetizaceZapnuta(mon)) return;
+    el.partnerske.hidden = false;
+    return Promise.all([
+      mon.eshop !== false ? volitelne(SOUBOR_PRODUKTU).then(function (d) { produkty = d; }) : null,
+      mon.nabidky !== false ? prvniExistujici(SOUBORY_NABIDEK).then(function (d) { nabidky = d; }) : null
+    ]);
+  });
+
+  nactiJson('akce.json')
     .then(function (data) {
-      akce = pripravAkce(data);
+      akce = L.pripravAkce(data, new Date());
+      podleId = {};
+      akce.forEach(function (a) { podleId[a.id] = a; });
       naplnKraje();
       promitniStav();
       vykresli();
@@ -320,8 +432,19 @@
         var d = new Date(data.aktualizovano);
         if (!isNaN(d)) {
           el.aktualizace.textContent = 'Seznam aktualizován ' + d.getDate() + '. ' + (d.getMonth() + 1) + '. ' +
-            d.getFullYear() + ' v ' + cas(d) + '.';
+            d.getFullYear() + ' v ' + L.cas(d) + '.';
         }
+      }
+      return monetizaceHotova.then(function () {
+        if (L.monetizaceZapnuta(mon)) vykresli();
+      });
+    })
+    .then(function () {
+      // sdílený odkaz na konkrétní akci (#akce-…)
+      var cil = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (cil) {
+        cil.classList.add('zvyraznena');
+        cil.scrollIntoView({ block: 'center' });
       }
     })
     .catch(function () {

@@ -11,6 +11,7 @@
 //   SITEMAP_URL  – jiná sitemapa (výchozí https://www.hravestroje.cz/sitemap.xml)
 //   PREFIX       – začátek cesty článků (výchozí /kalendar-dopravnich-akci)
 //   VYSTUP       – kam uložit výsledek (výchozí akce.json vedle index.html)
+//   DOPLNKY      – soubor s ručními opravami (výchozí doplnky.json vedle index.html)
 //
 // Nepotřebuje žádné balíčky z npm, stačí Node.js 20 nebo novější.
 
@@ -23,7 +24,7 @@ const KOREN = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITEMAP_URL = process.env.SITEMAP_URL || 'https://www.hravestroje.cz/sitemap.xml';
 const PREFIX = process.env.PREFIX || '/kalendar-dopravnich-akci';
 const VYSTUP = path.resolve(KOREN, process.env.VYSTUP || 'akce.json');
-const DOPLNKY = path.resolve(KOREN, 'doplnky.json');
+const DOPLNKY = path.resolve(KOREN, process.env.DOPLNKY || 'doplnky.json');
 const SOUBEZNE = 4;
 const USER_AGENT = 'HraveStroje-KalendarAkci/1.0 (+https://www.hravestroje.cz)';
 const V_GITHUB = !!process.env.GITHUB_ACTIONS;
@@ -47,11 +48,17 @@ export const KRAJE = [
 ];
 
 // ---------- Typy akcí ----------
+// Slova se hledají v názvu, popisu, klíčových slovech a adrese článku (bez diakritiky).
+// Akce bez shody dostane typ „ostatni“. Typ jde ručně přepsat v doplnky.json.
 export const TYPY = {
-  vlaky: [/vlak/, /vlacek/, /zeleznic/, /lokomotiv/, /\bparni/, /masink/, /drezin/, /nadrazi/, /motorak/, /tramvaj/, /\bmetro\b/, /\bmuzeum\s+dopravy/],
+  vlaky: [/vlak/, /vlacek/, /zeleznic/, /lokomotiv/, /\bparni(?!k)/, /masink/, /drezin/, /nadrazi/, /motorak/, /tramvaj/, /\bmetro\b/, /\bmuzeum\s+dopravy/,
+    /motorac/, /\bdrah[ay]\b/, /\bdraze\b/, /kolejist/, /\bdep(a|o|u)\b/, /\bexpres/],
   traktory: [/traktor/, /zemedel/, /kombajn/, /buldocek/, /zetor/, /\bfarm/],
   auta: [/\bauta?\b/, /\baut\b/, /\bauto[\s-]/, /automobil/, /autobus/, /veteran/, /nakladak/, /kamion/, /\btatr[ay]?\b/, /hasic/, /\btruck/, /off-?road/, /rallye?/, /motorist/, /\bjeep/],
+  lode: [/\blod/, /plavb/, /parnik/, /pristav/],
+  letadla: [/letadl/, /letadel/, /letist/, /leteck/, /aviati/, /vrtulnik/],
 };
+export const POVOLENE_TYPY = [...Object.keys(TYPY), 'ostatni'];
 
 // ---------- Pomocné funkce ----------
 export function bezDiakritiky(text) {
@@ -244,9 +251,44 @@ export function urciKraj(...texty) {
 
 export function urciTypy(text) {
   const t = bezDiakritiky(text).replace(/[-_/]+/g, ' ');
-  return Object.entries(TYPY)
+  const nalezene = Object.entries(TYPY)
     .filter(([, vzory]) => vzory.some((v) => v.test(t)))
     .map(([typ]) => typ);
+  return nalezene.length ? nalezene : ['ostatni'];
+}
+
+// Ruční oprava z doplnky.json pro článek (klíč = adresa článku, lomítko na konci nevadí).
+export function najdiDoplnek(doplnky, url) {
+  if (!doplnky || typeof doplnky !== 'object') return {};
+  const bez = (u) => String(u || '').replace(/\/+$/, '');
+  if (doplnky[url] && typeof doplnky[url] === 'object') return doplnky[url];
+  const klic = Object.keys(doplnky).find((k) => !k.startsWith('_') && bez(k) === bez(url));
+  return klic && typeof doplnky[klic] === 'object' ? doplnky[klic] : {};
+}
+
+// Použije ruční opravu na akci:
+//   "kraj": "Jihomoravský kraj"
+//   "typy": ["lode"]  nebo  "typ": "lode"   (vlaky, traktory, auta, lode, letadla, ostatni)
+//   "obrazek": "zastupny"  → skryje obrázek článku, kalendář ukáže jednotný zástupný obrázek
+//   "obrazek": "https://…" → vlastní obrázek
+export function pouzijDoplnek(akce, doplnek = {}) {
+  const a = { ...akce };
+  if (typeof doplnek.kraj === 'string' && doplnek.kraj.trim()) a.kraj = doplnek.kraj.trim();
+  const typy = Array.isArray(doplnek.typy) ? doplnek.typy : doplnek.typ ? [doplnek.typ] : null;
+  if (typy) {
+    const platne = typy.map((t) => bezDiakritiky(t).trim()).filter((t) => POVOLENE_TYPY.includes(t));
+    const neplatne = typy.filter((t) => !POVOLENE_TYPY.includes(bezDiakritiky(t).trim()));
+    if (neplatne.length) {
+      console.log(`${V_GITHUB ? '::warning::' : ''}Neznámý typ v doplnky.json (${a.url}): ${neplatne.join(', ')} – povolené jsou ${POVOLENE_TYPY.join(', ')}`);
+    }
+    if (platne.length) a.typy = [...new Set(platne)];
+  }
+  if (typeof doplnek.obrazek === 'string' && doplnek.obrazek.trim()) {
+    const o = doplnek.obrazek.trim();
+    if (bezDiakritiky(o) === 'zastupny') a.obrazek = null;
+    else a.obrazek = absolutniUrl(o, a.url) || a.obrazek;
+  }
+  return a;
 }
 
 function datum(hodnota) {
@@ -261,10 +303,22 @@ function datum(hodnota) {
   return s;
 }
 
-function ogImage(html) {
-  const m = html.match(/<meta[^>]+property=["']og:image["'][^>]*content=["']([^"']+)["']/i)
-    || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:image["']/i);
-  return m ? dekodujEntity(m[1]) : null;
+// Obrázek pro sdílení článku (og:image). Atributy mohou být v libovolném pořadí,
+// místo property se občas používá name. Prázdná hodnota = žádný obrázek.
+export function ogImage(html) {
+  for (const tag of String(html || '').match(/<meta\b[^>]*>/gi) || []) {
+    if (!/\b(?:property|name)\s*=\s*["']og:image["']/i.test(tag)) continue;
+    const m = tag.match(/\bcontent\s*=\s*"([^"]*)"/i) || tag.match(/\bcontent\s*=\s*'([^']*)'/i);
+    const url = m && dekodujEntity(m[1]);
+    if (url) return url;
+  }
+  return null;
+}
+
+// Obrázek akce: přednostně og:image článku (obrázek pro sdílení bývá aktuální a opravený),
+// obrázek z JSON-LD Event jen tehdy, když og:image chybí.
+export function obrazekAkce(ev, html, clanekUrl) {
+  return absolutniUrl(ogImage(html), clanekUrl) || absolutniUrl(obrazek(ev.image), clanekUrl);
 }
 
 export function prevedEvent(ev, clanekUrl, html, doplnek = {}) {
@@ -275,15 +329,13 @@ export function prevedEvent(ev, clanekUrl, html, doplnek = {}) {
   const popis = dekodujEntity(String(ev.description || '').replace(/<[^>]+>/g, ' ')).slice(0, 400);
   const m = misto(ev.location);
   const keywords = Array.isArray(ev.keywords) ? ev.keywords.join(' ') : ev.keywords || '';
-  const kraj = doplnek.kraj
-    || urciKraj(m.adresa.region, m.adresa.obec, m.nazev, m.adresa.text)
+  const kraj = urciKraj(m.adresa.region, m.adresa.obec, m.nazev, m.adresa.text)
     || null;
-  const typyAkce = doplnek.typy
-    || urciTypy([nazev, popis, keywords, decodeURI(new URL(clanekUrl).pathname)].join(' '));
+  const typyAkce = urciTypy([nazev, popis, keywords, decodeURI(new URL(clanekUrl).pathname)].join(' '));
   const stav = String(ev.eventStatus || '');
   const id = createHash('sha1').update(`${clanekUrl}|${nazev}|${zacatek}`).digest('hex').slice(0, 12);
 
-  return {
+  return pouzijDoplnek({
     id,
     nazev,
     zacatek,
@@ -294,12 +346,12 @@ export function prevedEvent(ev, clanekUrl, html, doplnek = {}) {
     kraj,
     typy: typyAkce,
     url: clanekUrl,
-    obrazek: absolutniUrl(obrazek(ev.image) || ogImage(html), clanekUrl),
+    obrazek: obrazekAkce(ev, html, clanekUrl),
     popis,
     ...(m.geo ? { geo: m.geo } : {}),
     ...(/Cancelled/i.test(stav) ? { zruseno: true } : {}),
     ...(/Postponed|Rescheduled/i.test(stav) ? { presunuto: true } : {}),
-  };
+  }, doplnek);
 }
 
 async function poJednom(polozky, pocet, prace) {
@@ -347,13 +399,14 @@ async function main() {
       // Článek se nepodařilo stáhnout – necháme akce z minulého běhu, ať nezmizí kvůli výpadku.
       // Smazaný článek (404/410) ale vyřadíme.
       if (chyba.status !== 404 && chyba.status !== 410) {
-        akce.push(...(predchozi.akce || []).filter((a) => a.url === url));
+        akce.push(...(predchozi.akce || []).filter((a) => a.url === url)
+          .map((a) => pouzijDoplnek(a, najdiDoplnek(doplnky, url))));
       }
       return;
     }
     const eventy = vytahniJsonLd(html).flatMap(najdiEventy);
     const prevedene = eventy
-      .map((ev) => prevedEvent(ev, url, html, doplnky[url] || {}))
+      .map((ev) => prevedEvent(ev, url, html, najdiDoplnek(doplnky, url)))
       .filter(Boolean);
     if (!prevedene.length) {
       bezJsonLd.push(url);
@@ -379,7 +432,7 @@ async function main() {
   }
   const bezKraje = unikatni.filter((a) => !a.kraj);
   bezKraje.forEach((a) => console.log(`${varovani}Nezjištěn kraj: ${a.nazev} (${a.url}) – doplňte ho v doplnky.json`));
-  const bezTypu = unikatni.filter((a) => !a.typy.length);
+  const bezTypu = unikatni.filter((a) => !a.typy.length || a.typy.includes('ostatni'));
   bezTypu.forEach((a) => console.log(`Nezjištěn typ: ${a.nazev} (${a.url})`));
 
   if (!unikatni.length && (predchozi.akce || []).length) {

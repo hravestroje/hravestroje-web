@@ -1,0 +1,13 @@
+{
+ "_navod": "Testovací ruční opravy (adresa __ZAKLAD__ se v testu nahradí).",
+ "__ZAKLAD__/kalendar-dopravnich-akci-mikulasska-jizda": {
+  "obrazek": "zastupny"
+ },
+ "__ZAKLAD__/kalendar-dopravnich-akci-dozinky-a-veterani/": {
+  "typy": [
+   "traktory",
+   "auta",
+   "nesmysl"
+  ]
+ }
+}
