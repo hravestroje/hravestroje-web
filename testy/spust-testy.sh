@@ -116,5 +116,11 @@ JS
 grep -q "Bez Event JSON-LD: .*kalendar-dopravnich-akci-bez-dat" "$TMP/log.txt"
 echo "OK: článek bez JSON-LD je v logu"
 
+echo "== 3) Akce v okolí (výběr akcí, souřadnice obcí)"
+node "$KOREN/testy/akce-v-okoli.test.cjs"
+VYSTUP="$TMP/souradnice.json" node "$KOREN/akce-v-okoli/scripts/souradnice.mjs" >/dev/null
+test -s "$TMP/souradnice.json"
+echo "OK: souradnice.mjs nad kalendar/akce.json proběhl"
+
 echo
 echo "Všechny testy prošly."

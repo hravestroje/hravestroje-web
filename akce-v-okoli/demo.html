@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akce v okolí – ukázka</title>
+<style>
+  body { margin: 0; background: #f6f5f1; color: #1d2420; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; background: #fff; }
+  h1 { font-size: 1.8rem; line-height: 1.25; margin: 0 0 12px; }
+  .poznamka { font-size: .9rem; color: #59635d; background: #e6f1ea; border-radius: 10px; padding: 10px 14px; }
+  code { font-size: .85em; }
+</style>
+</head>
+<body>
+<main>
+  <p class="poznamka">Ukázka bloku <code>hs-akce-v-okoli</code> se skutečnými daty kalendáře.
+    Místo článku: Kostelec nad Orlicí (50.12, 16.21), Královéhradecký kraj. Jiný den vyzkoušíte parametrem
+    <code>?hs-akce-dnes=2026-12-01</code>, jiné místo <code>?lat=…&amp;lon=…&amp;kraj=…&amp;pocet=…</code>.</p>
+  <h1>Výlet do Orlických hor s malým strojvůdcem</h1>
+  <p>Text článku… Dole pod článkem se ukážou nejbližší nadcházející akce do 50 km, seřazené podle data.
+    Když jich je málo, doplní se akce ze stejného kraje.</p>
+
+  <div class="hs-akce-v-okoli" data-lat="50.1228" data-lon="16.2128" data-kraj="Královéhradecký kraj" data-pocet="4"></div>
+
+  <p>Pokračování článku…</p>
+</main>
+<script>
+  // Jen pro ukázku: místo a počet lze změnit v adrese stránky.
+  (function () {
+    var p = new URLSearchParams(location.search), el = document.querySelector('.hs-akce-v-okoli');
+    ['lat', 'lon', 'kraj', 'pocet', 'okruh'].forEach(function (k) { if (p.get(k)) el.setAttribute('data-' + k, p.get(k)); });
+  })();
+</script>
+<script src="hs-akce-v-okoli.js" defer></script>
+</body>
+</html>
