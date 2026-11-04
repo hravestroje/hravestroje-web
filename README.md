@@ -25,7 +25,7 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 | `produkty/stahni_produkty.py` | z XML exportu Shoptetu vytvoří `produkty.json` (jen standardní Python) |
 | `produkty/pravidla.json` | **témata a sezóny** produktů (vlaky, traktory, auta, Vánoce…) |
 | `produkty/demo.html` + `demo-data.js` | testovací stránka s ukázkovými daty |
-| `produkty/ukazka-export.xml` | ukázkový export ve formátu Shoptetu (smyšlené produkty) |
+| `produkty/ukazka-export.xml` | ukázkový marketingový export Shoptetu (smyšlené produkty, i s variantami) |
 | `testy/` | testy na ukázkových datech + testovací sitemapa kalendáře |
 | `.github/workflows/web.yml` | noční workflow: stažení dat → zveřejnění na GitHub Pages |
 
@@ -40,9 +40,12 @@ a test to hlídá.
 ## 1. Co udělat ručně (jednou)
 
 ### 1.1 Secret `SHOPTET_FEED_URL`
-1. V administraci Shoptetu zkopírujte adresu **XML exportu produktů** (formát Shoptet,
-   i s tajným klíčem/hashem). Export musí obsahovat aspoň název, URL, obrázky, kategorie,
-   cenu s DPH, sklad a viditelnost.
+1. V administraci Shoptetu zkopírujte adresu **marketingového XML exportu produktů**
+   (`productsMarketing.xml`, i s tajným klíčem/hashem). Export musí obsahovat aspoň název,
+   odkaz (`ORIG_URL`), obrázky, kategorie, cenu s DPH (`PRICE`), sklad (`STOCK/AMOUNT`),
+   viditelnost a varianty. Skript umí i starší názvy značek (`URL`, `PRICE_VAT`).
+   U produktů s variantami platí: skladem = aspoň jedna viditelná varianta má počet > 0,
+   cena = nejnižší cena skladové varianty (na webu „od 549 Kč“).
 2. Tento repozitář → **Settings → Secrets and variables → Actions → New repository secret**.
 3. *Name*: `SHOPTET_FEED_URL`, *Secret*: adresa exportu → **Add secret**.
 
@@ -200,7 +203,7 @@ Pak otevřete `http://localhost:8000/kalendar/`.
 | --- | --- |
 | „Chybí secret SHOPTET_FEED_URL“ | secret v *tomto* repozitáři, název přesně `SHOPTET_FEED_URL` |
 | „HTTP 403/404“ při stahování exportu | adresa exportu se změnila → přepište secret |
-| „jen 0 použitelných produktů“ | export není XML export produktů Shoptetu |
+| „jen 0 použitelných produktů“ | export není XML export produktů Shoptetu, nebo produktům chybí název, odkaz (`ORIG_URL`/`URL`) či cena (`PRICE`/`PRICE_VAT`); hláška uvádí i počet položek `SHOPITEM` |
 | Zveřejnění selže „Pages not enabled“ / 404 | Settings → Pages → Source: **GitHub Actions** |
 | Nová data se neprojevila | GitHub Pages i prohlížeč si soubory pamatují ~10 minut |
 | Noční běhy se zastavily | Actions → Zveřejnění webu → **Enable workflow** |
