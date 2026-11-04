@@ -11,6 +11,7 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Testovací stránka produktů | https://hravestroje.github.io/hravestroje-web/produkty/demo.html |
 | Akce v okolí pro články – skript | https://hravestroje.github.io/hravestroje-web/akce-v-okoli/hs-akce-v-okoli.js |
 | Tipy na výlet v článcích – skript a data | https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js, …/nabidky/nabidky.json |
+| Kostry článku „Co se děje o víkendu“ | https://hravestroje.github.io/hravestroje-web/vikend/ |
 
 V repozitáři **není nic tajného**. Adresa exportu ze Shoptetu je jen v GitHub secretu
 `SHOPTET_FEED_URL` – secrety zůstávají skryté i ve veřejném repozitáři a nikde se nevypisují.
@@ -32,6 +33,7 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 | `produkty/ukazka-export.xml` | ukázkový marketingový export Shoptetu (smyšlené produkty, i s variantami) |
 | `akce-v-okoli/` | blok „Akce v okolí“ do článků + souřadnice akcí z offline tabulky obcí – **návod v [akce-v-okoli/README.md](akce-v-okoli/README.md)** |
 | `nabidky/` | **tipy na výlet (reklama)** v článcích: `hs-nabidky.js`, data `nabidky.json` – návod v [`nabidky/README.md`](nabidky/README.md) |
+| `vikend/` | kostry článku „Co se děje o víkendu“ z kalendáře akcí – viz [`vikend/README.md`](vikend/README.md) |
 | `testy/` | testy na ukázkových datech + testovací sitemapa kalendáře |
 | `.github/workflows/web.yml` | noční workflow: stažení dat → zveřejnění na GitHub Pages |
 
@@ -270,9 +272,10 @@ bash testy/spust-testy.sh
 Testují: produkty z `produkty/ukazka-export.xml` (a že v `produkty.json` nejsou neveřejné údaje),
 jasnou chybu při chybějícím secretu, kalendář nad testovací sitemapou `testy/sitemap-kalendar/`
 (6 akcí, kraje, typy včetně lodí, letadel a „ostatní“, ruční opravy z `doplnky-test.json`, zrušená akce,
-článek bez JSON-LD, smazaný článek) a logiku stránky v `testy/kalendar-logika.test.cjs` (řazení
+článek bez JSON-LD, smazaný článek), logiku stránky v `testy/kalendar-logika.test.cjs` (řazení
 a „Právě probíhá“, filtry dat včetně přelomu měsíce a roku, zástupné obrázky, skrytí tlačítka Booking
-bez ID, výběr produktu podle typu, nabídky, soubor .ics).
+bez ID, výběr produktu podle typu, nabídky, soubor .ics) a kostru článku
+o víkendu (výběr víkendu, vícedenní akce, řazení krajů).
 
 Testovací stránka produktů: otevřete `produkty/demo.html` dvojklikem. Na GitHub Pages
 `demo.html?data=ziva` ukáže skutečné produkty z `produkty.json`.
