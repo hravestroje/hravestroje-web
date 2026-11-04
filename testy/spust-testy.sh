@@ -4,6 +4,7 @@
 # 1) produkty: ukázkový marketingový export Shoptetu → produkty.json (varianty, starší názvy značek,
 #    chyba při prázdném exportu), kontrola, že obsahuje jen veřejné údaje
 # 2) kalendář: místní server s testovací sitemapou → akce.json, kontrola nalezených akcí
+# 3) víkend: kostra článku „Co se děje o víkendu“ (výběr víkendu, vícedenní akce, řazení krajů)
 set -euo pipefail
 KOREN="$(cd "$(dirname "$0")/.." && pwd)"
 TMP="$(mktemp -d)"
@@ -115,6 +116,9 @@ console.log('OK: 3 akce, kraje a typy sedí');
 JS
 grep -q "Bez Event JSON-LD: .*kalendar-dopravnich-akci-bez-dat" "$TMP/log.txt"
 echo "OK: článek bez JSON-LD je v logu"
+
+echo "== 3) Víkend – kostra článku"
+node --test "$KOREN/vikend/testy/kostra.test.mjs"
 
 echo
 echo "Všechny testy prošly."

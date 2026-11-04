@@ -9,6 +9,7 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Produkty z e-shopu pro články – data | https://hravestroje.github.io/hravestroje-web/produkty/produkty.json |
 | Produkty z e-shopu pro články – skript | https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js |
 | Testovací stránka produktů | https://hravestroje.github.io/hravestroje-web/produkty/demo.html |
+| Kostry článku „Co se děje o víkendu“ | https://hravestroje.github.io/hravestroje-web/vikend/ |
 
 V repozitáři **není nic tajného**. Adresa exportu ze Shoptetu je jen v GitHub secretu
 `SHOPTET_FEED_URL` – secrety zůstávají skryté i ve veřejném repozitáři a nikde se nevypisují.
@@ -26,6 +27,7 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 | `produkty/pravidla.json` | **témata a sezóny** produktů (vlaky, traktory, auta, Vánoce…) |
 | `produkty/demo.html` + `demo-data.js` | testovací stránka s ukázkovými daty |
 | `produkty/ukazka-export.xml` | ukázkový marketingový export Shoptetu (smyšlené produkty, i s variantami) |
+| `vikend/` | kostry článku „Co se děje o víkendu“ z kalendáře akcí – viz [`vikend/README.md`](vikend/README.md) |
 | `testy/` | testy na ukázkových datech + testovací sitemapa kalendáře |
 | `.github/workflows/web.yml` | noční workflow: stažení dat → zveřejnění na GitHub Pages |
 
@@ -184,7 +186,8 @@ bash testy/spust-testy.sh
 
 Testují: produkty z `produkty/ukazka-export.xml` (a že v `produkty.json` nejsou neveřejné údaje),
 jasnou chybu při chybějícím secretu a kalendář nad testovací sitemapou `testy/sitemap-kalendar/`
-(3 akce, kraje, typy, zrušená akce, článek bez JSON-LD, smazaný článek).
+(3 akce, kraje, typy, zrušená akce, článek bez JSON-LD, smazaný článek) a kostru článku
+o víkendu (výběr víkendu, vícedenní akce, řazení krajů).
 
 Testovací stránka produktů: otevřete `produkty/demo.html` dvojklikem. Na GitHub Pages
 `demo.html?data=ziva` ukáže skutečné produkty z `produkty.json`.
