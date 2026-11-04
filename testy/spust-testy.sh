@@ -4,6 +4,7 @@
 # 1) produkty: ukázkový marketingový export Shoptetu → produkty.json (varianty, starší názvy značek,
 #    chyba při prázdném exportu), kontrola, že obsahuje jen veřejné údaje
 # 2) kalendář: místní server s testovací sitemapou → akce.json, kontrola nalezených akcí
+# 3) kalendář – logika stránky (řazení, filtry dat, typy, obrázky, monetizace, .ics): testy/kalendar-logika.test.cjs
 set -euo pipefail
 KOREN="$(cd "$(dirname "$0")/.." && pwd)"
 TMP="$(mktemp -d)"
@@ -93,28 +94,61 @@ echo "== 2) Kalendář z testovací sitemapy"
 PORT=$(( 18000 + RANDOM % 1000 ))
 mkdir -p "$TMP/web"
 cp -r "$KOREN/testy/sitemap-kalendar/." "$TMP/web/"
-find "$TMP/web" -name '*.xml' -exec sed -i "s#__ZAKLAD__#http://127.0.0.1:$PORT#g" {} +
+find "$TMP/web" \( -name '*.xml' -o -name '*.json' \) -exec sed -i "s#__ZAKLAD__#http://127.0.0.1:$PORT#g" {} +
 python3 -m http.server "$PORT" --bind 127.0.0.1 --directory "$TMP/web" >/dev/null 2>&1 &
 SERVER=$!
 for _ in $(seq 50); do curl -fs "http://127.0.0.1:$PORT/sitemap.xml" >/dev/null 2>&1 && break; sleep 0.1; done
 
-SITEMAP_URL="http://127.0.0.1:$PORT/sitemap.xml" VYSTUP="$TMP/akce.json" \
+SITEMAP_URL="http://127.0.0.1:$PORT/sitemap.xml" VYSTUP="$TMP/akce.json" DOPLNKY="$TMP/web/doplnky-test.json" \
   node "$KOREN/kalendar/scripts/stahni-akce.mjs" | tee "$TMP/log.txt"
 node - "$TMP/akce.json" <<'JS'
 const d = JSON.parse(require('fs').readFileSync(process.argv[2], 'utf8'));
 const ok = (podminka, text) => { if (!podminka) { console.error('CHYBA: ' + text); process.exit(1); } };
-ok(d.pocet === 3 && d.akce.length === 3, `čekám 3 akce, je ${d.pocet}`);
+ok(d.pocet === 6 && d.akce.length === 6, `čekám 6 akcí, je ${d.pocet}`);
 const najdi = (s) => d.akce.find((a) => a.nazev.includes(s));
 const vlak = najdi('Mikulášská'), traktor = najdi('Traktoriáda'), hasici = najdi('hasičských');
-ok(vlak && vlak.kraj === 'Jihomoravský kraj' && vlak.typy.includes('vlaky'), 'Mikulášská jízda: kraj/typ');
-ok(vlak.obrazek && vlak.obrazek.startsWith('https://placehold.co/'), 'Mikulášská jízda: obrázek z og:image');
-ok(traktor && traktor.kraj === 'Zlínský kraj' && traktor.typy.includes('traktory'), 'Traktoriáda: kraj/typ');
+const parnik = najdi('parníkem'), letecky = najdi('Letecký den'), pivovar = najdi('pivovaru');
+ok(vlak && vlak.kraj === 'Jihomoravský kraj' && vlak.typy.join() === 'vlaky', 'Mikulášská jízda: kraj/typ');
+ok(vlak.obrazek === null, 'Mikulášská jízda: doplnky "obrazek": "zastupny" (klíč bez lomítka) skryje obrázek');
+ok(traktor && traktor.kraj === 'Zlínský kraj', 'Traktoriáda: kraj');
+ok(traktor.typy.join() === 'traktory,auta', 'Traktoriáda: typy z doplnky.json, neznámý typ vynechán: ' + traktor.typy);
+ok(traktor.obrazek === 'https://placehold.co/800x450/png?text=Nova%20grafika', 'Traktoriáda: vlastní obrázek z doplnky.json');
 ok(hasici && hasici.zruseno === true && hasici.kraj === 'Hlavní město Praha' && hasici.typy.includes('auta'), 'Hasiči: zrušeno/kraj/typ');
+ok(parnik && parnik.typy.join() === 'lode', 'Parník: typ lode (ne vlaky kvůli „parní“): ' + parnik.typy);
+ok(parnik.zacatek === '2027-07-03' && parnik.konec === '2027-07-05', 'Parník: vícedenní bez času');
+ok(parnik.obrazek && parnik.obrazek.includes('Stara'), 'Parník: obrázek z og:image (bez doplňku)');
+ok(letecky && letecky.typy.join() === 'letadla' && letecky.kraj === 'Královéhradecký kraj', 'Letecký den: typ letadla: ' + letecky.typy);
+ok(pivovar && pivovar.typy.join() === 'ostatni', 'Pivovar: typ ostatni: ' + pivovar.typy);
 ok(!d.akce.some((a) => a.url.includes('jiny-clanek')), 'článek mimo kalendář se nemá brát');
-console.log('OK: 3 akce, kraje a typy sedí');
+console.log('OK: 6 akcí, kraje, typy (i lodě, letadla, ostatní) a doplnky.json sedí');
 JS
 grep -q "Bez Event JSON-LD: .*kalendar-dopravnich-akci-bez-dat" "$TMP/log.txt"
 echo "OK: článek bez JSON-LD je v logu"
+grep -q "Neznámý typ v doplnky.json.*nesmysl" "$TMP/log.txt"
+echo "OK: neznámý typ v doplnky.json je v logu"
+
+echo "== 2a) Typy podle klíčových slov"
+node --input-type=module - "$KOREN/kalendar/scripts/stahni-akce.mjs" <<'JS'
+const { urciTypy } = await import(process.argv[2]);
+const ok = (podminka, text) => { if (!podminka) { console.error('CHYBA: ' + text); process.exit(1); } };
+const pripady = [
+  ['Výlet lodí po Labi', 'lode'], ['Lodní linka T91', 'lode'], ['Plavba po Vltavě', 'lode'],
+  ['Parník Vyšehrad', 'lode'], ['Den v přístavu', 'lode'],
+  ['Letadlo nad městem', 'letadla'], ['Den otevřených dveří na letišti', 'letadla'], ['Letecký den Pardubice', 'letadla'],
+  ['Letecká show', 'letadla'], ['Aviatická pouť', 'letadla'], ['Vyhlídkový let vrtulníkem', 'letadla'],
+  ['Parní vlak do Lužné', 'vlaky'], ['Jízda po Švestkové dráze', 'vlaky'], ['Výstava modelového kolejiště', 'vlaky'],
+  ['Rozloučení s motoráčkem', 'vlaky'], ['Závody traktorů na trati', 'traktory'], ['Traktoriáda', 'traktory'], ['Sraz veteránů', 'auta'],
+  ['Dýňový festival', 'ostatni'],
+];
+for (const [text, typ] of pripady) {
+  const t = urciTypy(text);
+  ok(t.join() === typ, `„${text}“ → čekám ${typ}, je ${t}`);
+}
+console.log(`OK: ${pripady.length} případů klíčových slov (lodě, letadla, ostatní)`);
+JS
+
+echo "== 3) Kalendář – logika stránky"
+TZ=Europe/Prague node "$KOREN/testy/kalendar-logika.test.cjs"
 
 echo
 echo "Všechny testy prošly."

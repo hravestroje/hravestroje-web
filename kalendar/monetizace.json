@@ -1,0 +1,13 @@
+{
+ "_navod": "Nastavení komerčních prvků kalendáře. Podrobný návod je v README v sekci Monetizace. Řádky začínající podtržítkem se ignorují.",
+ "zapnuto": true,
+ "_booking": "Partnerské ID (aid) z Booking.com Affiliate Partner Programme. Dokud je prázdné, tlačítko „Ubytování poblíž“ se nezobrazuje.",
+ "booking_aid": "",
+ "booking_odkaz": "https://www.booking.com/searchresults.cs.html",
+ "booking_label": "kalendar-akci",
+ "_eshop": "Dlaždice produktu z e-shopu (../produkty/produkty.json) po každé N-té kartě.",
+ "eshop": true,
+ "eshop_kazda_karta": 6,
+ "_nabidky": "Tipy na výlet ze souboru nabidky.json (až vznikne). false = nezobrazovat.",
+ "nabidky": true
+}

@@ -1,5 +1,5 @@
 {
- "_navod": "Ruční opravy pro jednotlivé články. Klíč = přesná adresa článku. Povolené typy: vlaky, traktory, auta. Tento řádek se ignoruje.",
+ "_navod": "Ruční opravy pro jednotlivé články. Klíč = přesná adresa článku. Lze nastavit: \"kraj\" (název kraje), \"typy\" (seznam z: vlaky, traktory, auta, lode, letadla, ostatni) a \"obrazek\" (\"zastupny\" = skrýt obrázek článku a ukázat jednotný zástupný obrázek, nebo adresa vlastního obrázku https://…). Řádky začínající podtržítkem se ignorují. Návod je v README v části Kalendář akcí.",
  "https://www.hravestroje.cz/kalendar-dopravnich-akci-priklad/": {
   "kraj": "Jihomoravský kraj",
   "typy": ["vlaky"]

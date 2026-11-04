@@ -1,11 +1,12 @@
 // Service worker kalendáře akcí: umožní přidat stránku na plochu a zobrazit
 // naposledy stažené akce i bez internetu. Neposílá žádné notifikace.
 // Při změně index.html, app.js nebo styles.css zvyšte číslo verze.
-const VERZE = 'kalendar-v2';
+const VERZE = 'kalendar-v3';
 const ZAKLAD = [
   './',
   'index.html',
   'styles.css',
+  'logika.js',
   'app.js',
   'manifest.webmanifest',
   'icons/icon.svg',
@@ -31,8 +32,9 @@ self.addEventListener('fetch', (e) => {
   // obrázky a odkazy na hravestroje.cz necháváme na prohlížeči
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
 
-  // Stránka a akce.json: nejdřív síť (čerstvá data), bez připojení uložená kopie.
-  if (req.mode === 'navigate' || url.pathname.endsWith('/akce.json')) {
+  // Stránka a data (.json – akce, monetizace, produkty, nabídky): nejdřív síť (čerstvá data),
+  // bez připojení uložená kopie.
+  if (req.mode === 'navigate' || url.pathname.endsWith('.json')) {
     e.respondWith(
       fetch(req)
         .then((odp) => {

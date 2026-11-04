@@ -19,8 +19,10 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 | Složka / soubor | K čemu je |
 | --- | --- |
 | `kalendar/` | stránka kalendáře (`index.html`, `app.js`, `styles.css`), data `akce.json`, PWA (`manifest.webmanifest`, `sw.js`, `icons/`) |
+| `kalendar/logika.js` | logika kalendáře (řazení, filtry dat, typy, odkazy, .ics) – oddělená od stránky, aby šla testovat |
+| `kalendar/monetizace.json` | **nastavení komerčních prvků** kalendáře (Booking.com, e-shop, tipy na výlet) – viz [Monetizace](#7-monetizace-kalendáře) |
 | `kalendar/scripts/stahni-akce.mjs` | stáhne akce ze sitemapy hravestroje.cz (Node.js, bez balíčků) |
-| `kalendar/doplnky.json` | ruční opravy kraje nebo typu akce u jednotlivých článků |
+| `kalendar/doplnky.json` | ruční opravy kraje, typu nebo obrázku akce u jednotlivých článků |
 | `produkty/hs-darky.js` | skript pro Shoptet: v článcích vykreslí aktuální produkty skladem |
 | `produkty/stahni_produkty.py` | z XML exportu Shoptetu vytvoří `produkty.json` (jen standardní Python) |
 | `produkty/pravidla.json` | **témata a sezóny** produktů (vlaky, traktory, auta, Vánoce…) |
@@ -138,13 +140,89 @@ Ukázka JSON-LD do článku:
 ```
 
 - Zrušená akce: `"eventStatus": "https://schema.org/EventCancelled"` (v kalendáři přeškrtnutá).
-- Nepozná-li skript kraj nebo typ (v logu „Nezjištěn kraj“), doplňte ho v `kalendar/doplnky.json`.
+- Nepozná-li skript kraj nebo typ (v logu „Nezjištěn kraj“), doplňte ho v `kalendar/doplnky.json`
+  (viz [3.2](#32-ruční-opravy-v-doplnkyjson-kraj-typ-obrázek)).
 - Jinou sitemapu lze nastavit proměnnou repozitáře `SITEMAP_URL`
   (Settings → Secrets and variables → Actions → záložka *Variables*). Není potřeba.
-- Po změně `kalendar/index.html`, `app.js` nebo `styles.css` zvyšte verzi v `kalendar/sw.js`
-  (`kalendar-v2` → `kalendar-v3`), aby si telefony s přidanou aplikací stáhly novou verzi.
+- Po změně `kalendar/index.html`, `app.js`, `logika.js` nebo `styles.css` zvyšte verzi v `kalendar/sw.js`
+  (`kalendar-v3` → `kalendar-v4`), aby si telefony s přidanou aplikací stáhly novou verzi.
 
-Filtry jdou sdílet odkazem, např. `…/kalendar/?typ=vlaky` nebo `?vikend=1`.
+### 3.1 Co kalendář zobrazuje
+
+- **Pořadí:** nahoře sekce **„Právě probíhá“** (vícedenní akce, které začaly před dneškem a ještě trvají),
+  pod ní nadcházející akce přísně podle data a času začátku, rozdělené po měsících. Akce bez času
+  (celodenní) jsou v rámci dne první. Na kartě probíhající akce je „do 30. pro“ (do kdy trvá).
+- **Typy** se poznají podle slov v názvu, popisu a adrese článku:
+
+  | Typ (`typy` v datech) | Klíčová slova (příklady) |
+  | --- | --- |
+  | `vlaky` | vlak, vláček, železnice, lokomotiva, parní, mašinka, drezína, nádraží, motoráček, tramvaj, dráha, kolejiště, depo, expres |
+  | `traktory` | traktor, zemědělský, kombajn, buldoček, Zetor, farma |
+  | `auta` | auto, automobil, autobus, veterán, náklaďák, kamion, Tatra, hasiči, truck, off-road, rallye, jeep |
+  | `lode` | loď, lodní, plavba, parník, přístav |
+  | `letadla` | letadlo, letiště, letecký den, letecká, aviatika, vrtulník |
+  | `ostatni` | vše ostatní (žádné slovo se nenašlo) |
+
+  Slova jsou v `kalendar/scripts/stahni-akce.mjs` (blok `TYPY`). Typ jde u článku ručně přepsat (3.2).
+- **Obrázky:** karta bez obrázku nebo s nefunkčním obrázkem ukáže jednotný zástupný obrázek
+  (zelený se značkou a čárovou ikonou typu).
+- **Filtry** (typ, kraj, hledání a datum) jdou kombinovat a ukládají se do adresy, takže jde poslat odkaz:
+
+  | Filtr | Adresa |
+  | --- | --- |
+  | Dnes / Zítra | `?kdy=dnes`, `?kdy=zitra` |
+  | Tento týden (do neděle) | `?kdy=tyden` |
+  | Tento víkend / Příští víkend | `?kdy=vikend` (funguje i starý `?vikend=1`), `?kdy=pristi-vikend` |
+  | Tento měsíc / Příští měsíc | `?kdy=mesic`, `?kdy=pristi-mesic` |
+  | Konkrétní měsíc | `?mesic=2026-12` |
+  | Vlastní termín od–do | `?od=2026-12-01&do=2026-12-10` (jde i jen `od` nebo jen `do`) |
+  | Typ, kraj, hledání | `?typ=lode`, `?kraj=Zlínský kraj`, `?q=parní` |
+
+  Příklad: `…/kalendar/?typ=vlaky&kraj=Jihomoravský kraj&kdy=pristi-vikend`.
+  Na mobilu jsou filtry v rozbalovacím panelu **Filtry** (číslo na tlačítku = počet aktivních filtrů).
+- U každé akce je **Přidat do kalendáře** (stáhne soubor `.ics` pro Google/Apple/Outlook kalendář)
+  a **Sdílet** (na telefonu nabídka sdílení, na počítači zkopíruje odkaz na akci).
+
+### 3.2 Ruční opravy v doplnky.json (kraj, typ, obrázek)
+
+V `kalendar/doplnky.json` je u každého článku (klíč = **přesná adresa článku**) možné nastavit:
+
+| Klíč | Hodnota | Co udělá |
+| --- | --- | --- |
+| `"kraj"` | `"Jihomoravský kraj"` | přepíše kraj |
+| `"typy"` | `["lode"]` nebo víc: `["vlaky", "lode"]` | přepíše typ (`vlaky`, `traktory`, `auta`, `lode`, `letadla`, `ostatni`) |
+| `"obrazek"` | `"zastupny"` | **skryje obrázek článku** a ukáže jednotný zástupný obrázek (např. stará grafika, která se teprve předělává) |
+| `"obrazek"` | `"https://…/novy-obrazek.jpg"` | použije vlastní obrázek místo obrázku z článku |
+
+Ukázka celého souboru:
+
+```json
+{
+ "_navod": "…tento řádek nechte být…",
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/lodni-linka-t91-labe/": {
+  "typy": ["lode"],
+  "obrazek": "zastupny"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda/": {
+  "kraj": "Jihomoravský kraj",
+  "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/nova-grafika.jpg"
+ }
+}
+```
+
+**Jak to udělat přímo v GitHubu (bez instalace čehokoli):**
+
+1. Otevřete repozitář na github.com → složka `kalendar` → soubor `doplnky.json`.
+2. Vpravo nahoře klikněte na **ikonu tužky** (*Edit this file*).
+3. Před poslední `}` přidejte čárku za předchozí blok a nový blok podle ukázky. Adresu článku
+   zkopírujte z prohlížeče (lomítko na konci nevadí). Pozor na uvozovky `"` a čárky mezi bloky.
+4. Vpravo nahoře klikněte na **Commit changes…**, nechte vybrané *Commit directly to the `main` branch*
+   a potvrďte **Commit changes**.
+5. Workflow se spustí samo (záložka **Actions**), za 2–5 minut je změna na webu.
+   Když je v souboru chyba (chybějící čárka…), běh zčervená a kalendář zůstane beze změny –
+   opravte soubor stejným postupem. Neznámý typ se v logu ukáže jako „Neznámý typ v doplnky.json“.
+
+Až bude nová grafika hotová, blok s `"obrazek": "zastupny"` prostě smažte (zase tužka → Commit).
 
 ---
 
@@ -183,8 +261,11 @@ bash testy/spust-testy.sh
 ```
 
 Testují: produkty z `produkty/ukazka-export.xml` (a že v `produkty.json` nejsou neveřejné údaje),
-jasnou chybu při chybějícím secretu a kalendář nad testovací sitemapou `testy/sitemap-kalendar/`
-(3 akce, kraje, typy, zrušená akce, článek bez JSON-LD, smazaný článek).
+jasnou chybu při chybějícím secretu, kalendář nad testovací sitemapou `testy/sitemap-kalendar/`
+(6 akcí, kraje, typy včetně lodí, letadel a „ostatní“, ruční opravy z `doplnky-test.json`, zrušená akce,
+článek bez JSON-LD, smazaný článek) a logiku stránky v `testy/kalendar-logika.test.cjs` (řazení
+a „Právě probíhá“, filtry dat včetně přelomu měsíce a roku, zástupné obrázky, skrytí tlačítka Booking
+bez ID, výběr produktu podle typu, nabídky, soubor .ics).
 
 Testovací stránka produktů: otevřete `produkty/demo.html` dvojklikem. Na GitHub Pages
 `demo.html?data=ziva` ukáže skutečné produkty z `produkty.json`.
@@ -207,3 +288,90 @@ Pak otevřete `http://localhost:8000/kalendar/`.
 | Zveřejnění selže „Pages not enabled“ / 404 | Settings → Pages → Source: **GitHub Actions** |
 | Nová data se neprojevila | GitHub Pages i prohlížeč si soubory pamatují ~10 minut |
 | Noční běhy se zastavily | Actions → Zveřejnění webu → **Enable workflow** |
+| Typ nebo obrázek akce je špatně | oprava v `kalendar/doplnky.json` (viz 3.2) |
+
+## 7. Monetizace kalendáře
+
+Kalendář obsahuje nenápadné komerční prvky. Každý je označený a na jedné kartě je **nejvýš jeden**:
+
+| Prvek | Kde | Označení |
+| --- | --- | --- |
+| **Ubytování poblíž** – odkaz na Booking.com s místem akce a daty (příjezd v den akce, u vícedenní v den začátku, u probíhající dnes; 1 noc, 2 dospělí) | na kartě akce | „partnerský odkaz · Booking.com“ |
+| **Tip na výlet** z `nabidky.json` odpovídající kraji/typu akce (každá nabídka jen jednou na stránce) | na kartě akce místo Bookingu | „Tip na výlet (reklama)“ |
+| **Produkt z e-shopu** po každé 6. kartě, vybraný podle typu akce (vlak → produkty se slovem vlak…, jinak náhodný skladem) z `../produkty/produkty.json` | samostatná dlaždice mezi kartami | „Z našeho e-shopu“ |
+
+- Partnerské odkazy (Booking, tipy na výlet) mají `rel="sponsored nofollow noopener"` a otevírají se
+  v novém okně. V patičce je věta „Některé odkazy jsou partnerské – pomáhají nám kalendář provozovat zdarma.“
+- **Měření prokliků bez cookies:** všechny odkazy z karet mají `utm_source=kalendar&utm_medium=karta&utm_campaign=<typ>`
+  (`vlaky`, `lode`…) a `utm_content` (`clanek`, `booking`, `eshop`, `nabidka`). Prokliky na hravestroje.cz
+  uvidíte ve statistikách webu (např. Google Analytics → Akvizice → Kampaně, zdroj `kalendar`).
+  Kalendář sám žádné cookies ani měřicí skripty nemá.
+
+### 7.1 Co kam vyplnit v `kalendar/monetizace.json`
+
+```json
+{
+ "zapnuto": true,
+ "booking_aid": "",
+ "booking_odkaz": "https://www.booking.com/searchresults.cs.html",
+ "booking_label": "kalendar-akci",
+ "eshop": true,
+ "eshop_kazda_karta": 6,
+ "nabidky": true
+}
+```
+
+| Pole | Co vyplnit |
+| --- | --- |
+| `zapnuto` | `true` = komerční prvky zapnuté, `false` = **vše vypnuté** (i věta v patičce) |
+| `booking_aid` | vaše **partnerské ID (aid)** z Booking.com Affiliate Partner Programme (jen písmena, číslice, `-`, `_`). **Dokud je prázdné, tlačítko „Ubytování poblíž“ se nezobrazuje.** Nikdy sem nedávejte vymyšlené číslo. |
+| `booking_odkaz` | základní adresa vyhledávání Bookingu; měňte jen tehdy, když vám partnerský program dá jinou |
+| `booking_label` | volitelný štítek, podle kterého v přehledu Bookingu poznáte prokliky z kalendáře |
+| `eshop` | `false` = bez dlaždic produktů z e-shopu |
+| `eshop_kazda_karta` | po kolika kartách se vloží produkt (výchozí 6) |
+| `nabidky` | `false` = nezobrazovat tipy na výlet z `nabidky.json` |
+
+Řádky začínající podtržítkem (`"_booking": "…"`) jsou jen nápověda a ignorují se.
+
+**Krok za krokem v GitHubu:**
+
+1. Zaregistrujte se v partnerském programu Booking.com (*Booking.com Affiliate Partner Programme*)
+   a po schválení si v jejich administraci zkopírujte své **aid** (číslo partnera).
+2. Na github.com otevřete `kalendar/monetizace.json` → **ikona tužky**.
+3. Mezi uvozovky u `"booking_aid": ""` vložte své ID, např. `"booking_aid": "1234567"` (uvozovky nechte).
+4. **Commit changes…** → *Commit directly to the `main` branch* → **Commit changes**.
+5. Za pár minut se na kartách objeví „Ubytování poblíž“. Odkaz si vyzkoušejte – v adrese musí být `aid=…`
+   s vaším číslem.
+
+### 7.2 Tipy na výlet (`nabidky.json`)
+
+Kalendář sám hledá soubor nabídek na adresách `kalendar/nabidky.json`, `nabidky/nabidky.json`
+nebo `nabidky.json` (v kořeni repozitáře) – první nalezený použije. **Dokud soubor neexistuje,
+nic se nezobrazí; jakmile vznikne, začne to fungovat samo** (workflow ho zkopíruje na web).
+Očekávaný tvar:
+
+```json
+{
+ "nabidky": [
+  {
+   "nazev": "Název nabídky",
+   "url": "https://partner.example/odkaz",
+   "popis": "Krátký popis (nepovinné)",
+   "kraje": ["Jihomoravský kraj"],
+   "typy": ["vlaky"],
+   "od": "2026-11-01",
+   "do": "2026-12-31"
+  }
+ ]
+}
+```
+
+`kraje` / `typy` (lze i jednotlivě `"kraj": "…"`, `"typ": "…"`) jsou nepovinné – prázdné = platí pro všechny.
+`od` / `do` jsou nepovinné – mimo toto období se nabídka neukáže. `"aktivni": false` nabídku dočasně skryje.
+Přednost má nabídka, která sedí na kraj i typ.
+
+### 7.3 Jak monetizaci vypnout
+
+- **Vše najednou:** v `kalendar/monetizace.json` změňte `"zapnuto": true` na `"zapnuto": false` (tužka → Commit).
+- **Jen něco:** `"booking_aid": ""` (bez Bookingu), `"eshop": false` (bez produktů), `"nabidky": false` (bez tipů).
+- Kdyby soubor `monetizace.json` chyběl nebo byl rozbitý, kalendář funguje dál – jen bez komerčních prvků.

@@ -101,8 +101,12 @@ jobs:
         run: |
           mkdir -p _site/kalendar/icons _site/produkty
           cp index.html _site/
-          cp kalendar/index.html kalendar/styles.css kalendar/app.js kalendar/akce.json \
-             kalendar/manifest.webmanifest kalendar/sw.js _site/kalendar/
+          cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/app.js kalendar/akce.json \
+             kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js _site/kalendar/
+          # nabídky partnerů (tipy na výlet) – jen pokud soubor v repozitáři existuje
+          if [ -f kalendar/nabidky.json ]; then cp kalendar/nabidky.json _site/kalendar/; fi
+          if [ -f nabidky/nabidky.json ]; then mkdir -p _site/nabidky && cp nabidky/nabidky.json _site/nabidky/; fi
+          if [ -f nabidky.json ]; then cp nabidky.json _site/; fi
           cp kalendar/icons/* _site/kalendar/icons/
           cp produkty/hs-darky.js produkty/demo.html produkty/demo-data.js _site/produkty/
           # pojistka: bez produktů ani akcí nic nezveřejňovat

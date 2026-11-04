@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Kalendář dopravních akcí pro děti | Hravé stroje</title>
-  <meta name="description" content="Nadcházející akce s vlaky, traktory a auty pro děti po celé České republice. Vybírá Hravestroje.cz.">
+  <meta name="description" content="Nadcházející akce s vlaky, traktory, auty, loděmi a letadly pro děti po celé České republice. Vybírá Hravestroje.cz.">
   <meta name="theme-color" content="#1f6f3d">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Akce Hravé stroje">
   <meta property="og:title" content="Kalendář dopravních akcí pro děti">
-  <meta property="og:description" content="Vlaky, traktory a auta – akce pro malé fanoušky strojů na jednom místě.">
+  <meta property="og:description" content="Vlaky, traktory, auta, lodě a letadla – akce pro malé fanoušky strojů na jednom místě.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,32 +22,53 @@
     <div class="obal">
       <a class="znacka" href="https://www.hravestroje.cz/" rel="noopener">Hravé stroje</a>
       <h1>Kalendář dopravních akcí</h1>
-      <p class="podtitul">Vlaky, traktory a auta pro malé fanoušky strojů</p>
+      <p class="podtitul">Vlaky, traktory, auta, lodě a letadla pro malé fanoušky strojů</p>
     </div>
   </header>
 
   <main class="obal">
     <form class="filtry" id="filtry" role="search" onsubmit="return false">
-      <label class="hledani">
-        <span class="sr">Hledat akci</span>
-        <input type="search" id="hledat" placeholder="Hledat: název, město, místo…" autocomplete="off" enterkeyhint="search">
-      </label>
-
-      <div class="cipy" role="group" aria-label="Typ akce">
-        <button type="button" class="cip" data-typ="" aria-pressed="true">Vše</button>
-        <button type="button" class="cip" data-typ="vlaky" aria-pressed="false"><span aria-hidden="true">🚂</span> Vlaky</button>
-        <button type="button" class="cip" data-typ="traktory" aria-pressed="false"><span aria-hidden="true">🚜</span> Traktory</button>
-        <button type="button" class="cip" data-typ="auta" aria-pressed="false"><span aria-hidden="true">🚗</span> Auta</button>
+      <div class="horni-radek">
+        <label class="hledani">
+          <span class="sr">Hledat akci</span>
+          <input type="search" id="hledat" placeholder="Hledat: název, město, místo…" autocomplete="off" enterkeyhint="search">
+        </label>
+        <button type="button" class="prepinac-filtru" id="prepinac-filtru" aria-expanded="false" aria-controls="panel-filtru">
+          <span>Filtry</span> <span class="pocet-filtru" id="pocet-filtru" hidden></span>
+        </button>
       </div>
 
-      <div class="radek">
-        <label class="vyber">
-          <span class="sr">Kraj</span>
-          <select id="kraj">
-            <option value="">Všechny kraje</option>
-          </select>
-        </label>
-        <button type="button" class="cip cip-vikend" id="vikend" aria-pressed="false">Tento víkend</button>
+      <div class="panel-filtru" id="panel-filtru">
+        <div class="skupina">
+          <p class="popisek" id="popisek-typ">Typ</p>
+          <div class="cipy" role="group" aria-labelledby="popisek-typ" id="cipy-typ"></div>
+        </div>
+
+        <div class="skupina">
+          <p class="popisek" id="popisek-kdy">Kdy</p>
+          <div class="cipy" role="group" aria-labelledby="popisek-kdy" id="cipy-kdy"></div>
+          <div class="radek-datum">
+            <label class="vyber">
+              <span class="sr">Vybrat měsíc</span>
+              <select id="mesic"><option value="">Vybrat měsíc…</option></select>
+            </label>
+            <div class="vlastni" id="vlastni" hidden>
+              <label><span>Od</span> <input type="date" id="od"></label>
+              <label><span>Do</span> <input type="date" id="do"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="skupina">
+          <label class="vyber">
+            <span class="popisek">Kraj</span>
+            <select id="kraj">
+              <option value="">Všechny kraje</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="button" class="tlacitko tlacitko-hotovo" id="hotovo">Zobrazit akce</button>
       </div>
     </form>
 
@@ -65,10 +86,14 @@
     <div class="obal">
       <p>Akce vybírá a ověřuje <a href="https://www.hravestroje.cz/" rel="noopener">Hravestroje.cz</a>.
         Termíny se mohou změnit – před cestou si je prosím ověřte u pořadatele.</p>
+      <p class="drobne" id="partnerske" hidden>Některé odkazy jsou partnerské – pomáhají nám kalendář provozovat zdarma.</p>
       <p id="aktualizace" class="drobne"></p>
     </div>
   </footer>
 
+  <div class="oznameni" id="oznameni" role="status" aria-live="polite" hidden></div>
+
+  <script src="logika.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>
