@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Víkendový newsletter – kostry</title>
+<style>
+  body { margin: 0; background: #fbf7f0; color: #2b2622; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
+  a { color: #1f6f3d; }
+  .hs-kostra { margin: 12px 0; }
+  .hs-kopirovat { margin-left: 8px; font: inherit; padding: 2px 10px; cursor: pointer; }
+  .hs-stav { margin-left: 6px; color: #1f6f3d; }
+  .hs-predmet { color: #59635d; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Víkendový newsletter – kostry pro Ecomail</h1>
+<p>Kostry vznikají automaticky z <a href="../kalendar/">kalendáře akcí</a> a produktů z e-shopu každou středu večer.
+Jsou to <strong>jen podklady</strong>: dopište úvod, každou akci ověřte u pořadatele a smažte u ní označení „OVĚŘIT U POŘADATELE“.</p>
+<p>Tlačítko „Zkopírovat HTML“ zkopíruje celý e-mail. V Ecomailu ho vložte do kampaně jako vlastní HTML šablonu.</p>
+<p>Zatím tu nejsou žádné kostry.</p>
+<p><a href="../">Zpět na veřejné soubory webu</a></p>
+</main>
+<script>
+(function () {
+  function kopiruj(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (ok, chyba) {
+      var t = document.createElement('textarea');
+      t.value = text; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy') ? ok() : chyba(new Error('kopírování odmítnuto')); }
+      catch (e) { chyba(e); } finally { document.body.removeChild(t); }
+    });
+  }
+  document.querySelectorAll('.hs-kopirovat').forEach(function (tl) {
+    tl.addEventListener('click', function () {
+      var stav = tl.parentNode.querySelector('.hs-stav');
+      stav.textContent = 'Kopíruji…';
+      fetch(tl.getAttribute('data-soubor'), { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .then(function (html) {
+          if (html.indexOf('{unsubscribe}') < 0) throw new Error('v souboru chybí odkaz na odhlášení');
+          return kopiruj(html);
+        })
+        .then(function () { stav.textContent = 'Zkopírováno.'; })
+        .catch(function (e) { stav.textContent = 'Nepodařilo se zkopírovat (' + e.message + ').'; });
+    });
+  });
+})();
+</script>
+</body>
+</html>
