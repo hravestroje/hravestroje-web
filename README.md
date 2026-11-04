@@ -6,6 +6,7 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Co | Adresa |
 | --- | --- |
 | Kalendář dopravních akcí (PWA, lze přidat na plochu) | https://hravestroje.github.io/hravestroje-web/kalendar/ |
+| Kalendář vložený do stránky Shoptetu – skript, návod v [kalendar/README.md](kalendar/README.md) | https://hravestroje.github.io/hravestroje-web/kalendar/hs-kalendar.js |
 | Produkty z e-shopu pro články – data | https://hravestroje.github.io/hravestroje-web/produkty/produkty.json |
 | Produkty z e-shopu pro články – skript | https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js |
 | Testovací stránka produktů | https://hravestroje.github.io/hravestroje-web/produkty/demo.html |

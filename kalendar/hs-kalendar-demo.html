@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalendář akcí | Hravé stroje – ukázka vložení do Shoptetu</title>
+<link rel="canonical" href="https://www.hravestroje.cz/kalendar-akci/">
+<!-- Napodobenina šablony e-shopu: schválně „agresivní“ obecné styly, které by mohly kalendář
+     rozbít (nadpisy, seznamy, tlačítka, formuláře, obrázky, i třídy se stejnými názvy jako
+     na stránce kalendar/). Kalendář musí vypadat stejně, stránka kolem se nesmí změnit. -->
+<style>
+  body { margin: 0; background: #ececec; color: #333; font: 15px/1.7 Georgia, "Times New Roman", serif; }
+  .sablona-hlavicka { background: #222; color: #fff; padding: 14px 16px; }
+  .sablona-hlavicka a { color: #fff; }
+  .sablona-obal { display: flex; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 16px; }
+  .sablona-menu { flex: 0 0 220px; background: #fff; padding: 12px; }
+  .content { flex: 1; min-width: 0; background: #fff; padding: 20px; }
+  @media (max-width: 767px) { .sablona-obal { display: block; padding: 0; } .sablona-menu { display: none; } .content { padding: 16px; } }
+  h1 { font-size: 2rem; color: #900; margin: 0 0 16px; }
+  .content h2 { font-size: 2.4rem; color: #900; margin: 40px 0 20px; text-transform: uppercase; border-bottom: 3px solid #900; }
+  .content h3 { font-size: 1.8rem; color: #009; margin: 30px 0; text-decoration: underline; }
+  .content p { margin: 0 0 1.5em; text-indent: 2em; }
+  .content ul li { list-style: square; margin-left: 30px; padding: 6px; }
+  .content ul li::before { content: "»"; color: red; margin-right: 6px; }
+  .content img { max-width: 100%; height: auto; border: 4px solid #000; }
+  .content a { color: #f0f; font-weight: 900; }
+  button, input, select { height: 30px; border: 3px solid #f00; border-radius: 0; background: yellow; font-family: monospace; text-transform: uppercase; margin: 5px; }
+  .karta, .mesic, .datum, .tlacitko, .stitky, .ikona { background: #f0f !important; border: 3px dotted blue; }
+  .reklama { display: none; }
+  #sablona-test { padding: 8px; }
+</style>
+</head>
+<body>
+<header class="sablona-hlavicka"><a href="#">Hravé stroje</a> · ukázka stránky e-shopu se šablonou</header>
+<div class="sablona-obal">
+  <aside class="sablona-menu"><h3>Kategorie</h3><ul><li>Vláčky</li><li>Traktory</li></ul></aside>
+  <main class="content">
+    <h1>Kalendář dopravních akcí</h1>
+    <p id="sablona-test">Úvodní text stránky v Shoptetu. Pod ním je jen <code>&lt;div id="hs-kalendar"&gt;&lt;/div&gt;</code>.</p>
+    <h2 id="sablona-h2">Nadpis šablony</h2>
+    <div class="karta" id="sablona-karta">Prvek šablony s třídou „karta“ (musí zůstat růžový).</div>
+
+    <div id="hs-kalendar"></div>
+
+    <p>Text pod kalendářem.</p>
+  </main>
+</div>
+<script>
+  // Jen pro ukázku: místa pro reklamu viditelně označit (v Shoptetu sem Renča vloží AdSense).
+  document.addEventListener('hs-kalendar:vykresleno', function (e) {
+    e.detail.reklamy.forEach(function (slot) {
+      slot.innerHTML = '<div style="padding:18px;border:2px dashed #bbb;border-radius:10px;color:#777;font:14px system-ui">Místo pro reklamu</div>';
+    });
+  });
+</script>
+<script src="hs-kalendar.js" defer></script>
+</body>
+</html>
