@@ -10,6 +10,7 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Produkty z e-shopu pro články – skript | https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js |
 | Testovací stránka produktů | https://hravestroje.github.io/hravestroje-web/produkty/demo.html |
 | Akce v okolí pro články – skript | https://hravestroje.github.io/hravestroje-web/akce-v-okoli/hs-akce-v-okoli.js |
+| Tipy na výlet v článcích – skript a data | https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js, …/nabidky/nabidky.json |
 
 V repozitáři **není nic tajného**. Adresa exportu ze Shoptetu je jen v GitHub secretu
 `SHOPTET_FEED_URL` – secrety zůstávají skryté i ve veřejném repozitáři a nikde se nevypisují.
@@ -30,6 +31,7 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 | `produkty/demo.html` + `demo-data.js` | testovací stránka s ukázkovými daty |
 | `produkty/ukazka-export.xml` | ukázkový marketingový export Shoptetu (smyšlené produkty, i s variantami) |
 | `akce-v-okoli/` | blok „Akce v okolí“ do článků + souřadnice akcí z offline tabulky obcí – **návod v [akce-v-okoli/README.md](akce-v-okoli/README.md)** |
+| `nabidky/` | **tipy na výlet (reklama)** v článcích: `hs-nabidky.js`, data `nabidky.json` – návod v [`nabidky/README.md`](nabidky/README.md) |
 | `testy/` | testy na ukázkových datech + testovací sitemapa kalendáře |
 | `.github/workflows/web.yml` | noční workflow: stažení dat → zveřejnění na GitHub Pages |
 

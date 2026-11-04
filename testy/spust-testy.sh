@@ -5,6 +5,7 @@
 #    chyba při prázdném exportu), kontrola, že obsahuje jen veřejné údaje
 # 2) kalendář: místní server s testovací sitemapou → akce.json, kontrola nalezených akcí
 # 3) kalendář – logika stránky (řazení, filtry dat, typy, obrázky, monetizace, .ics): testy/kalendar-logika.test.cjs
+# 3) nabídky: kontrola nabidky.json, výběr podle kraje/typu, prošlé, mřížka (+ Chromium, je-li Playwright)
 set -euo pipefail
 KOREN="$(cd "$(dirname "$0")/.." && pwd)"
 TMP="$(mktemp -d)"
@@ -184,6 +185,11 @@ node "$KOREN/testy/akce-v-okoli.test.cjs"
 VYSTUP="$TMP/souradnice.json" node "$KOREN/akce-v-okoli/scripts/souradnice.mjs" >/dev/null
 test -s "$TMP/souradnice.json"
 echo "OK: souradnice.mjs nad kalendar/akce.json proběhl"
+
+echo "== 3) Tipy na výlet (nabidky/)"
+node "$KOREN/nabidky/zkontroluj-nabidky.mjs"
+node "$KOREN/testy/nabidky-test.js"
+node "$KOREN/testy/nabidky-prohlizec.js"
 
 echo
 echo "Všechny testy prošly."

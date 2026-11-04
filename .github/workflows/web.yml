@@ -7,6 +7,7 @@
 #   https://hravestroje.github.io/hravestroje-web/kalendar/
 #   https://hravestroje.github.io/hravestroje-web/produkty/produkty.json
 #   https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js
+#   https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js (+ nabidky.json)
 #
 # U pull requestů se spustí jen testy na ukázkových datech (bez secretů, nic se nezveřejní).
 
@@ -22,6 +23,7 @@ on:
       - "index.html"
       - "kalendar/**"
       - "produkty/**"
+      - "nabidky/**"
       - "testy/**"
       - ".github/workflows/web.yml"
   pull_request:
@@ -106,7 +108,7 @@ jobs:
 
       - name: Sestavit web
         run: |
-          mkdir -p _site/kalendar/icons _site/produkty
+          mkdir -p _site/kalendar/icons _site/produkty _site/nabidky
           cp index.html _site/
           cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/app.js kalendar/akce.json \
              kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js _site/kalendar/
@@ -116,6 +118,7 @@ jobs:
           if [ -f nabidky.json ]; then cp nabidky.json _site/; fi
           cp kalendar/icons/* _site/kalendar/icons/
           cp produkty/hs-darky.js produkty/demo.html produkty/demo-data.js _site/produkty/
+          cp nabidky/hs-nabidky.js nabidky/nabidky.json nabidky/demo.html nabidky/demo-data.js _site/nabidky/
           # pojistka: bez produktů ani akcí nic nezveřejňovat
           test -s _site/produkty/produkty.json
           test -s _site/kalendar/akce.json

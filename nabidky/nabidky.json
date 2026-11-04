@@ -1,0 +1,28 @@
+{
+  "nabidky": [
+    {
+      "id": "ukazka-vlaky-kralovehradecky",
+      "ukazka": true,
+      "nazev": "Ukázka: výlet historickým vlakem",
+      "popis": "Vzorová položka, na webu se nezobrazuje. Zkopírujte ji, smažte řádek \"ukazka\" a doplňte skutečný odkaz.",
+      "url": "#",
+      "obrazek": "",
+      "zdroj": "jine",
+      "kraje": ["Královéhradecký kraj"],
+      "typy": ["vlaky"],
+      "platnost_do": "2026-12-31"
+    },
+    {
+      "id": "ukazka-celostatni",
+      "ukazka": true,
+      "nazev": "Ukázka: rodinný zážitek kdekoli v ČR",
+      "popis": "Vzorová položka, na webu se nezobrazuje. Prázdné \"kraje\" = nabídka pro celou republiku, typ \"vse\" = ke všem článkům.",
+      "url": "#",
+      "obrazek": "",
+      "zdroj": "zazitky",
+      "kraje": [],
+      "typy": ["vse"],
+      "platnost_do": ""
+    }
+  ]
+}
