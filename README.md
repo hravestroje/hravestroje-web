@@ -21,7 +21,7 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 
 | Složka / soubor | K čemu je |
 | --- | --- |
-| `kalendar/` | stránka kalendáře (`index.html`, `app.js`, `styles.css`), data `akce.json`, PWA (`manifest.webmanifest`, `sw.js`, `icons/`) |
+| `kalendar/` | stránka kalendáře (`index.html`, `app.js`, `styles.css`), data `akce.json`, mobilní aplikace (PWA, oblíbené, offline, příprava pro Google Play) – **návod v [kalendar/README.md](kalendar/README.md)** |
 | `kalendar/logika.js` | logika kalendáře (řazení, filtry dat, typy, odkazy, .ics) – oddělená od stránky, aby šla testovat |
 | `kalendar/monetizace.json` | **nastavení komerčních prvků** kalendáře (Booking.com, e-shop, tipy na výlet) – viz [Monetizace](#7-monetizace-kalendáře) |
 | `kalendar/scripts/stahni-akce.mjs` | stáhne akce ze sitemapy hravestroje.cz (Node.js, bez balíčků) |

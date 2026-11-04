@@ -181,6 +181,11 @@ JS
 echo "== 3) Kalendář – logika stránky"
 TZ=Europe/Prague node "$KOREN/testy/kalendar-logika.test.cjs"
 
+echo "== 3) Kalendář jako aplikace – oblíbené, můj kraj, manifest, Google Play, offline"
+node "$KOREN/testy/kalendar-zarizeni.test.cjs"
+node "$KOREN/testy/kalendar-pwa.test.cjs"
+TZ=Europe/Prague node "$KOREN/testy/kalendar-prohlizec.js"
+
 echo "== 3) Akce v okolí (výběr akcí, souřadnice obcí)"
 node "$KOREN/testy/akce-v-okoli.test.cjs"
 VYSTUP="$TMP/souradnice.json" node "$KOREN/akce-v-okoli/scripts/souradnice.mjs" >/dev/null

@@ -35,7 +35,13 @@
     kalendar: '<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/>',
     sdilet: '<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/>',
     postel: '<path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11.5" r="2"/>',
-    filtr: '<path d="M4 5h16M7 12h10M10 19h4"/>'
+    filtr: '<path d="M4 5h16M7 12h10M10 19h4"/>',
+    srdce: '<path d="M12 20s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/>',
+    mobil: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>',
+    sdiletIos: '<path d="M12 15V3M8 6.8 12 3l4 3.8"/><path d="M8 10H6.5A1.5 1.5 0 0 0 5 11.5v8A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5H16"/>',
+    plus: '<rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="M12 8.5v7M8.5 12h7"/>',
+    zavrit: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+    offline: '<path d="M2.5 9a15 15 0 0 1 4-2.6M10 5.3A15 15 0 0 1 21.5 9M5.5 12.5a10 10 0 0 1 3.2-2M14.8 10.6a10 10 0 0 1 3.7 1.9M8.8 16a4.6 4.6 0 0 1 6.4 0M12 19.5h.01M3.5 3.5l17 17"/>'
   };
 
   function ikona(nazev, trida) {
