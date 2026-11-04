@@ -303,10 +303,22 @@ function datum(hodnota) {
   return s;
 }
 
-function ogImage(html) {
-  const m = html.match(/<meta[^>]+property=["']og:image["'][^>]*content=["']([^"']+)["']/i)
-    || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:image["']/i);
-  return m ? dekodujEntity(m[1]) : null;
+// Obrázek pro sdílení článku (og:image). Atributy mohou být v libovolném pořadí,
+// místo property se občas používá name. Prázdná hodnota = žádný obrázek.
+export function ogImage(html) {
+  for (const tag of String(html || '').match(/<meta\b[^>]*>/gi) || []) {
+    if (!/\b(?:property|name)\s*=\s*["']og:image["']/i.test(tag)) continue;
+    const m = tag.match(/\bcontent\s*=\s*"([^"]*)"/i) || tag.match(/\bcontent\s*=\s*'([^']*)'/i);
+    const url = m && dekodujEntity(m[1]);
+    if (url) return url;
+  }
+  return null;
+}
+
+// Obrázek akce: přednostně og:image článku (obrázek pro sdílení bývá aktuální a opravený),
+// obrázek z JSON-LD Event jen tehdy, když og:image chybí.
+export function obrazekAkce(ev, html, clanekUrl) {
+  return absolutniUrl(ogImage(html), clanekUrl) || absolutniUrl(obrazek(ev.image), clanekUrl);
 }
 
 export function prevedEvent(ev, clanekUrl, html, doplnek = {}) {
@@ -334,7 +346,7 @@ export function prevedEvent(ev, clanekUrl, html, doplnek = {}) {
     kraj,
     typy: typyAkce,
     url: clanekUrl,
-    obrazek: absolutniUrl(obrazek(ev.image) || ogImage(html), clanekUrl),
+    obrazek: obrazekAkce(ev, html, clanekUrl),
     popis,
     ...(m.geo ? { geo: m.geo } : {}),
     ...(/Cancelled/i.test(stav) ? { zruseno: true } : {}),

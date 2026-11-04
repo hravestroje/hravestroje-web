@@ -164,7 +164,10 @@ Ukázka JSON-LD do článku:
   | `ostatni` | vše ostatní (žádné slovo se nenašlo) |
 
   Slova jsou v `kalendar/scripts/stahni-akce.mjs` (blok `TYPY`). Typ jde u článku ručně přepsat (3.2).
-- **Obrázky:** karta bez obrázku nebo s nefunkčním obrázkem ukáže jednotný zástupný obrázek
+- **Obrázky:** bere se přednostně **obrázek pro sdílení článku (`og:image`)** – ten bývá aktuální
+  a opravený. Obrázek z JSON-LD (`"image"` v Event) se použije jen tehdy, když článek `og:image` nemá.
+  Všechny akce z jednoho článku tak mají stejný obrázek. Ruční nastavení v `doplnky.json` (3.2) má přednost
+  před obojím. Karta bez obrázku nebo s nefunkčním obrázkem ukáže jednotný zástupný obrázek
   (zelený se značkou a čárovou ikonou typu).
 - **Filtry** (typ, kraj, hledání a datum) jdou kombinovat a ukládají se do adresy, takže jde poslat odkaz:
 

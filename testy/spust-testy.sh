@@ -112,11 +112,13 @@ ok(vlak && vlak.kraj === 'Jihomoravský kraj' && vlak.typy.join() === 'vlaky', '
 ok(vlak.obrazek === null, 'Mikulášská jízda: doplnky "obrazek": "zastupny" (klíč bez lomítka) skryje obrázek');
 ok(traktor && traktor.kraj === 'Zlínský kraj', 'Traktoriáda: kraj');
 ok(traktor.typy.join() === 'traktory,auta', 'Traktoriáda: typy z doplnky.json, neznámý typ vynechán: ' + traktor.typy);
-ok(traktor.obrazek === 'https://placehold.co/800x450/png?text=Nova%20grafika', 'Traktoriáda: vlastní obrázek z doplnky.json');
+ok(traktor.obrazek === 'https://placehold.co/800x450/png?text=Traktori%C3%A1da', 'Traktoriáda: bez og:image → obrázek z JSON-LD: ' + traktor.obrazek);
+ok(hasici.obrazek === null, 'Hasiči: bez og:image i bez JSON-LD obrázku → žádný obrázek');
 ok(hasici && hasici.zruseno === true && hasici.kraj === 'Hlavní město Praha' && hasici.typy.includes('auta'), 'Hasiči: zrušeno/kraj/typ');
 ok(parnik && parnik.typy.join() === 'lode', 'Parník: typ lode (ne vlaky kvůli „parní“): ' + parnik.typy);
 ok(parnik.zacatek === '2027-07-03' && parnik.konec === '2027-07-05', 'Parník: vícedenní bez času');
-ok(parnik.obrazek && parnik.obrazek.includes('Stara'), 'Parník: obrázek z og:image (bez doplňku)');
+ok(parnik.obrazek === 'https://placehold.co/800x450/png?text=Aktualni%20grafika', 'Parník: og:image má přednost před obrázkem z JSON-LD: ' + parnik.obrazek);
+ok(letecky.obrazek === parnik.obrazek, 'Letecký den: og:image článku');
 ok(letecky && letecky.typy.join() === 'letadla' && letecky.kraj === 'Královéhradecký kraj', 'Letecký den: typ letadla: ' + letecky.typy);
 ok(pivovar && pivovar.typy.join() === 'ostatni', 'Pivovar: typ ostatni: ' + pivovar.typy);
 ok(!d.akce.some((a) => a.url.includes('jiny-clanek')), 'článek mimo kalendář se nemá brát');
@@ -127,7 +129,34 @@ echo "OK: článek bez JSON-LD je v logu"
 grep -q "Neznámý typ v doplnky.json.*nesmysl" "$TMP/log.txt"
 echo "OK: neznámý typ v doplnky.json je v logu"
 
-echo "== 2a) Typy podle klíčových slov"
+echo "== 2a) Obrázek akce: og:image přednostně, JSON-LD jen jako záloha"
+node --input-type=module - "$KOREN/kalendar/scripts/stahni-akce.mjs" <<'JS'
+const { ogImage, obrazekAkce, pouzijDoplnek } = await import(process.argv[2]);
+const ok = (podminka, text) => { if (!podminka) { console.error('CHYBA: ' + text); process.exit(1); } };
+const clanek = 'https://www.hravestroje.cz/kalendar-dopravnich-akci/test/';
+const ev = { image: { '@type': 'ImageObject', url: 'https://cdn.example/stary-jsonld.jpg' } };
+const og = (atributy) => `<html><head><meta charset="utf-8"><meta ${atributy}></head></html>`;
+const pripady = [
+  [og('property="og:image" content="https://cdn.example/novy-og.jpg"'), 'https://cdn.example/novy-og.jpg', 'og:image má přednost'],
+  [og('content="https://cdn.example/novy-og.jpg" property="og:image"'), 'https://cdn.example/novy-og.jpg', 'obrácené pořadí atributů'],
+  [og("name='og:image' content='/user/obr.jpg?a=1&amp;b=2'"), 'https://www.hravestroje.cz/user/obr.jpg?a=1&b=2', 'name=, relativní adresa, entity'],
+  [og('property="og:image:width" content="1200"'), 'https://cdn.example/stary-jsonld.jpg', 'og:image:width není og:image → JSON-LD'],
+  [og('property="og:image" content=""'), 'https://cdn.example/stary-jsonld.jpg', 'prázdný og:image → JSON-LD'],
+  ['<html><head></head></html>', 'https://cdn.example/stary-jsonld.jpg', 'bez og:image → JSON-LD'],
+];
+for (const [html, cekam, popis] of pripady) {
+  const v = obrazekAkce(ev, html, clanek);
+  ok(v === cekam, `${popis}: čekám ${cekam}, je ${v}`);
+}
+ok(obrazekAkce({}, '<html></html>', clanek) === null, 'bez og:image i JSON-LD → null');
+ok(ogImage(og('property="og:image" content="https://a/b.jpg"')) === 'https://a/b.jpg', 'ogImage');
+const a = { url: clanek, obrazek: 'https://cdn.example/novy-og.jpg' };
+ok(pouzijDoplnek(a, { obrazek: 'https://cdn.example/rucni.jpg' }).obrazek === 'https://cdn.example/rucni.jpg', 'doplnky.json: vlastní obrázek má přednost i před og:image');
+ok(pouzijDoplnek(a, { obrazek: 'zastupny' }).obrazek === null, 'doplnky.json: zastupny');
+console.log(`OK: ${pripady.length + 4} případů výběru obrázku (og:image → JSON-LD → doplnky.json)`);
+JS
+
+echo "== 2b) Typy podle klíčových slov"
 node --input-type=module - "$KOREN/kalendar/scripts/stahni-akce.mjs" <<'JS'
 const { urciTypy } = await import(process.argv[2]);
 const ok = (podminka, text) => { if (!podminka) { console.error('CHYBA: ' + text); process.exit(1); } };
