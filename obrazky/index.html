@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Obrázek akce – generátor</title>
+<style>
+  :root { --zelena: #1e6f3f; --zelena-svetla: #e9f4ec; --text: #1d2420; --tlumeny: #59635d; --okraj: #d5ddd7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f6f5f1; color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  header { background: var(--zelena); color: #fff; padding: 14px 16px; }
+  header h1 { margin: 0 auto; max-width: 1240px; font-size: 1.3rem; }
+  main { max-width: 1240px; margin: 0 auto; padding: 16px; display: grid; gap: 20px; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); align-items: start; }
+  @media (max-width: 860px) { main { grid-template-columns: minmax(0, 1fr); } }
+  form { display: grid; gap: 12px; }
+  fieldset { border: 1px solid var(--okraj); border-radius: 10px; padding: 10px 12px 12px; margin: 0; background: #fff; display: grid; gap: 10px; }
+  legend { font-weight: 700; padding: 0 4px; }
+  label { display: grid; gap: 3px; font-size: .92rem; }
+  input[type="text"], select { width: 100%; font: inherit; padding: 7px 9px; border: 1px solid var(--okraj); border-radius: 8px; background: #fff; color: inherit; }
+  input[type="range"] { width: 100%; accent-color: var(--zelena); }
+  .radky { display: flex; gap: 14px; flex-wrap: wrap; }
+  .radky label { display: flex; align-items: center; gap: 6px; }
+  .napoveda { color: var(--tlumeny); font-size: .85rem; margin: 0; }
+  button { font: inherit; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--zelena); background: #fff; color: var(--zelena); }
+  button.hlavni { background: var(--zelena); color: #fff; font-weight: 700; padding: 10px 18px; }
+  .nahled { position: sticky; top: 12px; display: grid; gap: 10px; }
+  canvas { width: 100%; height: auto; max-height: 78vh; object-fit: contain; display: block; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 4px 14px rgba(0,0,0,.08); background: var(--zelena-svetla); }
+  .zprava { min-height: 1.5em; margin: 0; color: var(--zelena); }
+  .zprava.chyba { color: #a8321f; }
+  a { color: var(--zelena); }
+</style>
+</head>
+<body>
+<header><h1>Obrázek akce pro web a sociální sítě</h1></header>
+<main>
+  <form id="formular" autocomplete="off" onsubmit="return false">
+    <fieldset>
+      <legend>Akce</legend>
+      <label>Vybrat z kalendáře
+        <select id="akce"><option value="">– vyplním ručně –</option></select>
+      </label>
+      <p id="akce-chyba" class="napoveda" hidden>Kalendář akcí se nepodařilo načíst, vyplňte údaje ručně.</p>
+      <label>Název akce <input type="text" id="nazev" maxlength="160"></label>
+      <label>Datum <input type="text" id="datum" maxlength="80" placeholder="např. 7. listopadu 2026"></label>
+      <label>Trasa / místo <input type="text" id="misto" maxlength="160"></label>
+      <label>Pořádá <input type="text" id="poradatel" maxlength="120" placeholder="nepovinné"></label>
+      <label>Kraj <input type="text" id="kraj" maxlength="60"></label>
+    </fieldset>
+    <fieldset>
+      <legend>Ilustrace</legend>
+      <label>Ze seznamu
+        <select id="ilustrace"><option value="">– bez ilustrace –</option></select>
+      </label>
+      <p id="ilustrace-prazdne" class="napoveda" hidden>Seznam ilustrací je zatím prázdný – jak ho doplnit, popisuje README ve složce obrazky.</p>
+      <label>Ilustrace ze souboru <input type="file" id="soubor" accept="image/png,image/jpeg,image/webp,image/svg+xml"></label>
+      <label>Velikost <input type="range" id="velikost" min="20" max="100" step="1" value="80"></label>
+      <label>Posun vlevo / vpravo <input type="range" id="posun" min="-100" max="100" step="1" value="0"></label>
+      <p class="napoveda">Ilustrace vždy stojí na spodní linii, posouvá se jen do stran.</p>
+      <div><button type="button" id="vystredit">Výchozí velikost a střed</button></div>
+    </fieldset>
+    <fieldset>
+      <legend>Formát</legend>
+      <div class="radky">
+        <label><input type="radio" name="format" value="web" checked> Web 1200 × 630</label>
+        <label><input type="radio" name="format" value="site"> Sítě 1080 × 1350</label>
+      </div>
+    </fieldset>
+  </form>
+  <section class="nahled" aria-label="Náhled">
+    <canvas id="platno" width="1200" height="630" role="img" aria-label="Náhled obrázku akce"></canvas>
+    <div><button type="button" class="hlavni" id="stahnout">Stáhnout PNG</button></div>
+    <p id="zprava" class="zprava" aria-live="polite"></p>
+    <p class="napoveda">Obrázek se vytváří jen ve vašem prohlížeči, nic se nikam neodesílá. <a href="../">Zpět na veřejné soubory webu</a></p>
+  </section>
+</main>
+<script src="kresleni.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

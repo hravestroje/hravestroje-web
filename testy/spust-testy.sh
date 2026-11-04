@@ -7,6 +7,7 @@
 # 3) kalendář – logika stránky (řazení, filtry dat, typy, obrázky, monetizace, .ics): testy/kalendar-logika.test.cjs
 # 3) nabídky: kontrola nabidky.json, výběr podle kraje/typu, prošlé, mřížka (+ Chromium, je-li Playwright)
 # 3) víkend: kostra článku „Co se děje o víkendu“ (výběr víkendu, vícedenní akce, řazení krajů)
+# 3) obrázek akce: rozměry, rozvržení, ilustrace na zemi, ilustrace.json (+ Chromium, je-li Playwright)
 set -euo pipefail
 KOREN="$(cd "$(dirname "$0")/.." && pwd)"
 TMP="$(mktemp -d)"
@@ -194,6 +195,11 @@ node "$KOREN/testy/nabidky-prohlizec.js"
 
 echo "== 3) Víkend – kostra článku"
 node --test "$KOREN/vikend/testy/kostra.test.mjs"
+
+
+echo "== 3) Obrázek akce (obrazky/)"
+node --test "$KOREN/testy/obrazky.test.cjs"
+node "$KOREN/testy/obrazky-prohlizec.js"
 
 echo
 echo "Všechny testy prošly."

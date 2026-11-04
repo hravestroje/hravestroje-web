@@ -10,6 +10,7 @@
 #   https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js
 #   https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js (+ nabidky.json)
 #   https://hravestroje.github.io/hravestroje-web/vikend/
+#   https://hravestroje.github.io/hravestroje-web/obrazky/
 #
 # U pull requestů se spustí jen testy na ukázkových datech (bez secretů, nic se nezveřejní).
 
@@ -28,6 +29,7 @@ on:
       - "produkty/**"
       - "nabidky/**"
       - "vikend/**"
+      - "obrazky/**"
       - "testy/**"
       - ".github/workflows/web.yml"
   pull_request:
@@ -150,6 +152,12 @@ jobs:
           cp vikend/index.html _site/vikend/
           cp vikend/kostry/*.html _site/vikend/kostry/
           test -s _site/vikend/index.html
+
+      - name: Obrázek akce – generátor
+        run: |
+          mkdir -p _site/obrazky
+          cp obrazky/index.html obrazky/app.js obrazky/kresleni.js obrazky/ilustrace.json _site/obrazky/
+          if [ -d obrazky/ilustrace ]; then cp -r obrazky/ilustrace _site/obrazky/; fi
 
       - uses: actions/configure-pages@v5
 
