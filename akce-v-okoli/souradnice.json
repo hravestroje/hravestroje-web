@@ -1,0 +1,543 @@
+{
+ "vygenerovano": "2026-11-04T15:02:18.563Z",
+ "zdroj": "Tabulka obcí ČR v repozitáři (akce-v-okoli/data/obce.csv) + rucni-souradnice.json",
+ "pocet": 128,
+ "akce": {
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vyletni-vlak-cyklohracek-praha-slany/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/lodni-linka-t91-labe/": {
+   "lat": 50.6612,
+   "lon": 14.0532
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/historicky-vlak-lednice-hurvinek/": {
+   "lat": 48.8,
+   "lon": 16.8035
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce/oslava-nadrazi-martinice-krkonose-2026/": {
+   "lat": 50.5809,
+   "lon": 15.5334
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce/parni-olympia-brno-2026/": {
+   "lat": 49.1952,
+   "lon": 16.6069
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-dp-most-litvinov-2026/": {
+   "lat": 50.5017,
+   "lon": 13.633
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vytopna-jaromer-akce-jizdy-motorackem/": {
+   "lat": 50.3569,
+   "lon": 15.9242,
+   "kraj": "Královéhradecký kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/festival-parnich-lokomotiv-benesov/": {
+   "lat": 49.7839,
+   "lon": 14.6875
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/150-let-kraslicke-drahy-sokolov-kraslice/": {
+   "lat": 50.3238,
+   "lon": 12.5176
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-ceska-trebova/": {
+   "lat": 49.902,
+   "lon": 16.4474,
+   "kraj": "Pardubický kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-prace-muzeum-zemedelskych-stroju-hostice/": {
+   "lat": 49.2871,
+   "lon": 17.0629,
+   "kraj": "Jihomoravský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/zambersky-parostrojni-festival/": {
+   "lat": 50.0874,
+   "lon": 16.4653,
+   "kraj": "Pardubický kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornicke-slavnosti-zastavka-vlacky-zbysov/": {
+   "lat": 49.1881,
+   "lon": 16.3632,
+   "kraj": "Jihomoravský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/ploutvobrani-muzeum-americkych-veteranu-jk-classics-luzna/": {
+   "lat": 50.1239,
+   "lon": 13.7702,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/festival-zeleznice-celakovice/": {
+   "lat": 50.1628,
+   "lon": 14.7511,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/safari-park-express-vlak-dvur-kralove/": {
+   "lat": 50.4318,
+   "lon": 15.8141,
+   "kraj": "Královéhradecký kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/140-let-trati-velke-mezirici-studenec/": {
+   "lat": 49.3562,
+   "lon": 16.0132,
+   "kraj": "Kraj Vysočina"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/prazske-tunely-a-mosty-vyhlidkova-jizda/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-mladejovske-zeleznice/": {
+   "lat": 49.8227,
+   "lon": 16.5912,
+   "kraj": "Pardubický kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/nostalgicka-jizda-hydra-trutnov/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/130-let-jemnicke-drahy/": {
+   "lat": 49.0191,
+   "lon": 15.57,
+   "kraj": "Kraj Vysočina"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/repankovy-slavnosti-kolinska-reparska-drazka/": {
+   "lat": 50.0274,
+   "lon": 15.2028
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/dvojita-parni-jizda-uzkokolejka-jindrichuv-hradec/": {
+   "lat": 49.1446,
+   "lon": 15.0062
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/bramborova-sobota-na-zubacce/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/posledni-jizda-poldi-vlaku-mayrau/": {
+   "lat": 50.176,
+   "lon": 14.0912,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlakem-do-iqlandie-a-babylonu-zubacka/": {
+   "lat": 50.7594,
+   "lon": 15.3654,
+   "kraj": "Liberecký kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/svet-malych-vlacku-cernosice/": {
+   "lat": 49.9602,
+   "lon": 14.3199,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/zubacka-korenov-jizdy-historickych-vlaku/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelarske-setkani-oracov/": {
+   "lat": 50.1116,
+   "lon": 13.549,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/podorlicka-parni-sobota-letohrad/": {
+   "lat": 50.0361,
+   "lon": 16.5002
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-bohumin/": {
+   "lat": 49.9044,
+   "lon": 18.3571,
+   "kraj": "Moravskoslezský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/setkani-hurvinku-luzna-u-rakovnika/": {
+   "lat": 50.1239,
+   "lon": 13.7702
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/": {
+   "lat": 49.6978,
+   "lon": 13.4736,
+   "kraj": "Plzeňský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/pardubice-historicke-motoraky-trolejbusy-na-konicky-motorackem/": {
+   "lat": 50.0344,
+   "lon": 15.7813
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelarska-vystava-ohnistany/": {
+   "lat": 50.3296,
+   "lon": 15.5111
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/rajnochovicka-lesni-zeleznice-pojezdeni/": {
+   "lat": 49.4131,
+   "lon": 17.8133
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/traktoriada-zlate-ceske-rucicky-caslav/": {
+   "lat": 49.911,
+   "lon": 15.3909,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/nostalgicka-jizda-hydra-chomutov/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-z-krnova-do-glucholaz/": {
+   "lat": 50.0907,
+   "lon": 17.7032,
+   "kraj": "Moravskoslezský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-jizda-zbysov-parni-a-dulni-vlak/": {
+   "lat": 49.1553,
+   "lon": 16.3496
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/zazijte-skanzen-v-noci-solvayovy-lomy/": {
+   "lat": 49.9698,
+   "lon": 14.1666
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-liberec/": {
+   "lat": 50.7664,
+   "lon": 15.0544
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlakem-na-vylov-hradeckeho-rybnika-tovacov/": {
+   "lat": 49.4297,
+   "lon": 17.2857
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/libebona-vystava-modelu-libeznice/": {
+   "lat": 50.1921,
+   "lon": 14.4937
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzim-na-kolejich-depozitar-olomouc/": {
+   "lat": 49.5939,
+   "lon": 17.251
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelove-zeleznice-ceska-skalice/": {
+   "lat": 50.3948,
+   "lon": 16.0429,
+   "kraj": "Královéhradecký kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/posazavsky-pacifik-putovani-sternberskou-historii/": {
+   "lat": 49.811,
+   "lon": 14.9283
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/roznovskou-parou-parni-vlak-valasske-mezirici-roznov/": {
+   "lat": 49.4719,
+   "lon": 17.9712
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlaky-vlacky-modely-ostrava/": {
+   "lat": 49.821,
+   "lon": 18.2626
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/historicka-orba-pod-tocnikem/": {
+   "lat": 49.8758,
+   "lon": 13.8975
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-nechalovska-traktoriada/": {
+   "lat": 50.6103,
+   "lon": 15.0044
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/charitativni-jizda-svestkovou-drahou/": {
+   "lat": 50.6446,
+   "lon": 13.8354
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-muzeum-tt-modelu-chocen/": {
+   "lat": 50.0017,
+   "lon": 16.2231
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-plzenecka-zeleznice/": {
+   "lat": 49.6978,
+   "lon": 13.4736
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/legiovlak/": {
+   "lat": 49.911,
+   "lon": 15.3909,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/zvlastni-vlak-trutnov-zacler-28-rijna/": {
+   "lat": 50.6634,
+   "lon": 15.9107
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-na-zubacce/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/republika-prijizdi-uzkokolejkou-nova-bystrice/": {
+   "lat": 49.0194,
+   "lon": 15.1033
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-stredoceskeho-kraje-mayrau/": {
+   "lat": 50.176,
+   "lon": 14.0912
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/chrustenicka-sachta-hagenovy-povesti/": {
+   "lat": 50.0061,
+   "lon": 14.1523
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-kzm-liberec/": {
+   "lat": 50.7664,
+   "lon": 15.0544
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-zahrada-prestavlky/": {
+   "lat": 49.5999,
+   "lon": 13.2445
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-trutnov/": {
+   "lat": 50.5655,
+   "lon": 15.9092
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/modulovka-1-32-dolni-radechova/": {
+   "lat": 50.4384,
+   "lon": 16.1513
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloweenska-jizda-ustecka-draha-moldava/": {
+   "lat": 50.6446,
+   "lon": 13.8354
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloween-v-muzeu-mhd-stresovice/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozlouceni-se-sezonou-luzna-retro-ostravan/": {
+   "lat": 50.1239,
+   "lon": 13.7702
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/tematicke-plavby-lod-kral-jiri-podebrady/": {
+   "lat": 50.1425,
+   "lon": 15.119
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/ukonceni-sezony-solvayovy-lomy/": {
+   "lat": 49.969,
+   "lon": 14.1333
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-parostrojni-zeleznice-brasy/": {
+   "lat": 49.8371,
+   "lon": 13.5784,
+   "kraj": "Plzeňský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloweensky-expres-osoblazska-uzkokolejka/": {
+   "lat": 50.2753,
+   "lon": 17.7153
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/derniera-podripskeho-motoracku/": {
+   "lat": 50.4253,
+   "lon": 14.2606
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-kmz-brno-2026/": {
+   "lat": 49.1952,
+   "lon": 16.6069
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-pecky-2026/": {
+   "lat": 50.0905,
+   "lon": 15.0303
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenska-lokalka-vystava-modelu-techmania/": {
+   "lat": 49.7385,
+   "lon": 13.3737
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-na-svatomartinske-hody-osoblaha/": {
+   "lat": 50.2434,
+   "lon": 17.714
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/halloweenska-jizda-detska-zeleznice-hradec-kralove/": {
+   "lat": 50.2105,
+   "lon": 15.8253
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/svatomartinsky-vlak-svobodne-hermanice/": {
+   "lat": 49.9461,
+   "lon": 17.6744
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modeloveho-kolejiste-kzm-prerov-2026/": {
+   "lat": 49.4566,
+   "lon": 17.4503
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelu-zeleznic-hradec-kralove-2026/": {
+   "lat": 50.2105,
+   "lon": 15.8253
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-plzen-skvrnany-2026/": {
+   "lat": 49.7385,
+   "lon": 13.3737
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modulove-kolejiste-kzm-praha-bubny/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-modelarske-setkani-kzm-ostrava/": {
+   "lat": 49.821,
+   "lon": 18.2626
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/zazitkova-jizda-usteckou-drahou-do-vejprt/": {
+   "lat": 50.6446,
+   "lon": 13.8354
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelove-zeleznice-mohelnice/": {
+   "lat": 49.7771,
+   "lon": 16.9196
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-mezi-traktory-caslav/": {
+   "lat": 49.911,
+   "lon": 15.3909,
+   "kraj": "Středočeský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/kouzelna-vanocni-zahrada-prestavlky/": {
+   "lat": 49.5999,
+   "lon": 13.2445
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce-vlaky/mikulasske-jizdy-cyklohracku/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/": {
+   "lat": 50.6634,
+   "lon": 15.9107
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-do-krystofova-udoli/": {
+   "lat": 50.7664,
+   "lon": 15.0544
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-na-trhy-do-trencina/": {
+   "lat": 49.0925,
+   "lon": 18.0228
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/predvanocni-liberec-vlakem-z-kolina/": {
+   "lat": 50.7664,
+   "lon": 15.0544
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-modelari-nova-paka/": {
+   "lat": 50.4946,
+   "lon": 15.5151
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-pardubice-praskacka/": {
+   "lat": 50.0344,
+   "lon": 15.7813
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-mikulasskym-vlakem-pribram-rozmital/": {
+   "lat": 49.6855,
+   "lon": 13.999
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/": {
+   "lat": 49.1553,
+   "lon": 16.3496
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-motorak-vlaky-plzenskeho-kraje/": {
+   "lat": 49.7385,
+   "lon": 13.3737
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-vimperk-volyne/": {
+   "lat": 49.0526,
+   "lon": 13.7746
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozsviceni-vanocni-tramvaje-strasice/": {
+   "lat": 49.7356,
+   "lon": 13.7577,
+   "kraj": "Plzeňský kraj"
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-se-sergejem/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/": {
+   "lat": 50.0274,
+   "lon": 15.2028
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-za-mikulasem-a-certem-turnov/": {
+   "lat": 50.5874,
+   "lon": 15.1569
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/pekelna-sobota-v-turnovskem-depu/": {
+   "lat": 50.5874,
+   "lon": 15.1569
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mochovsky-motoracek-praha-celakovice-mochov/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-na-krivoklatsky-advent/": {
+   "lat": 49.7385,
+   "lon": 13.3737
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-svobodne-hermanice/": {
+   "lat": 49.9408,
+   "lon": 17.8949
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-praha-vrane-nad-vltavou/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-na-krivoklatsky-advent/": {
+   "lat": 49.7385,
+   "lon": 13.3737
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-parnim-vlakem-brno-ivancice/": {
+   "lat": 49.1952,
+   "lon": 16.6069
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-parni-jizda-jindrichuv-hradec-kamenice-nad-lipou/": {
+   "lat": 49.1446,
+   "lon": 15.0062
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-cheb/": {
+   "lat": 50.0796,
+   "lon": 12.37
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-do-karlovych-varu/": {
+   "lat": 49.7385,
+   "lon": 13.3737
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/cyklohracek-advent-na-hrade-krivoklat/": {
+   "lat": 50.038,
+   "lon": 13.8705
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-jizdy-kromerizske-drahy/": {
+   "lat": 49.2918,
+   "lon": 17.3995
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/svarak-ve-vytopne-korenov/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-modelove-kolejiste-nymburk/": {
+   "lat": 50.1857,
+   "lon": 15.0438
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/historickymi-vlaky-na-vanocni-trhy-olomouc/": {
+   "lat": 49.5939,
+   "lon": 17.251
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/betlemsky-vlak-kolej-klub/": {
+   "lat": 50.5874,
+   "lon": 15.1569
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/zimni-pojezdeni-na-zlince/": {
+   "lat": 49.21,
+   "lon": 17.5309
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/for-model-olomouc/": {
+   "lat": 49.5939,
+   "lon": 17.251
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/legendy-automobilova-slavnost-praha/": {
+   "lat": 50.0756,
+   "lon": 14.4379
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce/den-deti-na-zubacce-korenov/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/aviaticka-pout-hradec-kralove/": {
+   "lat": 50.2105,
+   "lon": 15.8253
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/veteranfest-slavkov-u-brna/": {
+   "lat": 49.1534,
+   "lon": 16.8766
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce-vlaky/pohadkova-sobota-na-zubacce/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelova-sobota-na-zubacce/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-kraje/boruvkova-sobota-na-zubacce/": {
+   "lat": 50.7594,
+   "lon": 15.3654
+  },
+  "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornoplanska-traktoriada-lipno/": {
+   "lat": 48.7675,
+   "lon": 14.0327
+  }
+ }
+}

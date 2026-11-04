@@ -84,6 +84,13 @@ jobs:
           SITEMAP_URL: ${{ vars.SITEMAP_URL }}   # nepovinné; výchozí https://www.hravestroje.cz/sitemap.xml
         run: node kalendar/scripts/stahni-akce.mjs
 
+      - name: Akce v okolí – souřadnice akcí z tabulky obcí a skript pro články
+        run: |
+          node akce-v-okoli/scripts/souradnice.mjs \
+            || echo "::warning::Souřadnice akcí se nepodařilo doplnit, zveřejní se souradnice.json z repozitáře (blok Akce v okolí funguje dál)."
+          mkdir -p _site/akce-v-okoli
+          cp akce-v-okoli/hs-akce-v-okoli.js akce-v-okoli/souradnice.json akce-v-okoli/demo.html _site/akce-v-okoli/
+
       - name: Kalendář – uložit akce.json do repozitáře
         if: steps.akce.outcome == 'success' && github.ref == 'refs/heads/main'
         run: |

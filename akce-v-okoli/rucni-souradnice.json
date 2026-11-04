@@ -1,0 +1,5 @@
+{
+ "_navod": "Ruční souřadnice pro akce, u kterých se obec nenašla v tabulce obcí (nebo je jich víc stejného jména). Klíč = přesná adresa článku, hodnota = {\"lat\": 50.21, \"lon\": 16.07}. Souřadnice zjistíte na mapy.cz (pravé tlačítko na místo → kliknout na souřadnice). Řádky začínající podtržítkem se ignorují.",
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-jizda-zbysov-parni-a-dulni-vlak/": { "lat": 49.1553, "lon": 16.3496 },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/": { "lat": 49.1553, "lon": 16.3496 }
+}
