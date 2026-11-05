@@ -1,5 +1,5 @@
 {
- "aktualizovano": "2026-11-05T09:45:57.735Z",
+ "aktualizovano": "2026-11-05T12:36:23.354Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
  "pocet": 146,
  "akce": [
@@ -1137,22 +1137,6 @@
    "popis": "Slavnostní ukončení sezóny s kavalkádou vlaků všech provozních lokomotiv a parním provozem lokomotivy Bronhilda."
   },
   {
-   "id": "efcd99e8d62d",
-   "nazev": "Halloweenské jízdy parkové železnice Břasy",
-   "zacatek": "2026-10-31T13:00+01:00",
-   "konec": "2026-10-31T17:00+01:00",
-   "misto": "Parostrojní železnice Břasy",
-   "adresa": "Břasy, 338 24 Břasy",
-   "obec": "Břasy",
-   "kraj": null,
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-parostrojni-zeleznice-brasy/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/brasy-halloweenske-jizdy-plakat.jpg",
-   "popis": ""
-  },
-  {
    "id": "bfcafa72b968",
    "nazev": "Halloweenský expres",
    "zacatek": "2026-10-31T17:43:00+01:00",
@@ -1283,6 +1267,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-na-svatomartinske-hody-osoblaha/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plakat-parnim-vlakem-na-svatomartinske-hody-2026.jpg",
    "popis": "Parní vlak Osoblažské úzkokolejky z Třemešné ve Slezsku na Svatomartinské hody do Bohušova: svatý Martin na bílém koni, průvod, požehnání mladého vína, program a svatomartinské menu."
+  },
+  {
+   "id": "dfe9eab21e08",
+   "nazev": "Jízdy parkové železnice Břasy",
+   "zacatek": "2026-11-07T13:00+01:00",
+   "konec": "2026-11-07T16:00+01:00",
+   "misto": "Parostrojní železnice Břasy",
+   "adresa": "Břasy, 338 24 Břasy",
+   "obec": "Břasy",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-parostrojni-zeleznice-brasy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/brasy-jizdy-7-listopadu-2026-plakat.jpg",
+   "popis": ""
   },
   {
    "id": "ac0663a194b6",
