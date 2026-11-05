@@ -10,6 +10,8 @@
     <ORIG_URL>https://www.hravestroje.cz/produkt-101/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=D%C5%99ev%C4%9Bn%C3%BD%20vl%C3%A1%C4%8Dek</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Vl%C3%A1%C4%8Dek%20%E2%80%93%20vag%C3%B3ny</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Vl%C3%A1%C4%8Dek%20%E2%80%93%20balen%C3%AD</IMAGE>
     </IMAGES>
     <CATEGORIES>
       <CATEGORY id="4">Hračky &gt; Vláčky a vláčkodráhy</CATEGORY>
@@ -80,6 +82,7 @@
     <ORIG_URL>https://www.hravestroje.cz/produkt-104/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Pexeso%20Ma%C5%A1inky</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Pexeso%20%E2%80%93%20karti%C4%8Dky</IMAGE>
     </IMAGES>
     <CATEGORIES>
       <CATEGORY id="7">Hry &gt; Pexesa</CATEGORY>
@@ -102,6 +105,9 @@
     <ORIG_URL>https://www.hravestroje.cz/produkt-105/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Omalov%C3%A1nky%20%C5%BDeleznice</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Omalov%C3%A1nky%20%E2%80%93%20titulka%20zezadu</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Omalov%C3%A1nky%20%E2%80%93%20uk%C3%A1zka%20str%C3%A1nky</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Omalov%C3%A1nky%20%E2%80%93%20dal%C5%A1%C3%AD%20strana</IMAGE>
     </IMAGES>
     <CATEGORIES>
       <CATEGORY id="1">Tvoření &gt; Omalovánky</CATEGORY>
@@ -212,6 +218,7 @@
     <ORIG_URL>https://www.hravestroje.cz/produkt-110/</ORIG_URL>
     <IMAGES>
       <IMAGE description="">https://placehold.co/400x400/png?text=Hasi%C4%8Dsk%C3%A9%20auto</IMAGE>
+      <IMAGE description="">https://placehold.co/800x600/png?text=Hasi%C4%8Dsk%C3%A9%20auto%20%E2%80%93%20detail</IMAGE>
     </IMAGES>
     <CATEGORIES>
       <CATEGORY id="6">Hračky &gt; Auta</CATEGORY>

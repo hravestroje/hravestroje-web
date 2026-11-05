@@ -1,0 +1,11 @@
+{
+  "_napoveda": "Ruční náhledy pro testy a demo.html (ukazka-export.xml).",
+  "produkty": {
+    "HS105": { "nahled": 3 },
+    "https://www.hravestroje.cz/produkt-104": { "nahled": 2 },
+    "hs110": { "hlavni": 2, "nahled": 1, "stitek": false },
+    "HS106": { "nahled": 5 },
+    "HS999": { "nahled": 2 },
+    "_poznamka": { "nahled": 2 }
+  }
+}

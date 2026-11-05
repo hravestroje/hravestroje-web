@@ -9,9 +9,11 @@
   // ---- NASTAVENÍ ---------------------------------------------------------
   var NASTAVENI = {
     data: '',              // adresa produkty.json; prázdné = stejná složka jako tento skript
-    pocet: 8,              // kolik karet vykreslit (lze změnit atributem data-pocet)
+    pocet: 6,              // kolik karet vykreslit (lze změnit atributem data-pocet)
     minimum: 4,            // když se najde méně produktů, nechá se původní obsah
     tlacitko: 'Prohlédnout',
+    stitek: 'Ukázka obsahu uvnitř', // štítek u produktů s ručním náhledem (nahledy.json)
+    maxObrazku: 5,         // kolik obrázků jde na mobilu prolistovat
     doplnit: true,         // málo produktů k tématu → doplnit jinými (vypnete data-doplnit="ne")
     casovyLimit: 8000      // ms; pak to vzdáme a necháme původní obsah
   };
@@ -137,22 +139,90 @@
     return a;
   }
 
+  function obrazkyProduktu(p) {
+    var seznam = (p.obrazky && p.obrazky.length ? p.obrazky : [p.obrazek]).filter(function (o) {
+      return typeof o === 'string' && /^https?:\/\//.test(o);
+    });
+    return seznam.filter(function (o, i) { return seznam.indexOf(o) === i; });
+  }
+
+  // PC s myší: 2. obrázek po najetí; dotyk: listování (tečky a šipky)
+  var mys = !!(window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches);
+
+  function obrazek(src, alt, prvni) {
+    var img = prvek('img');
+    img.alt = alt;
+    img.width = 800;  // rozměry 4:3 předem → stránka při načítání neposkakuje
+    img.height = 600;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.draggable = false;
+    img.onerror = function () { img.style.visibility = 'hidden'; };
+    img.src = src;
+    if (!prvni) img.setAttribute('aria-hidden', 'true');
+    return img;
+  }
+
+  function listovani(foto, pas, pocet) {
+    var tecky = prvek('div', 'hs-darky-tecky'), aktivni = 0;
+    for (var i = 0; i < pocet; i++) tecky.appendChild(prvek('span', i ? '' : 'hs-aktivni'));
+    tecky.setAttribute('aria-hidden', 'true');
+
+    function nastav(i) {
+      if (i === aktivni || i < 0 || i >= pocet) return;
+      tecky.children[aktivni].className = '';
+      tecky.children[i].className = 'hs-aktivni';
+      aktivni = i;
+    }
+    var cil = null, hodiny;
+    function jdiNa(i) {
+      i = (i + pocet) % pocet;
+      cil = i; // během plynulého posunu ignorujeme mezipolohy (rychlé klikání na šipky)
+      clearTimeout(hodiny);
+      hodiny = setTimeout(function () { cil = null; }, 700);
+      nastav(i);
+      if (pas.scrollTo) pas.scrollTo({ left: i * pas.clientWidth, behavior: 'smooth' });
+      else pas.scrollLeft = i * pas.clientWidth;
+    }
+    function sipka(trida, popis, smer) {
+      var b = prvek('button', 'hs-darky-sipka ' + trida, smer < 0 ? '‹' : '›');
+      b.type = 'button';
+      b.setAttribute('aria-label', popis);
+      b.onclick = function (e) { e.preventDefault(); e.stopPropagation(); jdiNa(aktivni + smer); };
+      return b;
+    }
+    pas.addEventListener('scroll', function () {
+      var i = Math.round(pas.scrollLeft / (pas.clientWidth || 1));
+      if (cil !== null) { if (i === cil) cil = null; return; }
+      nastav(i);
+    }, { passive: true });
+
+    foto.appendChild(sipka('hs-darky-sipka--zpet', 'Předchozí obrázek', -1));
+    foto.appendChild(sipka('hs-darky-sipka--dal', 'Další obrázek', 1));
+    foto.appendChild(tecky);
+  }
+
   function karta(p, mena) {
     var k = prvek('div', 'hs-darky-karta');
+    var obrazky = obrazkyProduktu(p).slice(0, mys ? 2 : NASTAVENI.maxObrazku);
 
+    var foto = prvek('div', 'hs-darky-foto');
     var obr = odkaz(p.url, 'hs-darky-obr');
-    if (p.obrazek && /^https?:\/\//.test(p.obrazek)) {
-      var img = prvek('img');
-      img.src = p.obrazek;
-      img.alt = p.nazev;
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.onerror = function () { obr.removeChild(img); };
-      obr.appendChild(img);
-    }
-    k.appendChild(obr);
+    obr.setAttribute('aria-label', p.nazev);
+    var pas = prvek('div', 'hs-darky-pas');
+    obrazky.forEach(function (src, i) { pas.appendChild(obrazek(src, i ? '' : p.nazev, !i)); });
+    obr.appendChild(pas);
+    foto.appendChild(obr);
 
-    k.appendChild(odkaz(p.url, 'hs-darky-nazev', p.nazev));
+    if (obrazky.length > 1) {
+      k.className += ' hs-darky-karta--vice';
+      if (!mys) listovani(foto, pas, obrazky.length);
+    }
+    if (p.nahled && obrazky.length > 1) foto.appendChild(prvek('span', 'hs-darky-stitek', NASTAVENI.stitek));
+    k.appendChild(foto);
+
+    var telo = prvek('div', 'hs-darky-telo');
+    telo.appendChild(odkaz(p.url, 'hs-darky-nazev', p.nazev));
 
     var c = prvek('div', 'hs-darky-cena');
     if (p.puvodni_cena > p.cena) {
@@ -160,23 +230,62 @@
       c.appendChild(document.createTextNode(' '));
     }
     c.appendChild(prvek('strong', '', cena(p.cena, mena)));
-    k.appendChild(c);
+    telo.appendChild(c);
 
-    k.appendChild(odkaz(p.url, 'hs-darky-tlacitko btn btn-primary', NASTAVENI.tlacitko));
+    telo.appendChild(odkaz(p.url, 'hs-darky-tlacitko', NASTAVENI.tlacitko));
+    k.appendChild(telo);
     return k;
   }
 
+  // Kolik sloupců: nejvýš 3, poslední řada vždy plná (4 = 2×2, 6 = 3×2, 8 = 2×4).
+  function sloupce(pocet) {
+    if (pocet <= 3) return pocet;
+    return pocet % 3 === 0 ? 3 : 2;
+  }
+
+  var ZELENA = '#1f6f3d';
   var CSS =
-    '.hs-darky-mrizka{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:16px 0}' +
-    '@media(max-width:991px){.hs-darky-mrizka{grid-template-columns:repeat(3,minmax(0,1fr))}}' +
-    '@media(max-width:767px){.hs-darky-mrizka{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}' +
-    '.hs-darky-karta{display:flex;flex-direction:column;text-align:center;background:#fff;border:1px solid #e6e6e6;border-radius:8px;padding:10px}' +
-    '.hs-darky-obr{display:block;aspect-ratio:1/1;margin-bottom:8px;background:#f6f6f6;border-radius:6px;overflow:hidden}' +
-    '.hs-darky-obr img{width:100%;height:100%;object-fit:contain;display:block;margin:0}' +
-    '.hs-darky-nazev{flex:1;font-weight:600;line-height:1.3;color:inherit;text-decoration:none;margin-bottom:6px}' +
+    '.hs-darky-mrizka{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:20px 0}' +
+    '.hs-darky-mrizka--1{grid-template-columns:minmax(0,420px)}' +
+    '.hs-darky-mrizka--2{grid-template-columns:repeat(2,minmax(0,1fr))}' +
+    '@media(max-width:639px){.hs-darky-mrizka,.hs-darky-mrizka--1,.hs-darky-mrizka--2{grid-template-columns:minmax(0,1fr);gap:16px}}' +
+    '.hs-darky-karta{display:flex;flex-direction:column;background:#fff;border:1px solid #e6e6e6;border-radius:12px;overflow:hidden;' +
+      'box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;text-align:left}' +
+    '.hs-darky-foto{position:relative;aspect-ratio:4/3;background:#f3f1ed;overflow:hidden}' +
+    '.hs-darky-obr,.hs-darky-pas{display:block;width:100%;height:100%}' +
+    '.hs-darky-pas img{display:block;width:100%;height:100%;object-fit:cover;margin:0;max-width:none;border:0;border-radius:0}' +
+    // PC s myší: obrázky přes sebe, po najetí plynule 2. obrázek
+    '@media(hover:hover) and (pointer:fine){' +
+      '.hs-darky-karta:hover{box-shadow:0 6px 18px rgba(0,0,0,.12);transform:translateY(-2px)}' +
+      '.hs-darky-pas{position:relative}' +
+      '.hs-darky-pas img{position:absolute;inset:0;transition:opacity .45s ease,transform .6s ease}' +
+      '.hs-darky-pas img+img{opacity:0}' +
+      '.hs-darky-karta--vice:hover .hs-darky-pas img+img{opacity:1}' +
+      '.hs-darky-karta:hover .hs-darky-pas img{transform:scale(1.03)}' +
+      '.hs-darky-sipka,.hs-darky-tecky{display:none}' +
+    '}' +
+    // dotyk: vodorovné listování prstem (scroll-snap), tečky a šipky
+    '@media not all and (hover:hover) and (pointer:fine){' +
+      '.hs-darky-pas{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}' +
+      '.hs-darky-pas::-webkit-scrollbar{display:none}' +
+      '.hs-darky-pas img{flex:0 0 100%;scroll-snap-align:start}' +
+    '}' +
+    '.hs-darky-sipka{position:absolute;top:50%;margin-top:-17px;width:34px;height:34px;padding:0;border:0;border-radius:50%;' +
+      'background:rgba(255,255,255,.9);color:#222;font:700 24px/32px sans-serif;text-align:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.25)}' +
+    '.hs-darky-sipka--zpet{left:8px}.hs-darky-sipka--dal{right:8px}' +
+    '.hs-darky-tecky{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:6px;pointer-events:none}' +
+    '.hs-darky-tecky span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 0 2px rgba(0,0,0,.5);transition:background .2s,transform .2s}' +
+    '.hs-darky-tecky .hs-aktivni{background:#fff;transform:scale(1.3)}' +
+    '.hs-darky-stitek{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:' + ZELENA + ';color:#fff;' +
+      'font-size:13px;font-weight:700;line-height:1.3;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.2)}' +
+    '.hs-darky-telo{display:flex;flex-direction:column;flex:1;padding:14px 16px 16px}' +
+    '.hs-darky-nazev{flex:1;font-size:1.05em;font-weight:700;line-height:1.3;color:inherit;text-decoration:none;margin-bottom:8px}' +
     '.hs-darky-nazev:hover{text-decoration:underline}' +
-    '.hs-darky-cena{margin-bottom:8px}.hs-darky-cena strong{font-size:1.15em}.hs-darky-cena del{opacity:.6;font-size:.9em}' +
-    '.hs-darky-tlacitko{display:block;width:100%;text-decoration:none}';
+    '.hs-darky-cena{margin-bottom:12px}.hs-darky-cena strong{font-size:1.3em}.hs-darky-cena del{opacity:.6;font-size:.9em;margin-right:4px}' +
+    '.hs-darky a.hs-darky-tlacitko{display:block;width:100%;box-sizing:border-box;padding:12px 16px;border-radius:8px;background:' + ZELENA + ';' +
+      'color:#fff;font-weight:700;font-size:1.05em;text-align:center;text-decoration:none;transition:background .2s}' +
+    '.hs-darky a.hs-darky-tlacitko:hover,.hs-darky a.hs-darky-tlacitko:focus{background:#175a2f;color:#fff}' +
+    '@media (prefers-reduced-motion:reduce){.hs-darky-karta,.hs-darky-pas img{transition:none!important;transform:none!important}}';
 
   function pridejCss() {
     if (document.getElementById('hs-darky-css')) return;
@@ -204,7 +313,10 @@
     var produkty = vyber(data, temata, pocet, doplnit, rnd);
     if (produkty.length < Math.min(NASTAVENI.minimum, pocet)) return; // necháme statický obsah
 
-    var mrizka = prvek('div', 'hs-darky-mrizka');
+    // poslední řada bez díry: 5 → 4 (2×2), 7 → 6 (3×2)
+    if (produkty.length > 3 && produkty.length % 2 && produkty.length % 3) produkty = produkty.slice(0, -1);
+
+    var mrizka = prvek('div', 'hs-darky-mrizka hs-darky-mrizka--' + sloupce(produkty.length));
     produkty.forEach(function (p) { mrizka.appendChild(karta(p, data.mena)); });
 
     pridejCss();
