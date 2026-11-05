@@ -2,7 +2,8 @@
 # Testy na ukázkových datech – nepotřebují žádný secret ani internet.
 #   bash testy/spust-testy.sh
 # 1) produkty: ukázkový marketingový export Shoptetu → produkty.json (varianty, starší názvy značek,
-#    chyba při prázdném exportu), kontrola, že obsahuje jen veřejné údaje
+#    chyba při prázdném exportu), kontrola, že obsahuje jen veřejné údaje; obrázky z galerie stránky
+#    produktu (produkty/testy/stranky/), nahledy.json, dlaždice v prohlížeči (+ Chromium, je-li Playwright)
 # 2) kalendář: místní server s testovací sitemapou → akce.json, kontrola nalezených akcí
 # 3) kalendář – logika stránky (řazení, filtry dat, typy, obrázky, monetizace, .ics): testy/kalendar-logika.test.cjs
 # 3) kalendář – seznam podle data, „Dnes“, dlouhodobé akce, konkrétní dny, data-kraj/data-typ: testy/kalendar-seznam*.{test.cjs,js}
@@ -96,6 +97,10 @@ fi
 grep -q "chybí secret SHOPTET_FEED_URL" "$TMP/chyba.txt"
 test ! -e "$TMP/prazdne.json"
 echo "OK: $(cat "$TMP/chyba.txt")"
+
+echo "== 1e) Produkty: obrázky, nahledy.json, doplnění obrázků z galerie stránky produktu (uložené HTML, bez sítě)"
+python3 -B "$KOREN/produkty/testy/test_stahni_produkty.py"
+node "$KOREN/produkty/testy/dlazdice-prohlizec.cjs"
 
 echo "== 2) Kalendář z testovací sitemapy"
 PORT=$(( 18000 + RANDOM % 1000 ))

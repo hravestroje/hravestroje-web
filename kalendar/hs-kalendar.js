@@ -251,8 +251,11 @@
       if (a.kraj) stitky.push('<li>' + esc(a.kraj) + '</li>');
 
       return '<article class="hs-kal-karta' + (a.zruseno ? ' hs-kal-zrusena' : '') + (trida ? ' ' + trida : '') + '"' + (sId ? ' id="' + esc(idKarty(a)) + '"' : '') + '>' +
-        '<div class="hs-kal-karta-obrazek" data-typ="' + typ + '">' +
-          (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : zastupny(typ)) +
+        // obal: obrázek (16:9, overflow:hidden) + datum, které přesahuje pod obrázek
+        '<div class="hs-kal-karta-hlava">' +
+          '<div class="hs-kal-karta-obrazek" data-typ="' + typ + '">' +
+            (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : zastupny(typ)) +
+          '</div>' +
           datumBadge(a, p, ted) +
         '</div>' +
         '<div class="hs-kal-karta-telo">' +
@@ -379,6 +382,19 @@
 
   // ---------- Styly (vše pod #hs-kalendar) ----------
   var S = '#' + ID_KORENE;
+  // Styly vodorovné karty přes celou šířku mřížky (k = selektor karty).
+  function vodorovna(k) {
+    return k + '{grid-column:1/-1}' +
+      k + '.hs-kal-karta:not(.hs-kal-produkt){flex-direction:row;align-items:flex-start}' +
+      k + ' .hs-kal-karta-hlava{flex:0 0 46%;max-width:46%}' +
+      k + ' .hs-kal-datum{bottom:12px}' +
+      k + ' .hs-kal-karta-telo{align-self:stretch;padding:16px 18px}' +
+      k + '.hs-kal-produkt > a{display:grid;grid-template-columns:minmax(0,46%) minmax(0,1fr);grid-template-rows:auto 1fr;align-items:start}' +
+      k + '.hs-kal-produkt .hs-kal-produkt-obrazek{grid-column:1;grid-row:1/span 2;margin:14px}' +
+      k + '.hs-kal-produkt .hs-kal-oznaceni{grid-column:2;grid-row:1;padding:14px 18px 0 4px}' +
+      k + '.hs-kal-produkt .hs-kal-karta-telo{grid-column:2;grid-row:2;align-self:stretch;padding:8px 18px 16px 4px}';
+  }
+
   var CSS = [
     S + '{--hs-kal-zelena:#1f6f3d;--hs-kal-zelena-tmava:#16532d;--hs-kal-zelena-svetla:#e6f1ea;--hs-kal-cihlova:#c0392b;' +
       '--hs-kal-cihlova-svetla:#fbeae7;--hs-kal-text:#1d2420;--hs-kal-tlumeny:#59635d;--hs-kal-pozadi:#f6f5f1;--hs-kal-okraj:#dfe3dd;' +
@@ -456,8 +472,12 @@
     S + ' .hs-kal-reklama{display:block;clear:both;width:100%;overflow:hidden;text-align:center}',
     S + ' .hs-kal-karta{display:flex;flex-direction:column;overflow:hidden;min-width:0;background:#fff;border-radius:var(--hs-kal-radius);box-shadow:var(--hs-kal-stin);scroll-margin-top:90px}',
     S + ' .hs-kal-karta.hs-kal-zvyraznena{outline:3px solid var(--hs-kal-cihlova);outline-offset:2px}',
-    S + ' .hs-kal-karta-obrazek{position:relative;aspect-ratio:16/9;background:var(--hs-kal-zelena-svetla)}',
-    S + ' .hs-kal-karta-obrazek img,' + S + ' .hs-kal-produkt-obrazek img{display:block;width:100%;height:100%;margin:0;object-fit:cover}',
+    // Obrázek karty pevně 16:9 a ořez (object-fit:cover) – odolné proti šabloně Shoptetu, která dává
+    // obrázkům width/height:auto !important (dřív oprava v CSS krajské stránky, teď přímo tady).
+    S + ' .hs-kal-karta-hlava{position:relative;flex:0 0 auto}',
+    S + ' .hs-kal-karta-obrazek{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--hs-kal-zelena-svetla)}',
+    S + ' .hs-kal-karta-obrazek img,' + S + ' .hs-kal-produkt-obrazek img{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;' +
+      'max-width:none!important;max-height:none!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;object-fit:cover}',
     S + ' .hs-kal-zastupny{position:relative;display:grid;place-items:center;height:100%;overflow:hidden;color:#fff;' +
       'background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.12) 0 18%,transparent 19%),radial-gradient(circle at 10% 95%,rgba(255,255,255,.08) 0 25%,transparent 26%),' +
       'linear-gradient(135deg,var(--hs-kal-zelena) 0%,var(--hs-kal-zelena-tmava) 100%)}',
@@ -503,7 +523,7 @@
     S + ' .hs-kal-produkt{background:#fffdf7;border:1px solid #efe7d2;box-shadow:none}',
     S + ' .hs-kal-produkt > a{display:flex;flex:1;flex-direction:column;color:inherit;text-decoration:none}',
     S + ' .hs-kal-produkt .hs-kal-oznaceni{padding:10px 14px 0}',
-    S + ' .hs-kal-produkt-obrazek{aspect-ratio:16/9;margin:8px 14px 0;overflow:hidden;background:#fff;border-radius:10px}',
+    S + ' .hs-kal-produkt-obrazek{position:relative;aspect-ratio:16/9;margin:8px 14px 0;overflow:hidden;background:#fff;border-radius:10px}',
     S + ' .hs-kal-produkt-obrazek img{object-fit:contain}',
     S + ' .hs-kal-produkt .hs-kal-karta-telo{padding-top:10px}',
     S + ' .hs-kal-produkt .hs-kal-tlacitko{margin-top:auto}',
@@ -518,6 +538,12 @@
     S + ' .hs-kal-drobne{font-size:.82rem}',
 
     // širší obsah stránky (podle šířky bloku, ne okna – v Shoptetu bývá vedle obsahu menu)
+    // Karty jdou po řádcích zleva doprava podle data (CSS grid), karty v řádku mají stejnou výšku.
+    // Pravidlo webu: na PC nesmí zůstat poslední řada poloprázdná. Ve 2 sloupcích se lichá poslední
+    // karta (akce i dlaždice produktu) roztáhne přes celou šířku a je vodorovná (obrázek vlevo,
+    // text vpravo); ve 3 sloupcích to řeší třída hs-kal-siroka a jediná karta ve skupině je vodorovná.
+    '@container hs-kal (min-width: 600px) and (max-width: 859.98px){' + vodorovna(S + ' .hs-kal-mrizka > :last-child:nth-child(odd)') + '}',
+    '@container hs-kal (min-width: 860px){' + vodorovna(S + ' .hs-kal-mrizka > :only-child') + '}',
     '@container hs-kal (min-width: 600px){' +
       S + ' .hs-kal-mrizka{grid-template-columns:repeat(2,minmax(0,1fr))}' +
       S + ' .hs-kal-filtry{padding:14px 0}' +

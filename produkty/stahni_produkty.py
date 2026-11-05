@@ -158,6 +158,121 @@ def obrazky_polozky(el):
     return obrazky
 
 
+# ---------------------------------------------------------------- obrázky ze stránky produktu
+# Export Shoptetu dává jen 3–4 obrázky, ale produkt jich v e-shopu může mít až 17.
+# Když jich je v exportu málo, stáhneme veřejnou stránku produktu a vezmeme obrázky z její galerie.
+
+MIN_OBRAZKU_Z_EXPORTU = 6   # když jich má produkt v exportu méně, doplní se ze stránky
+MAX_OBRAZKU = 8             # nejvýš tolik obrázků na produkt
+LIMIT_STRANKY = 10          # s – časový limit na stažení jedné stránky
+PAUZA_MEZI_STRANKAMI = 0.5  # s – ať e-shop nezatěžujeme
+
+_PRODUCT_ID = (
+    re.compile(r'name=["\']productId["\'][^>]*?value=["\'](\d+)', re.I),
+    re.compile(r'value=["\'](\d+)["\'][^>]*?name=["\']productId["\']', re.I),
+    re.compile(r'["\']productId["\']\s*:\s*["\']?(\d+)', re.I),
+    re.compile(r'data-micro-product-id=["\'](\d+)', re.I),
+)
+# Obrázek z galerie Shoptetu v libovolné velikosti (orig, big, detail, related…):
+# //cdn.myshoptet.com/usr/<obchod>/user/shop/<velikost>/<soubor>?<parametry>
+_OBRAZEK_SHOPTET = re.compile(
+    r'(?:https?:)?//cdn\.myshoptet\.com/usr/([A-Za-z0-9.-]+)/user/shop/[A-Za-z0-9_]+/([^"\'\s?#<>()\\]+)')
+
+
+def product_id(html):
+    """productId ze stránky produktu Shoptetu (skryté pole formuláře, dataLayer…), jinak None."""
+    for r in _PRODUCT_ID:
+        m = r.search(html)
+        if m:
+            return m.group(1)
+    return None
+
+
+def obrazky_ze_stranky(html):
+    """Obrázky z galerie stránky produktu v pořadí e-shopu: jen soubory <ID>_… a <ID>-<n>_…
+    (ID = productId stránky, ne obrázky souvisejících produktů), verze „orig“ bez ?parametrů,
+    bez duplicit, nejvýš MAX_OBRAZKU."""
+    pid = product_id(html)
+    if not pid:
+        return []
+    vlastni = re.compile(r"^" + re.escape(pid) + r"(?:-\d+)?_", re.I)
+    obrazky = []
+    for m in _OBRAZEK_SHOPTET.finditer(html.replace("\\/", "/")):
+        obchod, soubor = m.group(1), m.group(2)
+        if not vlastni.match(soubor):
+            continue
+        pridej_obrazek(obrazky, f"https://cdn.myshoptet.com/usr/{obchod}/user/shop/orig/{soubor}")
+        if len(obrazky) >= MAX_OBRAZKU:
+            break
+    return obrazky
+
+
+def bez_parametru(url):
+    return re.split(r"[?#]", url or "")[0]
+
+
+def sluc_obrazky(z_exportu, ze_stranky):
+    """Pořadí galerie e-shopu; obrázky z exportu, které na stránce nejsou, na konec. Max MAX_OBRAZKU."""
+    vysledek, videne = [], set()
+    for o in list(ze_stranky) + list(z_exportu):
+        klic = bez_parametru(o).lower()
+        klic = re.sub(r"/user/shop/[A-Za-z0-9_]+/", "/user/shop/orig/", klic)
+        if klic in videne:
+            continue
+        videne.add(klic)
+        vysledek.append(o)
+    return vysledek[:MAX_OBRAZKU]
+
+
+def stahni_stranku(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "hravestroje-darky/1.0"})
+    with urllib.request.urlopen(req, timeout=LIMIT_STRANKY) as odpoved:
+        data = odpoved.read(3_000_000)
+        kodovani = odpoved.headers.get_content_charset() or "utf-8"
+    return data.decode(kodovani, errors="replace")
+
+
+def nazev_ulozene_stranky(url):
+    """Pro testy: https://www.hravestroje.cz/adventni-kalendar/ -> adventni-kalendar.html"""
+    return (normalizuj_url(url).strip("/").replace("/", "_") or "index") + ".html"
+
+
+def dopln_obrazky_ze_stranek(produkty, slozka=None, pauza=PAUZA_MEZI_STRANKAMI):
+    """Produktům s méně než MIN_OBRAZKU_Z_EXPORTU obrázky doplní obrázky z galerie stránky produktu.
+    slozka = místo stahování číst uložené stránky (testy bez sítě). Chyba nikdy neshodí běh –
+    produkt si nechá obrázky z exportu a vypíše se UPOZORNĚNÍ. Vrací počet doplněných produktů."""
+    doplneno, stazeno = 0, 0
+    for p in produkty:
+        if len(p["obrazky"]) >= MIN_OBRAZKU_Z_EXPORTU or not p["url"].startswith("https://"):
+            continue
+        try:
+            if slozka:
+                with open(os.path.join(slozka, nazev_ulozene_stranky(p["url"])), encoding="utf-8") as f:
+                    html = f.read()
+            else:
+                if stazeno:
+                    time.sleep(pauza)
+                stazeno += 1
+                html = stahni_stranku(p["url"])
+            ze_stranky = obrazky_ze_stranky(html)
+        except Exception as e:  # noqa: BLE001 – stránka nesmí shodit zveřejnění produktů
+            duvod = f"HTTP {e.code}" if isinstance(e, urllib.error.HTTPError) else type(e).__name__
+            print(f"UPOZORNĚNÍ: obrázky ze stránky produktu „{p['nazev']}“ se nepodařilo načíst "
+                  f"({duvod}) – nechávám {len(p['obrazky'])} obrázků z exportu.", file=sys.stderr)
+            continue
+        if not ze_stranky:
+            print(f"UPOZORNĚNÍ: na stránce produktu „{p['nazev']}“ není galerie obrázků – "
+                  f"nechávám {len(p['obrazky'])} obrázků z exportu.", file=sys.stderr)
+            continue
+        nove = sluc_obrazky(p["obrazky"], ze_stranky)
+        if len(nove) > len(p["obrazky"]):
+            doplneno += 1
+        if nove != p["obrazky"]:
+            p["obrazky"] = nove
+            p["obrazek"] = nove[0]
+    return doplneno
+
+
 # ---------------------------------------------------------------- ruční náhledy (nahledy.json)
 
 def normalizuj_url(url):
@@ -380,6 +495,10 @@ def main():
     ap.add_argument("--nahledy", default=os.path.join(ADRESAR, "nahledy.json"),
                     help="ruční výběr hlavního obrázku a náhledu obsahu (nepovinné)")
     ap.add_argument("--js", help="navíc uložit data jako JS soubor (pro demo.html)")
+    ap.add_argument("--galerie", choices=("auto", "ano", "ne"), default="auto",
+                    help="doplnit obrázky z galerie stránky produktu (auto = jen při stahování exportu, "
+                         "ne u --soubor)")
+    ap.add_argument("--stranky", help="složka s uloženými stránkami produktů místo stahování (pro testy)")
     ap.add_argument("--min-produktu", type=int, default=1,
                     help="když jich bude méně, skončí chybou a stará data zůstanou zveřejněná")
     args = ap.parse_args()
@@ -402,6 +521,10 @@ def main():
             produkty, mena, polozek = nacti_export(xml, pravidla)
         except ET.ParseError as e:
             raise SystemExit(f"CHYBA: stažený soubor není platné XML ({e}).")
+
+    # obrázky z galerie stránky produktu (před nahledy.json – ruční výběr má dál přednost)
+    galerie = args.galerie == "ano" or bool(args.stranky) or (args.galerie == "auto" and not args.soubor)
+    doplneno = dopln_obrazky_ze_stranek(produkty, args.stranky) if galerie else 0
 
     try:
         nahledy = nacti_nahledy(args.nahledy)
@@ -444,6 +567,8 @@ def main():
         print(f"  téma {nazev}: {n} skladem")
     vice = sum(1 for p in produkty if len(p["obrazky"]) > 1)
     print(f"Produktů s více obrázky: {vice}, ruční náhledy z nahledy.json: {pouzito_nahledu}")
+    if galerie:
+        print(f"Obrázky doplněné z galerie stránky produktu: {doplneno} produktů")
     print(f"Uloženo: {args.vystup} ({os.path.getsize(args.vystup) // 1024} kB)")
 
 

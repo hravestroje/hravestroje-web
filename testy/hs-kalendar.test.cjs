@@ -134,6 +134,30 @@ test('všechny třídy ve vykresleném HTML mají předponu hs-kal-', () => {
   assert.ok(!zrusena.includes('Booking') && !zrusena.includes('reklama'), 'zrušená akce nic neprodává');
 });
 
+test('nabidky.json jen s ukázkami → žádná nabídka se nevykreslí', () => {
+  const fs = require('node:fs');
+  const ukazky = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'nabidky', 'nabidky.json'), 'utf8'));
+  assert.ok(ukazky.nabidky.every((n) => n.ukazka === true));
+  const akce = L.pripravAkce({ akce: akceNaDen(10) }, TED);
+  const mon = { zapnuto: true, booking_aid: '', nabidky: true, eshop: false };
+  const html = K.seznamHtml(akce, { ted: TED, mon, nabidky: ukazky, reklamaKazda: 0 });
+  assert.ok(!html.includes('Tip na výlet') && !html.includes('hs-kal-nabidka') && !html.includes('Ukázka'), 'ukázka se vykreslila');
+  // ani nabídky bez skutečné adresy
+  const spatne = { nabidky: [{ nazev: 'Mřížka', url: '#' }, { nazev: 'Prázdná', url: '' }, { nazev: 'Http', url: 'http://p.cz/' }] };
+  assert.ok(!K.seznamHtml(akce, { ted: TED, mon, nabidky: spatne, reklamaKazda: 0 }).includes('hs-kal-nabidka'));
+});
+
+test('Booking přes CJ na kartě vloženého kalendáře', () => {
+  const akce = L.pripravAkce({ akce: akceNaDen(2) }, TED);
+  const cj = 'https://www.anrdoezrs.net/click-101692290-14312907';
+  const html = K.seznamHtml(akce, { ted: TED, mon: { zapnuto: true, booking_cj: cj, booking_aid: '123', eshop: false, nabidky: false }, reklamaKazda: 0 });
+  assert.ok(html.includes('href="' + cj + '?url=https%3A%2F%2Fwww.booking.com'), 'odkaz přes CJ');
+  assert.ok(html.includes('&amp;sid=kalendar-'), 'sid s typem akce');
+  assert.ok(!html.includes('aid=123'), 'v CJ variantě žádné aid');
+  const bez = K.seznamHtml(akce, { ted: TED, mon: { zapnuto: true, booking_cj: '', booking_aid: '', eshop: false, nabidky: false }, reklamaKazda: 0 });
+  assert.ok(!bez.includes('Ubytování poblíž'), 'prázdné booking_cj i aid → bez tlačítka');
+});
+
 test('CSS: každé pravidlo je pod #hs-kalendar', () => {
   const pravidla = H.CSS.replace(/@(container|media)[^{]+\{/g, '').split('}').map((r) => r.trim()).filter(Boolean);
   for (const r of pravidla) {

@@ -32,6 +32,25 @@ Vložení do Shoptetu a atributy boxu (`data-tema`, `data-pocet`, …) popisuje 
 první je obálka. Pole `obrazek` (jen obálka) zůstává kvůli starším verzím skriptu.
 Produkt bez vlastních obrázků vezme obrázky svých viditelných variant.
 
+### Doplnění obrázků ze stránky produktu
+
+Export Shoptetu dává jen 3–4 obrázky, i když produkt jich v e-shopu má víc (např. Adventní
+kalendář 3 v 1 jich má 8). Když má produkt v exportu **méně než 6 obrázků**, skript při nočním
+běhu stáhne jeho veřejnou stránku (pole `url`) a vezme obrázky z galerie **v pořadí e-shopu**:
+
+- jen soubory produktu `cdn.myshoptet.com/usr/www.hravestroje.cz/user/shop/orig/<ID>_…`
+  a `<ID>-<n>_…`, kde `ID` je `productId` ze stránky (obrázky souvisejících produktů se neberou),
+- vždy verzi `orig` bez `?parametrů`, bez duplicit, **nejvýš 8** na produkt,
+- obrázek z exportu, který v galerii není, se přidá na konec (pokud zbývá místo).
+
+Časový limit je 10 s na stránku a mezi stránkami je pauza 0,5 s. Když se stránka nenačte nebo
+v ní galerie není, produkt si nechá obrázky z exportu a v logu je `UPOZORNĚNÍ: …` – běh nespadne.
+`nahledy.json` má dál přednost: čísla `"hlavni"` / `"nahled"` se počítají v tomto pořadí galerie.
+
+Přepínače: `--galerie ne` doplňování vypne; s `--soubor` (místní export) se stránky nestahují,
+pokud nezadáte `--galerie ano`. Testy používají uloženou stránku z `produkty/testy/stranky/`
+(`--stranky SLOŽKA`, bez sítě).
+
 ## Ruční náhled – `nahledy.json`
 
 Hodí se hlavně u omalovánek, pracovních listů, knížek a her: jako druhý obrázek ukážete
