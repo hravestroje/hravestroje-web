@@ -23,7 +23,7 @@ python3 "$KOREN/produkty/stahni_produkty.py" --soubor "$KOREN/produkty/ukazka-ex
 python3 - "$TMP/produkty.json" <<'PY'
 import json, sys
 data = json.load(open(sys.argv[1], encoding="utf-8"))
-povolene = {"nazev", "cena", "puvodni_cena", "url", "obrazek", "kategorie", "skladem", "temata"}
+povolene = {"nazev", "cena", "puvodni_cena", "url", "obrazek", "kategorie", "skladem", "temata", "obrazky"}
 p = data["produkty"]
 assert len(p) >= 5, "málo produktů"
 for x in p:
