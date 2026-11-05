@@ -48,14 +48,17 @@
   {
    "id": "zazitky-unikovka-deti",
    "nazev": "Venkovní úniková hra pro děti",
-   "popis": "Dobrodružná procházka s hádankami pro celou rodinu – v Liberci, Plzni i Praze.",
+   "popis": "Dobrodružná procházka s hádankami pro celou rodinu – v Praze, Brně, Liberci, Plzni, Ostravě i Českých Budějovicích.",
    "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fvenkovni-unikovka-deti",
    "obrazek": "https://img.zazitky.cz/w800/venkovni-unikovka-deti-2ec3527531.webp",
    "zdroj": "zazitky",
    "kraje": [
+    "Hlavní město Praha",
+    "Jihomoravský kraj",
     "Liberecký kraj",
     "Plzeňský kraj",
-    "Hlavní město Praha"
+    "Moravskoslezský kraj",
+    "Jihočeský kraj"
    ],
    "typy": [
     "vse"
@@ -150,6 +153,112 @@
    ],
    "typy": [
     "letadla",
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-balon-cesky-krumlov",
+   "nazev": "Let balónem nad Českým Krumlovem",
+   "popis": "Vyhlídkový let balónem nad Českým Krumlovem a okolím.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Flet-balonem-nad-ceskym-krumlovem",
+   "obrazek": "https://img.zazitky.cz/w800/let-balonem-nad-ceskym-krumlovem-52b766d044.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Jihočeský kraj"
+   ],
+   "typy": [
+    "letadla"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-farmarem-cheb",
+   "nazev": "Farmářem na zkoušku",
+   "popis": "Dvoudenní pobyt na statku u Chebu s péčí o zvířata, děti od 12 let.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Ffarmarem-na-zkousku",
+   "obrazek": "https://img.zazitky.cz/w800/farmarem-na-zkousku-38df8ded16.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Karlovarský kraj"
+   ],
+   "typy": [
+    "traktory",
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-traktorista-vilanec",
+   "nazev": "Traktoristou na zkoušku",
+   "popis": "Řízení traktoru ve Vílanci u Jihlavy – pro starší děti od 15 let a dospělé.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Ftraktoristou-na-zkousku",
+   "obrazek": "https://img.zazitky.cz/w800/traktoristou-na-zkousku-f010dd512a.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Kraj Vysočina"
+   ],
+   "typy": [
+    "traktory"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-simulator-boeing-brno",
+   "nazev": "Simulátor Boeingu 737 MAX",
+   "popis": "Pilotem dopravního letadla v simulátoru v Brně, děti od 10 let.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fsimulator-boeing-737-max",
+   "obrazek": "https://img.zazitky.cz/w800/simulator-boeing-737-max-19c136e46a.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Jihomoravský kraj"
+   ],
+   "typy": [
+    "letadla"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-simulator-spitfire-brno",
+   "nazev": "Simulátor stíhačky Spitfire",
+   "popis": "Let legendární stíhačkou v simulátoru v Brně, děti od 10 let.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fsimulator-spitfire",
+   "obrazek": "https://img.zazitky.cz/w800/simulator-spitfire-9588d61dff.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Jihomoravský kraj"
+   ],
+   "typy": [
+    "letadla"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-lego-znojmo",
+   "nazev": "Rodinný vstup do muzea LEGO",
+   "popis": "Miliony kostiček pro malé stavitele – muzeum ve Znojmě.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Frodinny-vstup-museum-of-bricks",
+   "obrazek": "https://img.zazitky.cz/w800/rodinny-vstup-museum-of-bricks-4f905b0426.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Jihomoravský kraj"
+   ],
+   "typy": [
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-kovarsky-kurz-fort",
+   "nazev": "Kovářský kurz v pevnosti Fort",
+   "popis": "Kovářský kurz v Křelově-Břuchotíně u Olomouce, děti od 6 let s rodiči.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fkovarsky-kurz-pevnost-fort",
+   "obrazek": "https://img.zazitky.cz/w800/kovarsky-kurz-pevnost-fort-af9355dcc5.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Olomoucký kraj"
+   ],
+   "typy": [
     "vse"
    ],
    "platnost_do": ""
