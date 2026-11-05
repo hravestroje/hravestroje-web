@@ -1,28 +1,171 @@
 {
-  "nabidky": [
-    {
-      "id": "ukazka-vlaky-kralovehradecky",
-      "ukazka": true,
-      "nazev": "Ukázka: výlet historickým vlakem",
-      "popis": "Vzorová položka, na webu se nezobrazuje. Zkopírujte ji, smažte řádek \"ukazka\" a doplňte skutečný odkaz.",
-      "url": "#",
-      "obrazek": "",
-      "zdroj": "jine",
-      "kraje": ["Královéhradecký kraj"],
-      "typy": ["vlaky"],
-      "platnost_do": "2026-12-31"
-    },
-    {
-      "id": "ukazka-celostatni",
-      "ukazka": true,
-      "nazev": "Ukázka: rodinný zážitek kdekoli v ČR",
-      "popis": "Vzorová položka, na webu se nezobrazuje. Prázdné \"kraje\" = nabídka pro celou republiku, typ \"vse\" = ke všem článkům.",
-      "url": "#",
-      "obrazek": "",
-      "zdroj": "zazitky",
-      "kraje": [],
-      "typy": ["vse"],
-      "platnost_do": ""
-    }
-  ]
+ "nabidky": [
+  {
+   "id": "zazitky-fajnpark-chlumec",
+   "nazev": "Rodinný zábavní park Fajnpark",
+   "popis": "Celý den zábavy pro děti v Chlumci nad Cidlinou – i s mašinkou. Děti do 2 let zdarma.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fnavsteva-rodinneho-parku-fajnpark",
+   "obrazek": "https://img.zazitky.cz/w800/navsteva-rodinneho-parku-fajnpark-c68b6ea4a7.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Královéhradecký kraj"
+   ],
+   "typy": [
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-virnik-lanov",
+   "nazev": "Pilotem vírníku na zkoušku",
+   "popis": "Vyhlídkový let vírníkem z Lánova u Vrchlabí, poletí i děti od 6 let.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fpilotem-virniku-na-zkousku",
+   "obrazek": "https://img.zazitky.cz/w800/pilotem-virniku-na-zkousku-43bd8cfccb.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Královéhradecký kraj"
+   ],
+   "typy": [
+    "letadla"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-lego-spindleruv-mlyn",
+   "nazev": "Rodinný vstup do muzea LEGO",
+   "popis": "Miliony kostiček pro malé stavitele – muzeum ve Špindlerově Mlýně.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Frodinny-vstup-museum-of-bricks",
+   "obrazek": "https://img.zazitky.cz/w800/rodinny-vstup-museum-of-bricks-4f905b0426.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Královéhradecký kraj"
+   ],
+   "typy": [
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-unikovka-deti",
+   "nazev": "Venkovní úniková hra pro děti",
+   "popis": "Dobrodružná procházka s hádankami pro celou rodinu – v Liberci, Plzni i Praze.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fvenkovni-unikovka-deti",
+   "obrazek": "https://img.zazitky.cz/w800/venkovni-unikovka-deti-2ec3527531.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Liberecký kraj",
+    "Plzeňský kraj",
+    "Hlavní město Praha"
+   ],
+   "typy": [
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-simulator-dc9-liberec",
+   "nazev": "Simulátor dopravního letadla DC-9",
+   "popis": "Usedněte do kokpitu dopravního letadla v Liberci.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fsimulator-dopravniho-letadla-douglas",
+   "obrazek": "https://img.zazitky.cz/w800/simulator-dopravniho-letadla-dc-9-06e5597218.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Liberecký kraj"
+   ],
+   "typy": [
+    "letadla"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-offroad-deti-milovice",
+   "nazev": "Offroad řízení pro děti",
+   "popis": "Děti samy za volantem terénního auta v Milovicích.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Foffroad-rizeni-pro-deti",
+   "obrazek": "https://img.zazitky.cz/w800/offroad-rizeni-pro-deti-83ed26a120.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Středočeský kraj"
+   ],
+   "typy": [
+    "auta"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-buggy-milovice",
+   "nazev": "Rodinná jízda v buggy",
+   "popis": "Terénní jízda pro celou rodinu v Milovicích, spolujezdci od 9 let.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Frodinna-jizda-buggy",
+   "obrazek": "https://img.zazitky.cz/w800/rodinna-jizda-buggy-7180607188.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Středočeský kraj"
+   ],
+   "typy": [
+    "auta"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-lego-podebrady",
+   "nazev": "Rodinný vstup do muzea LEGO",
+   "popis": "Muzeum LEGO v Poděbradech, Kutné Hoře i v Praze – zábava pro malé stavitele.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Frodinny-vstup-museum-of-bricks",
+   "obrazek": "https://img.zazitky.cz/w800/rodinny-vstup-museum-of-bricks-4f905b0426.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Středočeský kraj",
+    "Hlavní město Praha"
+   ],
+   "typy": [
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-motokary-deti-praha",
+   "nazev": "Motokáry pro děti",
+   "popis": "Jízda na motokárách v Praze pro děti od 7 let.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fmotokary-pro-deti",
+   "obrazek": "https://img.zazitky.cz/w800/motokary-pro-deti-e14179b7d7.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Hlavní město Praha"
+   ],
+   "typy": [
+    "auta"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-vetrny-tunel-deti",
+   "nazev": "Létání ve větrném tunelu pro děti",
+   "popis": "Zážitek z volného pádu bez padáku v Praze 9.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Fvetrny-tunel-deti",
+   "obrazek": "https://img.zazitky.cz/w800/vetrny-tunel-deti-7af9cc1841.webp",
+   "zdroj": "zazitky",
+   "kraje": [
+    "Hlavní město Praha"
+   ],
+   "typy": [
+    "letadla",
+    "vse"
+   ],
+   "platnost_do": ""
+  },
+  {
+   "id": "zazitky-let-balonem",
+   "nazev": "Vyhlídkový let balónem",
+   "popis": "Let balónem nad krajinou – startovní místa po celé republice.",
+   "url": "https://ehub.cz/system/scripts/click.php?a_aid=5d90b798&a_bid=c22fc1d9&desturl=https%3A%2F%2Fwww.zazitky.cz%2Flet-balonem",
+   "obrazek": "https://img.zazitky.cz/w800/let-balonem-bd6e96007a.webp",
+   "zdroj": "zazitky",
+   "kraje": [],
+   "typy": [
+    "letadla"
+   ],
+   "platnost_do": ""
+  }
+ ]
 }
