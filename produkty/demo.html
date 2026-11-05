@@ -12,9 +12,6 @@
   .info a { color: #d23c2a; }
   h2 { margin-top: 36px; }
   code { background: #f1ebe1; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
-  /* napodobenina tlačítka šablony Shoptetu */
-  .btn.btn-primary { background: #d23c2a; color: #fff; border-radius: 6px; padding: 8px 10px; font-weight: 600; }
-  .btn.btn-primary:hover { background: #b02f20; }
   .staticky { border: 2px dashed #b9ad9c; padding: 12px; border-radius: 8px; color: #6f665d; }
 </style>
 </head>
@@ -32,6 +29,9 @@
       <a href="?hs-darky=vypnout">skript vypnutý – původní statický obsah</a></p>
     <p>Na GitHub Pages: <a href="?data=ziva">skutečné produkty z e-shopu (produkty.json)</a> ·
       <a href="?data=ziva&amp;hs-mesic=11">skutečné produkty v listopadu</a></p>
+    <p><strong>Dlaždice:</strong> na PC se po najetí myší na produkt s více obrázky plynule ukáže druhý obrázek
+      (náhled obsahu), na mobilu jde obrázky listovat prstem, tečkami nebo šipkami. Štítek
+      „Ukázka obsahu uvnitř“ mají produkty nastavené v <code>nahledy.json</code> (v ukázce Omalovánky a Pexeso).</p>
     <p>Čárkovaně orámovaný text uvnitř boxů je „statický obsah“. Vidíte ho jen tehdy,
       když se skript nebo data nenačtou.</p>
   </div>
@@ -40,6 +40,12 @@
   <p><code>&lt;div class="hs-darky"&gt;…&lt;/div&gt;</code></p>
   <div class="hs-darky">
     <p class="staticky">Statický obsah: oblíbené hračky.</p>
+  </div>
+
+  <h2>Čtyři produkty (mřížka 2×2)</h2>
+  <p><code>&lt;div class="hs-darky" data-tema="vlaky" data-pocet="4"&gt;…&lt;/div&gt;</code></p>
+  <div class="hs-darky" data-tema="vlaky" data-pocet="4" id="box-ctyri">
+    <p class="staticky">Statický obsah: vláčky.</p>
   </div>
 
   <h2>Vlaky</h2>

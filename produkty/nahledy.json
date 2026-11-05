@@ -1,0 +1,9 @@
+{
+  "_napoveda": "Ruční výběr obrázků pro dlaždice produktů v článcích. Klíč = kód produktu ze Shoptetu (např. HS104) nebo adresa produktu (https://www.hravestroje.cz/…/). \"hlavni\" = obrázek na dlaždici, \"nahled\" = druhý obrázek (ukázka obsahu, ukáže se po najetí myší / při listování na mobilu a přidá štítek „Ukázka obsahu uvnitř“). Hodnota je pořadí obrázku v e-shopu (1 = první, 2 = druhý, …) nebo celá adresa obrázku https://…. Řádky s klíčem začínajícím podtržítkem (_) se ignorují – slouží jako vzor. Návod: produkty/README.md.",
+
+  "produkty": {
+    "_priklad podle kódu": { "hlavni": 1, "nahled": 3 },
+    "_priklad podle adresy https://www.hravestroje.cz/omalovanky-zeleznice/": { "nahled": 2 },
+    "_priklad bez štítku": { "hlavni": 2, "nahled": 1, "stitek": false }
+  }
+}
