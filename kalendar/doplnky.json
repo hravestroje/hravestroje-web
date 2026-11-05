@@ -1,5 +1,5 @@
 {
- "_navod": "Ruční opravy pro jednotlivé články. Klíč = přesná adresa článku. Lze nastavit: \"kraj\" (název kraje), \"typy\" (seznam z: vlaky, traktory, auta, lode, letadla, ostatni) a \"obrazek\" (\"zastupny\" = skrýt obrázek článku a ukázat jednotný zástupný obrázek, nebo adresa vlastního obrázku https://…). Řádky začínající podtržítkem se ignorují. Návod je v README v části Kalendář akcí.",
+ "_navod": "Ruční opravy pro jednotlivé články. Klíč = přesná adresa článku. Lze nastavit: \"kraj\" (název kraje), \"typy\" (seznam z: vlaky, traktory, auta, lode, letadla, ostatni) a \"obrazek\" (\"zastupny\" = skrýt obrázek článku a ukázat jednotný zástupný obrázek, nebo adresa vlastního obrázku https://…). Konkrétní dny konání: \"dny\" (seznam dat, např. [\"2026-11-07\", \"2026-11-08\"]) nebo \"dny_v_tydnu\" (např. [\"so\", \"ne\"] – jen tyto dny mezi začátkem a koncem akce); akce se pak v kalendáři ukáže v každý takový den. Řádky začínající podtržítkem se ignorují. Návod je v README v části Kalendář akcí.",
  "https://www.hravestroje.cz/kalendar-dopravnich-akci-priklad/": {
   "kraj": "Jihomoravský kraj",
   "typy": ["vlaky"]

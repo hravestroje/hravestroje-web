@@ -266,13 +266,54 @@ export function najdiDoplnek(doplnky, url) {
   return klic && typeof doplnky[klic] === 'object' ? doplnky[klic] : {};
 }
 
+// "dny" z doplnky.json → seřazená platná data RRRR-MM-DD (neplatná se vypíšou do logu); nic → null
+export function normalizujDny(x, url = '') {
+  if (x == null) return null;
+  const seznam = Array.isArray(x) ? x : [x];
+  const platne = [], neplatne = [];
+  for (const d of seznam) {
+    const t = String(d ?? '').trim();
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(t);
+    const dt = m && new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    if (dt && dt.getUTCMonth() === +m[2] - 1 && dt.getUTCDate() === +m[3]) platne.push(t);
+    else neplatne.push(t);
+  }
+  if (neplatne.length) {
+    console.log(`${V_GITHUB ? '::warning::' : ''}Neplatné datum v "dny" v doplnky.json (${url}): ${neplatne.join(', ')} – pište ve tvaru 2026-11-07`);
+  }
+  return platne.length ? [...new Set(platne)].sort() : null;
+}
+
+// "dny_v_tydnu" z doplnky.json → zkratky po, ut, st, ct, pa, so, ne (i „sobota“, „Út“…); nic → null
+const DNY_V_TYDNU = ['po', 'ut', 'st', 'ct', 'pa', 'so', 'ne'];
+export function normalizujDnyVTydnu(x, url = '') {
+  if (x == null) return null;
+  const seznam = Array.isArray(x) ? x : [x];
+  const platne = [], neplatne = [];
+  for (const d of seznam) {
+    const k = bezDiakritiky(String(d ?? '')).trim().slice(0, 2);
+    if (DNY_V_TYDNU.includes(k)) platne.push(k);
+    else neplatne.push(String(d));
+  }
+  if (neplatne.length) {
+    console.log(`${V_GITHUB ? '::warning::' : ''}Neznámý den v "dny_v_tydnu" v doplnky.json (${url}): ${neplatne.join(', ')} – povolené jsou ${DNY_V_TYDNU.join(', ')}`);
+  }
+  return platne.length ? DNY_V_TYDNU.filter((k) => platne.includes(k)) : null;
+}
+
 // Použije ruční opravu na akci:
 //   "kraj": "Jihomoravský kraj"
 //   "typy": ["lode"]  nebo  "typ": "lode"   (vlaky, traktory, auta, lode, letadla, ostatni)
 //   "obrazek": "zastupny"  → skryje obrázek článku, kalendář ukáže jednotný zástupný obrázek
 //   "obrazek": "https://…" → vlastní obrázek
+//   "dny": ["2026-11-07", "2026-11-08"]   → akce se koná jen v tyto dny (v kalendáři v každém z nich)
+//   "dny_v_tydnu": ["so", "ne"]            → jen tyto dny v týdnu mezi začátkem a koncem akce
 export function pouzijDoplnek(akce, doplnek = {}) {
   const a = { ...akce };
+  const dny = normalizujDny(doplnek.dny, a.url);
+  if (dny) a.dny = dny;
+  const tyden = normalizujDnyVTydnu(doplnek.dny_v_tydnu, a.url);
+  if (tyden) a.dny_v_tydnu = tyden;
   if (typeof doplnek.kraj === 'string' && doplnek.kraj.trim()) a.kraj = doplnek.kraj.trim();
   const typy = Array.isArray(doplnek.typy) ? doplnek.typy : doplnek.typ ? [doplnek.typ] : null;
   if (typy) {

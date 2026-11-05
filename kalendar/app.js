@@ -158,10 +158,13 @@
   // ---------- Vykreslení ----------
   var PARTNERSKY_REL = 'sponsored nofollow noopener';
 
-  function datumBadge(a, probiha) {
-    var d = probiha ? a._k : a._z;
-    return '<div class="datum' + (probiha ? ' datum-do' : '') + '" aria-hidden="true">' +
-      (probiha ? '<small>do</small>' : '') +
+  // Datum na kartě: v chronologickém seznamu den, pod kterým akce je (u probíhající dnešek),
+  // u dlouhodobé akce začátek, nebo „do …“, když už běží.
+  function datumBadge(a, p, ted) {
+    var doKonce = p.dlouhodoba && a._z < L.zacatekDne(ted);
+    var d = p.dlouhodoba ? (doKonce ? a._k : a._z) : p.den;
+    return '<div class="datum' + (doKonce ? ' datum-do' : '') + '" aria-hidden="true">' +
+      (doKonce ? '<small>do</small>' : '') +
       '<strong>' + d.getDate() + '</strong><span>' + L.MESICE_ZKR[d.getMonth()] + '</span></div>';
   }
 
@@ -188,7 +191,9 @@
     return '';
   }
 
-  function karta(a, probiha, pouziteNabidky, ted, trida) {
+  // p = položka seznamu { den, probiha, dalsiDen, dlouhodoba }; id jen u prvního výskytu akce
+  function karta(a, p, pouziteNabidky, ted, trida, sId) {
+    var konkretniDen = L.maKonkretniDny(a) && !p.dlouhodoba;
     var typ = L.hlavniTyp(a);
     var url = L.pridejUtm(a.url, typ, 'clanek');
     var img = L.obrazekAkce(a);
@@ -197,7 +202,9 @@
     var stitky = [];
     if (a.zruseno) stitky.push('<li class="pozor">Zrušeno</li>');
     if (a.presunuto) stitky.push('<li class="pozor">Přesunuto</li>');
-    if (probiha) stitky.push('<li class="probiha">Právě probíhá</li>');
+    if (p.probiha) stitky.push('<li class="probiha">' + esc(L.stitekProbiha(a, ted)) + '</li>');
+    if (p.dlouhodoba) stitky.push('<li class="obdobi">' + esc(L.stitekOdDo(a, ted)) + '</li>');
+    if (p.dalsiDen) stitky.push('<li class="obdobi">další termín ' + esc(L.formatDenKonani(p.dalsiDen, ted)) + '</li>');
     a._typy.forEach(function (t) {
       stitky.push('<li>' + (t === 'ostatni' ? '' : L.ikona(t)) + TYPY[t].nazev + '</li>');
     });
@@ -205,16 +212,17 @@
 
     var oblibena = zarizeni.jeOblibena(a.id);
 
-    return '<article class="karta' + (a.zruseno ? ' zrusena' : '') + (trida ? ' ' + trida : '') + '" id="akce-' + esc(a.id) + '">' +
+    return '<article class="karta' + (a.zruseno ? ' zrusena' : '') + (trida ? ' ' + trida : '') + '"' + (sId ? ' id="akce-' + esc(a.id) + '"' : '') + '>' +
       '<div class="karta-obrazek" data-typ="' + typ + '">' +
         (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : L.zastupnyObrazek(typ)) +
-        datumBadge(a, probiha) +
+        datumBadge(a, p, ted) +
         '<button type="button" class="srdce" data-akce="oblibena" data-id="' + esc(a.id) + '" aria-pressed="' + oblibena + '" ' +
           'aria-label="Oblíbená akce: ' + esc(a.nazev) + '" title="Oblíbená akce">' + L.ikona('srdce') + '</button>' +
       '</div>' +
       '<div class="karta-telo">' +
         '<h3>' + esc(a.nazev) + '</h3>' +
-        '<p class="termin"><time datetime="' + esc(a.zacatek) + '">' + esc(L.formatTermin(a, ted)) + '</time></p>' +
+        '<p class="termin"><time datetime="' + esc(konkretniDen ? L.isoDen(p.den) : a.zacatek) + '">' +
+          esc(konkretniDen ? L.formatDenKonani(p.den, ted) : L.formatTermin(a, ted)) + '</time></p>' +
         (misto ? '<p class="misto">' + L.ikona('misto') + '<span>' + esc(misto) + '</span></p>' : '') +
         (stitky.length ? '<ul class="stitky">' + stitky.join('') + '</ul>' : '') +
         '<div class="karta-akce">' +
@@ -231,12 +239,23 @@
 
   function dlazdiceProduktu(p, typ, trida) {
     var url = L.pridejUtm(p.url, typ, 'eshop');
-    var img = L.bezpecnaUrl(p.obrazek);
+    var obrazky = L.obrazkyProduktu(p);
     var cena = typeof p.cena === 'number' ? p.cena.toLocaleString('cs-CZ') + ' Kč' : '';
+    // Obrázek přes celou šířku dlaždice (4:3). Víc obrázků: na počítači po najetí myší druhý,
+    // na mobilu listování prstem (tečky ukazují, kolikátý obrázek je vidět).
+    var galerie = obrazky.length > 1;
+    var obrazek = obrazky.length
+      ? '<div class="produkt-snimky">' + obrazky.map(function (u, i) {
+          return '<img src="' + esc(u) + '" alt="" loading="lazy" decoding="async">';
+        }).join('') + '</div>' +
+        (galerie ? '<span class="produkt-tecky" aria-hidden="true">' + obrazky.map(function (u, i) {
+          return '<i' + (i ? '' : ' class="aktivni"') + '></i>';
+        }).join('') + '</span>' : '')
+      : L.zastupnyObrazek(typ);
     return '<aside class="karta produkt' + (trida ? ' ' + trida : '') + '">' +
       '<a href="' + esc(url) + '" target="_blank" rel="noopener">' +
         '<p class="oznaceni">Z našeho e-shopu</p>' +
-        '<div class="produkt-obrazek">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : L.zastupnyObrazek(typ)) + '</div>' +
+        '<div class="produkt-obrazek' + (galerie ? ' produkt-galerie' : '') + '" data-typ="' + esc(typ) + '">' + obrazek + '</div>' +
         '<div class="karta-telo">' +
           '<h3>' + esc(p.nazev) + '</h3>' +
           (cena ? '<p class="cena">' + (p.puvodni_cena > p.cena ? '<s>' + p.puvodni_cena.toLocaleString('cs-CZ') + ' Kč</s> ' : '') + esc(cena) + '</p>' : '') +
@@ -274,47 +293,84 @@
       return;
     }
 
-    var casti = L.rozdelAkce(vysledek, ted);
-    var skupiny = [];
-    if (casti.probiha.length) skupiny.push({ nazev: 'Právě probíhá', akce: casti.probiha, probiha: true });
-    skupiny = skupiny.concat(L.seskupPodleMesicu(casti.nadchazejici));
-
+    // Jeden souvislý seznam podle data („Dnes“, pak měsíce), pod ním sbalitelná sekce
+    // „Sezónní a dlouhodobé akce“ (akce delší než 7 dní).
+    var seznam = L.sestavSeznam(vysledek, stav, ted);
     var kazda = L.monetizaceZapnuta(mon) && mon.eshop !== false && produkty ? Math.max(2, +mon.eshop_kazda_karta || 6) : 0;
-    var celkem = vysledek.length, poradi = 0;
-    var pouziteNabidky = {}, pouziteProdukty = {};
+    var celkem = seznam.pocetPolozek + seznam.dlouhodobe.length, poradi = 0;
+    var pouziteNabidky = {}, pouziteProdukty = {}, sId = {};
 
-    el.seznam.innerHTML = skupiny.map(function (s) {
+    function mrizka(polozkySeznamu) {
       var polozky = [];
-      s.akce.forEach(function (a) {
-        polozky.push(function (trida) { return karta(a, !!s.probiha, pouziteNabidky, ted, trida); });
+      polozkySeznamu.forEach(function (p) {
+        var a = p.akce;
+        var prvni = !sId[a.id];
+        sId[a.id] = true;
+        polozky.push(function (trida) { return karta(a, p, pouziteNabidky, ted, trida, prvni); });
         poradi++;
         if (kazda && poradi % kazda === 0 && poradi < celkem) {
           var typ = L.hlavniTyp(a);
-          var p = L.vyberProdukt(produkty, typ, a.id || a.nazev, pouziteProdukty);
-          if (p) {
-            pouziteProdukty[p.url] = true;
-            polozky.push(function (trida) { return dlazdiceProduktu(p, typ, trida); });
+          var pr = L.vyberProdukt(produkty, typ, a.id || a.nazev, pouziteProdukty);
+          if (pr) {
+            pouziteProdukty[pr.url] = true;
+            polozky.push(function (trida) { return dlazdiceProduktu(pr, typ, trida); });
           }
         }
       });
       var siroke = L.sirokeNaKonci(polozky.length, 3);
-      return '<section class="skupina-akci' + (s.probiha ? ' probiha-sekce' : '') + '">' +
-        '<h2 class="mesic">' + esc(s.nazev) + '</h2>' +
-        '<div class="mrizka">' + polozky.map(function (f, i) {
-          return f(i >= polozky.length - siroke ? 'siroka' : '');
-        }).join('') + '</div></section>';
+      return '<div class="mrizka">' + polozky.map(function (f, i) {
+        return f(i >= polozky.length - siroke ? 'siroka' : '');
+      }).join('') + '</div>';
+    }
+
+    var html = seznam.skupiny.map(function (s) {
+      return '<section class="skupina-akci' + (s.klic === 'dnes' ? ' dnes-sekce' : '') + '">' +
+        '<h2 class="mesic">' + esc(s.nazev) + '</h2>' + mrizka(s.polozky) + '</section>';
     }).join('');
+    if (seznam.dlouhodobe.length) {
+      // sbalená, jen když nad ní něco je (jinak by stránka vypadala prázdná)
+      html += '<details class="skupina-akci dlouhodobe" id="dlouhodobe"' + (seznam.skupiny.length ? '' : ' open') + '>' +
+        '<summary><h2 class="mesic">Sezónní a dlouhodobé akce <span class="pocet-dlouhodobych">(' +
+          seznam.dlouhodobe.length + ')</span></h2></summary>' +
+        mrizka(seznam.dlouhodobe.map(function (a) { return { akce: a, den: a._z, dlouhodoba: true }; })) +
+      '</details>';
+    }
+    el.seznam.innerHTML = html;
   }
 
   // Nefunkční obrázek → jednotný zástupný obrázek s ikonou typu
   el.seznam.addEventListener('error', function (e) {
     var img = e.target;
     if (!img || img.tagName !== 'IMG') return;
+    // galerie produktu: nefunkční obrázek jen vynechat (a jeho tečku), pokud zbývá jiný
+    var snimky = img.closest('.produkt-snimky');
+    if (snimky && snimky.querySelectorAll('img').length > 1) {
+      var tecky = snimky.parentNode.querySelector('.produkt-tecky');
+      var i = Array.prototype.indexOf.call(snimky.children, img);
+      img.remove();
+      if (tecky && tecky.children[i]) tecky.children[i].remove();
+      if (snimky.children.length < 2) {
+        snimky.parentNode.classList.remove('produkt-galerie');
+        if (tecky) tecky.remove();
+      }
+      return;
+    }
+    if (snimky) img = snimky;
     var obal = img.closest('[data-typ]');
     var typ = obal ? obal.getAttribute('data-typ') : 'ostatni';
     var div = document.createElement('div');
     div.innerHTML = L.zastupnyObrazek(typ);
     img.replaceWith(div.firstChild);
+  }, true);
+
+  // Listování obrázků produktu na mobilu: tečka podle toho, kolikátý obrázek je vidět
+  el.seznam.addEventListener('scroll', function (e) {
+    var s = e.target;
+    if (!s.classList || !s.classList.contains('produkt-snimky')) return;
+    var tecky = s.parentNode.querySelector('.produkt-tecky');
+    if (!tecky) return;
+    var i = Math.round(s.scrollLeft / Math.max(1, s.clientWidth));
+    Array.prototype.forEach.call(tecky.children, function (t, j) { t.classList.toggle('aktivni', j === i); });
   }, true);
 
   // ---------- Přidat do kalendáře, sdílet ----------
@@ -547,6 +603,8 @@
       // sdílený odkaz na konkrétní akci (#akce-…)
       var cil = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (cil) {
+        var obal = cil.closest('details');
+        if (obal) obal.open = true;
         cil.classList.add('zvyraznena');
         cil.scrollIntoView({ block: 'center' });
       }

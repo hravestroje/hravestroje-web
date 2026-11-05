@@ -156,6 +156,18 @@
         a._z = z.datum;
         a._k = k.datum;
         a._sCasem = z.sCasem;
+        // Konkrétní dny konání (z doplnky.json): "dny" = přesná data, "dny_v_tydnu" = jen tyto dny
+        // v týdnu mezi začátkem a koncem. Akce se pak v seznamu ukáže v každý takový den.
+        var dny = prectiDny(a.dny);
+        if (dny.length) {
+          a._dny = dny;
+          a._z = dny[0];
+          a._k = konecDne(dny[dny.length - 1]);
+          a._sCasem = false;
+        } else {
+          var tyden = prectiDnyVTydnu(a.dny_v_tydnu);
+          if (tyden) a._dnyTydne = tyden;
+        }
         a._typy = (a.typy || []).filter(function (t) { return TYPY[t]; });
         if (!a._typy.length) a._typy = ['ostatni'];
         a._hledat = bezDiakritiky([a.nazev, a.misto, a.adresa, a.obec, a.kraj, a.popis,
@@ -163,6 +175,65 @@
         return a;
       })
       .filter(function (a) { return a && a._k >= dnes; });
+  }
+
+  // "dny": ["2026-11-07", …] → seřazená unikátní data (začátek dne); neplatná se vynechají.
+  function prectiDny(x) {
+    if (!Array.isArray(x)) return [];
+    var videne = {}, vysledek = [];
+    x.forEach(function (s) {
+      var d = prectiDatum(s, false);
+      if (!d || d.sCasem) return;
+      var klic = isoDen(d.datum);
+      if (videne[klic]) return;
+      videne[klic] = true;
+      vysledek.push(d.datum);
+    });
+    return vysledek.sort(function (a, b) { return a - b; });
+  }
+
+  // Dny v týdnu: "so", "ne", "sobota", "Neděle", "út"… → { 6: true, 0: true }; nic platného → null
+  var DNY_V_TYDNU = { ne: 0, po: 1, ut: 2, st: 3, ct: 4, pa: 5, so: 6 };
+  function prectiDnyVTydnu(x) {
+    if (!Array.isArray(x)) return null;
+    var vysledek = {}, nejaky = false;
+    x.forEach(function (s) {
+      var k = bezDiakritiky(s).trim().slice(0, 2);
+      if (Object.prototype.hasOwnProperty.call(DNY_V_TYDNU, k)) {
+        vysledek[DNY_V_TYDNU[k]] = true;
+        nejaky = true;
+      }
+    });
+    return nejaky ? vysledek : null;
+  }
+
+  function maKonkretniDny(a) {
+    return !!(a && (a._dny || a._dnyTydne));
+  }
+
+  // Počet kalendářních dnů akce včetně prvního a posledního (1. až 7. 11. = 7 dní).
+  function delkaDni(a) {
+    return Math.round((zacatekDne(a._k) - zacatekDne(a._z)) / 864e5) + 1;
+  }
+
+  // Dlouhodobá (sezónní) akce = trvá déle než 7 dní a nemá zadané konkrétní dny.
+  var DLOUHODOBA_NAD_DNU = 7;
+  function jeDlouhodoba(a) {
+    return !maKonkretniDny(a) && delkaDni(a) > DLOUHODOBA_NAD_DNU;
+  }
+
+  // Dny konání akce s konkrétními dny v rozsahu od–do (včetně), jako začátky dnů.
+  // Akce bez konkrétních dnů → null.
+  function dnyKonani(a, od, dok) {
+    if (!maKonkretniDny(a)) return null;
+    var zac = zacatekDne(od && od > a._z ? od : a._z);
+    var kon = dok && dok < a._k ? dok : a._k;
+    if (a._dny) return a._dny.filter(function (d) { return d >= zac && d <= kon; });
+    var vysledek = [];
+    for (var d = zac, i = 0; d <= kon && i < 800; d = pridejDny(d, 1), i++) {
+      if (a._dnyTydne[d.getDay()]) vysledek.push(d);
+    }
+    return vysledek;
   }
 
   function hlavniTyp(a) {
@@ -186,6 +257,73 @@
     probiha.sort(porovnej);
     nadchazejici.sort(porovnej);
     return { probiha: probiha, nadchazejici: nadchazejici };
+  }
+
+  // Seznam pro zobrazení:
+  //  - skupiny: jeden souvislý seznam přísně podle data, rozdělený na „Dnes“ a měsíce.
+  //    Položka = { akce, den, probiha, dalsiDen }. Akce, která už začala (a trvá nejvýš 7 dní),
+  //    má den = dnešek (nebo začátek zvoleného termínu) a probiha = true. Akce s konkrétními dny
+  //    je tu jednou za každý den konání.
+  //  - dlouhodobe: akce delší než 7 dní (bez konkrétních dnů) – zobrazují se zvlášť pod seznamem.
+  function sestavSeznam(akce, stav, ted) {
+    var dnes = zacatekDne(ted || new Date());
+    var rozsah = rozsahData(stav || {}, ted);
+    var od = rozsah && rozsah.od > dnes ? zacatekDne(rozsah.od) : dnes;
+    var polozky = [], dlouhodobe = [];
+    akce.forEach(function (a) {
+      if (maKonkretniDny(a)) {
+        var vsechny = dnyKonani(a, dnes, null);
+        dnyKonani(a, od, rozsah ? rozsah.do : null).forEach(function (d) {
+          var dalsi = vsechny.filter(function (x) { return x > d; })[0] || null;
+          polozky.push({ akce: a, den: d, probiha: false, dalsiDen: dalsi });
+        });
+      } else if (jeDlouhodoba(a)) {
+        dlouhodobe.push(a);
+      } else if (zacatekDne(a._z) < od) {
+        polozky.push({ akce: a, den: od, probiha: true, dalsiDen: null });
+      } else {
+        polozky.push({ akce: a, den: a._z, probiha: false, dalsiDen: null });
+      }
+    });
+    polozky.sort(function (x, y) {
+      return x.den - y.den || (y.probiha - x.probiha) || porovnej(x.akce, y.akce);
+    });
+    dlouhodobe.sort(porovnej);
+    var skupiny = [], posledni = null;
+    polozky.forEach(function (p) {
+      var klic = stejnyDen(p.den, dnes) ? 'dnes' : p.den.getFullYear() + '-' + dvoumistne(p.den.getMonth() + 1);
+      if (!posledni || posledni.klic !== klic) {
+        posledni = {
+          klic: klic,
+          nazev: klic === 'dnes' ? 'Dnes' : MESICE_1P[p.den.getMonth()] + ' ' + p.den.getFullYear(),
+          polozky: []
+        };
+        skupiny.push(posledni);
+      }
+      posledni.polozky.push(p);
+    });
+    return { skupiny: skupiny, dlouhodobe: dlouhodobe, pocetPolozek: polozky.length };
+  }
+
+  // „7. listopadu“ (rok jen když není letošní)
+  function formatDen(d, ted) {
+    var rok = (ted || new Date()).getFullYear();
+    return d.getDate() + '. ' + MESICE_2P[d.getMonth()] + (d.getFullYear() !== rok ? ' ' + d.getFullYear() : '');
+  }
+
+  // Termín jednoho dne konání: „sobota 7. listopadu“
+  function formatDenKonani(d, ted) {
+    return DNY[d.getDay()] + ' ' + formatDen(d, ted);
+  }
+
+  // Štítek probíhající akce: „probíhá do 8. listopadu“
+  function stitekProbiha(a, ted) {
+    return 'probíhá do ' + formatDen(a._k, ted);
+  }
+
+  // Štítek dlouhodobé akce: „od 3. října do 30. prosince“
+  function stitekOdDo(a, ted) {
+    return 'od ' + formatDen(a._z, ted) + ' do ' + formatDen(a._k, ted);
   }
 
   function seskupPodleMesicu(akce) {
@@ -239,10 +377,15 @@
   function filtruj(akce, stav, ted) {
     var slova = bezDiakritiky(stav.q).split(/\s+/).filter(Boolean);
     var rozsah = rozsahData(stav, ted);
+    var dnes = zacatekDne(ted || new Date());
     return akce.filter(function (a) {
       if (stav.typ && a._typy.indexOf(stav.typ) < 0) return false;
       if (stav.kraj && a.kraj !== stav.kraj) return false;
-      if (rozsah && (a._z > rozsah.do || a._k < rozsah.od)) return false;
+      if (maKonkretniDny(a)) {
+        // jen dny konání od dneška (a ve zvoleném termínu)
+        var od = rozsah && rozsah.od > dnes ? rozsah.od : dnes;
+        if (!dnyKonani(a, od, rozsah ? rozsah.do : null).length) return false;
+      } else if (rozsah && (a._z > rozsah.do || a._k < rozsah.od)) return false;
       for (var i = 0; i < slova.length; i++) {
         if (a._hledat.indexOf(slova[i]) < 0) return false;
       }
@@ -340,6 +483,23 @@
     return '<div class="zastupny zastupny--' + t + '" role="img" aria-label="' + esc(TYPY[t].nazev) + '">' +
       '<span class="zastupny-kruh">' + ikona(t) + '</span>' +
       '<span class="zastupny-znacka">Hravé stroje</span></div>';
+  }
+
+  // Obrázky dlaždice produktu: pole "obrazky" (víc obrázků – první je hlavní, další se ukážou
+  // po najetí myší / listováním), jinak "obrazek" jako dosud. Jen bezpečné adresy, bez duplicit, nejvýš 5.
+  var MAX_OBRAZKU_PRODUKTU = 5;
+  function obrazkyProduktu(p) {
+    var zdroj = p && Array.isArray(p.obrazky) && p.obrazky.length ? p.obrazky : [p && p.obrazek];
+    var videne = {}, vysledek = [];
+    zdroj.forEach(function (u) {
+      var url = typeof u === 'string' ? bezpecnaUrl(u) : '';
+      if (url && !videne[url] && vysledek.length < MAX_OBRAZKU_PRODUKTU) {
+        videne[url] = true;
+        vysledek.push(url);
+      }
+    });
+    if (!vysledek.length && p && Array.isArray(p.obrazky) && p.obrazky.length) return obrazkyProduktu({ obrazek: p.obrazek });
+    return vysledek;
   }
 
   // ---------- Monetizace ----------
@@ -532,6 +692,17 @@
     pripravAkce: pripravAkce,
     hlavniTyp: hlavniTyp,
     rozdelAkce: rozdelAkce,
+    prectiDnyVTydnu: prectiDnyVTydnu,
+    maKonkretniDny: maKonkretniDny,
+    delkaDni: delkaDni,
+    DLOUHODOBA_NAD_DNU: DLOUHODOBA_NAD_DNU,
+    jeDlouhodoba: jeDlouhodoba,
+    dnyKonani: dnyKonani,
+    sestavSeznam: sestavSeznam,
+    formatDen: formatDen,
+    formatDenKonani: formatDenKonani,
+    stitekProbiha: stitekProbiha,
+    stitekOdDo: stitekOdDo,
     seskupPodleMesicu: seskupPodleMesicu,
     rozsahData: rozsahData,
     filtruj: filtruj,
@@ -544,6 +715,7 @@
     sirokeNaKonci: sirokeNaKonci,
     obrazekAkce: obrazekAkce,
     zastupnyObrazek: zastupnyObrazek,
+    obrazkyProduktu: obrazkyProduktu,
     pridejUtm: pridejUtm,
     monetizaceZapnuta: monetizaceZapnuta,
     bookingOdkaz: bookingOdkaz,

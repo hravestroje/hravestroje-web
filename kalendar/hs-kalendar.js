@@ -60,17 +60,53 @@
     return s ? '?' + s : '';
   }
 
+  // Přednastavený filtr z atributů <div id="hs-kalendar" data-kraj="…" data-typ="…"> – pro stránky
+  // jednotlivých krajů a typů. Kraj: plný název, nebo bez „kraj“, velikost písmen a diakritika
+  // nevadí („Královéhradecký kraj“, „kralovehradecky“, „Vysočina“, „Praha“). Typ: vlaky, traktory,
+  // auta, lode, letadla, ostatni (i „Lodě“, „Traktory“). Neznámá hodnota se ignoruje.
+  function normalizujKraj(t) {
+    return String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      .replace(/\bkraj\b/g, '').replace(/\bhlavni mesto\b/g, '').replace(/[^a-z]+/g, ' ').trim();
+  }
+  function predvolba(atrKraj, atrTyp, TYPY) {
+    var vysledek = { kraj: '', typ: '' };
+    var k = normalizujKraj(atrKraj);
+    if (k) {
+      for (var i = 0; i < PORADI_KRAJU.length; i++) {
+        if (normalizujKraj(PORADI_KRAJU[i]) === k) { vysledek.kraj = PORADI_KRAJU[i]; break; }
+      }
+    }
+    var t = String(atrTyp || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    if (t) {
+      Object.keys(TYPY || {}).forEach(function (klic) {
+        if (klic === t || String(TYPY[klic].nazev).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() === t) vysledek.typ = klic;
+      });
+    }
+    return vysledek;
+  }
+
+  // Stav filtrů při načtení: filtry v adrese mají přednost (sdílený odkaz), jinak předvolba stránky.
+  function pocatecniStav(L, search, pred) {
+    var s = L.stavZAdresy(search);
+    var p = new URLSearchParams(search || '');
+    if (pred && pred.kraj && !p.has('kraj')) s.kraj = pred.kraj;
+    if (pred && pred.typ && !p.has('typ')) s.typ = pred.typ;
+    return s;
+  }
+
   // Rozložení skupiny do bloků: mřížky karet oddělené místy pro reklamu.
+  // `polozky` = akce, nebo položky seznamu z L.sestavSeznam ({ akce, den, probiha… }).
   // `stavPocitadla` = { karet: 0 } – počítá karty přes všechny skupiny (reklama po každé N-té kartě
   // celého seznamu, nikdy za úplně poslední kartou). `produktPo(a, poradi)` vrací dlaždici produktu
   // (nebo null) za danou kartou.
-  function rozlozSkupinu(akce, moznosti, stavPocitadla) {
+  function rozlozSkupinu(polozky, moznosti, stavPocitadla) {
     var kazdaReklama = moznosti.reklamaKazda | 0;
     var bloky = [], mrizka = [];
-    akce.forEach(function (a) {
+    polozky.forEach(function (x) {
+      var a = x && x.akce ? x.akce : x;
       stavPocitadla.karet++;
       var poradi = stavPocitadla.karet;
-      mrizka.push({ druh: 'karta', akce: a });
+      mrizka.push({ druh: 'karta', akce: a, polozka: x && x.akce ? x : { akce: a, den: a._z } });
       var p = moznosti.produktPo ? moznosti.produktPo(a, poradi) : null;
       if (p) mrizka.push({ druh: 'produkt', produkt: p, akce: a });
       if (kazdaReklama > 0 && poradi % kazdaReklama === 0 && poradi < moznosti.celkem) {
@@ -160,10 +196,13 @@
     }
 
     // ---------- HTML karet ----------
-    function datumBadge(a, probiha) {
-      var d = probiha ? a._k : a._z;
-      return '<div class="hs-kal-datum' + (probiha ? ' hs-kal-datum-do' : '') + '" aria-hidden="true">' +
-        (probiha ? '<small>do</small>' : '') +
+    // Datum na kartě: v chronologickém seznamu den, pod kterým akce je (u probíhající dnešek),
+    // u dlouhodobé akce začátek, nebo „do …“, když už běží.
+    function datumBadge(a, p, ted) {
+      var doKonce = p.dlouhodoba && a._z < L.zacatekDne(ted);
+      var d = p.dlouhodoba ? (doKonce ? a._k : a._z) : p.den;
+      return '<div class="hs-kal-datum' + (doKonce ? ' hs-kal-datum-do' : '') + '" aria-hidden="true">' +
+        (doKonce ? '<small>do</small>' : '') +
         '<strong>' + d.getDate() + '</strong><span>' + L.MESICE_ZKR[d.getMonth()] + '</span></div>';
     }
 
@@ -191,8 +230,10 @@
       return '';
     }
 
-    function karta(a, probiha, kontext, trida) {
+    // p = položka seznamu { den, probiha, dalsiDen, dlouhodoba }; id jen u prvního výskytu akce
+    function karta(a, p, kontext, trida, sId) {
       var ted = kontext.ted;
+      var konkretniDen = L.maKonkretniDny(a) && !p.dlouhodoba;
       var typ = L.hlavniTyp(a);
       var url = odkazWebu(a.url, typ, 'clanek', kontext.hostitel);
       var img = L.obrazekAkce(a);
@@ -201,20 +242,23 @@
       var stitky = [];
       if (a.zruseno) stitky.push('<li class="hs-kal-pozor">Zrušeno</li>');
       if (a.presunuto) stitky.push('<li class="hs-kal-pozor">Přesunuto</li>');
-      if (probiha) stitky.push('<li class="hs-kal-probiha">Právě probíhá</li>');
+      if (p.probiha) stitky.push('<li class="hs-kal-probiha">' + esc(L.stitekProbiha(a, ted)) + '</li>');
+      if (p.dlouhodoba) stitky.push('<li class="hs-kal-obdobi">' + esc(L.stitekOdDo(a, ted)) + '</li>');
+      if (p.dalsiDen) stitky.push('<li class="hs-kal-obdobi">další termín ' + esc(L.formatDenKonani(p.dalsiDen, ted)) + '</li>');
       a._typy.forEach(function (t) {
         stitky.push('<li>' + (t === 'ostatni' ? '' : ikona(t)) + TYPY[t].nazev + '</li>');
       });
       if (a.kraj) stitky.push('<li>' + esc(a.kraj) + '</li>');
 
-      return '<article class="hs-kal-karta' + (a.zruseno ? ' hs-kal-zrusena' : '') + (trida ? ' ' + trida : '') + '" id="' + esc(idKarty(a)) + '">' +
+      return '<article class="hs-kal-karta' + (a.zruseno ? ' hs-kal-zrusena' : '') + (trida ? ' ' + trida : '') + '"' + (sId ? ' id="' + esc(idKarty(a)) + '"' : '') + '>' +
         '<div class="hs-kal-karta-obrazek" data-typ="' + typ + '">' +
           (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : zastupny(typ)) +
-          datumBadge(a, probiha) +
+          datumBadge(a, p, ted) +
         '</div>' +
         '<div class="hs-kal-karta-telo">' +
           '<h3>' + esc(a.nazev) + '</h3>' +
-          '<p class="hs-kal-termin"><time datetime="' + esc(a.zacatek) + '">' + esc(L.formatTermin(a, ted)) + '</time></p>' +
+          '<p class="hs-kal-termin"><time datetime="' + esc(konkretniDen ? L.isoDen(p.den) : a.zacatek) + '">' +
+            esc(konkretniDen ? L.formatDenKonani(p.den, ted) : L.formatTermin(a, ted)) + '</time></p>' +
           (misto ? '<p class="hs-kal-misto">' + ikona('misto') + '<span>' + esc(misto) + '</span></p>' : '') +
           (stitky.length ? '<ul class="hs-kal-stitky">' + stitky.join('') + '</ul>' : '') +
           '<div class="hs-kal-karta-akce">' +
@@ -252,43 +296,55 @@
       return n + ' akcí';
     }
 
-    // HTML seznamu akcí pro daný výsledek filtrování.
-    // kontext: { ted, mon, produkty, nabidky, reklamaKazda, hostitel }
+    // HTML seznamu akcí pro daný výsledek filtrování: jeden souvislý seznam podle data
+    // („Dnes“, pak měsíce) a pod ním sbalitelná sekce „Sezónní a dlouhodobé akce“.
+    // kontext: { ted, stav, mon, produkty, nabidky, reklamaKazda, hostitel }
+    // Místa pro reklamu jen v chronologickém seznamu (ve sbalené sekci by nebyla vidět).
     function seznamHtml(vysledek, kontext) {
       var ted = kontext.ted, mon = kontext.mon;
-      var casti = L.rozdelAkce(vysledek, ted);
-      var skupiny = [];
-      if (casti.probiha.length) skupiny.push({ nazev: 'Právě probíhá', akce: casti.probiha, probiha: true });
-      skupiny = skupiny.concat(L.seskupPodleMesicu(casti.nadchazejici));
+      var seznam = L.sestavSeznam(vysledek, kontext.stav || L.prazdnyStav(), ted);
 
       var kazda = L.monetizaceZapnuta(mon) && mon.eshop !== false && kontext.produkty ? Math.max(2, +mon.eshop_kazda_karta || 6) : 0;
-      var celkem = vysledek.length;
-      var pouziteProdukty = {};
+      var celkem = seznam.pocetPolozek;
+      var pouziteProdukty = {}, sId = {};
       kontext.pouziteNabidky = {};
       var pocitadlo = { karet: 0 };
 
       function produktPo(a, poradi) {
-        if (!kazda || poradi % kazda !== 0 || poradi >= celkem) return null;
+        if (!kazda || poradi % kazda !== 0 || poradi >= celkem + seznam.dlouhodobe.length) return null;
         var typ = L.hlavniTyp(a);
         var p = L.vyberProdukt(kontext.produkty, typ, a.id || a.nazev, pouziteProdukty);
         if (p) pouziteProdukty[p.url] = true;
         return p;
       }
 
-      return skupiny.map(function (s) {
-        var bloky = rozlozSkupinu(s.akce, { reklamaKazda: kontext.reklamaKazda, celkem: celkem, produktPo: produktPo }, pocitadlo);
-        return '<section class="hs-kal-skupina-akci' + (s.probiha ? ' hs-kal-probiha-sekce' : '') + '">' +
-          '<h2 class="hs-kal-mesic">' + esc(s.nazev) + '</h2>' +
-          bloky.map(function (b) {
-            if (b.druh === 'reklama') return '<div class="hs-kal-reklama"></div>';
-            var siroke = sirokeVMrizce(b.polozky.length);
-            return '<div class="hs-kal-mrizka">' + b.polozky.map(function (x, i) {
-              var trida = i >= b.polozky.length - siroke ? 'hs-kal-siroka' : '';
-              return x.druh === 'produkt' ? dlazdiceProduktu(x.produkt, L.hlavniTyp(x.akce), trida, kontext.hostitel) : karta(x.akce, !!s.probiha, kontext, trida);
-            }).join('') + '</div>';
-          }).join('') +
-        '</section>';
+      function blokyHtml(bloky) {
+        return bloky.map(function (b) {
+          if (b.druh === 'reklama') return '<div class="hs-kal-reklama"></div>';
+          var siroke = sirokeVMrizce(b.polozky.length);
+          return '<div class="hs-kal-mrizka">' + b.polozky.map(function (x, i) {
+            var trida = i >= b.polozky.length - siroke ? 'hs-kal-siroka' : '';
+            if (x.druh === 'produkt') return dlazdiceProduktu(x.produkt, L.hlavniTyp(x.akce), trida, kontext.hostitel);
+            var prvni = !sId[x.akce.id];
+            sId[x.akce.id] = true;
+            return karta(x.akce, x.polozka, kontext, trida, prvni);
+          }).join('') + '</div>';
+        }).join('');
+      }
+
+      var html = seznam.skupiny.map(function (s) {
+        var bloky = rozlozSkupinu(s.polozky, { reklamaKazda: kontext.reklamaKazda, celkem: celkem, produktPo: produktPo }, pocitadlo);
+        return '<section class="hs-kal-skupina-akci' + (s.klic === 'dnes' ? ' hs-kal-dnes-sekce' : '') + '">' +
+          '<h2 class="hs-kal-mesic">' + esc(s.nazev) + '</h2>' + blokyHtml(bloky) + '</section>';
       }).join('');
+      if (seznam.dlouhodobe.length) {
+        var polozky = seznam.dlouhodobe.map(function (a) { return { akce: a, den: a._z, dlouhodoba: true }; });
+        var bloky = rozlozSkupinu(polozky, { reklamaKazda: 0, celkem: celkem, produktPo: produktPo }, pocitadlo);
+        html += '<details class="hs-kal-skupina-akci hs-kal-dlouhodobe" id="hs-kal-dlouhodobe"' + (seznam.skupiny.length ? '' : ' open') + '>' +
+          '<summary><h2 class="hs-kal-mesic">Sezónní a dlouhodobé akce <span class="hs-kal-pocet-dlouhodobych">(' +
+            seznam.dlouhodobe.length + ')</span></h2></summary>' + blokyHtml(bloky) + '</details>';
+      }
+      return html;
     }
 
     function souhrnText(pocet, filtruje) {
@@ -383,9 +439,18 @@
     // seznam
     S + ' .hs-kal-skupina-akci{display:block;margin-top:18px}',
     S + ' .hs-kal-mesic{margin:0 0 10px;font-size:1.1rem;line-height:1.3;color:var(--hs-kal-zelena);text-transform:capitalize}',
-    S + ' .hs-kal-probiha-sekce .hs-kal-mesic{color:var(--hs-kal-cihlova);text-transform:none}',
-    S + ' .hs-kal-probiha-sekce .hs-kal-mesic::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;background:var(--hs-kal-cihlova);' +
+    S + ' .hs-kal-dnes-sekce .hs-kal-mesic{color:var(--hs-kal-cihlova);text-transform:none}',
+    S + ' .hs-kal-dnes-sekce .hs-kal-mesic::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;background:var(--hs-kal-cihlova);' +
       'border-radius:50%;box-shadow:0 0 0 4px var(--hs-kal-cihlova-svetla);vertical-align:.05em}',
+    S + ' .hs-kal-dlouhodobe{margin-top:28px;padding-top:14px;border-top:1px solid var(--hs-kal-okraj)}',
+    S + ' .hs-kal-dlouhodobe summary{display:flex;align-items:center;gap:10px;min-height:44px;margin:0 0 10px;padding:0;cursor:pointer;list-style:none}',
+    S + ' .hs-kal-dlouhodobe summary::-webkit-details-marker{display:none}',
+    S + ' .hs-kal-dlouhodobe summary::after{content:"";width:9px;height:9px;margin-left:2px;border:solid var(--hs-kal-zelena);border-width:0 2px 2px 0;' +
+      'transform:rotate(45deg) translateY(-3px);transition:transform .15s}',
+    S + ' .hs-kal-dlouhodobe[open] summary::after{transform:rotate(-135deg) translateY(-1px)}',
+    S + ' .hs-kal-dlouhodobe summary .hs-kal-mesic{margin:0;text-transform:none}',
+    S + ' .hs-kal-pocet-dlouhodobych{color:var(--hs-kal-tlumeny);font-weight:400}',
+    S + ' .hs-kal-dlouhodobe summary:focus-visible{outline:3px solid var(--hs-kal-zelena);outline-offset:3px;border-radius:6px}',
     S + ' .hs-kal-mrizka{display:grid;gap:14px}',
     S + ' .hs-kal-mrizka + .hs-kal-reklama,' + S + ' .hs-kal-reklama + .hs-kal-mrizka{margin-top:14px}',
     S + ' .hs-kal-reklama{display:block;clear:both;width:100%;overflow:hidden;text-align:center}',
@@ -416,6 +481,7 @@
     S + ' .hs-kal-stitky .hs-kal-ikona{color:var(--hs-kal-zelena)}',
     S + ' .hs-kal-stitky .hs-kal-pozor{color:#fff;background:var(--hs-kal-cihlova)}',
     S + ' .hs-kal-stitky .hs-kal-probiha{color:var(--hs-kal-cihlova);background:var(--hs-kal-cihlova-svetla)}',
+    S + ' .hs-kal-stitky .hs-kal-obdobi{color:var(--hs-kal-zelena-tmava);background:var(--hs-kal-zelena-svetla)}',
     S + ' .hs-kal-karta-akce{display:grid;gap:8px;margin-top:auto}',
     S + ' .hs-kal-tlacitko{display:block;width:auto;padding:12px 16px;text-align:center;font-weight:700;line-height:1.3;color:#fff;background:var(--hs-kal-zelena);' +
       'border:0;border-radius:999px;text-decoration:none}',
@@ -594,7 +660,15 @@
     var SOUBOR_PRODUKTU = zaklad + '../produkty/produkty.json';
     var SOUBORY_NABIDEK = [zaklad + 'nabidky.json', zaklad + '../nabidky/nabidky.json', zaklad + '../nabidky.json'];
 
-    var stav = L.prazdnyStav();
+    var pred = predvolba(koren.getAttribute('data-kraj'), koren.getAttribute('data-typ'), TYPY);
+    // „Zrušit filtry“ vrátí stránku na její předvolbu (kraj/typ stránky)
+    function vychoziStav() {
+      var s = L.prazdnyStav();
+      s.kraj = pred.kraj;
+      s.typ = pred.typ;
+      return s;
+    }
+    var stav = vychoziStav();
     var vlastniOtevreno = false;
     var akce = [], podleId = {};
     var mon = null, produkty = null, nabidky = null;
@@ -617,11 +691,21 @@
     function pocetAktivnich() {
       return (stav.typ ? 1 : 0) + (stav.kraj ? 1 : 0) + (L.filtrujeSeDatem(stav) ? 1 : 0);
     }
-    function nejakyFiltr() { return !!(stav.q || pocetAktivnich()); }
+    // předvolba stránky se nepočítá jako filtr (tlačítko „Zrušit filtry“ se kvůli ní neukazuje)
+    function nejakyFiltr() {
+      return !!(stav.q || L.filtrujeSeDatem(stav) || stav.kraj !== pred.kraj || stav.typ !== pred.typ);
+    }
 
     function ulozDoAdresy() {
       try {
-        history.replaceState(history.state, '', location.pathname + adresaSFiltry(location.search, L.adresaZeStavu(stav)) + location.hash);
+        // do adresy jen to, co se liší od předvolby stránky („Všechny kraje“ na stránce kraje = kraj=)
+        var s = Object.assign({}, stav);
+        var qs = new URLSearchParams(L.adresaZeStavu(s));
+        ['kraj', 'typ'].forEach(function (k) {
+          if (pred[k] && stav[k] === pred[k]) qs.delete(k);
+          else if (pred[k] && !stav[k]) qs.set(k, '');
+        });
+        history.replaceState(history.state, '', location.pathname + adresaSFiltry(location.search, qs.toString()) + location.hash);
       } catch (e) { /* např. v sandboxu – filtry jen nebudou v adrese */ }
     }
 
@@ -673,7 +757,10 @@
       s.type = 'application/ld+json';
       s.id = 'hs-kal-jsonld';
       var kanonicka = document.querySelector('link[rel="canonical"]');
-      s.textContent = K.jsonLdText(K.jsonLd(akce, dnes(), document.title ? String(document.title).split('|')[0].trim() : '',
+      // na stránce kraje/typu jen akce, které stránka ukazuje
+      var akceStranky = pred.kraj || pred.typ ? L.filtruj(akce, vychoziStav(), dnes()) : akce;
+      if (!akceStranky.length) return;
+      s.textContent = K.jsonLdText(K.jsonLd(akceStranky, dnes(), document.title ? String(document.title).split('|')[0].trim() : '',
         kanonicka ? kanonicka.href : location.origin + location.pathname));
       (document.head || document.documentElement).appendChild(s);
     }
@@ -688,7 +775,7 @@
           ? 'Pro zvolené filtry jsme nenašli žádnou akci. Zkuste jiný termín, kraj nebo typ.'
           : 'Zatím tu nejsou žádné nadcházející akce. Mrkněte sem brzy znovu.') + '</p>';
       } else {
-        el.seznam.innerHTML = K.seznamHtml(vysledek, { ted: ted, mon: mon, produkty: produkty, nabidky: nabidky, reklamaKazda: reklamaKazda, hostitel: location.hostname });
+        el.seznam.innerHTML = K.seznamHtml(vysledek, { ted: ted, stav: stav, mon: mon, produkty: produkty, nabidky: nabidky, reklamaKazda: reklamaKazda, hostitel: location.hostname });
       }
       // Místa pro reklamu jsou po každém vykreslení nová (prázdná) – kód reklamy se do nich vloží
       // v posluchači této události (viz README).
@@ -814,7 +901,7 @@
     el.od.addEventListener('change', zmenaRozsahu);
     el.do.addEventListener('change', zmenaRozsahu);
     el.zrusit.addEventListener('click', function () {
-      stav = L.prazdnyStav();
+      stav = vychoziStav();
       vlastniOtevreno = false;
       zmena();
     });
@@ -833,7 +920,7 @@
     });
 
     // ---------- Start ----------
-    stav = L.stavZAdresy(location.search);
+    stav = pocatecniStav(L, location.search, pred);
     promitniStav();
 
     function nactiJson(adresa) {
@@ -893,6 +980,8 @@
         var cil = koren.querySelector('[id="' + h.replace(/"/g, '') + '"]') ||
           (h.indexOf('akce-') === 0 ? koren.querySelector('[id="hs-kal-' + h.replace(/"/g, '') + '"]') : null);
         if (cil) {
+          var obal = cil.closest('details');
+          if (obal) obal.open = true;
           cil.classList.add('hs-kal-zvyraznena');
           cil.scrollIntoView({ block: 'center' });
         }
@@ -910,6 +999,8 @@
     zakladZeSkriptu: zakladZeSkriptu,
     prefixujTridy: prefixujTridy,
     adresaSFiltry: adresaSFiltry,
+    predvolba: predvolba,
+    pocatecniStav: pocatecniStav,
     rozlozSkupinu: rozlozSkupinu,
     sirokeVMrizce: sirokeVMrizce,
     kostraHtml: kostraHtml,

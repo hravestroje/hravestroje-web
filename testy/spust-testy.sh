@@ -5,6 +5,7 @@
 #    chyba při prázdném exportu), kontrola, že obsahuje jen veřejné údaje
 # 2) kalendář: místní server s testovací sitemapou → akce.json, kontrola nalezených akcí
 # 3) kalendář – logika stránky (řazení, filtry dat, typy, obrázky, monetizace, .ics): testy/kalendar-logika.test.cjs
+# 3) kalendář – seznam podle data, „Dnes“, dlouhodobé akce, konkrétní dny, data-kraj/data-typ: testy/kalendar-seznam*.{test.cjs,js}
 # 3) kalendář vložený do Shoptetu (hs-kalendar.js): reklama, JSON-LD, adresa, izolace stylů (+ Chromium, je-li Playwright)
 # 3) nabídky: kontrola nabidky.json, výběr podle kraje/typu, prošlé, mřížka (+ Chromium, je-li Playwright)
 # 3) mapa: výběr a sloučení bodů, filtry typ/kraj/kdy, vzdálenost (+ Chromium, je-li Playwright)
@@ -184,6 +185,8 @@ JS
 
 echo "== 3) Kalendář – logika stránky"
 TZ=Europe/Prague node "$KOREN/testy/kalendar-logika.test.cjs"
+TZ=Europe/Prague node "$KOREN/testy/kalendar-seznam.test.cjs"
+TZ=Europe/Prague node "$KOREN/testy/kalendar-seznam-prohlizec.js"
 
 echo "== 3) Kalendář vložený do stránky Shoptetu (kalendar/hs-kalendar.js)"
 TZ=Europe/Prague node "$KOREN/testy/hs-kalendar.test.cjs"

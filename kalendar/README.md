@@ -2,8 +2,8 @@
 
 Skript `hs-kalendar.js` vykreslí **celý kalendář dopravních akcí** uvnitř běžné stránky e-shopu.
 Funguje stejně jako samostatná stránka [kalendar/](https://hravestroje.github.io/hravestroje-web/kalendar/):
-stejné řazení, filtry (typ, kdy, měsíc, vlastní termín, kraj, hledání), probíhající akce nahoře,
-skupiny po měsících, „Přidat do kalendáře“ (.ics), „Sdílet“ i komerční prvky z `monetizace.json`
+stejné řazení (jeden seznam podle data: „Dnes“ s probíhajícími akcemi, pak měsíce; pod ním
+sbalitelná sekce „Sezónní a dlouhodobé akce“), filtry (typ, kdy, měsíc, vlastní termín, kraj, hledání), „Přidat do kalendáře“ (.ics), „Sdílet“ i komerční prvky z `monetizace.json`
 (tipy na výlet, Booking.com, dlaždice z e-shopu). Logiku nemá vlastní – načítá `logika.js`
 ze stejné složky, takže každá oprava kalendáře platí na obou místech.
 
@@ -148,10 +148,33 @@ podle návodu AdSense.)
 
 | Atribut | Výchozí | Význam |
 | --- | --- | --- |
-| `data-reklama-kazda` | `8` | místo pro reklamu po každé N-té kartě, `0` = vypnout |
+| `data-reklama-kazda` | `8` | místo pro reklamu po každé N-té kartě, `0` = vypnout (ve sbalené sekci dlouhodobých akcí reklama není nikdy) |
+| `data-kraj` | – | přednastavený kraj, např. `Královéhradecký kraj` (viz níže) |
+| `data-typ` | – | přednastavený typ: `vlaky`, `traktory`, `auta`, `lode`, `letadla`, `ostatni` |
 | `data-akce` | `…/kalendar/akce.json` | jiný soubor s akcemi (jen pro testy) |
 | `data-zaklad` | složka skriptu | odkud brát `logika.js`, `akce.json`, `monetizace.json` |
 | `data-dnes` | dnešek | jen pro test: kalendář se chová, jako by bylo zadané datum (`2026-12-01`) |
+
+### Stránky pro jednotlivé kraje a typy (`data-kraj`, `data-typ`)
+
+Stačí v Shoptetu založit další stránku (stejně jako v kapitole 1, krok 2–3) a do ní místo
+`<div id="hs-kalendar"></div>` vložit například:
+
+```html
+<div id="hs-kalendar" data-kraj="Královéhradecký kraj" data-typ="traktory"></div>
+```
+
+- Stránka se otevře rovnou s tímto krajem a typem; návštěvník je může ve filtrech změnit.
+  **Zrušit filtry** vrátí stránku na její kraj a typ.
+- Jde použít jen jeden z atributů (`data-kraj="Jihomoravský kraj"` = všechny akce v kraji,
+  `data-typ="vlaky"` = všechny vlaky v ČR).
+- Kraj stačí napsat i bez „kraj“, bez diakritiky a malými písmeny (`kralovehradecky`, `Vysočina`,
+  `Praha`). Typ i jako `Traktory` nebo `Lodě`. Neznámá hodnota se ignoruje (ukáže se vše).
+- Adresa stránky zůstane čistá (bez `?kraj=…`). Odkaz s filtry v adrese (kapitola 2) má přednost –
+  `?kdy=vikend` na stránce kraje ukáže víkend v tom kraji.
+- JSON-LD pro Google na takové stránce obsahuje jen akce daného kraje a typu.
+- Doporučené adresy a nadpisy: `/kalendar-akci-kralovehradecky-kraj/` – „Akce pro děti
+  v Královéhradeckém kraji“, `/kalendar-akci-traktory/` – „Traktoriády a akce s traktory“.
 
 Test na živém webu bez úprav stránky: `?hs-kal-dnes=2026-12-01` za adresou stránky,
 `?hs-kal=vypnout` kalendář nespustí.

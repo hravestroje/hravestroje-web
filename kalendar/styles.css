@@ -302,8 +302,8 @@ a { color: var(--zelena); }
   color: var(--zelena);
   text-transform: capitalize;
 }
-.probiha-sekce .mesic { color: var(--cihlova); text-transform: none; }
-.probiha-sekce .mesic::before {
+.probiha-sekce .mesic, .dnes-sekce .mesic { color: var(--cihlova); text-transform: none; }
+.probiha-sekce .mesic::before, .dnes-sekce .mesic::before {
   content: "";
   display: inline-block;
   width: 10px; height: 10px;
@@ -313,6 +313,23 @@ a { color: var(--zelena); }
   box-shadow: 0 0 0 4px var(--cihlova-svetla);
   vertical-align: .05em;
 }
+/* Sezónní a dlouhodobé akce – sbalitelná sekce pod chronologickým seznamem */
+.dlouhodobe { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--okraj); }
+.dlouhodobe summary {
+  display: flex; align-items: center; gap: 10px;
+  min-height: 44px; margin-bottom: 10px;
+  cursor: pointer; list-style: none;
+}
+.dlouhodobe summary::-webkit-details-marker { display: none; }
+.dlouhodobe summary::after {
+  content: ""; width: 9px; height: 9px; margin-left: 2px;
+  border: solid var(--zelena); border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-3px); transition: transform .15s;
+}
+.dlouhodobe[open] summary::after { transform: rotate(-135deg) translateY(-1px); }
+.dlouhodobe summary .mesic { margin: 0; text-transform: none; }
+.pocet-dlouhodobych { color: var(--text-tlumeny); font-weight: 400; }
+.dlouhodobe summary:focus-visible { outline: 3px solid var(--zelena); outline-offset: 3px; border-radius: 6px; }
 .mrizka {
   display: grid;
   gap: 14px;
@@ -454,6 +471,7 @@ a { color: var(--zelena); }
 .stitky .ikona { color: var(--zelena); }
 .stitky .pozor { color: #fff; background: var(--cihlova); }
 .stitky .probiha { color: var(--cihlova); background: var(--cihlova-svetla); }
+.stitky .obdobi { color: var(--zelena-tmava); background: var(--zelena-svetla); }
 
 .karta-akce {
   display: grid;
@@ -534,8 +552,38 @@ a { color: var(--zelena); }
 .produkt { background: #fffdf7; border: 1px solid #efe7d2; box-shadow: none; }
 .produkt > a { display: flex; flex: 1; flex-direction: column; color: inherit; text-decoration: none; }
 .produkt .oznaceni { padding: 10px 14px 0; }
-.produkt-obrazek { aspect-ratio: 16 / 9; margin: 8px 14px 0; overflow: hidden; background: #fff; border-radius: 10px; }
-.produkt-obrazek img { object-fit: contain; }
+/* Obrázek produktu přes celou šířku dlaždice v poměru 4:3; víc obrázků = galerie */
+.produkt-obrazek { position: relative; aspect-ratio: 4 / 3; margin-top: 8px; overflow: hidden; background: #fff; }
+.produkt-snimky {
+  display: flex; height: 100%;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.produkt-snimky::-webkit-scrollbar { display: none; }
+.produkt-snimky img { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; object-fit: cover; }
+.produkt-tecky {
+  position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  display: flex; gap: 6px; padding: 4px 8px;
+  background: rgba(29, 36, 32, .45); border-radius: 999px; pointer-events: none;
+}
+.produkt-tecky i { width: 7px; height: 7px; background: rgba(255, 255, 255, .55); border-radius: 50%; }
+.produkt-tecky i.aktivni { background: #fff; }
+/* Počítač s myší: druhý obrázek (náhled obsahu) po najetí myší, bez listování */
+@media (hover: hover) and (pointer: fine) {
+  .produkt-galerie .produkt-snimky { overflow: hidden; }
+  .produkt-galerie .produkt-snimky img:nth-child(2) {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity .25s ease;
+  }
+  .produkt-galerie .produkt-snimky img:nth-child(n+3) { display: none; }
+  .produkt > a:hover .produkt-galerie img:nth-child(2),
+  .produkt > a:focus-visible .produkt-galerie img:nth-child(2) { opacity: 1; }
+  .produkt-galerie .produkt-tecky { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .produkt-galerie .produkt-snimky img:nth-child(2) { transition: none; }
+}
 .produkt .karta-telo { padding-top: 10px; }
 .produkt .tlacitko { margin-top: auto; }
 .cena { font-weight: 700; color: var(--cihlova); }
