@@ -13,6 +13,8 @@
 #   https://hravestroje.github.io/hravestroje-web/vikend/
 #   https://hravestroje.github.io/hravestroje-web/obrazky/
 #   https://hravestroje.github.io/hravestroje-web/newsletter/
+
+#   https://hravestroje.github.io/hravestroje-web/mapa/ (+ mapa/hs-mapa.js)
 #
 # U pull requestů se spustí jen testy na ukázkových datech (bez secretů, nic se nezveřejní).
 
@@ -34,6 +36,9 @@ on:
       - "vikend/**"
       - "obrazky/**"
       - "newsletter/**"
+
+      - "mapa/**"
+      - "akce-v-okoli/**"
       - "testy/**"
       - ".github/workflows/web.yml"
   pull_request:
@@ -186,6 +191,12 @@ jobs:
           cp newsletter/index.html _site/newsletter/
           find newsletter/kostry -maxdepth 1 -name '*.html' -exec cp {} _site/newsletter/kostry/ \;
           test -s _site/newsletter/index.html
+
+      - name: Mapa akcí – stránka a skript pro Shoptet
+        run: |
+          mkdir -p _site/mapa
+          cp mapa/index.html mapa/hs-mapa.js _site/mapa/
+          test -s _site/akce-v-okoli/souradnice.json
 
       - uses: actions/configure-pages@v5
 

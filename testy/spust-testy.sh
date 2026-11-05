@@ -6,6 +6,7 @@
 # 2) kalendář: místní server s testovací sitemapou → akce.json, kontrola nalezených akcí
 # 3) kalendář – logika stránky (řazení, filtry dat, typy, obrázky, monetizace, .ics): testy/kalendar-logika.test.cjs
 # 3) nabídky: kontrola nabidky.json, výběr podle kraje/typu, prošlé, mřížka (+ Chromium, je-li Playwright)
+# 3) mapa: výběr a sloučení bodů, filtry typ/kraj/kdy, vzdálenost (+ Chromium, je-li Playwright)
 # 3) víkend: kostra článku „Co se děje o víkendu“ (výběr víkendu, vícedenní akce, řazení krajů)
 # 3) obrázek akce: rozměry, rozvržení, ilustrace na zemi, ilustrace.json (+ Chromium, je-li Playwright)
 # 3) newsletter: kostra víkendového newsletteru pro Ecomail (layout, UTM, produkty, odhlášení)
@@ -188,6 +189,10 @@ node "$KOREN/testy/akce-v-okoli.test.cjs"
 VYSTUP="$TMP/souradnice.json" node "$KOREN/akce-v-okoli/scripts/souradnice.mjs" >/dev/null
 test -s "$TMP/souradnice.json"
 echo "OK: souradnice.mjs nad kalendar/akce.json proběhl"
+
+echo "== 3) Mapa akcí (mapa/)"
+TZ=Europe/Prague node "$KOREN/testy/mapa.test.cjs"
+node "$KOREN/testy/mapa-prohlizec.js"
 
 echo "== 3) Tipy na výlet (nabidky/)"
 node "$KOREN/nabidky/zkontroluj-nabidky.mjs"

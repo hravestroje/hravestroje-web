@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapa dopravních akcí – Hravé stroje</title>
+<meta name="description" content="Mapa nadcházejících akcí s vlaky, traktory, auty, loděmi a letadly pro děti po celé ČR. Filtry podle typu, kraje a termínu, akce nejblíž vás.">
+<meta name="theme-color" content="#1f6f3d">
+<link rel="canonical" href="https://hravestroje.github.io/hravestroje-web/mapa/">
+<link rel="icon" href="../kalendar/icons/icon-192.png">
+<style>
+  :root { --zelena: #1f6f3d; --zelena-tmava: #16532d; --text: #1d2420; --tlumeny: #59635d; --pozadi: #f6f5f1; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--pozadi); color: var(--text);
+    font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  a { color: var(--zelena); }
+  .obal { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  .hlavicka { background: var(--zelena); color: #fff; padding: calc(14px + env(safe-area-inset-top)) 0 18px; }
+  .znacka { color: #fff; font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; opacity: .9; }
+  .znacka:hover { opacity: 1; text-decoration: underline; }
+  h1 { margin: 6px 0 4px; font-size: clamp(1.5rem, 4.5vw, 2.1rem); line-height: 1.2; }
+  .perex { margin: 0; max-width: 46em; opacity: .92; }
+  .navigace { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .navigace a { color: #fff; font-weight: 600; }
+  main { padding-top: 18px; padding-bottom: 40px; }
+  #hs-mapa { margin-top: 0; }
+  .paticka { border-top: 1px solid #dfe3dd; padding: 18px 0 calc(24px + env(safe-area-inset-bottom)); color: var(--tlumeny); font-size: .9rem; }
+</style>
+</head>
+<body>
+<header class="hlavicka">
+  <div class="obal">
+    <a class="znacka" href="https://www.hravestroje.cz/">Hravé stroje</a>
+    <h1>Mapa dopravních akcí</h1>
+    <p class="perex">Kam za vláčky, traktory, auty, loděmi a letadly. Klikněte na bod na mapě,
+      nebo si nechte akce seřadit podle toho, jak jsou od vás daleko.</p>
+    <ul class="navigace">
+      <li><a href="../kalendar/">Kalendář akcí</a></li>
+      <li><a href="https://www.hravestroje.cz/">E-shop Hravé stroje</a></li>
+    </ul>
+  </div>
+</header>
+<main class="obal">
+  <div id="hs-mapa" data-adresa="ano">
+    <noscript>Mapa potřebuje JavaScript. Všechny akce najdete v <a href="../kalendar/">kalendáři</a>.</noscript>
+  </div>
+</main>
+<footer class="paticka">
+  <div class="obal">
+    Akce sbíráme z článků na <a href="https://www.hravestroje.cz/">hravestroje.cz</a>; termíny si před cestou
+    ověřte u pořadatele. Mapové podklady © přispěvatelé OpenStreetMap. Stránka nepoužívá cookies.
+  </div>
+</footer>
+<script src="hs-mapa.js" defer></script>
+</body>
+</html>

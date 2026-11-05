@@ -11,6 +11,7 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Testovací stránka produktů | https://hravestroje.github.io/hravestroje-web/produkty/demo.html |
 | Akce v okolí pro články – skript | https://hravestroje.github.io/hravestroje-web/akce-v-okoli/hs-akce-v-okoli.js |
 | Tipy na výlet v článcích – skript a data | https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js, …/nabidky/nabidky.json |
+| Mapa akcí (stránka + skript `hs-mapa.js` pro Shoptet) – [návod](mapa/README.md) | https://hravestroje.github.io/hravestroje-web/mapa/ |
 | Kostry článku „Co se děje o víkendu“ | https://hravestroje.github.io/hravestroje-web/vikend/ |
 | Generátor obrázku akce (web 1200×630, sítě 1080×1350) – [návod](obrazky/README.md) | https://hravestroje.github.io/hravestroje-web/obrazky/ |
 | Kostry víkendového newsletteru pro Ecomail – návod v [`newsletter/README.md`](newsletter/README.md) | https://hravestroje.github.io/hravestroje-web/newsletter/ |
