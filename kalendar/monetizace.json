@@ -3,6 +3,8 @@
  "zapnuto": true,
  "_booking": "Partnerské ID (aid) z Booking.com Affiliate Partner Programme. Dokud je prázdné, tlačítko „Ubytování poblíž“ se nezobrazuje.",
  "booking_aid": "",
+ "_booking_cj": "Partnerský odkaz na Booking.com přes Commission Junction (CJ). Když je vyplněný, tlačítko „Ubytování poblíž“ vede přes CJ (adresa Booking.com se předá v parametru url, bez aid a UTM) a booking_aid se nepoužije. Prázdné = dosavadní odkaz s booking_aid.",
+ "booking_cj": "https://www.anrdoezrs.net/click-101692290-14312907",
  "booking_odkaz": "https://www.booking.com/searchresults.cs.html",
  "booking_label": "kalendar-akci",
  "_eshop": "Dlaždice produktu z e-shopu (../produkty/produkty.json) po každé N-té kartě.",

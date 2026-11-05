@@ -255,6 +255,70 @@ test('Booking: místo, příjezd v den začátku (u probíhající dnes), utm', 
   assert.equal(L.bookingOdkaz(silvestr, { booking_aid: '1' }, TED), '', 'bez místa žádný odkaz');
 });
 
+const CJ = 'https://www.anrdoezrs.net/click-101692290-14312907';
+
+test('Booking přes CJ: booking_cj + ?url=<zakódovaná adresa Booking.com>&sid=kalendar-<typ>', () => {
+  const odkaz = L.bookingOdkaz(plavba, { booking_cj: CJ, booking_aid: '1234567', booking_label: 'kalendar-akci' }, TED);
+  assert.ok(odkaz.startsWith(CJ + '?url='), odkaz);
+  const u = new URL(odkaz);
+  assert.equal(u.hostname, 'www.anrdoezrs.net');
+  assert.deepEqual([...u.searchParams.keys()], ['url', 'sid']);
+  assert.equal(u.searchParams.get('sid'), 'kalendar-lode');
+  // adresa Booking.com je celá zakódovaná (encodeURIComponent) – v odkazu CJ nesmí být holé & ani ? navíc
+  const zakodovana = odkaz.slice((CJ + '?url=').length, odkaz.indexOf('&sid='));
+  assert.ok(!/[?&=:/]/.test(zakodovana), 'nezakódované znaky: ' + zakodovana);
+  const b = new URL(decodeURIComponent(zakodovana));
+  assert.equal(b.href, u.searchParams.get('url'));
+  assert.equal(b.hostname, 'www.booking.com');
+  assert.equal(b.searchParams.get('ss'), 'Praha');
+  assert.equal(b.searchParams.get('checkin'), '2026-11-07');
+  assert.equal(b.searchParams.get('checkout'), '2026-11-08');
+  assert.equal(b.searchParams.get('group_adults'), '2');
+  assert.equal(b.searchParams.get('no_rooms'), '1');
+  for (const k of ['aid', 'label', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+    assert.ok(!b.searchParams.has(k), 'v CJ variantě nesmí být ' + k);
+  }
+  assert.ok(!odkaz.includes('aid') && !odkaz.includes('1234567') && !odkaz.includes('utm_'), odkaz);
+  // funguje i bez booking_aid; probíhající akce → příjezd dnes
+  const c = new URL(L.bookingOdkaz(cyklo, { booking_cj: CJ }, TED));
+  assert.equal(new URL(c.searchParams.get('url')).searchParams.get('checkin'), '2026-11-04');
+  assert.equal(c.searchParams.get('sid'), 'kalendar-' + L.hlavniTyp(cyklo));
+  // aid/label v booking_odkaz se v CJ variantě také zahodí
+  const z = new URL(L.bookingOdkaz(plavba, { booking_cj: CJ, booking_odkaz: 'https://www.booking.com/searchresults.cs.html?aid=9&label=x' }, TED));
+  const zb = new URL(z.searchParams.get('url'));
+  assert.ok(!zb.searchParams.has('aid') && !zb.searchParams.has('label'), zb.href);
+  // ostatní domény CJ
+  for (const d of ['www.dpbolvw.net', 'www.jdoqocy.com', 'www.kqzyfj.com', 'www.tkqlhce.com', 'anrdoezrs.net']) {
+    assert.ok(L.bookingOdkaz(plavba, { booking_cj: 'https://' + d + '/click-1-2' }, TED).startsWith('https://' + d + '/click-1-2?url='), d);
+  }
+});
+
+test('Booking přes CJ: neplatný booking_cj se nepoužije, prázdný = dosavadní aid', () => {
+  // prázdné booking_cj → dosavadní odkaz s aid
+  const u = new URL(L.bookingOdkaz(plavba, { booking_cj: '', booking_aid: '1234567' }, TED));
+  assert.equal(u.hostname, 'www.booking.com');
+  assert.equal(u.searchParams.get('aid'), '1234567');
+  // prázdné booking_cj i aid → tlačítko se nezobrazí
+  assert.equal(L.bookingOdkaz(plavba, { zapnuto: true, booking_cj: '', booking_aid: '' }, TED), '');
+  assert.equal(L.bookingOdkaz(plavba, { zapnuto: true, booking_cj: '   ' }, TED), '');
+  // cizí doména / http / podvržená doména → jako by nebylo vyplněné
+  for (const spatne of ['http://www.anrdoezrs.net/click-1-2', 'https://www.anrdoezrs.net.evil.cz/click', 'https://evilanrdoezrs.net/x',
+    'https://www.example.com/click', 'javascript:alert(1)', 'https://user:pw@www.anrdoezrs.net/click']) {
+    assert.equal(L.bookingOdkaz(plavba, { booking_cj: spatne }, TED), '', spatne);
+    assert.equal(new URL(L.bookingOdkaz(plavba, { booking_cj: spatne, booking_aid: '7' }, TED)).hostname, 'www.booking.com', spatne);
+  }
+  // vypnutá monetizace / bez místa
+  assert.equal(L.bookingOdkaz(plavba, { zapnuto: false, booking_cj: CJ }, TED), '');
+  assert.equal(L.bookingOdkaz(AKCE.find((a) => a.id === 'a10'), { booking_cj: CJ }, TED), '');
+});
+
+test('monetizace.json: booking_cj je vyplněné odkazem CJ a s nápovědou', () => {
+  const mon = JSON.parse(require('node:fs').readFileSync(path.join(__dirname, '..', 'kalendar', 'monetizace.json'), 'utf8'));
+  assert.equal(mon.booking_cj, CJ);
+  assert.ok(typeof mon._booking_cj === 'string' && mon._booking_cj.length > 20);
+  assert.equal(L.cjOdkaz(mon.booking_cj), CJ);
+});
+
 test('utm parametry v odkazech', () => {
   const u = new URL(L.pridejUtm('https://www.hravestroje.cz/clanek/?x=1', 'vlaky', 'clanek'));
   assert.equal(u.searchParams.get('x'), '1');
@@ -310,6 +374,34 @@ test('nabídky (nabidky.json): kraj/typ, platnost, každá jen jednou', () => {
   assert.equal(L.vyberNabidku(N, plavba, { 'https://p.cz/2': true, 'https://p.cz/1': true }, TED), null);
   assert.equal(L.vyberNabidku(null, plavba, {}, TED), null, 'soubor zatím neexistuje');
   assert.equal(L.vyberNabidku([{ nazev: 'Pole', url: 'https://p.cz/9', kraj: 'Hlavní město Praha' }], plavba, {}, TED).nazev, 'Pole');
+});
+
+test('nabídky: ukázky a položky bez skutečné adresy se nezobrazí', () => {
+  const ukazky = JSON.parse(require('node:fs').readFileSync(path.join(__dirname, '..', 'nabidky', 'nabidky.json'), 'utf8'));
+  assert.ok(ukazky.nabidky.length && ukazky.nabidky.every((n) => n.ukazka === true), 'nabidky.json má zatím jen ukázky');
+  for (const a of AKCE) assert.equal(L.vyberNabidku(ukazky, a, {}, TED), null, 'ukázka u ' + a.id);
+  const N = { nabidky: [
+    { nazev: 'Ukázka', url: 'https://p.cz/u', ukazka: true },
+    { nazev: 'Mřížka', url: '#' },
+    { nazev: 'Prázdná', url: '' },
+    { nazev: 'Mezery', url: '   ' },
+    { nazev: 'Http', url: 'http://p.cz/h' },
+    { nazev: 'Relativní', url: '/clanek/' },
+    { nazev: 'Bez https', url: 'p.cz/x' },
+    { nazev: 'JS', url: 'javascript:alert(1)' },
+    { nazev: 'Odkaz #', odkaz: '#' },
+  ] };
+  for (const a of AKCE) assert.equal(L.vyberNabidku(N, a, {}, TED), null, 'neplatná nabídka u ' + a.id);
+  assert.equal(L.nabidkaKZobrazeni({ nazev: 'OK', url: 'https://p.cz/ok' }), true);
+  assert.equal(L.nabidkaKZobrazeni({ nazev: 'OK', url: 'https://p.cz/ok', ukazka: true }), false);
+  assert.equal(L.nabidkaKZobrazeni({ nazev: 'OK', url: 'https://p.cz/ok', ukazka: false }), true);
+  // skutečná nabídka vedle ukázky se zobrazí; "vse" a platnost_do jako v nabidky.json
+  const S = { nabidky: ukazky.nabidky.concat([
+    { nazev: 'Skutečná', url: 'https://p.cz/s', kraje: [], typy: ['vse'], platnost_do: '2026-12-31' },
+    { nazev: 'Prošlá', url: 'https://p.cz/p', kraje: [], typy: ['vse'], platnost_do: '2026-10-31' },
+  ]) };
+  assert.equal(L.vyberNabidku(S, plavba, {}, TED).nazev, 'Skutečná');
+  assert.equal(L.vyberNabidku(S, plavba, { 'https://p.cz/s': true }, TED), null, 'prošlá podle platnost_do');
 });
 
 // ---------- .ics ----------

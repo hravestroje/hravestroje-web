@@ -359,6 +359,7 @@ Kalendář obsahuje nenápadné komerční prvky. Každý je označený a na jed
 {
  "zapnuto": true,
  "booking_aid": "",
+ "booking_cj": "https://www.anrdoezrs.net/click-101692290-14312907",
  "booking_odkaz": "https://www.booking.com/searchresults.cs.html",
  "booking_label": "kalendar-akci",
  "eshop": true,
@@ -371,6 +372,7 @@ Kalendář obsahuje nenápadné komerční prvky. Každý je označený a na jed
 | --- | --- |
 | `zapnuto` | `true` = komerční prvky zapnuté, `false` = **vše vypnuté** (i věta v patičce) |
 | `booking_aid` | vaše **partnerské ID (aid)** z Booking.com Affiliate Partner Programme (jen písmena, číslice, `-`, `_`). **Dokud je prázdné, tlačítko „Ubytování poblíž“ se nezobrazuje.** Nikdy sem nedávejte vymyšlené číslo. |
+| `booking_cj` | partnerský odkaz na Booking.com z **Commission Junction (CJ)**. Musí začínat `https://` a být na doméně CJ (`anrdoezrs.net`, `dpbolvw.net`, `jdoqocy.com`, `kqzyfj.com`, `tkqlhce.com`). **Když je vyplněný, má přednost před `booking_aid`:** tlačítko vede na `<booking_cj>?url=<zakódovaná adresa Booking.com>&sid=kalendar-<typ akce>`. Adresa Booking.com uvnitř má místo a data (`ss`, `checkin`, `checkout`, `group_adults`, `no_rooms`), ale **bez** `aid`, `label` a UTM – provizi přiřazuje CJ. `sid` (např. `kalendar-vlaky`) uvidíte v přehledech CJ. Prázdné `""` = dosavadní odkaz s `booking_aid`. |
 | `booking_odkaz` | základní adresa vyhledávání Bookingu; měňte jen tehdy, když vám partnerský program dá jinou |
 | `booking_label` | volitelný štítek, podle kterého v přehledu Bookingu poznáte prokliky z kalendáře |
 | `eshop` | `false` = bez dlaždic produktů z e-shopu |
@@ -388,6 +390,12 @@ Kalendář obsahuje nenápadné komerční prvky. Každý je označený a na jed
 4. **Commit changes…** → *Commit directly to the `main` branch* → **Commit changes**.
 5. Za pár minut se na kartách objeví „Ubytování poblíž“. Odkaz si vyzkoušejte – v adrese musí být `aid=…`
    s vaším číslem.
+
+**Booking přes CJ (Commission Junction):** v `monetizace.json` je vyplněné `"booking_cj"` (odkaz z CJ
+na Booking.com). Dokud tam je, odkazy jdou přes CJ a `booking_aid` se nepoužije. Odkaz si vyzkoušejte:
+začíná `https://www.anrdoezrs.net/click-…?url=https%3A%2F%2Fwww.booking.com…&sid=kalendar-…` a po
+kliknutí skončí na vyhledávání Booking.com s místem a daty akce. Návrat k přímému odkazu:
+`"booking_cj": ""` a vyplnit `booking_aid`.
 
 ### 7.2 Tipy na výlet (`nabidky.json`)
 
@@ -413,11 +421,14 @@ Očekávaný tvar:
 ```
 
 `kraje` / `typy` (lze i jednotlivě `"kraj": "…"`, `"typ": "…"`) jsou nepovinné – prázdné = platí pro všechny.
-`od` / `do` jsou nepovinné – mimo toto období se nabídka neukáže. `"aktivni": false` nabídku dočasně skryje.
+`od` / `do` (nebo `platnost_do`) jsou nepovinné – mimo toto období se nabídka neukáže. `"aktivni": false` nabídku dočasně skryje.
+Typ nebo kraj `"vse"` = platí pro všechny. **Ukázky (`"ukazka": true`) a položky bez skutečné adresy**
+(prázdné `url`, `"#"` nebo adresa nezačínající `https://`) se nikdy nezobrazí – ani v kalendáři
+(`kalendar/`, vložený `hs-kalendar.js`), ani v článcích (`hs-nabidky.js`).
 Přednost má nabídka, která sedí na kraj i typ.
 
 ### 7.3 Jak monetizaci vypnout
 
 - **Vše najednou:** v `kalendar/monetizace.json` změňte `"zapnuto": true` na `"zapnuto": false` (tužka → Commit).
-- **Jen něco:** `"booking_aid": ""` (bez Bookingu), `"eshop": false` (bez produktů), `"nabidky": false` (bez tipů).
+- **Jen něco:** `"booking_cj": ""` a `"booking_aid": ""` (bez Bookingu), `"eshop": false` (bez produktů), `"nabidky": false` (bez tipů).
 - Kdyby soubor `monetizace.json` chyběl nebo byl rozbitý, kalendář funguje dál – jen bez komerčních prvků.

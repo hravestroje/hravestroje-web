@@ -182,6 +182,83 @@ const STYL_SABLONY = () => {
       await h.context.close();
     }
 
+    // 4b) rozložení mřížky: obrázky 16:9 i se šablonou (img width/height:auto !important),
+    // karty po řádcích podle data, stejná výška v řádku, žádná poloprázdná poslední řada
+    const CTVEREC = fs.readFileSync(path.join(KOREN, 'kalendar', 'icons', 'icon-512.png'));
+    for (const [nazev, viewport, sloupcu] of [['pc', { width: 1280, height: 900 }, 3], ['pc-uzke', { width: 1000, height: 900 }, 2], ['mobil', { width: 390, height: 844 }, 1]]) {
+      for (const n of [1, 2, 3, 4, 5, 6, 7, 8]) {
+        const data = { aktualizovano: AKCE.aktualizovano, akce: [] };
+        for (let i = 0; i < n; i++) {
+          data.akce.push({ id: 'm' + i, nazev: 'Akce mřížky ' + i + (i % 2 ? ' s delším názvem, který se zalomí na víc řádků' : ''),
+            zacatek: L.isoDen(new Date(2026, 11, 1 + i)), typy: [TYPY[i % 5]], kraj: KRAJE[i % 3], obec: 'Obec ' + i,
+            url: 'https://www.hravestroje.cz/kalendar-dopravnich-akci/m-' + i + '/', obrazek: i % 3 === 2 ? null : 'http://127.0.0.1/ctverec-' + i + '.png' });
+        }
+        const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
+        const page = await context.newPage();
+        await page.route('**/kalendar/akce.json', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify(data) }));
+        await page.route('**/produkty/produkty.json', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify(PRODUKTY) }));
+        await page.route(/ctverec-\d+\.png/, (r) => r.fulfill({ contentType: 'image/png', body: CTVEREC }));
+        await page.goto(`${demo}?hs-kal-dnes=${DNES}`);
+        await cekejNaKarty(page);
+        await page.waitForFunction(() => { const i = document.querySelector('#hs-kalendar .hs-kal-karta-obrazek img'); return i && i.complete && i.naturalWidth > 0; });
+        const m = await page.evaluate(() => {
+          const zaokr = (x) => Math.round(x);
+          const chyby = [];
+          let maxSloupcu = 0, obrazku = 0, nazvy = [];
+          for (const mr of document.querySelectorAll('#hs-kalendar .hs-kal-mrizka')) {
+            const box = mr.getBoundingClientRect();
+            const deti = [...mr.children];
+            const radky = new Map();
+            for (const d of deti) {
+              const r = d.getBoundingClientRect();
+              const top = zaokr(r.top);
+              if (!radky.has(top)) radky.set(top, []);
+              radky.get(top).push(r);
+            }
+            const serazene = [...radky.keys()].sort((a, b) => a - b);
+            serazene.forEach((top, i) => {
+              const rr = radky.get(top);
+              maxSloupcu = Math.max(maxSloupcu, rr.length);
+              // řádek je zleva doprava a vyplňuje celou šířku mřížky
+              const vlevo = Math.min(...rr.map((r) => r.left)), vpravo = Math.max(...rr.map((r) => r.right));
+              if (Math.abs(vlevo - box.left) > 1 || Math.abs(vpravo - box.right) > 1) chyby.push(`řádek ${i + 1}/${serazene.length} nevyplňuje šířku (${zaokr(vlevo - box.left)}…${zaokr(box.right - vpravo)})`);
+              const vysky = new Set(rr.map((r) => zaokr(r.height)));
+              if (vysky.size > 1) chyby.push(`řádek ${i + 1}: různé výšky karet ${[...vysky]}`);
+            });
+            // pořadí v DOM = po řádcích zleva doprava
+            const poradi = deti.map((d) => d.getBoundingClientRect()).map((r) => [zaokr(r.top), zaokr(r.left)]);
+            for (let i = 1; i < poradi.length; i++) {
+              const [t0, l0] = poradi[i - 1], [t1, l1] = poradi[i];
+              if (t1 < t0 || (t1 === t0 && l1 <= l0)) chyby.push('karty nejsou po řádcích zleva doprava');
+            }
+            nazvy = nazvy.concat([...mr.querySelectorAll('h3')].map((h) => h.textContent));
+          }
+          for (const o of document.querySelectorAll('#hs-kalendar .hs-kal-karta-obrazek, #hs-kalendar .hs-kal-produkt-obrazek')) {
+            const r = o.getBoundingClientRect();
+            if (Math.abs(r.width * 9 / 16 - r.height) > 1.5) chyby.push(`obrázek není 16:9: ${zaokr(r.width)}×${zaokr(r.height)}`);
+            const img = o.querySelector('img');
+            if (img) {
+              obrazku++;
+              const ri = img.getBoundingClientRect();
+              const st = getComputedStyle(img);
+              if (Math.abs(ri.width - r.width) > 1 || Math.abs(ri.height - r.height) > 1) chyby.push(`img nevyplňuje rámeček: ${zaokr(ri.width)}×${zaokr(ri.height)} v ${zaokr(r.width)}×${zaokr(r.height)}`);
+              if (o.classList.contains('hs-kal-karta-obrazek') && st.objectFit !== 'cover') chyby.push('img bez object-fit:cover');
+            }
+          }
+          const presah = document.documentElement.scrollWidth - window.innerWidth;
+          return { chyby, maxSloupcu, obrazku, nazvy, presah };
+        });
+        ok(m.chyby.length === 0, `${nazev} (${viewport.width} px), ${n} akcí: ${m.chyby.join('; ')}`);
+        ok(m.obrazku >= 1, `${nazev}, ${n} akcí: chybí obrázky akcí`);
+        ok(m.presah <= 0, `${nazev}, ${n} akcí: stránka přetéká do šířky o ${m.presah}px`);
+        const akceNazvy = m.nazvy.filter((t) => t.startsWith('Akce mřížky'));
+        ok(akceNazvy.map((t) => +t.split(' ')[2]).every((x, i) => x === i), `${nazev}, ${n} akcí: pořadí podle data ${akceNazvy}`);
+        ok(m.maxSloupcu <= sloupcu && (n !== 3 || m.maxSloupcu === sloupcu), `${nazev}, ${n} akcí: čekám ${sloupcu} sloupce, je ${m.maxSloupcu}`);
+        if (snimky && (n === 5 || n === 7)) await page.locator('#hs-kalendar').screenshot({ path: path.join(snimky, `hs-kalendar-mrizka-${nazev}-${n}.png`) });
+        await context.close();
+      }
+    }
+
     // 5) stávající stránka kalendar/ dál funguje beze změny
     const p = await stranka(browser, { width: 1280, height: 900 }, `${zaklad}/kalendar/index.html?kraj=${encodeURIComponent('Zlínský kraj')}`);
     await p.page.waitForSelector('#seznam .karta');
@@ -192,5 +269,5 @@ const STYL_SABLONY = () => {
     await browser.close();
     server.close();
   }
-  console.log('OK: hs-kalendar.js v Chromiu – PC i mobil: karty, místa pro reklamu, filtry v adrese, sdílené odkazy, JSON-LD, izolované styly, bez cookies');
+  console.log('OK: hs-kalendar.js v Chromiu – PC i mobil: karty, mřížka bez poloprázdné řady, obrázky 16:9, místa pro reklamu, filtry v adrese, sdílené odkazy, JSON-LD, izolované styly, bez cookies');
 })().catch((e) => { console.error(e); process.exit(1); });

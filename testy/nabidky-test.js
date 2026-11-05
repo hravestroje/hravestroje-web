@@ -52,6 +52,12 @@ const ostra = JSON.parse(require('fs').readFileSync(path.join(__dirname, '..', '
 for (const kraj of ['', KHK, 'Zlínský kraj']) for (const typ of ['', 'vlaky', 'traktory', 'auta', 'lode', 'letadla', 'vse']) {
   assert.ok(vyber(ostra.nabidky, kraj, typ, 9, DNES).every((x) => !x.ukazka), 'ukázka z nabidky.json by se zobrazila');
 }
+for (const kraj of ['', KHK, 'Zlínský kraj']) for (const typ of ['', 'vlaky', 'vse']) {
+  assert.strictEqual(vyber(ostra.nabidky.filter((x) => x.ukazka), kraj, typ, 9, DNES).length, 0, 'nabidky.json jen s ukázkami → nic');
+}
+for (const url of ['#', '', 'https://', 'https://#x', 'http://p.cz/a', '/clanek/']) {
+  assert.ok(!platna({ nazev: 'X', url }, DNES), 'neskutečná adresa ' + JSON.stringify(url));
+}
 console.log('OK: ukázky (i ty v nabidky.json) jsou skryté');
 
 // 4) mřížka bez poloprázdné poslední řady

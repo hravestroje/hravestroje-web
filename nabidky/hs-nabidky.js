@@ -29,10 +29,10 @@
     return d.getFullYear() + '-' + dve(d.getMonth() + 1) + '-' + dve(d.getDate());
   }
 
-  // Nabídka se smí ukázat: není ukázka, má název a https odkaz a neprošla (platnost_do včetně).
+  // Nabídka se smí ukázat: není ukázka ("ukazka": true), má název a skutečný https odkaz a neprošla (platnost_do včetně).
   function platna(n, dnes) {
     if (!n || n.ukazka) return false;
-    if (!text(n.nazev) || !/^https:\/\//i.test(text(n.url))) return false;
+    if (!text(n.nazev) || !/^https:\/\/[^\s\/?#]+/i.test(text(n.url))) return false; // „#“, prázdné, http → ne
     var konec = text(n.platnost_do);
     if (konec && /^\d{4}-\d{2}-\d{2}$/.test(konec) && konec < dnes) return false;
     return true;

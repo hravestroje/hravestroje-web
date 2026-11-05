@@ -518,12 +518,34 @@
     return !!mon && mon.zapnuto !== false;
   }
 
-  // Odkaz na Booking.com s místem akce a daty. Bez partnerského ID (booking_aid) vrací ''
-  // – tlačítko se pak nezobrazí. Příjezd = den začátku akce (u probíhající dnešek), odjezd o den později.
+  // Povolené domény odkazů Commission Junction (CJ) – přes ně jde partnerský odkaz na Booking.com.
+  var CJ_DOMENY = ['anrdoezrs.net', 'dpbolvw.net', 'jdoqocy.com', 'kqzyfj.com', 'tkqlhce.com'];
+
+  // Odkaz CJ z monetizace.json ("booking_cj"), jen https a jen domény CJ; jinak ''.
+  function cjOdkaz(u) {
+    if (!u || typeof u !== 'string') return '';
+    try {
+      var x = new URL(u.trim());
+      if (x.protocol !== 'https:' || x.username || x.password) return '';
+      var host = x.hostname.toLowerCase();
+      var povolena = CJ_DOMENY.some(function (d) { return host === d || host.slice(-(d.length + 1)) === '.' + d; });
+      return povolena ? x.origin + x.pathname : '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  // Odkaz na Booking.com s místem akce a daty. Příjezd = den začátku akce (u probíhající dnešek),
+  // odjezd o den později.
+  //  - Je-li vyplněné "booking_cj" (odkaz CJ), vede odkaz přes CJ: <booking_cj>?url=<zakódovaná adresa
+  //    Booking.com bez aid/label/UTM>&sid=kalendar-<typ akce>. Provizi pak přiřadí CJ.
+  //  - Jinak jako dosud přímo na Booking.com s partnerským ID "booking_aid" (+ label a UTM).
+  //  - Bez platného CJ odkazu i bez aid vrací '' – tlačítko se pak nezobrazí.
   function bookingOdkaz(a, mon, ted) {
     if (!monetizaceZapnuta(mon) || mon.booking === false) return '';
+    var cj = cjOdkaz(mon.booking_cj);
     var aid = String(mon.booking_aid == null ? '' : mon.booking_aid).trim();
-    if (!aid || !/^[A-Za-z0-9_-]+$/.test(aid)) return '';
+    if (!cj && (!aid || !/^[A-Za-z0-9_-]+$/.test(aid))) return '';
     var zaklad = bezpecnaUrl(mon.booking_odkaz || 'https://www.booking.com/searchresults.cs.html');
     var misto = a.obec || a.misto || a.adresa;
     if (!zaklad || !misto) return '';
@@ -535,6 +557,10 @@
     url.searchParams.set('checkout', isoDen(pridejDny(prijezd, 1)));
     url.searchParams.set('group_adults', '2');
     url.searchParams.set('no_rooms', '1');
+    if (cj) {
+      ['aid', 'label'].forEach(function (k) { url.searchParams.delete(k); });
+      return cj + '?url=' + encodeURIComponent(url.href) + '&sid=' + encodeURIComponent('kalendar-' + hlavniTyp(a));
+    }
     url.searchParams.set('aid', aid);
     if (mon.booking_label) url.searchParams.set('label', String(mon.booking_label));
     return pridejUtm(url.href, hlavniTyp(a), 'booking');
@@ -583,21 +609,38 @@
     return x ? [String(x)] : [];
   }
 
+  // Skutečná adresa nabídky: absolutní https odkaz (ne prázdný, ne „#“, ne relativní, ne http).
+  function adresaNabidky(u) {
+    if (!u || typeof u !== 'string' || !/^https:\/\/[^\s/?#]+/i.test(u.trim())) return '';
+    return bezpecnaUrl(u.trim());
+  }
+
+  // Smí se nabídka zobrazit? Ne ukázka ("ukazka": true), vyplněný název a skutečná adresa.
+  function nabidkaKZobrazeni(n) {
+    if (!n || typeof n !== 'object' || n.ukazka === true || n.aktivni === false) return false;
+    return !!(n.nazev && adresaNabidky(n.url || n.odkaz));
+  }
+
+  function bezVse(x) {
+    return seznam(x).filter(function (t) { return t.toLowerCase() !== 'vse'; });
+  }
+
   // Nabídky (nabidky.json): { "nabidky": [ { nazev, url, popis?, obrazek?, partner?,
-  //   kraje?: [...] (nebo kraj), typy?: [...] (nebo typ), od?: "YYYY-MM-DD", do?: "YYYY-MM-DD" } ] }
-  // Prázdné kraje/typy = platí pro všechny. Vybere nejpřesnější shodu, každou nabídku jen jednou.
+  //   kraje?: [...] (nebo kraj), typy?: [...] (nebo typ), od?: "YYYY-MM-DD", do? / platnost_do?: "YYYY-MM-DD" } ] }
+  // Prázdné kraje/typy (nebo "vse") = platí pro všechny. Ukázky a položky bez skutečné https adresy
+  // se přeskakují. Vybere nejpřesnější shodu, každou nabídku jen jednou.
   function vyberNabidku(nabidky, a, pouzite, ted) {
     pouzite = pouzite || {};
     var dnes = zacatekDne(ted || new Date());
     var list = Array.isArray(nabidky) ? nabidky : (nabidky && nabidky.nabidky) || [];
     var nejlepsi = null, skore = -1;
     list.forEach(function (n) {
-      if (!n || typeof n !== 'object' || n.aktivni === false) return;
-      var url = bezpecnaUrl(n.url || n.odkaz);
-      if (!url || !n.nazev || pouzite[url]) return;
-      var od = prectiDen(n.od), dok = prectiDen(n.do);
+      if (!nabidkaKZobrazeni(n)) return;
+      var url = adresaNabidky(n.url || n.odkaz);
+      if (pouzite[url]) return;
+      var od = prectiDen(n.od), dok = prectiDen(n.do || n.platnost_do);
       if ((od && od > dnes) || (dok && dok < dnes)) return;
-      var kraje = seznam(n.kraje || n.kraj), typy = seznam(n.typy || n.typ);
+      var kraje = bezVse(n.kraje || n.kraj), typy = bezVse(n.typy || n.typ);
       if (kraje.length && kraje.indexOf(a.kraj) < 0) return;
       if (typy.length && !typy.some(function (t) { return a._typy.indexOf(t) >= 0; })) return;
       var s = (kraje.length ? 2 : 0) + (typy.length ? 1 : 0);
@@ -718,9 +761,11 @@
     obrazkyProduktu: obrazkyProduktu,
     pridejUtm: pridejUtm,
     monetizaceZapnuta: monetizaceZapnuta,
+    cjOdkaz: cjOdkaz,
     bookingOdkaz: bookingOdkaz,
     produktOdpovidaTypu: produktOdpovidaTypu,
     vyberProdukt: vyberProdukt,
+    nabidkaKZobrazeni: nabidkaKZobrazeni,
     vyberNabidku: vyberNabidku,
     ics: ics,
     nazevSouboru: nazevSouboru
