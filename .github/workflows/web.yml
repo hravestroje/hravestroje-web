@@ -2,14 +2,20 @@
 #  1) stáhne XML export produktů ze Shoptetu (adresa jen v secretu SHOPTET_FEED_URL) → produkty/produkty.json
 #  2) stáhne akce ze sitemapy hravestroje.cz → kalendar/akce.json (uloží i zpět do repozitáře)
 #  3) vytvoří kostru článku „Co se děje o víkendu“ → vikend/kostry/ (uloží i zpět do repozitáře)
-#  4) zveřejní kalendář, produkty i kostry na GitHub Pages (jen GITHUB_TOKEN, žádný osobní token)
+#  4) ve středu večer vytvoří kostru víkendového newsletteru pro Ecomail → newsletter/kostry/ (uloží i do repozitáře)
+#  5) zveřejní kalendář, produkty i kostry na GitHub Pages (jen GITHUB_TOKEN, žádný osobní token)
 #
 # Výsledné adresy:
 #   https://hravestroje.github.io/hravestroje-web/kalendar/
+#   https://hravestroje.github.io/hravestroje-web/kalendar/hs-kalendar.js (kalendář vložený do stránky Shoptetu)
 #   https://hravestroje.github.io/hravestroje-web/produkty/produkty.json
 #   https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js
 #   https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js (+ nabidky.json)
 #   https://hravestroje.github.io/hravestroje-web/vikend/
+#   https://hravestroje.github.io/hravestroje-web/obrazky/
+#   https://hravestroje.github.io/hravestroje-web/newsletter/
+
+#   https://hravestroje.github.io/hravestroje-web/mapa/ (+ mapa/hs-mapa.js)
 #
 # U pull requestů se spustí jen testy na ukázkových datech (bez secretů, nic se nezveřejní).
 
@@ -19,6 +25,7 @@ on:
   schedule:
     - cron: "23 1 * * *"     # každou noc v 1:23 UTC (2:23 v zimě, 3:23 v létě)
     - cron: "17 5 * * 4"     # každý čtvrtek ráno v 5:17 UTC (6:17 v zimě, 7:17 v létě) – kostra na víkend
+    - cron: "41 18 * * 3"    # každou středu večer v 18:41 UTC (19:41 v zimě, 20:41 v létě) – newsletter
   workflow_dispatch:           # ruční spuštění: Actions → Zveřejnění webu → Run workflow
   push:
     branches: [main]
@@ -28,7 +35,12 @@ on:
       - "produkty/**"
       - "nabidky/**"
       - "vikend/**"
+      - "obrazky/**"
+      - "newsletter/**"
+      - "mapa/**"
+      - "akce-v-okoli/**"
       - "testy/**"
+      - ".well-known/**"
       - ".github/workflows/web.yml"
   pull_request:
 
@@ -126,12 +138,35 @@ jobs:
           git commit -q -m "Kostra článku o víkendu $(date -u +%Y-%m-%d)"
           git push -q origin HEAD:main || echo "::warning::Kostru se nepodařilo uložit do repozitáře (mezitím přibyl jiný commit). Web se přesto zveřejní."
 
+      - name: Newsletter – kostra víkendového newsletteru pro Ecomail
+        if: github.event.schedule == '41 18 * * 3' || github.event_name == 'workflow_dispatch'
+        run: node newsletter/scripts/kostra.mjs --produkty _site/produkty/produkty.json
+
+      - name: Newsletter – uložit kostru do repozitáře
+        if: (github.event.schedule == '41 18 * * 3' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+        run: |
+          if [ -z "$(git status --porcelain -- newsletter/kostry newsletter/index.html)" ]; then
+            echo "Kostra newsletteru se nezměnila."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add newsletter/kostry newsletter/index.html
+          git commit -q -m "Kostra newsletteru $(date -u +%Y-%m-%d)"
+          git push -q origin HEAD:main || echo "::warning::Kostru newsletteru se nepodařilo uložit do repozitáře (mezitím přibyl jiný commit). Web se přesto zveřejní."
+
       - name: Sestavit web
         run: |
-          mkdir -p _site/kalendar/icons _site/produkty _site/nabidky
+          mkdir -p _site/kalendar/icons _site/kalendar/screenshots _site/produkty _site/nabidky
           cp index.html _site/
-          cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/app.js kalendar/akce.json \
-             kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js _site/kalendar/
+          cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/zarizeni.js kalendar/app.js kalendar/akce.json \
+             kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js \
+             kalendar/hs-kalendar.js kalendar/hs-kalendar-demo.html _site/kalendar/
+          cp kalendar/screenshots/*.png _site/kalendar/screenshots/
+          # Ověření aplikace z Google Play (TWA) – zveřejní se, až bude v souboru skutečný otisk klíče
+          if [ -f .well-known/assetlinks.json ] && ! grep -q DOPLNTE .well-known/assetlinks.json; then
+            mkdir -p _site/.well-known && cp .well-known/assetlinks.json _site/.well-known/
+          fi
           # nabídky partnerů (tipy na výlet) – jen pokud soubor v repozitáři existuje
           if [ -f kalendar/nabidky.json ]; then cp kalendar/nabidky.json _site/kalendar/; fi
           if [ -f nabidky/nabidky.json ]; then mkdir -p _site/nabidky && cp nabidky/nabidky.json _site/nabidky/; fi
@@ -151,11 +186,40 @@ jobs:
           cp vikend/kostry/*.html _site/vikend/kostry/
           test -s _site/vikend/index.html
 
+      - name: Obrázek akce – generátor
+        run: |
+          mkdir -p _site/obrazky
+          cp obrazky/index.html obrazky/app.js obrazky/kresleni.js obrazky/ilustrace.json _site/obrazky/
+          if [ -d obrazky/ilustrace ]; then cp -r obrazky/ilustrace _site/obrazky/; fi
+
+      - name: Newsletter – přidat kostry na web
+        run: |
+          mkdir -p _site/newsletter/kostry
+          cp newsletter/index.html _site/newsletter/
+          find newsletter/kostry -maxdepth 1 -name '*.html' -exec cp {} _site/newsletter/kostry/ \;
+          test -s _site/newsletter/index.html
+
+      - name: Mapa akcí – stránka a skript pro Shoptet
+        run: |
+          mkdir -p _site/mapa
+          cp mapa/index.html mapa/hs-mapa.js _site/mapa/
+          test -s _site/akce-v-okoli/souradnice.json
+
       - uses: actions/configure-pages@v5
 
-      - uses: actions/upload-pages-artifact@v4
+      # Zabalení ručně místo actions/upload-pages-artifact: ta vynechává skryté složky
+      # a na web by se nedostal .well-known/assetlinks.json (ověření aplikace z Google Play).
+      - name: Zabalit web pro GitHub Pages (včetně .well-known)
+        run: |
+          tar --dereference --hard-dereference --directory _site -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git --exclude=.github .
+
+      - uses: actions/upload-artifact@v4
         with:
-          path: _site
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   zverejneni:
     name: Zveřejnění na GitHub Pages

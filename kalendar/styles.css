@@ -88,7 +88,7 @@ a { color: var(--zelena); }
 
 .horni-radek {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   gap: 8px;
 }
 
@@ -118,6 +118,10 @@ a { color: var(--zelena); }
 .cip:focus-visible,
 .male:focus-visible,
 .prepinac-filtru:focus-visible,
+.prepinac-oblibene:focus-visible,
+.srdce:focus-visible,
+.tlacitko-instalace:focus-visible,
+.zavrit-instalaci:focus-visible,
 .tlacitko:focus-visible {
   outline: 3px solid rgba(31, 111, 61, .35);
   outline-offset: 1px;
@@ -159,6 +163,52 @@ a { color: var(--zelena); }
   border-radius: 999px;
 }
 .pocet-filtru[hidden] { display: none; }
+
+/* Filtr „Moje oblíbené“ (srdíčko vedle hledání) */
+.prepinac-oblibene {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 8px 12px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--cihlova);
+  background: #fff;
+  border: 1px solid var(--okraj);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.prepinac-oblibene .ikona { width: 1.35em; height: 1.35em; }
+.prepinac-oblibene[aria-pressed="true"] { color: #fff; background: var(--cihlova); border-color: var(--cihlova); }
+.prepinac-oblibene[aria-pressed="true"] .ikona { fill: currentColor; }
+.text-oblibene { display: none; }
+.pocet-oblibenych {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px; height: 22px;
+  padding: 0 6px;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--cihlova);
+  border-radius: 999px;
+}
+.prepinac-oblibene[aria-pressed="true"] .pocet-oblibenych { color: var(--cihlova); background: #fff; }
+.pocet-oblibenych[hidden] { display: none; }
+
+/* Můj kraj */
+.zaskrtavatko {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  font-size: .92rem;
+  cursor: pointer;
+}
+.zaskrtavatko[hidden] { display: none; }
+.zaskrtavatko input { width: 22px; height: 22px; margin: 0; accent-color: var(--zelena); flex: 0 0 auto; }
 
 .panel-filtru {
   display: none;
@@ -252,8 +302,8 @@ a { color: var(--zelena); }
   color: var(--zelena);
   text-transform: capitalize;
 }
-.probiha-sekce .mesic { color: var(--cihlova); text-transform: none; }
-.probiha-sekce .mesic::before {
+.probiha-sekce .mesic, .dnes-sekce .mesic { color: var(--cihlova); text-transform: none; }
+.probiha-sekce .mesic::before, .dnes-sekce .mesic::before {
   content: "";
   display: inline-block;
   width: 10px; height: 10px;
@@ -263,6 +313,23 @@ a { color: var(--zelena); }
   box-shadow: 0 0 0 4px var(--cihlova-svetla);
   vertical-align: .05em;
 }
+/* Sezónní a dlouhodobé akce – sbalitelná sekce pod chronologickým seznamem */
+.dlouhodobe { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--okraj); }
+.dlouhodobe summary {
+  display: flex; align-items: center; gap: 10px;
+  min-height: 44px; margin-bottom: 10px;
+  cursor: pointer; list-style: none;
+}
+.dlouhodobe summary::-webkit-details-marker { display: none; }
+.dlouhodobe summary::after {
+  content: ""; width: 9px; height: 9px; margin-left: 2px;
+  border: solid var(--zelena); border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-3px); transition: transform .15s;
+}
+.dlouhodobe[open] summary::after { transform: rotate(-135deg) translateY(-1px); }
+.dlouhodobe summary .mesic { margin: 0; text-transform: none; }
+.pocet-dlouhodobych { color: var(--text-tlumeny); font-weight: 400; }
+.dlouhodobe summary:focus-visible { outline: 3px solid var(--zelena); outline-offset: 3px; border-radius: 6px; }
 .mrizka {
   display: grid;
   gap: 14px;
@@ -278,6 +345,28 @@ a { color: var(--zelena); }
   scroll-margin-top: 90px;
 }
 .karta.zvyraznena { outline: 3px solid var(--cihlova); outline-offset: 2px; }
+
+/* Srdíčko „oblíbená akce“ v rohu obrázku */
+.srdce {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--cihlova);
+  background: rgba(255, 255, 255, .94);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .18);
+  cursor: pointer;
+}
+.srdce .ikona { width: 24px; height: 24px; stroke-width: 2; }
+.srdce[aria-pressed="true"] .ikona { fill: currentColor; }
+.srdce:hover { background: #fff; }
 .karta-obrazek {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -382,6 +471,7 @@ a { color: var(--zelena); }
 .stitky .ikona { color: var(--zelena); }
 .stitky .pozor { color: #fff; background: var(--cihlova); }
 .stitky .probiha { color: var(--cihlova); background: var(--cihlova-svetla); }
+.stitky .obdobi { color: var(--zelena-tmava); background: var(--zelena-svetla); }
 
 .karta-akce {
   display: grid;
@@ -462,8 +552,38 @@ a { color: var(--zelena); }
 .produkt { background: #fffdf7; border: 1px solid #efe7d2; box-shadow: none; }
 .produkt > a { display: flex; flex: 1; flex-direction: column; color: inherit; text-decoration: none; }
 .produkt .oznaceni { padding: 10px 14px 0; }
-.produkt-obrazek { aspect-ratio: 16 / 9; margin: 8px 14px 0; overflow: hidden; background: #fff; border-radius: 10px; }
-.produkt-obrazek img { object-fit: contain; }
+/* Obrázek produktu přes celou šířku dlaždice v poměru 4:3; víc obrázků = galerie */
+.produkt-obrazek { position: relative; aspect-ratio: 4 / 3; margin-top: 8px; overflow: hidden; background: #fff; }
+.produkt-snimky {
+  display: flex; height: 100%;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.produkt-snimky::-webkit-scrollbar { display: none; }
+.produkt-snimky img { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; object-fit: cover; }
+.produkt-tecky {
+  position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  display: flex; gap: 6px; padding: 4px 8px;
+  background: rgba(29, 36, 32, .45); border-radius: 999px; pointer-events: none;
+}
+.produkt-tecky i { width: 7px; height: 7px; background: rgba(255, 255, 255, .55); border-radius: 50%; }
+.produkt-tecky i.aktivni { background: #fff; }
+/* Počítač s myší: druhý obrázek (náhled obsahu) po najetí myší, bez listování */
+@media (hover: hover) and (pointer: fine) {
+  .produkt-galerie .produkt-snimky { overflow: hidden; }
+  .produkt-galerie .produkt-snimky img:nth-child(2) {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity .25s ease;
+  }
+  .produkt-galerie .produkt-snimky img:nth-child(n+3) { display: none; }
+  .produkt > a:hover .produkt-galerie img:nth-child(2),
+  .produkt > a:focus-visible .produkt-galerie img:nth-child(2) { opacity: 1; }
+  .produkt-galerie .produkt-tecky { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .produkt-galerie .produkt-snimky img:nth-child(2) { transition: none; }
+}
 .produkt .karta-telo { padding-top: 10px; }
 .produkt .tlacitko { margin-top: auto; }
 .cena { font-weight: 700; color: var(--cihlova); }
@@ -494,6 +614,70 @@ a { color: var(--zelena); }
 }
 .oznameni[hidden] { display: none; }
 
+/* Bez signálu: uložený seznam */
+.offline {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  font-size: .92rem;
+  color: #5c3a00;
+  background: #fff4d6;
+  border: 1px solid #f0d78c;
+  border-radius: 12px;
+}
+.offline[hidden] { display: none; }
+.offline .ikona { margin-top: .1em; width: 1.3em; height: 1.3em; }
+
+/* ---------- Přidat do mobilu ---------- */
+.instalace { margin-top: 12px; }
+.instalace[hidden] { display: none; }
+.instalace-radek { display: flex; align-items: center; gap: 6px; }
+.tlacitko-instalace {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 18px 8px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--zelena);
+  background: #fff;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.tlacitko-instalace .ikona { width: 1.3em; height: 1.3em; }
+.zavrit-instalaci {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: .85;
+}
+.zavrit-instalaci .ikona { width: 22px; height: 22px; }
+.navod-ios {
+  max-width: 460px;
+  margin-top: 10px;
+  padding: 14px 16px;
+  color: var(--text);
+  background: #fff;
+  border-radius: var(--radius);
+}
+.navod-ios[hidden] { display: none; }
+.navod-nadpis { margin: 0 0 6px; font-weight: 700; }
+.navod-ios ol { margin: 0 0 12px; padding-left: 1.3em; }
+.navod-ios li { margin: 4px 0; }
+.ikona-v-textu { color: #0a66d8; }
+.tlacitko-svetle { width: 100%; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+
 /* ---------- Patička ---------- */
 .paticka {
   margin-top: 40px;
@@ -512,7 +696,8 @@ a { color: var(--zelena); }
     margin: 0;
     padding: 14px 0;
   }
-  .horni-radek { grid-template-columns: 1fr; }
+  .horni-radek { grid-template-columns: 1fr auto; }
+  .text-oblibene { display: inline; }
   .prepinac-filtru,
   .tlacitko-hotovo { display: none; }
   .panel-filtru {

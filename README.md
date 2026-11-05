@@ -6,12 +6,16 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Co | Adresa |
 | --- | --- |
 | Kalendář dopravních akcí (PWA, lze přidat na plochu) | https://hravestroje.github.io/hravestroje-web/kalendar/ |
+| Kalendář vložený do stránky Shoptetu – skript, návod v [kalendar/README.md](kalendar/README.md) | https://hravestroje.github.io/hravestroje-web/kalendar/hs-kalendar.js |
 | Produkty z e-shopu pro články – data | https://hravestroje.github.io/hravestroje-web/produkty/produkty.json |
 | Produkty z e-shopu pro články – skript | https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js |
 | Testovací stránka produktů | https://hravestroje.github.io/hravestroje-web/produkty/demo.html |
 | Akce v okolí pro články – skript | https://hravestroje.github.io/hravestroje-web/akce-v-okoli/hs-akce-v-okoli.js |
 | Tipy na výlet v článcích – skript a data | https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js, …/nabidky/nabidky.json |
+| Mapa akcí (stránka + skript `hs-mapa.js` pro Shoptet) – [návod](mapa/README.md) | https://hravestroje.github.io/hravestroje-web/mapa/ |
 | Kostry článku „Co se děje o víkendu“ | https://hravestroje.github.io/hravestroje-web/vikend/ |
+| Generátor obrázku akce (web 1200×630, sítě 1080×1350) – [návod](obrazky/README.md) | https://hravestroje.github.io/hravestroje-web/obrazky/ |
+| Kostry víkendového newsletteru pro Ecomail – návod v [`newsletter/README.md`](newsletter/README.md) | https://hravestroje.github.io/hravestroje-web/newsletter/ |
 
 V repozitáři **není nic tajného**. Adresa exportu ze Shoptetu je jen v GitHub secretu
 `SHOPTET_FEED_URL` – secrety zůstávají skryté i ve veřejném repozitáři a nikde se nevypisují.
@@ -21,7 +25,7 @@ Nepotřebujete žádný osobní token, workflow si vystačí s automatickým `GI
 
 | Složka / soubor | K čemu je |
 | --- | --- |
-| `kalendar/` | stránka kalendáře (`index.html`, `app.js`, `styles.css`), data `akce.json`, PWA (`manifest.webmanifest`, `sw.js`, `icons/`) |
+| `kalendar/` | stránka kalendáře (`index.html`, `app.js`, `styles.css`), data `akce.json`, mobilní aplikace (PWA, oblíbené, offline, příprava pro Google Play) – **návod v [kalendar/README.md](kalendar/README.md)** |
 | `kalendar/logika.js` | logika kalendáře (řazení, filtry dat, typy, odkazy, .ics) – oddělená od stránky, aby šla testovat |
 | `kalendar/monetizace.json` | **nastavení komerčních prvků** kalendáře (Booking.com, e-shop, tipy na výlet) – viz [Monetizace](#7-monetizace-kalendáře) |
 | `kalendar/scripts/stahni-akce.mjs` | stáhne akce ze sitemapy hravestroje.cz (Node.js, bez balíčků) |
@@ -155,9 +159,18 @@ Ukázka JSON-LD do článku:
 
 ### 3.1 Co kalendář zobrazuje
 
-- **Pořadí:** nahoře sekce **„Právě probíhá“** (vícedenní akce, které začaly před dneškem a ještě trvají),
-  pod ní nadcházející akce přísně podle data a času začátku, rozdělené po měsících. Akce bez času
-  (celodenní) jsou v rámci dne první. Na kartě probíhající akce je „do 30. pro“ (do kdy trvá).
+- **Pořadí:** jeden souvislý seznam **přísně podle data**, rozdělený na **„Dnes“** a dál po měsících.
+  Akce, která už začala a trvá **nejvýš 7 dní**, je pod „Dnes“ se štítkem **„probíhá do 8. listopadu“**
+  a na kartě má **dnešní datum** (aby pořadí odpovídalo tomu, co člověk vidí). V rámci dne jsou
+  nejdřív probíhající akce, pak akce bez času (celodenní) a pak podle času začátku.
+- **Sezónní a dlouhodobé akce** (trvají **déle než 7 dní**, např. Zubačka 3. 10.–30. 12.) nejsou
+  v chronologickém seznamu – jsou ve sbalitelné sekci **„Sezónní a dlouhodobé akce“** pod ním,
+  se štítkem „od 3. října do 30. prosince“. Sekce je sbalená (klepnutím se rozbalí); když nad ní
+  nic není (např. při hledání), je rozbalená. Odkaz na takovou akci (Sdílet) sekci sám rozbalí.
+- **Akce jen v některé dny** (např. jezdí jen o víkendech): když je v `doplnky.json` vyplněné
+  `"dny"` nebo `"dny_v_tydnu"` (viz [3.2](#32-ruční-opravy-v-doplnkyjson-kraj-typ-obrázek)),
+  je akce v seznamu **v každý takový den** (se štítkem „další termín …“) a filtry Dnes, Zítra,
+  Tento týden, Víkend i Měsíc se řídí jen těmito dny.
 - **Typy** se poznají podle slov v názvu, popisu a adrese článku:
 
   | Typ (`typy` v datech) | Klíčová slova (příklady) |
@@ -202,6 +215,18 @@ V `kalendar/doplnky.json` je u každého článku (klíč = **přesná adresa č
 | `"typy"` | `["lode"]` nebo víc: `["vlaky", "lode"]` | přepíše typ (`vlaky`, `traktory`, `auta`, `lode`, `letadla`, `ostatni`) |
 | `"obrazek"` | `"zastupny"` | **skryje obrázek článku** a ukáže jednotný zástupný obrázek (např. stará grafika, která se teprve předělává) |
 | `"obrazek"` | `"https://…/novy-obrazek.jpg"` | použije vlastní obrázek místo obrázku z článku |
+| `"dny"` | `["2026-11-07", "2026-11-08", "2026-11-14"]` | akce se koná **jen v tyto dny** – v kalendáři bude v každém z nich (data ve tvaru RRRR-MM-DD) |
+| `"dny_v_tydnu"` | `["so", "ne"]` | akce se koná **jen v tyto dny v týdnu** mezi začátkem a koncem z článku (`po`, `ut`, `st`, `ct`, `pa`, `so`, `ne`) |
+
+**Konkrétní dny (`"dny"`, `"dny_v_tydnu"`)** se hodí pro akce, které mají v článku dlouhé
+období (např. „3. 10.–30. 12.“), ale jezdí jen v některé dny. Bez nich by byla akce mezi
+„Sezónními a dlouhodobými akcemi“; s nimi se ukáže v chronologickém seznamu v každý den konání
+a filtr „Tento víkend“ ji najde jen tehdy, když se o víkendu opravdu koná.
+- `"dny"` = výčet přesných dat. Platí jen ta, začátek a konec z článku se pro kalendář nepoužijí.
+- `"dny_v_tydnu"` = dny v týdnu mezi začátkem a koncem z článku. Stačí první dvě písmena
+  (`"so"`, `"ne"`, `"ut"`…), funguje i `"sobota"` nebo `"Út"`.
+- Vyplňte jen jedno z nich (když jsou obě, platí `"dny"`). Překlep (např. `"2026-11-31"`) se v logu
+  ukáže jako „Neplatné datum v "dny"“ a takové datum se vynechá.
 
 Ukázka celého souboru:
 
@@ -214,7 +239,11 @@ Ukázka celého souboru:
  },
  "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda/": {
   "kraj": "Jihomoravský kraj",
-  "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/nova-grafika.jpg"
+  "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/documents/upload/nova-grafika.jpg",
+  "dny": ["2026-11-28", "2026-11-29", "2026-12-05", "2026-12-06"]
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/zubacka-tanvald-harrachov/": {
+  "dny_v_tydnu": ["so", "ne"]
  }
 }
 ```
@@ -225,11 +254,15 @@ Ukázka celého souboru:
 2. Vpravo nahoře klikněte na **ikonu tužky** (*Edit this file*).
 3. Před poslední `}` přidejte čárku za předchozí blok a nový blok podle ukázky. Adresu článku
    zkopírujte z prohlížeče (lomítko na konci nevadí). Pozor na uvozovky `"` a čárky mezi bloky.
+   **Dny konání** přidejte do bloku článku jako další řádek, např. `"dny_v_tydnu": ["so", "ne"]`
+   nebo `"dny": ["2026-11-07", "2026-11-08"]` – každé datum v uvozovkách, oddělené čárkou,
+   celé v hranatých závorkách; řádek nad ním musí končit čárkou.
 4. Vpravo nahoře klikněte na **Commit changes…**, nechte vybrané *Commit directly to the `main` branch*
    a potvrďte **Commit changes**.
 5. Workflow se spustí samo (záložka **Actions**), za 2–5 minut je změna na webu.
    Když je v souboru chyba (chybějící čárka…), běh zčervená a kalendář zůstane beze změny –
-   opravte soubor stejným postupem. Neznámý typ se v logu ukáže jako „Neznámý typ v doplnky.json“.
+   opravte soubor stejným postupem. Neznámý typ se v logu ukáže jako „Neznámý typ v doplnky.json“,
+   špatné datum nebo den jako „Neplatné datum v "dny"“ / „Neznámý den v "dny_v_tydnu"“.
 
 Až bude nová grafika hotová, blok s `"obrazek": "zastupny"` prostě smažte (zase tužka → Commit).
 
@@ -274,7 +307,10 @@ jasnou chybu při chybějícím secretu, kalendář nad testovací sitemapou `te
 (6 akcí, kraje, typy včetně lodí, letadel a „ostatní“, ruční opravy z `doplnky-test.json`, zrušená akce,
 článek bez JSON-LD, smazaný článek), logiku stránky v `testy/kalendar-logika.test.cjs` (řazení
 a „Právě probíhá“, filtry dat včetně přelomu měsíce a roku, zástupné obrázky, skrytí tlačítka Booking
-bez ID, výběr produktu podle typu, nabídky, soubor .ics) a kostru článku
+bez ID, výběr produktu podle typu, nabídky, soubor .ics), uspořádání seznamu
+v `testy/kalendar-seznam.test.cjs` a `testy/kalendar-seznam-prohlizec.js` (seznam podle data,
+„Dnes“ a „probíhá do“, sezónní a dlouhodobé akce, dny konání z `doplnky.json`, přelom měsíce
+a roku, `data-kraj`/`data-typ` – v Chromiu na mobilu i PC) a kostru článku
 o víkendu (výběr víkendu, vícedenní akce, řazení krajů).
 
 Testovací stránka produktů: otevřete `produkty/demo.html` dvojklikem. Na GitHub Pages
@@ -308,7 +344,7 @@ Kalendář obsahuje nenápadné komerční prvky. Každý je označený a na jed
 | --- | --- | --- |
 | **Ubytování poblíž** – odkaz na Booking.com s místem akce a daty (příjezd v den akce, u vícedenní v den začátku, u probíhající dnes; 1 noc, 2 dospělí) | na kartě akce | „partnerský odkaz · Booking.com“ |
 | **Tip na výlet** z `nabidky.json` odpovídající kraji/typu akce (každá nabídka jen jednou na stránce) | na kartě akce místo Bookingu | „Tip na výlet (reklama)“ |
-| **Produkt z e-shopu** po každé 6. kartě, vybraný podle typu akce (vlak → produkty se slovem vlak…, jinak náhodný skladem) z `../produkty/produkty.json` | samostatná dlaždice mezi kartami | „Z našeho e-shopu“ |
+| **Produkt z e-shopu** po každé 6. kartě, vybraný podle typu akce (vlak → produkty se slovem vlak…, jinak náhodný skladem) z `../produkty/produkty.json` | samostatná dlaždice mezi kartami, obrázek přes celou šířku v poměru 4:3; má-li produkt v `produkty.json` pole `"obrazky"` (víc adres), ukáže se na počítači po najetí myší druhý obrázek a na mobilu jde obrázky listovat prstem (jinak jen `"obrazek"`) | „Z našeho e-shopu“ |
 
 - Partnerské odkazy (Booking, tipy na výlet) mají `rel="sponsored nofollow noopener"` a otevírají se
   v novém okně. V patičce je věta „Některé odkazy jsou partnerské – pomáhají nám kalendář provozovat zdarma.“
