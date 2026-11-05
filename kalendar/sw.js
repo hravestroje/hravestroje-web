@@ -45,6 +45,10 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
   // obrázky a odkazy na hravestroje.cz necháváme na prohlížeči
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
+  // Jiné stránky ve složce (např. hs-kalendar-demo.html) nejsou aplikace – nechat na síti,
+  // jinak by se uložily místo index.html a bez signálu by se ukázala špatná stránka.
+  const koren = new URL(self.registration.scope).pathname;
+  if (req.mode === 'navigate' && url.pathname !== koren && url.pathname !== koren + 'index.html') return;
 
   // Stránka a data (.json – akce, monetizace, produkty, nabídky): nejdřív síť (čerstvá data),
   // bez připojení uložená kopie (označená hlavičkou X-Kalendar-Offline).
