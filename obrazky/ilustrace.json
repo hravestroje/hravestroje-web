@@ -1,0 +1,13 @@
+{
+ "_navod": [
+  "Seznam ilustrací pro generátor obrázků akcí (obrazky/index.html).",
+  "Ilustraci přidáte tak, že do pole \"ilustrace\" vložíte řádek ve tvaru:",
+  "{ \"nazev\": \"Parní lokomotiva\", \"url\": \"https://www.hravestroje.cz/user/documents/upload/ilustrace/parni-lokomotiva.png\", \"typy\": [\"vlaky\"] }",
+  "Mezi položkami musí být čárka, za poslední položkou čárka být nesmí.",
+  "url: adresa souboru, musí začínat https://www.hravestroje.cz/user/documents/upload/ilustrace/",
+  "nazev: nepovinný, zobrazí se v nabídce (jinak se použije název souboru)",
+  "typy: nepovinné (vlaky, traktory, auta, lode, letadla, ostatni) – ilustrace se sama nabídne k akci téhož typu",
+  "Nejlépe fungují PNG s průhledným pozadím. Podrobný návod je v obrazky/README.md."
+ ],
+ "ilustrace": []
+}
