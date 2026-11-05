@@ -13,6 +13,7 @@ Každou noc se tu samo stáhnou aktuální data a zveřejní se přes **GitHub P
 | Tipy na výlet v článcích – skript a data | https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js, …/nabidky/nabidky.json |
 | Kostry článku „Co se děje o víkendu“ | https://hravestroje.github.io/hravestroje-web/vikend/ |
 | Generátor obrázku akce (web 1200×630, sítě 1080×1350) – [návod](obrazky/README.md) | https://hravestroje.github.io/hravestroje-web/obrazky/ |
+| Kostry víkendového newsletteru pro Ecomail – návod v [`newsletter/README.md`](newsletter/README.md) | https://hravestroje.github.io/hravestroje-web/newsletter/ |
 
 V repozitáři **není nic tajného**. Adresa exportu ze Shoptetu je jen v GitHub secretu
 `SHOPTET_FEED_URL` – secrety zůstávají skryté i ve veřejném repozitáři a nikde se nevypisují.
