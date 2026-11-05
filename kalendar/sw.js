@@ -1,7 +1,7 @@
 // Service worker kalendáře akcí: umožní přidat stránku na plochu (i aplikaci z Google Play)
 // a zobrazit naposledy stažené akce i bez internetu. Neposílá žádné notifikace.
 // Při změně index.html, app.js, logika.js, zarizeni.js nebo styles.css zvyšte číslo verze.
-const VERZE = 'kalendar-v5';
+const VERZE = 'kalendar-v6';
 const ZAKLAD = [
   './',
   'index.html',
