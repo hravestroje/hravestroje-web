@@ -7,6 +7,7 @@
 #
 # Výsledné adresy:
 #   https://hravestroje.github.io/hravestroje-web/kalendar/
+#   https://hravestroje.github.io/hravestroje-web/kalendar/hs-kalendar.js (kalendář vložený do stránky Shoptetu)
 #   https://hravestroje.github.io/hravestroje-web/produkty/produkty.json
 #   https://hravestroje.github.io/hravestroje-web/produkty/hs-darky.js
 #   https://hravestroje.github.io/hravestroje-web/nabidky/hs-nabidky.js (+ nabidky.json)
@@ -159,7 +160,8 @@ jobs:
           mkdir -p _site/kalendar/icons _site/produkty _site/nabidky
           cp index.html _site/
           cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/app.js kalendar/akce.json \
-             kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js _site/kalendar/
+             kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js \
+             kalendar/hs-kalendar.js kalendar/hs-kalendar-demo.html _site/kalendar/
           # nabídky partnerů (tipy na výlet) – jen pokud soubor v repozitáři existuje
           if [ -f kalendar/nabidky.json ]; then cp kalendar/nabidky.json _site/kalendar/; fi
           if [ -f nabidky/nabidky.json ]; then mkdir -p _site/nabidky && cp nabidky/nabidky.json _site/nabidky/; fi
