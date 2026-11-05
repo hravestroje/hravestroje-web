@@ -38,6 +38,7 @@ on:
       - "obrazky/**"
       - "newsletter/**"
       - "mapa/**"
+      - "piny/**"
       - "akce-v-okoli/**"
       - "testy/**"
       - ".well-known/**"
@@ -62,6 +63,7 @@ jobs:
         with:
           node-version: 22
       - run: bash testy/spust-testy.sh
+      - run: bash piny/testy/spust.sh
 
   sestaveni:
     name: Stažení dat a sestavení webu
@@ -204,6 +206,13 @@ jobs:
           mkdir -p _site/mapa
           cp mapa/index.html mapa/hs-mapa.js _site/mapa/
           test -s _site/akce-v-okoli/souradnice.json
+
+      - name: Piny – generátor pinů na web
+        run: |
+          mkdir -p _site/piny
+          cp piny/index.html piny/styles.css piny/logika.js piny/app.js piny/ilustrace.json _site/piny/
+          cp -r piny/ilustrace _site/piny/
+          test -s _site/piny/index.html
 
       - uses: actions/configure-pages@v5
 
