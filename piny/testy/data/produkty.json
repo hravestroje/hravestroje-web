@@ -1,0 +1,10 @@
+{
+  "vygenerovano": "2026-11-05T00:00:00Z",
+  "mena": "CZK",
+  "produkty": [
+    { "nazev": "Dřevěný vláček s vagóny", "cena": 549, "url": "https://www.hravestroje.cz/produkt-101/", "obrazek": "/piny/testy/data/vlacek.svg", "kategorie": ["Hračky > Vláčky"], "skladem": true, "temata": ["vlaky"] },
+    { "nazev": "Vyprodaná vláčkodráha", "cena": 1290, "url": "https://www.hravestroje.cz/produkt-103/", "obrazek": "/piny/testy/data/vlacek.svg", "kategorie": ["Hračky > Vláčky"], "skladem": false, "temata": ["vlaky"] },
+    { "nazev": "Traktor s vlekem z cizího serveru", "cena": 1890, "url": "https://www.hravestroje.cz/produkt-105/", "obrazek": "__CIZI__/vlacek.svg", "kategorie": ["Hračky > Traktory"], "skladem": true, "temata": ["traktory"] },
+    { "nazev": "Velká stavebnice s neuvěřitelně dlouhým názvem, který se musí zalomit na několik řádků a nakonec zkrátit, protože by se jinak na pin vůbec nevešel", "cena": 12990, "url": "https://www.hravestroje.cz/produkt-106/", "obrazek": null, "kategorie": ["Hračky"], "skladem": true, "temata": [] }
+  ]
+}

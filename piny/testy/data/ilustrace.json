@@ -1,0 +1,7 @@
+{
+  "ilustrace": [
+    { "soubor": "testy/data/traktor.svg", "nazev": "Testovací traktor", "temata": ["traktory"] },
+    { "soubor": "https://cizi.example/x.png", "nazev": "Cizí adresa – musí se vynechat" },
+    { "soubor": "../kalendar/icons/x.png", "nazev": "Mimo složku – musí se vynechat" }
+  ]
+}

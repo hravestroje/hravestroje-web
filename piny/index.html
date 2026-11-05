@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generátor pinů – Hravé stroje</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hlavicka">
+  <div class="obal">
+    <a class="znacka" href="../">Hravé stroje</a>
+    <h1>Generátor pinů pro Pinterest</h1>
+    <p>Obrázek 1000 × 1500 px ve stylu webu, ke stažení jako PNG, s návrhem titulku a popisu. Vše běží jen ve vašem prohlížeči.</p>
+  </div>
+</header>
+
+<main class="obal rozlozeni">
+  <form id="formular" class="panel" autocomplete="off" onsubmit="return false">
+    <fieldset class="sablony">
+      <legend>Šablona</legend>
+      <label><input type="radio" name="sablona" value="akce" checked> Akce z kalendáře</label>
+      <label><input type="radio" name="sablona" value="clanek"> Článek / výlet</label>
+      <label><input type="radio" name="sablona" value="produkt"> Produkt</label>
+    </fieldset>
+
+    <section data-sablona="akce">
+      <h2>Výběr akce</h2>
+      <div class="radek">
+        <label>Hledat <input type="search" id="akce-hledat" placeholder="název, místo, obec"></label>
+        <label>Kraj <select id="akce-kraj"><option value="">Všechny kraje</option></select></label>
+      </div>
+      <label>Akce (probíhající a budoucí) <select id="akce-seznam" size="7"></select></label>
+      <p class="pozn" id="akce-stav">Načítám akce…</p>
+    </section>
+
+    <section data-sablona="produkt">
+      <h2>Výběr produktu</h2>
+      <div class="radek">
+        <label>Hledat <input type="search" id="produkt-hledat" placeholder="název nebo kategorie"></label>
+        <label class="zatrzitko"><input type="checkbox" id="produkt-skladem" checked> jen skladem</label>
+      </div>
+      <label>Produkt <select id="produkt-seznam" size="7"></select></label>
+      <p class="pozn" id="produkt-stav">Načítám produkty…</p>
+    </section>
+
+    <section>
+      <h2>Texty na pinu</h2>
+      <label>Štítek <input type="text" id="stitek" maxlength="40"></label>
+      <label>Nadpis <textarea id="nadpis" rows="2" maxlength="160"></textarea></label>
+      <div data-sablona="akce">
+        <label>Datum <input type="text" id="datum" maxlength="80"></label>
+        <label>Místo <input type="text" id="misto" maxlength="140"></label>
+        <label>Kraj <input type="text" id="kraj" maxlength="60"></label>
+      </div>
+      <div data-sablona="produkt">
+        <label>Cena (Kč) <input type="number" id="cena" min="0" step="1"></label>
+      </div>
+      <div data-sablona="clanek produkt">
+        <label>Podnadpis <textarea id="podnadpis" rows="2" maxlength="200"></textarea></label>
+      </div>
+      <div data-sablona="clanek">
+        <label>Odrážka 1 <input type="text" id="odrazka1" maxlength="90"></label>
+        <label>Odrážka 2 <input type="text" id="odrazka2" maxlength="90"></label>
+        <label>Odrážka 3 <input type="text" id="odrazka3" maxlength="90"></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ilustrace</h2>
+      <label>Obrázek <select id="ilu-vyber"></select></label>
+      <label id="ilu-soubor-obal" hidden>Soubor z počítače <input type="file" id="ilu-soubor" accept="image/png,image/webp,image/jpeg,image/svg+xml"></label>
+      <p class="pozn" id="ilu-stav"></p>
+      <div class="radek">
+        <label>Velikost <input type="range" id="ilu-velikost" min="30" max="100" value="85"></label>
+        <label>Posun do stran <input type="range" id="ilu-posun" min="-100" max="100" value="0"></label>
+      </div>
+      <p class="pozn">Ilustrace vždy stojí na spodní linii, posouvá se jen do stran.</p>
+    </section>
+  </form>
+
+  <div class="panel nahled">
+    <canvas id="pin" width="1000" height="1500" aria-label="Náhled pinu"></canvas>
+    <div class="akce-tlacitka">
+      <button type="button" id="stahnout" class="tlacitko">Stáhnout PNG</button>
+      <span class="pozn">1000 × 1500 px</span>
+    </div>
+    <p class="upozorneni" id="upozorneni" hidden></p>
+
+    <div class="text-pinu">
+      <label for="titulek">Titulek pinu <span class="pocet" id="titulek-pocet"></span></label>
+      <input type="text" id="titulek" maxlength="100">
+      <button type="button" class="tlacitko druhe" data-kopirovat="titulek">Zkopírovat titulek</button>
+    </div>
+    <div class="text-pinu">
+      <label for="popis">Popis pinu <span class="pocet" id="popis-pocet"></span></label>
+      <textarea id="popis" rows="6" maxlength="500"></textarea>
+      <button type="button" class="tlacitko druhe" data-kopirovat="popis">Zkopírovat popis</button>
+    </div>
+    <p class="pozn" id="kopirovano" role="status"></p>
+  </div>
+</main>
+
+<script src="logika.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

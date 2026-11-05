@@ -1,0 +1,12 @@
+{
+  "navod": [
+    "Seznam ilustrací pro generátor pinů (piny/index.html).",
+    "1) Ilustraci uložte jako PNG (nebo WebP/SVG) s průhledným pozadím do složky piny/ilustrace/, např. piny/ilustrace/traktor.png.",
+    "   Ideálně aspoň 1000 px na šířku, stroj kreslený zboku tak, aby kola stála na spodním okraji obrázku (průhledné okraje generátor sám ořízne).",
+    "2) Přidejte položku do pole \"ilustrace\" níže: { \"soubor\": \"ilustrace/traktor.png\", \"nazev\": \"Traktor\", \"temata\": [\"traktory\"] }",
+    "   \"soubor\" je cesta vůči složce piny/ (jen písmena, číslice, -, _, / a přípona .png/.webp/.svg).",
+    "   \"temata\" jsou typy z kalendáře (vlaky, traktory, auta, lode, letadla, ostatni) – generátor pak ilustraci u akce s tímto typem nabídne sám.",
+    "3) Žádné emoji ani cizí adresy – obrázky musí ležet v repozitáři, jinak by nešlo stáhnout PNG."
+  ],
+  "ilustrace": []
+}
