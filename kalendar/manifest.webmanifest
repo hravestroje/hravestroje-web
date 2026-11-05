@@ -1,20 +1,27 @@
 {
   "name": "Kalendář dopravních akcí – Hravé stroje",
-  "short_name": "Akce",
-  "description": "Akce s vlaky, traktory a auty pro děti. Vybírá Hravestroje.cz.",
+  "short_name": "Hravé akce",
+  "description": "Akce s vlaky, traktory, auty, loděmi a letadly pro děti po celé České republice. Vybírá Hravestroje.cz.",
   "lang": "cs",
+  "dir": "ltr",
   "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#f6f5f1",
+  "background_color": "#1f6f3d",
   "theme_color": "#1f6f3d",
-  "categories": ["kids", "travel", "lifestyle"],
+  "categories": ["kids", "travel", "lifestyle", "entertainment"],
+  "prefer_related_applications": false,
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
     { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
     { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "screenshots": [
+    { "src": "screenshots/mobil-seznam.png", "sizes": "824x1784", "type": "image/png", "form_factor": "narrow", "label": "Seznam nadcházejících akcí s vlaky, traktory a auty" },
+    { "src": "screenshots/mobil-filtry.png", "sizes": "824x1784", "type": "image/png", "form_factor": "narrow", "label": "Filtry podle typu, termínu a kraje" },
+    { "src": "screenshots/pocitac.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide", "label": "Kalendář akcí na počítači" }
   ]
 }

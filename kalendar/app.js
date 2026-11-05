@@ -2,6 +2,8 @@
 
 (function () {
   var L = window.KalendarLogika;
+  var Z = window.KalendarZarizeni;
+  var zarizeni = Z.vytvor(); // oblíbené a můj kraj – jen v tomto zařízení (viz zarizeni.js)
   var TYPY = L.TYPY, esc = L.esc;
   var PORADI_KRAJU = [
     'Hlavní město Praha', 'Středočeský kraj', 'Jihočeský kraj', 'Plzeňský kraj',
@@ -32,11 +34,30 @@
     zrusit: document.getElementById('zrusit'),
     aktualizace: document.getElementById('aktualizace'),
     partnerske: document.getElementById('partnerske'),
-    oznameni: document.getElementById('oznameni')
+    oznameni: document.getElementById('oznameni'),
+    jenOblibene: document.getElementById('jen-oblibene'),
+    pocetOblibenych: document.getElementById('pocet-oblibenych'),
+    mujKraj: document.getElementById('muj-kraj'),
+    mujKrajObal: document.getElementById('muj-kraj-obal'),
+    offline: document.getElementById('offline'),
+    offlineText: document.getElementById('offline-text'),
+    instalace: document.getElementById('instalace'),
+    instalovat: document.getElementById('instalovat'),
+    instalovatText: document.getElementById('instalovat-text'),
+    zavritInstalaci: document.getElementById('zavrit-instalaci'),
+    navodIos: document.getElementById('navod-ios'),
+    navodHotovo: document.getElementById('navod-hotovo')
   };
+
+  // SVG ikony do statické části stránky (<span data-ikona="…">)
+  document.querySelectorAll('[data-ikona]').forEach(function (e) {
+    e.insertAdjacentHTML('afterbegin', L.ikona(e.getAttribute('data-ikona')));
+  });
 
   var stav = L.prazdnyStav();
   var vlastniOtevreno = false;
+  var jenOblibene = false; // filtr „Moje oblíbené“ (do adresy se neukládá – oblíbené jsou v zařízení)
+  var aktualizovano = null; // čas vytvoření akce.json
   var akce = [];
   var podleId = {};
   var mon = null;       // monetizace.json
@@ -64,7 +85,7 @@
   }
 
   function nejakyFiltr() {
-    return !!(stav.q || pocetAktivnich());
+    return !!(stav.q || jenOblibene || pocetAktivnich());
   }
 
   function ulozDoAdresy() {
@@ -98,6 +119,18 @@
     el.pocetFiltru.hidden = !n;
     el.pocetFiltru.textContent = n;
     el.zrusit.hidden = !nejakyFiltr();
+    el.jenOblibene.setAttribute('aria-pressed', String(jenOblibene));
+    var muj = zarizeni.mujKraj();
+    el.mujKrajObal.hidden = !stav.kraj;
+    el.mujKraj.checked = !!stav.kraj && stav.kraj === muj;
+    promitniOblibene();
+  }
+
+  function promitniOblibene() {
+    var ids = zarizeni.oblibene();
+    var n = akce.length ? Z.filtrujOblibene(akce, ids).length : ids.length;
+    el.pocetOblibenych.hidden = !n;
+    el.pocetOblibenych.textContent = n;
   }
 
   function zmena() {
@@ -115,8 +148,10 @@
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b, 'cs');
     });
     if (stav.kraj && !pocty[stav.kraj]) kraje.push(stav.kraj);
+    var muj = zarizeni.mujKraj();
     el.kraj.innerHTML = '<option value="">Všechny kraje</option>' + kraje.map(function (k) {
-      return '<option value="' + esc(k) + '">' + esc(k) + (pocty[k] ? ' (' + pocty[k] + ')' : '') + '</option>';
+      return '<option value="' + esc(k) + '">' + esc(k) + (pocty[k] ? ' (' + pocty[k] + ')' : '') +
+        (k === muj ? ' – můj kraj' : '') + '</option>';
     }).join('');
   }
 
@@ -168,10 +203,14 @@
     });
     if (a.kraj) stitky.push('<li>' + esc(a.kraj) + '</li>');
 
+    var oblibena = zarizeni.jeOblibena(a.id);
+
     return '<article class="karta' + (a.zruseno ? ' zrusena' : '') + (trida ? ' ' + trida : '') + '" id="akce-' + esc(a.id) + '">' +
       '<div class="karta-obrazek" data-typ="' + typ + '">' +
         (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : L.zastupnyObrazek(typ)) +
         datumBadge(a, probiha) +
+        '<button type="button" class="srdce" data-akce="oblibena" data-id="' + esc(a.id) + '" aria-pressed="' + oblibena + '" ' +
+          'aria-label="Oblíbená akce: ' + esc(a.nazev) + '" title="Oblíbená akce">' + L.ikona('srdce') + '</button>' +
       '</div>' +
       '<div class="karta-telo">' +
         '<h3>' + esc(a.nazev) + '</h3>' +
@@ -216,14 +255,22 @@
   function vykresli() {
     var ted = new Date();
     var vysledek = L.filtruj(akce, stav, ted);
-    el.pocet.textContent = nejakyFiltr()
-      ? 'Nalezeno: ' + sklonujAkce(vysledek.length)
-      : 'Nadcházející akce: ' + vysledek.length;
+    if (jenOblibene) vysledek = Z.filtrujOblibene(vysledek, zarizeni.oblibene());
+    el.pocet.textContent = jenOblibene
+      ? 'Moje oblíbené: ' + sklonujAkce(vysledek.length)
+      : nejakyFiltr()
+        ? 'Nalezeno: ' + sklonujAkce(vysledek.length)
+        : 'Nadcházející akce: ' + vysledek.length;
 
     if (!vysledek.length) {
-      el.seznam.innerHTML = '<p class="info">' + (akce.length
-        ? 'Pro zvolené filtry jsme nenašli žádnou akci. Zkuste jiný termín, kraj nebo typ.'
-        : 'Zatím tu nejsou žádné nadcházející akce. Mrkněte sem brzy znovu.') + '</p>';
+      var zprava = 'Zatím tu nejsou žádné nadcházející akce. Mrkněte sem brzy znovu.';
+      if (jenOblibene && !Z.filtrujOblibene(akce, zarizeni.oblibene()).length) {
+        zprava = 'Zatím nemáte žádné oblíbené akce. Klepněte na srdíčko u akce a najdete ji tady – ' +
+          'oblíbené se ukládají jen v tomto zařízení.';
+      } else if (akce.length) {
+        zprava = 'Pro zvolené filtry jsme nenašli žádnou akci. Zkuste jiný termín, kraj nebo typ.';
+      }
+      el.seznam.innerHTML = '<p class="info">' + zprava + '</p>';
       return;
     }
 
@@ -322,8 +369,36 @@
     if (!b) return;
     var a = podleId[b.getAttribute('data-id')];
     if (!a) return;
-    if (b.getAttribute('data-akce') === 'ics') stahniIcs(a);
+    var co = b.getAttribute('data-akce');
+    if (co === 'oblibena') prepniOblibenou(a);
+    else if (co === 'ics') stahniIcs(a);
     else sdilej(a);
+  });
+
+  function prepniOblibenou(a) {
+    var ted = zarizeni.prepniOblibenou(a.id);
+    oznam(ted ? 'Přidáno do oblíbených' : 'Odebráno z oblíbených');
+    if (jenOblibene && !ted) {
+      vykresli();
+    } else {
+      el.seznam.querySelectorAll('button[data-akce="oblibena"]').forEach(function (b) {
+        if (b.getAttribute('data-id') === a.id) b.setAttribute('aria-pressed', String(ted));
+      });
+    }
+    promitniOblibene();
+  }
+
+  el.jenOblibene.addEventListener('click', function () {
+    jenOblibene = !jenOblibene;
+    promitniStav();
+    vykresli();
+  });
+
+  el.mujKraj.addEventListener('change', function () {
+    zarizeni.nastavMujKraj(el.mujKraj.checked ? stav.kraj : '');
+    if (akce.length) naplnKraje();
+    promitniStav();
+    oznam(el.mujKraj.checked ? 'Uloženo: ' + stav.kraj + ' se ukáže při každém otevření' : 'Můj kraj zrušen');
   });
 
   // ---------- Události filtrů ----------
@@ -375,6 +450,7 @@
   el.zrusit.addEventListener('click', function () {
     stav = L.prazdnyStav();
     vlastniOtevreno = false;
+    jenOblibene = false;
     zmena();
   });
 
@@ -393,6 +469,8 @@
 
   // ---------- Start ----------
   stav = L.stavZAdresy(location.search);
+  // Bez filtrů v adrese (např. otevření z plochy) začít „mým krajem“, pokud je uložený.
+  if (!L.adresaZeStavu(stav) && zarizeni.mujKraj()) stav.kraj = zarizeni.mujKraj();
   promitniStav();
 
   function nactiJson(adresa) {
@@ -420,21 +498,47 @@
     ]);
   });
 
-  nactiJson('akce.json')
-    .then(function (data) {
-      akce = L.pripravAkce(data, new Date());
-      podleId = {};
-      akce.forEach(function (a) { podleId[a.id] = a; });
-      naplnKraje();
-      promitniStav();
-      vykresli();
-      if (data.aktualizovano) {
-        var d = new Date(data.aktualizovano);
-        if (!isNaN(d)) {
-          el.aktualizace.textContent = 'Seznam aktualizován ' + d.getDate() + '. ' + (d.getMonth() + 1) + '. ' +
-            d.getFullYear() + ' v ' + L.cas(d) + '.';
-        }
-      }
+  function popisAktualizace(d) {
+    return d.getDate() + '. ' + (d.getMonth() + 1) + '. ' + d.getFullYear() + ' v ' + L.cas(d);
+  }
+
+  // Poznámka „Jste offline“ s časem posledních uložených dat.
+  function ukazOffline(zobrazit) {
+    el.offline.hidden = !zobrazit;
+    if (!zobrazit) return;
+    el.offlineText.textContent = 'Jste offline. Zobrazuji uložený seznam' +
+      (aktualizovano ? ' – naposledy aktualizováno ' + popisAktualizace(aktualizovano) : '') +
+      '. Termíny si po připojení ověřte.';
+  }
+
+  // Service worker u odpovědi z mezipaměti (bez signálu) přidá hlavičku X-Kalendar-Offline.
+  function nactiAkce() {
+    return fetch('akce.json', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      var zUlozenych = r.headers.get('X-Kalendar-Offline') === '1';
+      return r.json().then(function (data) {
+        akce = L.pripravAkce(data, new Date());
+        podleId = {};
+        akce.forEach(function (a) { podleId[a.id] = a; });
+        var d = data.aktualizovano ? new Date(data.aktualizovano) : null;
+        aktualizovano = d && !isNaN(d) ? d : null;
+        if (aktualizovano) el.aktualizace.textContent = 'Seznam aktualizován ' + popisAktualizace(aktualizovano) + '.';
+        naplnKraje();
+        promitniStav();
+        vykresli();
+        ukazOffline(zUlozenych || navigator.onLine === false);
+      });
+    });
+  }
+
+  window.addEventListener('offline', function () { if (akce.length) ukazOffline(true); });
+  window.addEventListener('online', function () {
+    // signál je zpět → stáhnout čerstvý seznam (při chybě zůstane uložený)
+    nactiAkce().catch(function () {});
+  });
+
+  nactiAkce()
+    .then(function () {
       return monetizaceHotova.then(function () {
         if (L.monetizaceZapnuta(mon)) vykresli();
       });
@@ -448,8 +552,58 @@
       }
     })
     .catch(function () {
+      if (akce.length) return; // seznam už je zobrazený, selhalo jen něco navíc
       el.seznam.innerHTML = '<p class="info">Akce se nepodařilo načíst. Zkontrolujte připojení k internetu a zkuste stránku obnovit.</p>';
     });
+
+  // ---------- Přidat do mobilu ----------
+  // Android/Chrome: vlastní tlačítko spustí systémovou nabídku instalace (beforeinstallprompt).
+  // iPhone/iPad: Safari instalaci nenabízí → krátký návod Sdílet → Přidat na plochu.
+  // Po instalaci nebo zavření se tlačítko už neukazuje (pamatuje si to jen toto zařízení).
+  var odlozenaInstalace = null;
+  var ios = Z.jeIos(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
+
+  function muzeNabidnout() {
+    return !Z.jeNainstalovana(window) && !zarizeni.instalaceVyrizena();
+  }
+  function skryjInstalaci(stavInstalace) {
+    if (stavInstalace) zarizeni.oznacInstalaci(stavInstalace);
+    el.instalace.hidden = true;
+    el.navodIos.hidden = true;
+    odlozenaInstalace = null;
+  }
+  function ukazInstalaci() {
+    var dotyk = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    el.instalovatText.textContent = ios || dotyk ? 'Přidat do mobilu' : 'Nainstalovat aplikaci';
+    el.instalace.hidden = false;
+  }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); // místo automatické lišty prohlížeče naše tlačítko
+    if (!muzeNabidnout()) return;
+    odlozenaInstalace = e;
+    ukazInstalaci();
+  });
+  window.addEventListener('appinstalled', function () {
+    skryjInstalaci('nainstalovano');
+  });
+  if (ios && muzeNabidnout()) ukazInstalaci();
+
+  el.instalovat.addEventListener('click', function () {
+    if (odlozenaInstalace) {
+      var udalost = odlozenaInstalace;
+      udalost.prompt();
+      Promise.resolve(udalost.userChoice).then(function (volba) {
+        skryjInstalaci(volba && volba.outcome === 'accepted' ? 'nainstalovano' : 'zavreno');
+      }, function () { skryjInstalaci(); });
+      return;
+    }
+    var otevrit = el.navodIos.hidden;
+    el.navodIos.hidden = !otevrit;
+    el.instalovat.setAttribute('aria-expanded', String(otevrit));
+  });
+  el.navodHotovo.addEventListener('click', function () { skryjInstalaci('zavreno'); });
+  el.zavritInstalaci.addEventListener('click', function () { skryjInstalaci('zavreno'); });
 
   // PWA: offline režim a přidání na plochu. Žádné notifikace.
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {

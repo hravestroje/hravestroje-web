@@ -1,0 +1,18 @@
+# Klíč k podepisování aplikace a sestavené soubory NIKDY nenahrávat do (veřejného) repozitáře.
+*.keystore
+*.jks
+*.apk
+*.aab
+*.idsig
+app/
+gradle/
+build/
+.gradle/
+gradlew
+gradlew.bat
+*.gradle
+gradle.properties
+settings.gradle
+local.properties
+manifest-checksum.txt
+store_icon.png

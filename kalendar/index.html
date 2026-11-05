@@ -23,6 +23,25 @@
       <a class="znacka" href="https://www.hravestroje.cz/" rel="noopener">Hravé stroje</a>
       <h1>Kalendář dopravních akcí</h1>
       <p class="podtitul">Vlaky, traktory, auta, lodě a letadla pro malé fanoušky strojů</p>
+
+      <div class="instalace" id="instalace" hidden>
+        <div class="instalace-radek">
+          <button type="button" class="tlacitko-instalace" id="instalovat" aria-expanded="false">
+            <span data-ikona="mobil"></span><span id="instalovat-text">Přidat do mobilu</span>
+          </button>
+          <button type="button" class="zavrit-instalaci" id="zavrit-instalaci" aria-label="Zavřít a už nenabízet" data-ikona="zavrit"></button>
+        </div>
+        <div class="navod-ios" id="navod-ios" hidden>
+          <p class="navod-nadpis">Kalendář na plochu iPhonu</p>
+          <ol>
+            <li>Klepněte na <span class="ikona-v-textu" data-ikona="sdiletIos"></span> <strong>Sdílet</strong>
+              (v Safari dole, v Chromu nahoře v adresním řádku).</li>
+            <li>Vyberte <span class="ikona-v-textu" data-ikona="plus"></span> <strong>Přidat na plochu</strong>.</li>
+            <li>Potvrďte <strong>Přidat</strong>. Kalendář pak otevřete ikonou na ploše.</li>
+          </ol>
+          <button type="button" class="tlacitko tlacitko-svetle" id="navod-hotovo">Rozumím</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -33,6 +52,10 @@
           <span class="sr">Hledat akci</span>
           <input type="search" id="hledat" placeholder="Hledat: název, město, místo…" autocomplete="off" enterkeyhint="search">
         </label>
+        <button type="button" class="prepinac-oblibene" id="jen-oblibene" aria-pressed="false" title="Moje oblíbené">
+          <span data-ikona="srdce"></span><span class="text-oblibene">Moje oblíbené</span>
+          <span class="pocet-oblibenych" id="pocet-oblibenych" hidden></span>
+        </button>
         <button type="button" class="prepinac-filtru" id="prepinac-filtru" aria-expanded="false" aria-controls="panel-filtru">
           <span>Filtry</span> <span class="pocet-filtru" id="pocet-filtru" hidden></span>
         </button>
@@ -66,11 +89,19 @@
               <option value="">Všechny kraje</option>
             </select>
           </label>
+          <label class="zaskrtavatko" id="muj-kraj-obal" hidden>
+            <input type="checkbox" id="muj-kraj">
+            <span>Můj kraj – zobrazit při každém otevření</span>
+          </label>
         </div>
 
         <button type="button" class="tlacitko tlacitko-hotovo" id="hotovo">Zobrazit akce</button>
       </div>
     </form>
+
+    <p class="offline" id="offline" role="status" hidden>
+      <span data-ikona="offline"></span><span id="offline-text">Jste offline.</span>
+    </p>
 
     <div class="souhrn" aria-live="polite">
       <p id="pocet"></p>
@@ -94,6 +125,7 @@
   <div class="oznameni" id="oznameni" role="status" aria-live="polite" hidden></div>
 
   <script src="logika.js" defer></script>
+  <script src="zarizeni.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

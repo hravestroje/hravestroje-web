@@ -37,10 +37,10 @@ on:
       - "vikend/**"
       - "obrazky/**"
       - "newsletter/**"
-
       - "mapa/**"
       - "akce-v-okoli/**"
       - "testy/**"
+      - ".well-known/**"
       - ".github/workflows/web.yml"
   pull_request:
 
@@ -157,11 +157,16 @@ jobs:
 
       - name: Sestavit web
         run: |
-          mkdir -p _site/kalendar/icons _site/produkty _site/nabidky
+          mkdir -p _site/kalendar/icons _site/kalendar/screenshots _site/produkty _site/nabidky
           cp index.html _site/
-          cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/app.js kalendar/akce.json \
+          cp kalendar/index.html kalendar/styles.css kalendar/logika.js kalendar/zarizeni.js kalendar/app.js kalendar/akce.json \
              kalendar/monetizace.json kalendar/manifest.webmanifest kalendar/sw.js \
              kalendar/hs-kalendar.js kalendar/hs-kalendar-demo.html _site/kalendar/
+          cp kalendar/screenshots/*.png _site/kalendar/screenshots/
+          # Ověření aplikace z Google Play (TWA) – zveřejní se, až bude v souboru skutečný otisk klíče
+          if [ -f .well-known/assetlinks.json ] && ! grep -q DOPLNTE .well-known/assetlinks.json; then
+            mkdir -p _site/.well-known && cp .well-known/assetlinks.json _site/.well-known/
+          fi
           # nabídky partnerů (tipy na výlet) – jen pokud soubor v repozitáři existuje
           if [ -f kalendar/nabidky.json ]; then cp kalendar/nabidky.json _site/kalendar/; fi
           if [ -f nabidky/nabidky.json ]; then mkdir -p _site/nabidky && cp nabidky/nabidky.json _site/nabidky/; fi
@@ -202,9 +207,19 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
-      - uses: actions/upload-pages-artifact@v4
+      # Zabalení ručně místo actions/upload-pages-artifact: ta vynechává skryté složky
+      # a na web by se nedostal .well-known/assetlinks.json (ověření aplikace z Google Play).
+      - name: Zabalit web pro GitHub Pages (včetně .well-known)
+        run: |
+          tar --dereference --hard-dereference --directory _site -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git --exclude=.github .
+
+      - uses: actions/upload-artifact@v4
         with:
-          path: _site
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   zverejneni:
     name: Zveřejnění na GitHub Pages
