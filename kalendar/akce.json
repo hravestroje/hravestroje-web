@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-06T08:00:29.420Z",
+ "aktualizovano": "2026-11-07T07:19:56.608Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 155,
+ "pocet": 157,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1281,7 +1281,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-parostrojni-zeleznice-brasy/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/brasy-jizdy-7-listopadu-2026-plakat.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/brasy-jizdy-7-listopadu-2026-letak.jpg",
    "popis": ""
   },
   {
@@ -1494,6 +1494,22 @@
    "popis": "Zakončení sezóny v adventním duchu: průvod a výstava vánočně ozdobených traktorů, adventní trhy a koncert v Národním zemědělském muzeu Čáslav."
   },
   {
+   "id": "c65a12981a88",
+   "nazev": "Adventní plavby na Labi kolesovým parníkem 2026",
+   "zacatek": "2026-11-25T08:30:00+01:00",
+   "konec": "2026-12-20T17:00:00+01:00",
+   "misto": "Přístaviště Ústí nad Labem Centrum",
+   "adresa": "Přístavní, Ústí nad Labem",
+   "obec": "Ústí nad Labem",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "lode"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-plavby-na-labi-kolesovy-parnik/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/adventni-plavby-na-labi-kolesovym-parnikem-2026.jpg",
+   "popis": "Plavby historickým kolesovým parníkem na lince T91 Ústí nad Labem – Litoměřice vždy od středy do neděle, za běžné jízdné DÚK."
+  },
+  {
    "id": "dfbc61adad92",
    "nazev": "Kouzelná vánoční zahrada Přestavlky",
    "zacatek": "2026-11-26T16:30:00+01:00",
@@ -1506,7 +1522,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/kouzelna-vanocni-zahrada-prestavlky/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/kouzelna-vanocni-zahrada-prestavlky-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/kouzelna-vanocni-zahrada-prestavlky-2026-vanocni-masinka.jpg",
    "popis": "Kouzelně osvětlená zahrada s vánoční tematikou a zahradní železnicí velikosti G, vstupné dobrovolné."
   },
   {
@@ -1538,7 +1554,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026-mikulassky-vlak-2.jpg",
    "popis": "Zvláštní vlaky z Trutnova do Žacléře. Pořádá Kolej-klub a město Žacléř."
   },
   {
@@ -1666,7 +1682,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-pardubice-praskacka/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-pardubice-praskacka-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-pardubice-praskacka-2026-mikulassky-vlak-2.jpg",
    "popis": "Dva páry historických motorových vlaků Pardubice – Praskačka a zpět s Mikulášem a čertem, v cíli program v Museu bednářství Jaroslava Tománka a čertovská nadílka. Pořádá Pardubický spolek historie železniční dopravy."
   },
   {
@@ -1732,6 +1748,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-zbysov-2026-plakat.jpg",
    "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna za účasti Mikuláše a jeho družiny."
+  },
+  {
+   "id": "839acae53815",
+   "nazev": "Mikulášská nadílka na vláčku",
+   "zacatek": "2026-11-28T14:00:00+01:00",
+   "konec": "2026-11-28T17:00:00+01:00",
+   "misto": "Areál Pionýrské skupiny Starý Plzenec – Plzenecká železnice",
+   "adresa": "Andrejšky 838, Starý Plzenec",
+   "obec": "Starý Plzenec",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "ostatni"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-nadilka-na-vlacku-stary-plzenec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-nadilka-na-vlacku-stary-plzenec-og.jpg",
+   "popis": "Jízdy úzkorozchodným vláčkem za Mikulášem, zápis dětí na nadílku, výtvarná dílnička a drobné občerstvení v areálu Pionýrské skupiny Starý Plzenec."
   },
   {
    "id": "a6dbc073b3f3",
@@ -1922,7 +1954,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-na-krivoklatsky-advent/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-na-krivoklatsky-advent-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-na-krivoklatsky-advent-2026-mikulassky-vlak-2.jpg",
    "popis": "Mikulášský vlak ČD Nostalgie s lokomotivou Brejlovec z Plzně přes Rokycany a Beroun na adventní jarmark na hradě Křivoklát."
   },
   {
@@ -2230,7 +2262,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/betlemsky-vlak-kolej-klub/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/betlemsky-vlak-kolej-klub-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/betlemsky-vlak-kolej-klub-2026-vanocni-masinka.jpg",
    "popis": "Zvláštní vlak s Betlémským světlem. Pořádá Kolej-klub a Skaut Lomnice nad Popelkou."
   },
   {
