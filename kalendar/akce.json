@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-07T07:19:56.608Z",
+ "aktualizovano": "2026-11-08T07:30:26.874Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 157,
+ "pocet": 175,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1526,6 +1526,38 @@
    "popis": "Kouzelně osvětlená zahrada s vánoční tematikou a zahradní železnicí velikosti G, vstupné dobrovolné."
   },
   {
+   "id": "6f3f2e0a751c",
+   "nazev": "Adventní jízdy a Mikuláš na Žitavské úzkokolejce 2026",
+   "zacatek": "2026-11-28",
+   "konec": "2026-12-20",
+   "misto": "Bahnhof Zittau",
+   "adresa": "Zittau",
+   "obec": "Zittau",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-a-adventni-vlaky-sasko-fichtelbergbahn-zitava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-adventni-vlaky-sasko-2026.jpg",
+   "popis": "Adventní jízdy s kávou a štolou, 6. 12. Mikuláš ve vlaku a mikulášská snídaně v jídelním voze."
+  },
+  {
+   "id": "a7f9da3eb4f4",
+   "nazev": "Adventní parní jízdy Preßnitztalbahn 2026",
+   "zacatek": "2026-11-28",
+   "konec": "2026-12-13",
+   "misto": "Bahnhof Jöhstadt",
+   "adresa": "Jöhstadt",
+   "obec": "Jöhstadt",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-a-adventni-vlaky-sasko-fichtelbergbahn-zitava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-adventni-vlaky-sasko-2026.jpg",
+   "popis": "Adventní parní vlaky Jöhstadt – Steinbach, 4. 12. mikulášské jízdy s přihláškou."
+  },
+  {
    "id": "4a7942c361da",
    "nazev": "Čertohráček",
    "zacatek": "2026-11-28",
@@ -1750,6 +1782,42 @@
    "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna za účasti Mikuláše a jeho družiny."
   },
   {
+   "id": "7b22770a46d0",
+   "nazev": "Výstava železničních modelů a kolejišť – SKC Nýřany",
+   "zacatek": "2026-11-28T10:00:00+01:00",
+   "konec": "2026-11-30T12:00:00+01:00",
+   "misto": "SKC Nýřany – kulturní dům",
+   "adresa": "Revoluční 1071, Nýřany",
+   "obec": "Nýřany",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnich-modelu-nyrany/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vystava-zeleznicnich-modelu-nyrany-2026.jpg",
+   "popis": "Tradiční výstava železničních modelů a kolejišť Železničních modelářů Nýřany, provoz kolejišť a výstava modelů, dobrovolné vstupné.",
+   "geo": {
+    "lat": 49.7122969,
+    "lng": 13.1974355
+   }
+  },
+  {
+   "id": "ab4d986d3fac",
+   "nazev": "Adventní vlaky Waldviertelbahn do Weitry a Litschau 2026",
+   "zacatek": "2026-11-28T11:15:00+01:00",
+   "konec": "2026-11-29T18:56:00+01:00",
+   "misto": "Bahnhof Gmünd (Waldviertelbahn)",
+   "adresa": "Gmünd",
+   "obec": "Gmünd",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-vlaky-waldviertelbahn-gmund/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/adventni-vlaky-waldviertelbahn-2026.jpg",
+   "popis": "Zvláštní vlaky z Gmündu na adventní trhy ve Weitře a v Litschau."
+  },
+  {
    "id": "839acae53815",
    "nazev": "Mikulášská nadílka na vláčku",
    "zacatek": "2026-11-28T14:00:00+01:00",
@@ -1780,6 +1848,23 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plzenecka-zeleznice-zluta-lokomotiva.jpg",
    "popis": "Vláčkem za Mikulášem a čerty, dílnička."
+  },
+  {
+   "id": "56b5fbfb52a5",
+   "nazev": "Rozsvícení vánoční flotily DPP 2026",
+   "zacatek": "2026-11-28T14:30:00+01:00",
+   "konec": "2026-11-28T17:30:00+01:00",
+   "misto": "Vozovna Střešovice – Muzeum MHD",
+   "adresa": "Patočkova, Praha 6",
+   "obec": "Praha 6",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozsviceni-vanocni-flotily-dpp-praha/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/rozsviceni-vanocni-flotily-dpp-2026.jpg",
+   "popis": "Slavnostní rozsvícení vánočně vyzdobených tramvají, autobusů a trolejbusu Dopravního podniku hl. m. Prahy a vánoční průvod ze Střešovic do centra."
   },
   {
    "id": "64a4197221d3",
@@ -1830,6 +1915,22 @@
    "popis": "Mikulášský motorák Vlaků Plzeňského kraje po trasách Plzeň hl. n. – Vejprnice – Nýřany a Plzeň hl. n. – Plzeň-Křimice – Vochov – Kozolupy. Povinná rezervace místa."
   },
   {
+   "id": "b855ed8a997c",
+   "nazev": "Krumlovská adventní neděle s motoráčkem",
+   "zacatek": "2026-11-29T13:22:00+01:00",
+   "konec": "2026-12-20T18:32:00+01:00",
+   "misto": "Železniční stanice České Budějovice",
+   "adresa": "České Budějovice",
+   "obec": "České Budějovice",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/krumlovska-adventni-nedele-s-motorackem/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/krumlovska-adventni-nedele-s-motorackem-2026.jpg",
+   "popis": "Vánočně nazdobený historický motoráček každou adventní neděli z Českých Budějovic do Českého Krumlova a zpět."
+  },
+  {
    "id": "da7df09e4843",
    "nazev": "Mikulášský vlak Vimperk – Volyně",
    "zacatek": "2026-11-29T14:55:00+01:00",
@@ -1878,6 +1979,22 @@
    "popis": "Vánoční stanice svatého Mikuláše v železničním muzeu: setkání s Mikulášem, poštovní vůz, vánoční dílny a venkovní hra."
   },
   {
+   "id": "1d003ad866bb",
+   "nazev": "Mikulášské a Vánoční vláčky 2026 – Slezský železniční spolek",
+   "zacatek": "2026-12-02",
+   "konec": "2026-12-20",
+   "misto": "Železniční stanice Frýdek-Místek",
+   "adresa": "Frýdek-Místek",
+   "obec": "Frýdek-Místek",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-a-vanocni-vlacky-ostrava-frydek-mistek/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-a-vanocni-vlacky-ostrava-2026.jpg",
+   "popis": "Vyzdobené Mikulášské a Vánoční vláčky v Ostravě, Frýdku-Místku, Karviné a Havířově s Mikulášskou družinou nebo koledami."
+  },
+  {
    "id": "b0827cb957a8",
    "nazev": "Advent se Sergejem",
    "zacatek": "2026-12-03T13:45:00+01:00",
@@ -1892,6 +2009,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-se-sergejem/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/advent-se-sergejem-2026.jpg",
    "popis": "Zážitková adventní jízda s lokomotivou 781 592-1 Sergej z Prahy přes Benešov a Tábor do Českých Budějovic a zpět, s prohlídkou lokomotivy s výkladem."
+  },
+  {
+   "id": "76d939b10d8c",
+   "nazev": "Mikulášským vlakem z Prahy do Rakovníka, Čisté a Kralovic",
+   "zacatek": "2026-12-04T13:52:00+01:00",
+   "konec": "2026-12-04T20:43:00+01:00",
+   "misto": "Praha hlavní nádraží",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-praha-rakovnik-kralovice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-praha-rakovnik-kralovice-2026.jpg",
+   "popis": "Mikulášská jízda Kralovického rychlíku s lokomotivou T 478.1 Zamračená z Prahy přes Kladno a Rakovník do Čisté a Kralovic a zpět, program pro děti na nádražích v Čisté a Kralovicích."
   },
   {
    "id": "9eaae2fc40e9",
@@ -1910,6 +2043,22 @@
    "popis": "Čertovské jízdy úzkorozchodného parního vláčku z Kolína-Sendražic do Býchor."
   },
   {
+   "id": "60ba9cff4ff0",
+   "nazev": "Mikulášské jízdy s peklem ve štole",
+   "zacatek": "2026-12-05",
+   "konec": "2026-12-05",
+   "misto": "Skanzen Solvayovy lomy",
+   "adresa": "Svatý Jan pod Skalou",
+   "obec": "Svatý Jan pod Skalou",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-jizdy-s-peklem-ve-stole-solvayovy-lomy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-jizdy-s-peklem-ve-stole-solvayovy-lomy.jpg",
+   "popis": "Jízdy motorového vlaku a program ve štole pro děti ve Skanzenu Solvayovy lomy v Českém krasu."
+  },
+  {
    "id": "dccbd9a82f3f",
    "nazev": "Pekelná sobota v turnovském depu",
    "zacatek": "2026-12-05",
@@ -1924,6 +2073,38 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pekelna-sobota-v-turnovskem-depu/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pekelna-sobota-v-turnovskem-depu-2026.jpg",
    "popis": "Pekelný program v turnovském depu. Pořádá Kolej-klub, NPŽ a NPS."
+  },
+  {
+   "id": "c8049bbb7292",
+   "nazev": "Pohádkové muzeum 2026",
+   "zacatek": "2026-12-05",
+   "konec": "2026-12-05",
+   "misto": "Technické muzeum v Brně",
+   "adresa": "Purkyňova 105, Brno",
+   "obec": "Brno",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "ostatni"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pohadkove-muzeum-technicke-muzeum-brno/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pohadkove-muzeum-technicke-muzeum-brno-2026.jpg",
+   "popis": "Předvánoční akce pro rodiny s dětmi: pohádkové postavy plní s dětmi úkoly mezi exponáty Technického muzea v Brně."
+  },
+  {
+   "id": "2d1ba033113b",
+   "nazev": "Mikulášský vlak na Křivoklát z Českých Budějovic",
+   "zacatek": "2026-12-05T08:30:00+01:00",
+   "konec": "2026-12-05T18:43:00+01:00",
+   "misto": "Železniční stanice České Budějovice",
+   "adresa": "České Budějovice",
+   "obec": "České Budějovice",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-ceske-budejovice-krivoklat/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-ceske-budejovice-krivoklat-2026.jpg",
+   "popis": "Vánočně vyzdobený vlak s retro vozy a jídelním vozem z Českých Budějovic přes Písek, Příbram a Beroun na Křivoklát, s Mikulášem, andělem a čertem."
   },
   {
    "id": "6566f857f222",
@@ -2026,6 +2207,22 @@
    "popis": "Retro motorový vůz 810.100 z Plzně přes Rokycany na Křivoklátský advent, cukroví a čaj v ceně jízdenky."
   },
   {
+   "id": "71d334f32648",
+   "nazev": "Mikulášský parní vlak se Všudybylkou na Karlovarsku",
+   "zacatek": "2026-12-05T09:10:00+01:00",
+   "konec": "2026-12-05T16:10:00+01:00",
+   "misto": "Železniční stanice Karlovy Vary",
+   "adresa": "Karlovy Vary",
+   "obec": "Karlovy Vary",
+   "kraj": "Karlovarský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-parni-vlak-vsudybylka-karlovarsko/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-parni-vlak-vsudybylka-karlovarsko-2026.jpg",
+   "popis": "Mikulášské jízdy parního vlaku s lokomotivou 354.1 Všudybylka mezi Mariánskými Lázněmi, Karlovými Vary, Merklínem, Sokolovem a Chebem, s Mikulášem, čertem a andělem."
+  },
+  {
    "id": "d63fbac207b1",
    "nazev": "Parním vlakem za Mikulášem a Čertem",
    "zacatek": "2026-12-05T09:45:00+01:00",
@@ -2122,6 +2319,38 @@
    "popis": "Mikulášský historický elektrický vlak s lokomotivou Bobinka (E 422.0) z Tábora do Bechyně a zpět, ve vlaku Mikuláš, andělé a čerti s dárky pro hodné děti, v Bechyni remíza s modelovým kolejištěm."
   },
   {
+   "id": "b225f801ddf2",
+   "nazev": "Mikulášská nadílka v Chrustenické šachtě",
+   "zacatek": "2026-12-06T10:00:00+01:00",
+   "konec": "2026-12-06T14:00:00+01:00",
+   "misto": "Chrustenická šachta",
+   "adresa": "Chrustenice",
+   "obec": "Chrustenice",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "ostatni"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulas-chrustenicka-sachta/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulas-chrustenicka-sachta-2026.jpg",
+   "popis": "Mikulášská nadílka v bývalém železnorudném dole: jízda důlním vláčkem do podzemního pekla a nebe s Mikulášem a andílky."
+  },
+  {
+   "id": "e03cf4a74800",
+   "nazev": "Nikolausexpress Fichtelbergbahn 2026",
+   "zacatek": "2026-12-06T10:00:00+01:00",
+   "konec": "2026-12-06T16:33:00+01:00",
+   "misto": "Bahnhof Kurort Oberwiesenthal",
+   "adresa": "Oberwiesenthal",
+   "obec": "Oberwiesenthal",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-a-adventni-vlaky-sasko-fichtelbergbahn-zitava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-adventni-vlaky-sasko-2026.jpg",
+   "popis": "Parní vlak s Mikulášem a dárkem pro děti mezi Cranzahlem a Kurortem Oberwiesenthal."
+  },
+  {
    "id": "9085a63f7f31",
    "nazev": "Vánoční expres do Karlových Varů",
    "zacatek": "2026-12-06T12:00:00+01:00",
@@ -2170,6 +2399,22 @@
    "popis": "Zvláštní vánoční vlaky historickými motoráky mezi Kroměříží a Tovačovem."
   },
   {
+   "id": "7254ce68d88b",
+   "nazev": "Křivoklátský rychlík",
+   "zacatek": "2026-12-12T09:00:00+01:00",
+   "konec": "2026-12-12T17:00:00+01:00",
+   "misto": "Praha hlavní nádraží",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/krivoklatsky-rychlik-advent-krivoklat/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/krivoklatsky-rychlik-advent-krivoklat-2026.jpg",
+   "popis": "Zvláštní rychlík s historickou lokomotivou T478.1 Bardotka z Prahy přes Beroun na adventní jarmark na hradě Křivoklát."
+  },
+  {
    "id": "a9be6b8b06c8",
    "nazev": "Svařák na Zubačce",
    "zacatek": "2026-12-12T09:00:00+01:00",
@@ -2184,6 +2429,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/svarak-ve-vytopne-korenov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zubacka-korenov-jizdy-historickych-vlaku-14-1.jpg",
    "popis": "Poslední akce roku na Zubačce: parní vlaky Kořenov – Harrachov, historický motoráček z Tanvaldu a otevřené Muzeum ozubnicové dráhy."
+  },
+  {
+   "id": "f9903ae3eded",
+   "nazev": "Rožnovský vánoční expres 2026",
+   "zacatek": "2026-12-12T09:45:00+01:00",
+   "konec": "2026-12-12T16:34:00+01:00",
+   "misto": "Železniční stanice Valašské Meziříčí",
+   "adresa": "Valašské Meziříčí",
+   "obec": "Valašské Meziříčí",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/roznovsky-vanocni-expres/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/roznovsky-vanocni-expres-2026.jpg",
+   "popis": "Parní vlak s lokomotivou 423.041 Velký bejček z Valašského Meziříčí na Vánoční jarmark do Valašského muzea v přírodě v Rožnově pod Radhoštěm."
   },
   {
    "id": "3592e44b3417",
@@ -2280,6 +2541,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plzenecka-zeleznice-zluta-lokomotiva.jpg",
    "popis": "Vánoční jízdy úzkorozchodné železnice."
+  },
+  {
+   "id": "715a7d5b92f2",
+   "nazev": "Christkindlzug Waldviertelbahn 2026",
+   "zacatek": "2026-12-24T13:00:00+01:00",
+   "konec": "2026-12-24T15:25:00+01:00",
+   "misto": "Bahnhof Gmünd (Waldviertelbahn)",
+   "adresa": "Gmünd",
+   "obec": "Gmünd",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-vlaky-waldviertelbahn-gmund/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/adventni-vlaky-waldviertelbahn-2026.jpg",
+   "popis": "Vlak na Štědrý den z Gmündu do Weitry, kde děti přivítá Ježíšek."
   },
   {
    "id": "5f2bcc85ff62",
@@ -2380,6 +2657,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/kolinska-reparska-drazka-zelena-parni-lokomotiva-10.jpg",
    "popis": "Silvestrovské jízdy úzkorozchodného vláčku s motorovou lokomotivou."
+  },
+  {
+   "id": "6e6dbbc4a390",
+   "nazev": "Novoroční jízda Mladějovské průmyslové dráhy",
+   "zacatek": "2027-01-01T12:00:00+01:00",
+   "konec": "2027-01-01T15:00:00+01:00",
+   "misto": "Úzkorozchodné nádraží Mladějov na Moravě",
+   "adresa": "Mladějov",
+   "obec": "Mladějov",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/novorocni-jizda-mladejov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/novorocni-jizda-mladejov-2027.jpg",
+   "popis": "První vlak roku 2027 po Mladějovské průmyslové dráze z Mladějova do Nové Vsi u Kunčiny, se zimními fotozastávkami."
   },
   {
    "id": "06bf50e87499",
