@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-08T07:30:26.874Z",
+ "aktualizovano": "2026-11-09T12:36:47.557Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 175,
+ "pocet": 177,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1574,22 +1574,6 @@
    "popis": "Výletní vlak Cyklohráček se o víkendu 28. a 29. listopadu 2026 promění v Čertohráček a vyjede po Praze s mikulášskou družinou. Trasy a časy pořadatel zatím nezveřejnil."
   },
   {
-   "id": "06caf518797d",
-   "nazev": "Čertovský vlak do Žacléře",
-   "zacatek": "2026-11-28",
-   "konec": "2026-11-28",
-   "misto": "Trať Trutnov – Žacléř",
-   "adresa": "Nádražní 201, Žacléř",
-   "obec": "Žacléř",
-   "kraj": "Královéhradecký kraj",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026-mikulassky-vlak-2.jpg",
-   "popis": "Zvláštní vlaky z Trutnova do Žacléře. Pořádá Kolej-klub a město Žacléř."
-  },
-  {
    "id": "58e8185c8502",
    "nazev": "Parním vlakem do Kryštofova údolí",
    "zacatek": "2026-11-28",
@@ -1702,6 +1686,22 @@
    "popis": "Modeláři Nová Paka zvou na den otevřených dveří na modelovém kolejišti s výstavou modelů, hosté SŽM Liptákov z Chuchelny u Semil."
   },
   {
+   "id": "368379238af1",
+   "nazev": "Čertovský vlak do Žacléře",
+   "zacatek": "2026-11-28T09:10:00+01:00",
+   "konec": "2026-11-28T19:07:00+01:00",
+   "misto": "Trať Trutnov – Žacléř",
+   "adresa": "Nádražní 201, Žacléř",
+   "obec": "Žacléř",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026-mikulassky-vlak-2.jpg",
+   "popis": "Zvláštní vlaky z Trutnova do Žacléře s mikulášskou družinou a čerty; na nádraží v Žacléři peklo s Luciferem, dílnička pro děti a opékání špekáčků. Pořádá Kolej-klub a město Žacléř."
+  },
+  {
    "id": "8a5383cb3ee2",
    "nazev": "Mikulášské vlaky z Pardubic do Praskačky a zpět",
    "zacatek": "2026-11-28T09:15",
@@ -1780,6 +1780,23 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-zbysov-2026-plakat.jpg",
    "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna za účasti Mikuláše a jeho družiny."
+  },
+  {
+   "id": "cc078d6e83dd",
+   "nazev": "Bavorsko-české dny modelové železnice",
+   "zacatek": "2026-11-28T10:00:00+01:00",
+   "konec": "2026-11-29T17:00:00+01:00",
+   "misto": "Deutsches Dampflokomotiv Museum",
+   "adresa": "Birkenstraße 5, 95339 Neuenmarkt",
+   "obec": "Neuenmarkt",
+   "kraj": null,
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/bavorsko-ceske-dny-modelove-zeleznice-neuenmarkt/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/bavorsko-ceske-dny-modelove-zeleznice.jpg",
+   "popis": "Kolejiště v různých měřítkách, historické modely Märklin, parní vláček a výstavy v Německém muzeu parních lokomotiv. V neděli 29. 11. zvláštní autobus z Chebu pro registrované."
   },
   {
    "id": "7b22770a46d0",
@@ -2039,7 +2056,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/kolinska-reparska-drazka-zelena-parni-lokomotiva-10.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovske-jizdy-kolinska-reparska-drazka.jpg",
    "popis": "Čertovské jízdy úzkorozchodného parního vláčku z Kolína-Sendražic do Býchor."
   },
   {
@@ -2351,6 +2368,22 @@
    "popis": "Parní vlak s Mikulášem a dárkem pro děti mezi Cranzahlem a Kurortem Oberwiesenthal."
   },
   {
+   "id": "0d905e1fd78b",
+   "nazev": "Mikulášský vlak na Olomoucku",
+   "zacatek": "2026-12-06T10:05:00+01:00",
+   "konec": "2026-12-06T15:46:00+01:00",
+   "misto": "Olomouc hlavní nádraží",
+   "adresa": "Jeremenkova, Olomouc",
+   "obec": "Olomouc",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-na-olomoucku-rosnicka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-na-olomoucku-rosnicka-2026.jpg",
+   "popis": "Mikulášské jízdy historického vlaku s parní lokomotivou 464.202 Rosnička z Olomouce do Senice na Hané a do Domašova nad Bystřicí, s Mikulášem, čerty a anděly."
+  },
+  {
    "id": "9085a63f7f31",
    "nazev": "Vánoční expres do Karlových Varů",
    "zacatek": "2026-12-06T12:00:00+01:00",
@@ -2655,7 +2688,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/kolinska-reparska-drazka-zelena-parni-lokomotiva-10.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovske-jizdy-kolinska-reparska-drazka.jpg",
    "popis": "Silvestrovské jízdy úzkorozchodného vláčku s motorovou lokomotivou."
   },
   {
