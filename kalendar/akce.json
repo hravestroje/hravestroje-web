@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-09T12:36:47.557Z",
+ "aktualizovano": "2026-11-10T08:29:28.004Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 177,
+ "pocet": 178,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1593,7 +1593,7 @@
    "id": "23a030329a71",
    "nazev": "Vánoční expres na trhy do Trenčína",
    "zacatek": "2026-11-28",
-   "konec": "2026-11-28",
+   "konec": "2026-11-29",
    "misto": "Železniční stanice Bylnice",
    "adresa": "Brumov-Bylnice",
    "obec": "Brumov-Bylnice",
@@ -1603,7 +1603,7 @@
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-na-trhy-do-trencina/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-expres-trencin-2026.jpg",
-   "popis": "Jízda vlakem z Bylnice do Trenčína na vánoční trhy Čaro Vianoc pod hradom a zpět."
+   "popis": "Jízda vlakem z Bylnice do Trenčína na vánoční trhy Čaro Vianoc pod hradom a zpět v sobotu 28. a v neděli 29. listopadu 2026."
   },
   {
    "id": "31246dfee814",
@@ -1716,6 +1716,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-pardubice-praskacka/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-pardubice-praskacka-2026-mikulassky-vlak-2.jpg",
    "popis": "Dva páry historických motorových vlaků Pardubice – Praskačka a zpět s Mikulášem a čertem, v cíli program v Museu bednářství Jaroslava Tománka a čertovská nadílka. Pořádá Pardubický spolek historie železniční dopravy."
+  },
+  {
+   "id": "b92fb227bc69",
+   "nazev": "Jízda parního Mikulášského vlaku Veselí nad Moravou – Strážnice",
+   "zacatek": "2026-11-28T09:15:00+01:00",
+   "konec": "2026-11-28T15:40:00+01:00",
+   "misto": "Železniční stanice Veselí nad Moravou",
+   "adresa": "Veselí nad Moravou",
+   "obec": "Veselí nad Moravou",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-parni-vlak-veseli-nad-moravou-straznice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-parni-vlak-veseli-nad-moravou-straznice-2026.jpg",
+   "popis": "Mikulášská jízda historického vlaku s parní lokomotivou z Veselí nad Moravou přes Zarazice a Vnorovy do Strážnice a zpět, s mikulášskou družinou a nadílkou pro děti."
   },
   {
    "id": "6296519d98c2",
