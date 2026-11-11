@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-10T08:29:28.004Z",
+ "aktualizovano": "2026-11-11T07:50:08.852Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 178,
+ "pocet": 180,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1494,6 +1494,22 @@
    "popis": "Zakončení sezóny v adventním duchu: průvod a výstava vánočně ozdobených traktorů, adventní trhy a koncert v Národním zemědělském muzeu Čáslav."
   },
   {
+   "id": "b879ece1b0d9",
+   "nazev": "Vánoční express do Safari Parku Dvůr Králové",
+   "zacatek": "2026-11-22T07:23:00+01:00",
+   "konec": "2026-11-22T21:45:00+01:00",
+   "misto": "Safari Park Dvůr Králové",
+   "adresa": "Štefánikova 1029, 544 01 Dvůr Králové nad Labem",
+   "obec": "Dvůr Králové nad Labem",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-express-safari-park-dvur-kralove/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-express-safari-park-2026.jpg",
+   "popis": "Historický vlak z Prahy do Safari Parku Dvůr Králové na Vánoční jarmark s rozsvícením baobabu, v ceně jízdenky vstupenka do zoo."
+  },
+  {
    "id": "c65a12981a88",
    "nazev": "Adventní plavby na Labi kolesovým parníkem 2026",
    "zacatek": "2026-11-25T08:30:00+01:00",
@@ -1622,10 +1638,10 @@
    "popis": "Zvláštní vlak Kolín – Liberec na adventní trhy."
   },
   {
-   "id": "7e4ea0b34f52",
-   "nazev": "Zvláštní vlak k 60. výročí lokomotivy T478.1004",
+   "id": "dc63768fee77",
+   "nazev": "Zvláštní vlak k 60. výročí lokomotivy T478.1004: Praha – Tanvald",
    "zacatek": "2026-11-28T08:22:00+01:00",
-   "konec": "2026-11-28T08:22:00+01:00",
+   "konec": "2026-11-28T16:46:00+01:00",
    "misto": "Praha hlavní nádraží",
    "adresa": "Praha",
    "obec": "Praha",
@@ -1635,7 +1651,7 @@
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zvlastni-vlak-t478-1004-60-let-praha-tanvald/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/t478-1004-60-let-praha-tanvald.jpg",
-   "popis": "Zvláštní vlak z Prahy směr Tanvald v čele s lokomotivou T478.1004 k jejímu 60. výročí."
+   "popis": "Zvláštní vlak Výtopny Dolní Lipka s lokomotivou T478.1004 k jejímu 60. výročí: Praha hl. n. 8:22 – Tanvald 11:38, zpět Tanvald 13:12 – Praha hl. n. 16:46."
   },
   {
    "id": "2a38101778e1",
@@ -1698,7 +1714,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026-mikulassky-vlak-2.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026-plakat.jpg",
    "popis": "Zvláštní vlaky z Trutnova do Žacléře s mikulášskou družinou a čerty; na nádraží v Žacléři peklo s Luciferem, dílnička pro děti a opékání špekáčků. Pořádá Kolej-klub a město Žacléř."
   },
   {
@@ -2092,22 +2108,6 @@
    "popis": "Jízdy motorového vlaku a program ve štole pro děti ve Skanzenu Solvayovy lomy v Českém krasu."
   },
   {
-   "id": "dccbd9a82f3f",
-   "nazev": "Pekelná sobota v turnovském depu",
-   "zacatek": "2026-12-05",
-   "konec": "2026-12-05",
-   "misto": "Lokomotivní depo Turnov",
-   "adresa": "Za Viaduktem, Turnov",
-   "obec": "Turnov",
-   "kraj": "Liberecký kraj",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pekelna-sobota-v-turnovskem-depu/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pekelna-sobota-v-turnovskem-depu-2026.jpg",
-   "popis": "Pekelný program v turnovském depu. Pořádá Kolej-klub, NPŽ a NPS."
-  },
-  {
    "id": "c8049bbb7292",
    "nazev": "Pohádkové muzeum 2026",
    "zacatek": "2026-12-05",
@@ -2336,6 +2336,22 @@
    "popis": "Zvláštní mikulášský vlak po trase Cheb – Tršnice – Františkovy Lázně – Cheb s Mikulášem, čertem a andělem, bistro vůz."
   },
   {
+   "id": "5fca218c7c40",
+   "nazev": "Pekelná sobota v turnovském depu",
+   "zacatek": "2026-12-05T13:00:00+01:00",
+   "konec": "2026-12-05T19:00:00+01:00",
+   "misto": "Lokomotivní depo Turnov",
+   "adresa": "Za Viaduktem, Turnov",
+   "obec": "Turnov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pekelna-sobota-v-turnovskem-depu/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pekelna-sobota-v-turnovskem-depu-plakat.jpg",
+   "popis": "Peklo a Lucifer, pekelné jízdy na úzkorozchodné železnici, modelové kolejiště, simulátor strojvedoucího a výstava vozidel v turnovském depu. Vstupné dobrovolné, vlak z nádraží Turnov každou hodinu. Pořádá Kolej-klub, NPŽ a NPS."
+  },
+  {
    "id": "0cb196b89084",
    "nazev": "S Mikulášem, čerty a anděly po jihočeské Bechyňce",
    "zacatek": "2026-12-05T15:20:00+01:00",
@@ -2515,7 +2531,7 @@
    "id": "a0e073b40c82",
    "nazev": "Vánoční jízdy Kroměřížské dráhy – Olomouc",
    "zacatek": "2026-12-19",
-   "konec": "2026-12-20",
+   "konec": "2026-12-19",
    "misto": "Olomouc hl. n.",
    "adresa": "Olomouc",
    "obec": "Olomouc",
@@ -2638,6 +2654,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zimni-pojezdeni-na-zlince/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zimni-pojezdeni-na-zlince-2026.jpg",
    "popis": "Zvláštní vlaky s historickými motorovými vozy Hurvínek a Osmsetdesítka s vánoční výzdobou mezi Otrokovicemi, Zlínem a Vizovicemi."
+  },
+  {
+   "id": "5549b0c13274",
+   "nazev": "Vánoční vlak Opava východ – Svobodné Heřmanice",
+   "zacatek": "2026-12-27T09:00:00+01:00",
+   "konec": "2026-12-27T09:00:00+01:00",
+   "misto": "Svobodné Heřmanice",
+   "adresa": "Svobodné Heřmanice",
+   "obec": "Svobodné Heřmanice",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-vlak-svobodne-hermanice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-vlak-svobodne-hermanice-2026.jpg",
+   "popis": "Pátý ročník Vánočního vlaku z Opavy východ do Svobodných Heřmanic s výstavou MALÉ VLÁČKY 100x JINAK."
   },
   {
    "id": "8892d9d7f2c8",
