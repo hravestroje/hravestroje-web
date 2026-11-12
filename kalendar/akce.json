@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-11T07:50:08.852Z",
+ "aktualizovano": "2026-11-12T01:00:04.786Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 180,
+ "pocet": 181,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1715,7 +1715,7 @@
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovsky-vlak-do-zaclere/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovsky-vlak-do-zaclere-2026-plakat.jpg",
-   "popis": "Zvláštní vlaky z Trutnova do Žacléře s mikulášskou družinou a čerty; na nádraží v Žacléři peklo s Luciferem, dílnička pro děti a opékání špekáčků. Pořádá Kolej-klub a město Žacléř."
+   "popis": "Zvláštní vlaky z Trutnova do Žacléře s mikulášskou družinou a čerty a pekelnou tratí s čerty podél kolejí; na nádraží v Žacléři peklo s Luciferem, dílnička pro děti a opékání špekáčků. Pořádá Kolej-klub a město Žacléř."
   },
   {
    "id": "8a5383cb3ee2",
@@ -2350,6 +2350,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pekelna-sobota-v-turnovskem-depu/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pekelna-sobota-v-turnovskem-depu-plakat.jpg",
    "popis": "Peklo a Lucifer, pekelné jízdy na úzkorozchodné železnici, modelové kolejiště, simulátor strojvedoucího a výstava vozidel v turnovském depu. Vstupné dobrovolné, vlak z nádraží Turnov každou hodinu. Pořádá Kolej-klub, NPŽ a NPS."
+  },
+  {
+   "id": "4bd804b8bd2d",
+   "nazev": "Mikulášské vlaky Krásná Lípa – Mikulášovice",
+   "zacatek": "2026-12-05T14:00:00+01:00",
+   "konec": "2026-12-05T14:00:00+01:00",
+   "misto": "Železniční stanice Krásná Lípa",
+   "adresa": "Krásná Lípa",
+   "obec": "Krásná Lípa",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-krasna-lipa-mikulasovice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-krasna-lipa-mikulasovice-plakat-2026.jpg",
+   "popis": "Mikulášská jízda vlakem mezi Krásnou Lípou a Mikulášovicemi s Mikulášem, čertem a andělem, sladkou odměnou pro děti a programem ve stanicích."
   },
   {
    "id": "0cb196b89084",
