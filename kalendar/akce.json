@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-12T01:00:04.786Z",
+ "aktualizovano": "2026-11-12T08:26:59.303Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 181,
+ "pocet": 183,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1462,6 +1462,22 @@
    "popis": "Zážitková jízda motorovými vozy z Teplic přes Bílinu, Most a Chomutov do Vejprt s prohlídkou Výtopny Křimov a zastávkou v Kovářské."
   },
   {
+   "id": "f1e71de3bfc0",
+   "nazev": "Mašinky a vláčky jezdí pro vás",
+   "zacatek": "2026-11-21T09:00:00+01:00",
+   "konec": "2026-11-22T16:00:00+01:00",
+   "misto": "Bývalá škola obchodu a služeb",
+   "adresa": "náměstí Pod Kaštany 146, Vysoké Mýto",
+   "obec": "Vysoké Mýto",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/masinky-a-vlacky-jezdi-pro-vas-vysoke-myto/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/masinky-a-vlacky-jezdi-pro-vas-vysoke-myto-2026.jpg",
+   "popis": "Výstava modelové železnice železničních modelářů Kujebina ve Vysokém Mýtě, oba dny 9–16 hodin."
+  },
+  {
    "id": "b261bfb5eee8",
    "nazev": "Výstava modelové železnice Mohelnice",
    "zacatek": "2026-11-21T10:00",
@@ -2270,6 +2286,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-za-mikulasem-a-certem-turnov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-za-mikulasem-a-certem-turnov-2026.jpg",
    "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou z Turnova do Malé Skály a do Mnichova Hradiště a zpět."
+  },
+  {
+   "id": "ac6017b9b8cc",
+   "nazev": "Mikulášská jízda Brno – Mikulov – Brno",
+   "zacatek": "2026-12-05T10:00:00+01:00",
+   "konec": "2026-12-05T17:00:00+01:00",
+   "misto": "Železniční stanice Brno dolní nádraží",
+   "adresa": "Brno",
+   "obec": "Brno",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-brno-mikulov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-brno-mikulov-2026.jpg",
+   "popis": "Vánoční expres s historickým vlakem a mikulášskou posádkou z Brna dolního nádraží do Mikulova na vánoční trhy a zpět."
   },
   {
    "id": "7453cd261354",
