@@ -2,6 +2,86 @@
  "_navod": "Ruční opravy pro jednotlivé články. Klíč = přesná adresa článku. Lze nastavit: \"kraj\" (název kraje), \"typy\" (seznam z: vlaky, traktory, auta, lode, letadla, ostatni) a \"obrazek\" (\"zastupny\" = skrýt obrázek článku a ukázat jednotný zástupný obrázek, nebo adresa vlastního obrázku https://…). Konkrétní dny konání: \"dny\" (seznam dat, např. [\"2026-11-07\", \"2026-11-08\"]) nebo \"dny_v_tydnu\" (např. [\"so\", \"ne\"] – jen tyto dny mezi začátkem a koncem akce); akce se pak v kalendáři ukáže v každý takový den. Řádky začínající podtržítkem se ignorují. Návod je v README v části Kalendář akcí.",
  "https://www.hravestroje.cz/kalendar-dopravnich-akci-priklad/": {
   "kraj": "Jihomoravský kraj",
-  "typy": ["vlaky"]
+  "typy": [
+   "vlaky"
+  ]
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/vytopna-jaromer-akce-jizdy-motorackem/": {
+  "kraj": "Královéhradecký kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-ceska-trebova/": {
+  "kraj": "Pardubický kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-prace-muzeum-zemedelskych-stroju-hostice/": {
+  "kraj": "Jihomoravský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/zambersky-parostrojni-festival/": {
+  "kraj": "Pardubický kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornicke-slavnosti-zastavka-vlacky-zbysov/": {
+  "kraj": "Jihomoravský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/ploutvobrani-muzeum-americkych-veteranu-jk-classics-luzna/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/festival-zeleznice-celakovice/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/safari-park-express-vlak-dvur-kralove/": {
+  "kraj": "Královéhradecký kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-express-safari-park-dvur-kralove/": {
+  "kraj": "Královéhradecký kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/140-let-trati-velke-mezirici-studenec/": {
+  "kraj": "Kraj Vysočina"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-mladejovske-zeleznice/": {
+  "kraj": "Pardubický kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/130-let-jemnicke-drahy/": {
+  "kraj": "Kraj Vysočina"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/posledni-jizda-poldi-vlaku-mayrau/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/vlakem-do-iqlandie-a-babylonu-zubacka/": {
+  "kraj": "Liberecký kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/svet-malych-vlacku-cernosice/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/modelarske-setkani-oracov/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/regionalni-den-zeleznice-bohumin/": {
+  "kraj": "Moravskoslezský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/plzenecka-zeleznice-jizdy/": {
+  "kraj": "Plzeňský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/traktoriada-zlate-ceske-rucicky-caslav/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-z-krnova-do-glucholaz/": {
+  "kraj": "Moravskoslezský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/podzimni-jizda-zbysov-parni-a-dulni-vlak/": {
+  "kraj": "Jihomoravský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-modelove-zeleznice-ceska-skalice/": {
+  "kraj": "Královéhradecký kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/legiovlak/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/jizdy-parostrojni-zeleznice-brasy/": {
+  "kraj": "Plzeňský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-mezi-traktory-caslav/": {
+  "kraj": "Středočeský kraj"
+ },
+ "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozsviceni-vanocni-tramvaje-strasice/": {
+  "kraj": "Plzeňský kraj"
  }
 }
