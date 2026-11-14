@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-14T07:40:55.449Z",
+ "aktualizovano": "2026-11-14T15:48:58.615Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 186,
+ "pocet": 188,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -109,7 +109,7 @@
    "misto": "Výtopna Jaroměř",
    "adresa": "Nádražní 227, Jaroměř",
    "obec": "Jaroměř",
-   "kraj": null,
+   "kraj": "Královéhradecký kraj",
    "typy": [
     "vlaky"
    ],
@@ -158,7 +158,7 @@
    "misto": "Železniční depo Česká Třebová",
    "adresa": "Česká Třebová",
    "obec": "Česká Třebová",
-   "kraj": null,
+   "kraj": "Pardubický kraj",
    "typy": [
     "vlaky"
    ],
@@ -174,7 +174,7 @@
    "misto": "Muzeum zemědělských strojů Hoštice-Heroltice",
    "adresa": "Hoštice-Heroltice 161, 682 01 Hoštice-Heroltice",
    "obec": "Hoštice-Heroltice",
-   "kraj": null,
+   "kraj": "Jihomoravský kraj",
    "typy": [
     "traktory"
    ],
@@ -190,7 +190,7 @@
    "misto": "Muzeum starých strojů a technologií",
    "adresa": "Tovární 506, 564 01 Žamberk",
    "obec": "Žamberk",
-   "kraj": null,
+   "kraj": "Pardubický kraj",
    "typy": [
     "vlaky"
    ],
@@ -206,7 +206,7 @@
    "misto": "Zastávka u Brna – Dělnický dům a RIC Zastávka",
    "adresa": "Nádražní 36, 664 84 Zastávka",
    "obec": "Zastávka",
-   "kraj": null,
+   "kraj": "Jihomoravský kraj",
    "typy": [
     "ostatni"
    ],
@@ -222,7 +222,7 @@
    "misto": "Muzeum amerických veteránů JK CLASSICS",
    "adresa": "Stará správa 72, 270 51 Lužná",
    "obec": "Lužná",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "auta"
    ],
@@ -238,7 +238,7 @@
    "misto": "Železniční stanice Čelákovice",
    "adresa": "Čelákovice",
    "obec": "Čelákovice",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "vlaky",
     "auta"
@@ -255,7 +255,7 @@
    "misto": "Safari Park Dvůr Králové nad Labem",
    "adresa": "Dvůr Králové nad Labem",
    "obec": "Dvůr Králové nad Labem",
-   "kraj": null,
+   "kraj": "Královéhradecký kraj",
    "typy": [
     "vlaky"
    ],
@@ -271,7 +271,7 @@
    "misto": "Železniční stanice Velké Meziříčí",
    "adresa": "Velké Meziříčí",
    "obec": "Velké Meziříčí",
-   "kraj": null,
+   "kraj": "Kraj Vysočina",
    "typy": [
     "ostatni"
    ],
@@ -303,7 +303,7 @@
    "misto": "Mladějovská průmyslová dráha",
    "adresa": "Mladějov na Moravě 121, 569 35 Mladějov na Moravě",
    "obec": "Mladějov na Moravě",
-   "kraj": null,
+   "kraj": "Pardubický kraj",
    "typy": [
     "vlaky"
    ],
@@ -335,7 +335,7 @@
    "misto": "Železniční stanice Jemnice",
    "adresa": "Jemnice",
    "obec": "Jemnice",
-   "kraj": null,
+   "kraj": "Kraj Vysočina",
    "typy": [
     "vlaky"
    ],
@@ -403,7 +403,7 @@
    "misto": "Hornický skanzen Mayrau",
    "adresa": "Vinařice 56, 273 07 Vinařice",
    "obec": "Vinařice",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "vlaky"
    ],
@@ -419,7 +419,7 @@
    "misto": "Železniční stanice Kořenov",
    "adresa": "Kořenov, 468 49 Kořenov",
    "obec": "Kořenov",
-   "kraj": null,
+   "kraj": "Liberecký kraj",
    "typy": [
     "vlaky"
    ],
@@ -451,7 +451,7 @@
    "misto": "Městská knihovna Františky Plamínkové",
    "adresa": "Karlštejnská 259, 252 28 Černošice",
    "obec": "Černošice",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "vlaky"
    ],
@@ -483,7 +483,7 @@
    "misto": "Hostinec U Paši, Oráčov",
    "adresa": "Oráčov, 270 32 Oráčov",
    "obec": "Oráčov",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "ostatni"
    ],
@@ -515,7 +515,7 @@
    "misto": "Železniční stanice a depo Bohumín",
    "adresa": "Bohumín, 735 81 Bohumín",
    "obec": "Bohumín",
-   "kraj": null,
+   "kraj": "Moravskoslezský kraj",
    "typy": [
     "vlaky"
    ],
@@ -547,7 +547,7 @@
    "misto": "Areál dětského tábora – Plzenecká železnice",
    "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
    "obec": "Starý Plzenec",
-   "kraj": null,
+   "kraj": "Plzeňský kraj",
    "typy": [
     "vlaky"
    ],
@@ -611,7 +611,7 @@
    "misto": "NZM Čáslav – muzeum zemědělské techniky",
    "adresa": "Jeníkovská 1762, 286 01 Čáslav",
    "obec": "Čáslav",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "traktory"
    ],
@@ -643,7 +643,7 @@
    "misto": "Nádraží Krnov",
    "adresa": "Krnov",
    "obec": "Krnov",
-   "kraj": null,
+   "kraj": "Moravskoslezský kraj",
    "typy": [
     "vlaky"
    ],
@@ -659,7 +659,7 @@
    "misto": "Muzeum průmyslových železnic, Zbýšov",
    "adresa": "Zbýšov",
    "obec": "Zbýšov",
-   "kraj": null,
+   "kraj": "Jihomoravský kraj",
    "typy": [
     "vlaky"
    ],
@@ -755,7 +755,7 @@
    "misto": "Klubovna zahrádkářů",
    "adresa": "Pivovarská 496, Česká Skalice",
    "obec": "Česká Skalice",
-   "kraj": null,
+   "kraj": "Královéhradecký kraj",
    "typy": [
     "vlaky"
    ],
@@ -887,7 +887,7 @@
    "misto": "Areál dětského tábora – Plzenecká železnice",
    "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
    "obec": "Starý Plzenec",
-   "kraj": null,
+   "kraj": "Plzeňský kraj",
    "typy": [
     "vlaky"
    ],
@@ -903,7 +903,7 @@
    "misto": "Vlaková stanice Čáslav",
    "adresa": "Čáslav",
    "obec": "Čáslav",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "vlaky"
    ],
@@ -1276,7 +1276,7 @@
    "misto": "Parostrojní železnice Břasy",
    "adresa": "Břasy, 338 24 Břasy",
    "obec": "Břasy",
-   "kraj": null,
+   "kraj": "Plzeňský kraj",
    "typy": [
     "vlaky"
    ],
@@ -1308,7 +1308,7 @@
    "misto": "Praha-Horní Počernice, Praha-Zličín, Praha hlavní nádraží",
    "adresa": "Praha",
    "obec": "Praha",
-   "kraj": "Hlavní město Praha",
+   "kraj": "Středočeský kraj",
    "typy": [
     "vlaky"
    ],
@@ -1501,7 +1501,7 @@
    "misto": "NZM Čáslav – muzeum zemědělské techniky",
    "adresa": "Jeníkovská 1762, 286 01 Čáslav",
    "obec": "Čáslav",
-   "kraj": null,
+   "kraj": "Středočeský kraj",
    "typy": [
     "traktory"
    ],
@@ -1517,7 +1517,7 @@
    "misto": "Safari Park Dvůr Králové",
    "adresa": "Štefánikova 1029, 544 01 Dvůr Králové nad Labem",
    "obec": "Dvůr Králové nad Labem",
-   "kraj": null,
+   "kraj": "Královéhradecký kraj",
    "typy": [
     "vlaky"
    ],
@@ -1666,7 +1666,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zvlastni-vlak-t478-1004-60-let-praha-tanvald/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/t478-1004-60-let-praha-tanvald.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/do-tanvaldu-t478-1004-plakat-2026.jpg",
    "popis": "Zvláštní vlak Výtopny Dolní Lipka s lokomotivou T478.1004 k jejímu 60. výročí: Praha hl. n. 8:22 – Tanvald 11:38, zpět Tanvald 13:12 – Praha hl. n. 16:46."
   },
   {
@@ -1698,7 +1698,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/plnou-parou-s-mikulasem-chocen-litomysl/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plnou-parou-s-mikulasem-chocen-litomysl.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plnou-parou-s-mikulasem-chocen-plakat-2026.jpg",
    "popis": "Mikulášské jízdy historického vlaku s parní lokomotivou Skaličák (433.001) mezi Chocní, Vysokým Mýtem a Litomyšlí. Ve vlaku Mikuláš, anděl a čerti, drobné dárky pro hodné děti a bufetový vůz."
   },
   {
@@ -1810,7 +1810,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-expresy-detska-zeleznica-kosice/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-expresy-detska-zeleznica-kosice.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-expres-detska-zeleznica-kosice-plakat-2026.jpg",
    "popis": "Mikulášské jízdy historickými vlaky Detské železnice Košice se svatým Mikulášem, andělem a čertem."
   },
   {
@@ -1906,7 +1906,7 @@
    "misto": "Areál dětského tábora – Plzenecká železnice",
    "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
    "obec": "Starý Plzenec",
-   "kraj": null,
+   "kraj": "Plzeňský kraj",
    "typy": [
     "vlaky"
    ],
@@ -1960,7 +1960,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasskym-parnim-vlakem-po-letohradsku/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-parni-vlak-letohrad-cd-og.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-s-mikulasem-letohrad-plakat-2026.jpg",
    "popis": "Mikulášský vlak s parní lokomotivou Skaličák z Letohradu přes Jablonné nad Orlicí a Lichkov do Dolní Lipky a zpět, s Mikulášem, andělem a čerty."
   },
   {
@@ -2019,7 +2019,7 @@
    "misto": "Muzeum dopravy ve Strašicích",
    "adresa": "Strašice 636-B, 338 45 Strašice",
    "obec": "Strašice",
-   "kraj": null,
+   "kraj": "Plzeňský kraj",
    "typy": [
     "vlaky"
    ],
@@ -2544,6 +2544,22 @@
    "popis": "Zvláštní vánoční vlaky historickými motoráky mezi Kroměříží a Tovačovem."
   },
   {
+   "id": "d459ac3ebb39",
+   "nazev": "Esmeraldou naposledy přes kadaňský most",
+   "zacatek": "2026-12-12T08:35:00+01:00",
+   "konec": "2026-12-12T17:18:00+01:00",
+   "misto": "Železniční stanice Teplice v Čechách",
+   "adresa": "Teplice",
+   "obec": "Teplice",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "ostatni"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/esmeraldou-naposledy-pres-kadansky-most/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/esmeraldou-naposledy-pres-kadansky-most-plakat-2026.jpg",
+   "popis": "Okružní zážitková jízda motorovým vozem Esmeralda z Teplic přes Most, Chomutov, Kadaň, Žatec, Louny a Zlonice zpět do Teplic, rozloučení s kadaňským mostem."
+  },
+  {
    "id": "7254ce68d88b",
    "nazev": "Křivoklátský rychlík",
    "zacatek": "2026-12-12T09:00:00+01:00",
@@ -2574,6 +2590,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/svarak-ve-vytopne-korenov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zubacka-korenov-jizdy-historickych-vlaku-14-1.jpg",
    "popis": "Poslední akce roku na Zubačce: parní vlaky Kořenov – Harrachov, historický motoráček z Tanvaldu a otevřené Muzeum ozubnicové dráhy."
+  },
+  {
+   "id": "8bf1204fdbdc",
+   "nazev": "Vánoční expres Posázavského Pacifiku",
+   "zacatek": "2026-12-12T09:05:00+01:00",
+   "konec": "2026-12-12T18:40:00+01:00",
+   "misto": "Železniční stanice Čerčany",
+   "adresa": "Čerčany",
+   "obec": "Čerčany",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-posazavskeho-pacifiku-pisek/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-expres-posazavskeho-pacifiku-pisek.jpg",
+   "popis": "Vánoční expres s historickou motorovou lokomotivou T478.2 Zamračená a retro vozy Baim z Čerčan a Benešova u Prahy na advent do Písku a zpět."
   },
   {
    "id": "f9903ae3eded",
@@ -2679,7 +2711,7 @@
    "misto": "Areál dětského tábora – Plzenecká železnice",
    "adresa": "Andrejšky 838, 332 02 Starý Plzenec",
    "obec": "Starý Plzenec",
-   "kraj": null,
+   "kraj": "Plzeňský kraj",
    "typy": [
     "vlaky"
    ],
