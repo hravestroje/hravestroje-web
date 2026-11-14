@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-13T08:09:53.392Z",
+ "aktualizovano": "2026-11-14T07:40:55.449Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 183,
+ "pocet": 186,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -2288,6 +2288,22 @@
    "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou z Turnova do Malé Skály a do Mnichova Hradiště a zpět."
   },
   {
+   "id": "2958c69c371f",
+   "nazev": "Adventní Oybin parním vlakem a adventní trhy v Žitavě",
+   "zacatek": "2026-12-05T10:00:00+01:00",
+   "konec": "2026-12-13T17:28:00+01:00",
+   "misto": "Vlakové nádraží Liberec",
+   "adresa": "Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-oybin-parnim-vlakem-zitava-z-liberce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/adventni-oybin-parnim-vlakem-zitava-2026.jpg",
+   "popis": "Výlet z Liberce s průvodcem: adventní trhy v Žitavě, parním vlakem Žitavské úzkokolejky do Oybinu a hrad a klášter Oybin. Termíny 5. (obsazeno), 6., 7., 11. a 13. 12. 2026."
+  },
+  {
    "id": "ac6017b9b8cc",
    "nazev": "Mikulášská jízda Brno – Mikulov – Brno",
    "zacatek": "2026-12-05T10:00:00+01:00",
@@ -2366,6 +2382,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-cheb/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-cheb-2026.jpg",
    "popis": "Zvláštní mikulášský vlak po trase Cheb – Tršnice – Františkovy Lázně – Cheb s Mikulášem, čertem a andělem, bistro vůz."
+  },
+  {
+   "id": "6556c0ead574",
+   "nazev": "Mikulášský vlak z Loun do Slaného",
+   "zacatek": "2026-12-05T11:30:00+01:00",
+   "konec": "2026-12-05T14:25:00+01:00",
+   "misto": "Železniční zastávka Louny město",
+   "adresa": "Louny",
+   "obec": "Louny",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-z-loun-do-slaneho/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-z-loun-do-slaneho-2026.jpg",
+   "popis": "Tradiční mikulášský vlak z Loun přes Zlonice do Slaného a zpět, který pořádá Dobrovolný svazek obcí Stodesítka a město Louny."
   },
   {
    "id": "5fca218c7c40",
@@ -2964,6 +2996,26 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornoplanska-traktoriada-lipno/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/hornoplanska-traktoriada-traktory-na-louce.jpg",
    "popis": "Soutěžní jízdy traktorů na hřišti Dobrá Voda v Horní Plané, 11. ročník."
+  },
+  {
+   "id": "d33268122f33",
+   "nazev": "Bramborová sobota na Zubačce 2027",
+   "zacatek": "2027-09-25",
+   "konec": "2027-09-25",
+   "misto": "Železniční stanice Kořenov",
+   "adresa": "Kořenov",
+   "obec": "Kořenov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/bramborova-sobota-na-zubacce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plakat-bramborova-sobota-na-zubacce-2026.jpg",
+   "popis": "Tradiční ukončení sezóny na Zubačce v Kořenově — bramborové hody, jízdy s ozubnicovou lokomotivou, Muzeum ozubnicové dráhy, výtopna Kořenov a důlní železnice.",
+   "geo": {
+    "lat": 50.7699497,
+    "lng": 15.3652619
+   }
   }
  ]
 }
