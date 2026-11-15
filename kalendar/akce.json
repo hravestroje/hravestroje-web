@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-14T15:48:58.615Z",
+ "aktualizovano": "2026-11-15T07:57:12.265Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 188,
+ "pocet": 190,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1976,7 +1976,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-motorak-vlaky-plzenskeho-kraje/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-motorak-2026-motorovy-vuz.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-motorak-vpk-plakat-2026.jpg",
    "popis": "Mikulášský motorák Vlaků Plzeňského kraje po trasách Plzeň hl. n. – Vejprnice – Nýřany a Plzeň hl. n. – Plzeň-Křimice – Vochov – Kozolupy. Povinná rezervace místa."
   },
   {
@@ -2074,6 +2074,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/advent-se-sergejem/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/advent-se-sergejem-2026.jpg",
    "popis": "Zážitková adventní jízda s lokomotivou 781 592-1 Sergej z Prahy přes Benešov a Tábor do Českých Budějovic a zpět, s prohlídkou lokomotivy s výkladem."
+  },
+  {
+   "id": "df8ce035584c",
+   "nazev": "Modulárske stretnutie železničných modelárov – SPŠ dopravná Trnava 2026",
+   "zacatek": "2026-12-04T13:00:00+01:00",
+   "konec": "2026-12-06T12:00:00+01:00",
+   "misto": "Telocvičňa SPŠ dopravnej",
+   "adresa": "Študentská 23, 917 45 Trnava",
+   "obec": "Trnava",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/modularske-stretnutie-zeleznicnych-modelarov-trnava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/modularske-stretnutie-trnava-plakat-2026.jpg",
+   "popis": "Setkání železničních modelářů s modulovým kolejištěm v tělocvičně SPŠ dopravnej v Trnavě, vstup zdarma."
   },
   {
    "id": "76d939b10d8c",
@@ -2270,6 +2286,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-parni-vlak-vsudybylka-karlovarsko/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-parni-vlak-vsudybylka-karlovarsko-2026.jpg",
    "popis": "Mikulášské jízdy parního vlaku s lokomotivou 354.1 Všudybylka mezi Mariánskými Lázněmi, Karlovými Vary, Merklínem, Sokolovem a Chebem, s Mikulášem, čertem a andělem."
+  },
+  {
+   "id": "baf234151c23",
+   "nazev": "Mikuláš vo vlaku – Bratislava Rača – Rusovce",
+   "zacatek": "2026-12-05T09:40:00+01:00",
+   "konec": "2026-12-05T12:00:00+01:00",
+   "misto": "Železničná stanica Bratislava Rača",
+   "adresa": "Bratislava",
+   "obec": "Bratislava",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulas-vo-vlaku-bratislava-rusovce/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulas-vo-vlaku-bratislava-rusovce-plakat-2026.jpg",
+   "popis": "Mikulášská jízda s parní lokomotivou 555.3008 Mazutka z Bratislavy-Rače do Rusovců a zpět."
   },
   {
    "id": "d63fbac207b1",
@@ -2604,7 +2636,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-expres-posazavskeho-pacifiku-pisek/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-expres-posazavskeho-pacifiku-pisek.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-expres-posazavskeho-pacifiku-pisek-plakat-2026.jpg",
    "popis": "Vánoční expres s historickou motorovou lokomotivou T478.2 Zamračená a retro vozy Baim z Čerčan a Benešova u Prahy na advent do Písku a zpět."
   },
   {
