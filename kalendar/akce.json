@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-15T07:57:12.265Z",
+ "aktualizovano": "2026-11-16T08:04:52.321Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 190,
+ "pocet": 191,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -2216,7 +2216,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-svobodne-hermanice/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-svobodne-hermanice-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-svobodne-hermanice-plakat.jpg",
    "popis": "Zvláštní mikulášské vlaky z Opavy východ do Svobodných Heřmanic a zpět, ve vlaku prochází Mikulášská družina a rozdává dětem balíčky."
   },
   {
@@ -2882,6 +2882,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/certovske-jizdy-kolinska-reparska-drazka/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certovske-jizdy-kolinska-reparska-drazka.jpg",
    "popis": "Silvestrovské jízdy úzkorozchodného vláčku s motorovou lokomotivou."
+  },
+  {
+   "id": "2b9b8ca5579e",
+   "nazev": "Silvestrovská parní jízda a 120 let Obrataňky",
+   "zacatek": "2026-12-31T10:05:00+01:00",
+   "konec": "2026-12-31T15:17:00+01:00",
+   "misto": "Nádraží Jindřichův Hradec",
+   "adresa": "Jindřichův Hradec",
+   "obec": "Jindřichův Hradec",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/silvestrovska-parni-jizda-120-let-obratanky/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/silvestr-120-let-obratanky-plakat-2026.jpg",
+   "popis": "Silvestrovská jízda parním vlakem Úzkokolejky z Jindřichova Hradce do Kamenice nad Lipou a zpět k oslavě 120 let provozu trati do Obrataně. Novoroční přípitek, slavnostní výzdoba, bufetový vůz."
   },
   {
    "id": "6e6dbbc4a390",
