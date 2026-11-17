@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-16T08:04:52.321Z",
+ "aktualizovano": "2026-11-17T09:19:41.114Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 191,
+ "pocet": 192,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -2478,6 +2478,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/s-mikulasem-certy-a-andely-po-jihoceske-bechynce/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/s-mikulasem-po-jihoceske-bechynce-og.jpg",
    "popis": "Mikulášský historický elektrický vlak s lokomotivou Bobinka (E 422.0) z Tábora do Bechyně a zpět, ve vlaku Mikuláš, andělé a čerti s dárky pro hodné děti, v Bechyni remíza s modelovým kolejištěm."
+  },
+  {
+   "id": "4a1082188d12",
+   "nazev": "Mikulášským vlakem na Moldavu",
+   "zacatek": "2026-12-06T08:30:00+01:00",
+   "konec": "2026-12-06T15:25:00+01:00",
+   "misto": "Železniční stanice Teplice v Čechách",
+   "adresa": "Teplice",
+   "obec": "Teplice",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasskym-vlakem-na-moldavu/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasskym-vlakem-na-moldavu-plakat-2026.jpg",
+   "popis": "Mikulášský historický vlak z Teplic a Mostu po Moldavské dráze na Moldavu v Krušných horách a zpět s doprovodným programem."
   },
   {
    "id": "b225f801ddf2",
