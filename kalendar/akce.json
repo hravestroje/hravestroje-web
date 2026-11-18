@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-17T09:19:41.114Z",
+ "aktualizovano": "2026-11-18T08:39:20.038Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 192,
+ "pocet": 199,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1403,7 +1403,7 @@
    "zacatek": "2026-11-20T10:00:00+01:00",
    "konec": "2026-11-22T16:00:00+01:00",
    "misto": "Budova SUDOPu (přízemí)",
-   "adresa": "Olšanská, 130 00 Praha 3",
+   "adresa": "Olšanská 1A, 130 00 Praha 3",
    "obec": "Praha 3",
    "kraj": "Hlavní město Praha",
    "typy": [
@@ -1524,6 +1524,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-express-safari-park-dvur-kralove/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-express-safari-park-2026.jpg",
    "popis": "Historický vlak z Prahy do Safari Parku Dvůr Králové na Vánoční jarmark s rozsvícením baobabu, v ceně jízdenky vstupenka do zoo."
+  },
+  {
+   "id": "b49004e70f2a",
+   "nazev": "Zvonkový vlak do Netolic",
+   "zacatek": "2026-11-22T15:18:00+01:00",
+   "konec": "2026-11-22T19:28:00+01:00",
+   "misto": "Netolice",
+   "adresa": "Netolice",
+   "obec": "Netolice",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zvonkovy-vlak-ceske-budejovice-netolice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zvonkovy-vlak-netolice-2026.jpg",
+   "popis": "Zvonkový vlak Českých drah z Českých Budějovic do Netolic na jarmark s příjezdem Paní Zimy a příletem anděla."
   },
   {
    "id": "c65a12981a88",
@@ -1847,6 +1863,22 @@
    "popis": "Kolejiště v různých měřítkách, historické modely Märklin, parní vláček a výstavy v Německém muzeu parních lokomotiv. V neděli 29. 11. zvláštní autobus z Chebu pro registrované."
   },
   {
+   "id": "4cf41cd69459",
+   "nazev": "Otevření expozice – Železniční modeláři ze Lhoty u Opavy",
+   "zacatek": "2026-11-28T10:00:00+01:00",
+   "konec": "2026-11-29T16:00:00+01:00",
+   "misto": "Expozice Železničních modelářů ve Lhotě",
+   "adresa": "U Cukrovaru 18, Opava – Kateřinky",
+   "obec": "Opava – Kateřinky",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/otevreni-expozice-zeleznicni-modelari-lhota-opava/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zm-lhota-otevreni-expozice-opava-plakat-2026.jpg",
+   "popis": "Jízdy na modelovém kolejišti pro veřejnost s vánočním vlakem a rozsvícením vánočního stromečku v Opavě-Kateřinkách."
+  },
+  {
    "id": "7b22770a46d0",
    "nazev": "Výstava železničních modelů a kolejišť – SKC Nýřany",
    "zacatek": "2026-11-28T10:00:00+01:00",
@@ -2076,6 +2108,22 @@
    "popis": "Zážitková adventní jízda s lokomotivou 781 592-1 Sergej z Prahy přes Benešov a Tábor do Českých Budějovic a zpět, s prohlídkou lokomotivy s výkladem."
   },
   {
+   "id": "8b7dac22bccb",
+   "nazev": "Výstava železničných modelov v Komárne",
+   "zacatek": "2026-12-04T09:30:00+01:00",
+   "konec": "2026-12-06T18:00:00+01:00",
+   "misto": "Komárno",
+   "adresa": "Komárno",
+   "obec": "Komárno",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vystava-zeleznicnych-modelov-komarno/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vystava-zeleznicnych-modelov-komarno-plakat-2026.jpg",
+   "popis": "Výstava železničních modelů a kolejišť v Komárně."
+  },
+  {
    "id": "df8ce035584c",
    "nazev": "Modulárske stretnutie železničných modelárov – SPŠ dopravná Trnava 2026",
    "zacatek": "2026-12-04T13:00:00+01:00",
@@ -2154,6 +2202,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/pohadkove-muzeum-technicke-muzeum-brno/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/pohadkove-muzeum-technicke-muzeum-brno-2026.jpg",
    "popis": "Předvánoční akce pro rodiny s dětmi: pohádkové postavy plní s dětmi úkoly mezi exponáty Technického muzea v Brně."
+  },
+  {
+   "id": "d3fb1c99e840",
+   "nazev": "Mikulášska jazda Dvojprúdovkami na Vianočné trhy do Žiliny",
+   "zacatek": "2026-12-05T08:00:00+01:00",
+   "konec": "2026-12-05T18:25:00+01:00",
+   "misto": "Bratislava hlavná stanica",
+   "adresa": "Bratislava",
+   "obec": "Bratislava",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jazda-dvojprudovkami-zilina/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jazda-dvojprudovkami-zilina-plakat-2026.jpg",
+   "popis": "Mikulášský vlak ALBATROS klubu z Bratislavy do Žiliny a zpět s lokomotivami ES 499.0001 a 350.008."
   },
   {
    "id": "2d1ba033113b",
@@ -2288,6 +2352,22 @@
    "popis": "Mikulášské jízdy parního vlaku s lokomotivou 354.1 Všudybylka mezi Mariánskými Lázněmi, Karlovými Vary, Merklínem, Sokolovem a Chebem, s Mikulášem, čertem a andělem."
   },
   {
+   "id": "0ad1623bf4c6",
+   "nazev": "Andělské parní projížďky",
+   "zacatek": "2026-12-05T09:20:00+01:00",
+   "konec": "2026-12-05T17:42:00+01:00",
+   "misto": "Železniční stanice Martinice v Krkonoších",
+   "adresa": "Martinice v Krkonoších 93, 512 32 Martinice v Krkonoších",
+   "obec": "Martinice v Krkonoších",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/andelske-parni-projizdky-martinice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/andelske-parni-projizdky-martinice-plakat-2026.jpg",
+   "popis": "Parní vlak s lokomotivou 423.094 Velký bejček z Martinic v Krkonoších do Rokytnice nad Jizerou, první dvě jízdy s Mikulášem, andělem a čertovskou kapelou."
+  },
+  {
    "id": "baf234151c23",
    "nazev": "Mikuláš vo vlaku – Bratislava Rača – Rusovce",
    "zacatek": "2026-12-05T09:40:00+01:00",
@@ -2318,6 +2398,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-za-mikulasem-a-certem-turnov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-za-mikulasem-a-certem-turnov-letak-2026.jpg",
    "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou z Turnova do Malé Skály a do Mnichova Hradiště a zpět."
+  },
+  {
+   "id": "6f48b4267e6d",
+   "nazev": "S Fantáziou a Okuliarnikmi na Mikuláša",
+   "zacatek": "2026-12-05T09:50:00+01:00",
+   "konec": "2026-12-05T13:00:00+01:00",
+   "misto": "Železničná stanica Svit",
+   "adresa": "Svit",
+   "obec": "Svit",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/s-fantaziou-a-okuliarnikmi-na-mikulasa-svit-podolinec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/s-fantaziou-a-okuliarnikmi-na-mikulasa-plakat-2026.jpg",
+   "popis": "Mikulášská jízda historickými motorovými lokomotivami Okuliarnik mezi Svitem a Podolíncem."
   },
   {
    "id": "2958c69c371f",
@@ -2492,7 +2588,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasskym-vlakem-na-moldavu/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasskym-vlakem-na-moldavu-plakat-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasskym-vlakem-na-moldavu-kapacita-naplnena-2026.jpg",
    "popis": "Mikulášský historický vlak z Teplic a Mostu po Moldavské dráze na Moldavu v Krušných horách a zpět s doprovodným programem."
   },
   {
@@ -2930,6 +3026,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/novorocni-jizda-mladejov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/novorocni-jizda-mladejov-2027.jpg",
    "popis": "První vlak roku 2027 po Mladějovské průmyslové dráze z Mladějova do Nové Vsi u Kunčiny, se zimními fotozastávkami."
+  },
+  {
+   "id": "2ad83dd5d06f",
+   "nazev": "Výšlap na rozhlednu Zdenička",
+   "zacatek": "2027-01-09",
+   "konec": "2027-01-09",
+   "misto": "Zdounky",
+   "adresa": "Zdounky",
+   "obec": "Zdounky",
+   "kraj": "Zlínský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vyslap-na-rozhlednu-zdenicka-zdounky/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vyslap-zdenicka-zdounky-2027.jpg",
+   "popis": "Tradiční jízda zvláštního vlaku Kroměřížské dráhy do Zdounek s výšlapem na rozhlednu Zdenička."
   },
   {
    "id": "06bf50e87499",
