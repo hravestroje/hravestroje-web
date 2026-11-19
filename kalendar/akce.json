@@ -1,5 +1,5 @@
 {
- "aktualizovano": "2026-11-19T08:54:26.876Z",
+ "aktualizovano": "2026-11-19T14:26:57.395Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
  "pocet": 201,
  "akce": [
@@ -1606,22 +1606,6 @@
    "popis": "Adventní parní vlaky Jöhstadt – Steinbach, 4. 12. mikulášské jízdy s přihláškou."
   },
   {
-   "id": "4a7942c361da",
-   "nazev": "Čertohráček",
-   "zacatek": "2026-11-28",
-   "konec": "2026-11-29",
-   "misto": "Praha",
-   "adresa": "Praha",
-   "obec": "Praha",
-   "kraj": "Hlavní město Praha",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce-vlaky/mikulasske-jizdy-cyklohracku/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certohracek-2026-mikulasske-jizdy-cyklohracku.jpg",
-   "popis": "Výletní vlak Cyklohráček se o víkendu 28. a 29. listopadu 2026 promění v Čertohráček a vyjede po Praze s mikulášskou družinou. Trasy a časy pořadatel zatím nezveřejnil."
-  },
-  {
    "id": "58e8185c8502",
    "nazev": "Parním vlakem do Kryštofova údolí",
    "zacatek": "2026-11-28",
@@ -1636,6 +1620,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-do-krystofova-udoli/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-do-krystofova-udoli-2026.jpg",
    "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou na trase Liberec – Kryštofovo údolí – Křižany a zpět."
+  },
+  {
+   "id": "6279aa69b911",
+   "nazev": "Předvánoční jízdy s Čertohráčkem",
+   "zacatek": "2026-11-28",
+   "konec": "2026-11-29",
+   "misto": "Nádraží Praha-Braník",
+   "adresa": "Praha",
+   "obec": "Praha",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci-podle-akce-vlaky/mikulasske-jizdy-cyklohracku/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/certohracek-2026-mikulasske-jizdy-cyklohracku.jpg",
+   "popis": "Výletní vlak Cyklohráček se o víkendu 28. a 29. listopadu 2026 promění v Čertohráček a vyjede po Praze s mikulášskou družinou. Jízdy začínají a končí na nádraží Praha-Braník, jezdí do Vraného nad Vltavou, Říčan, Horních Počernic, Radotína, na Karlštejn a do Měšic u Prahy. Platí jízdné PID, ČD nebo OneTicket."
   },
   {
    "id": "23a030329a71",
