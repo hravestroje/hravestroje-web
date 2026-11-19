@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-18T08:39:20.038Z",
+ "aktualizovano": "2026-11-19T00:45:06.335Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 199,
+ "pocet": 201,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1846,6 +1846,22 @@
    "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna za účasti Mikuláše a jeho družiny."
   },
   {
+   "id": "9ef81dc5c5a0",
+   "nazev": "Adventní plavby na lodi Král Jiří 2026",
+   "zacatek": "2026-11-28T10:00:00+01:00",
+   "konec": "2026-12-20T16:30:00+01:00",
+   "misto": "Přístaviště Poděbrady pod zámkem",
+   "adresa": "Poděbrady",
+   "obec": "Poděbrady",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "lode"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-plavby-lod-kral-jiri-podebrady/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/adventni-plavby-lod-kral-jiri-podebrady.jpg",
+   "popis": "Adventní plavby s koledami a svařákem každý adventní víkend z Poděbrad, odjezdy 10:00, 11:30, 13:30 a 15:00."
+  },
+  {
    "id": "cc078d6e83dd",
    "nazev": "Bavorsko-české dny modelové železnice",
    "zacatek": "2026-11-28T10:00:00+01:00",
@@ -2608,6 +2624,22 @@
    "popis": "Mikulášská nadílka v bývalém železnorudném dole: jízda důlním vláčkem do podzemního pekla a nebe s Mikulášem a andílky."
   },
   {
+   "id": "02711fb74797",
+   "nazev": "Mikulášský vlak na Olomoucku",
+   "zacatek": "2026-12-06T10:00:00+01:00",
+   "konec": "2026-12-06T15:45:00+01:00",
+   "misto": "Olomouc hlavní nádraží",
+   "adresa": "Jeremenkova, Olomouc",
+   "obec": "Olomouc",
+   "kraj": "Olomoucký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-na-olomoucku-rosnicka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-na-olomoucku-rosnicka-2026.jpg",
+   "popis": "Mikulášské jízdy historického vlaku s parní lokomotivou 464.202 Rosnička z Olomouce do Senice na Hané a do Domašova nad Bystřicí, s Mikulášem, čerty a anděly."
+  },
+  {
    "id": "e03cf4a74800",
    "nazev": "Nikolausexpress Fichtelbergbahn 2026",
    "zacatek": "2026-12-06T10:00:00+01:00",
@@ -2622,22 +2654,6 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-a-adventni-vlaky-sasko-fichtelbergbahn-zitava/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-adventni-vlaky-sasko-2026.jpg",
    "popis": "Parní vlak s Mikulášem a dárkem pro děti mezi Cranzahlem a Kurortem Oberwiesenthal."
-  },
-  {
-   "id": "0d905e1fd78b",
-   "nazev": "Mikulášský vlak na Olomoucku",
-   "zacatek": "2026-12-06T10:05:00+01:00",
-   "konec": "2026-12-06T15:46:00+01:00",
-   "misto": "Olomouc hlavní nádraží",
-   "adresa": "Jeremenkova, Olomouc",
-   "obec": "Olomouc",
-   "kraj": "Olomoucký kraj",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-na-olomoucku-rosnicka/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-na-olomoucku-rosnicka-2026.jpg",
-   "popis": "Mikulášské jízdy historického vlaku s parní lokomotivou 464.202 Rosnička z Olomouce do Senice na Hané a do Domašova nad Bystřicí, s Mikulášem, čerty a anděly."
   },
   {
    "id": "9085a63f7f31",
@@ -2942,6 +2958,26 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-a-zimni-jizdy-zbysov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-zbysov-2026-plakat.jpg",
    "popis": "Úzkorozchodné vlaky s historickými motorovými lokomotivami Zbýšov – Babice u Rosic – Zastávka u Brna mezi svátky."
+  },
+  {
+   "id": "d81003bd4b40",
+   "nazev": "Vánoční jízdy a chemické pokusy",
+   "zacatek": "2026-12-27T10:00:00+01:00",
+   "konec": "2026-12-27T15:00:00+01:00",
+   "misto": "Chrustenická šachta",
+   "adresa": "267 12 Chrustenice",
+   "obec": "Chrustenice",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "ostatni"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-jizdy-chrustenicka-sachta/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-jizdy-chrustenicka-sachta-2026-og.jpg",
+   "popis": "Vánoční jízdy důlním vláčkem v podzemí Chrustenické šachty, stezka odvahy pro děti, stromeček s dárečky, podzemní čajovna a kavárna a chemické pokusy.",
+   "geo": {
+    "lat": 50.0042742,
+    "lng": 14.16472
+   }
   },
   {
    "id": "d702cb609f29",
