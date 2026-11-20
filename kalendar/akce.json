@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-19T14:26:57.395Z",
+ "aktualizovano": "2026-11-20T08:41:04.017Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 201,
+ "pocet": 202,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1606,22 +1606,6 @@
    "popis": "Adventní parní vlaky Jöhstadt – Steinbach, 4. 12. mikulášské jízdy s přihláškou."
   },
   {
-   "id": "58e8185c8502",
-   "nazev": "Parním vlakem do Kryštofova údolí",
-   "zacatek": "2026-11-28",
-   "konec": "2026-11-28",
-   "misto": "Železniční stanice Liberec",
-   "adresa": "Liberec",
-   "obec": "Liberec",
-   "kraj": "Liberecký kraj",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-do-krystofova-udoli/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-do-krystofova-udoli-2026.jpg",
-   "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou na trase Liberec – Kryštofovo údolí – Křižany a zpět."
-  },
-  {
    "id": "6279aa69b911",
    "nazev": "Předvánoční jízdy s Čertohráčkem",
    "zacatek": "2026-11-28",
@@ -1732,6 +1716,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-modelari-nova-paka/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/nova-paka-og.jpg",
    "popis": "Modeláři Nová Paka zvou na den otevřených dveří na modelovém kolejišti s výstavou modelů, hosté SŽM Liptákov z Chuchelny u Semil."
+  },
+  {
+   "id": "d19bdf6c99b8",
+   "nazev": "Parním vlakem do Kryštofova údolí",
+   "zacatek": "2026-11-28T09:08:00+01:00",
+   "konec": "2026-11-28T16:22:00+01:00",
+   "misto": "Železniční stanice Liberec",
+   "adresa": "Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-do-krystofova-udoli/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-do-krystofova-udoli-2026.jpg",
+   "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou na trase Liberec – Kryštofovo údolí – Křižany a zpět."
   },
   {
    "id": "368379238af1",
@@ -1978,6 +1978,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/rozsviceni-vanocni-flotily-dpp-praha/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/rozsviceni-vanocni-flotily-dpp-2026.jpg",
    "popis": "Slavnostní rozsvícení vánočně vyzdobených tramvají, autobusů a trolejbusu Dopravního podniku hl. m. Prahy a vánoční průvod ze Střešovic do centra."
+  },
+  {
+   "id": "ff283c9c7fb6",
+   "nazev": "Parním vlakem na adventní trhy v Hrádku nad Nisou",
+   "zacatek": "2026-11-29T09:50:00+01:00",
+   "konec": "2026-11-29T15:05:00+01:00",
+   "misto": "Železniční stanice Liberec",
+   "adresa": "Liberec",
+   "obec": "Liberec",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-na-adventni-trhy-hradek-nad-nisou/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-na-adventni-trhy-hradek-nad-nisou-2026.jpg",
+   "popis": "Historický parní vlak z Liberce a Chrastavy na adventní trhy a rozsvícení vánočního stromu v Hrádku nad Nisou."
   },
   {
    "id": "64a4197221d3",
