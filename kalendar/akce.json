@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-20T08:41:04.017Z",
+ "aktualizovano": "2026-11-21T08:22:43.708Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 202,
+ "pocet": 203,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1538,7 +1538,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zvonkovy-vlak-ceske-budejovice-netolice/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zvonkovy-vlak-netolice-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zvonkovy-vlak.jpg",
    "popis": "Zvonkový vlak Českých drah z Českých Budějovic do Netolic na jarmark s příjezdem Paní Zimy a příletem anděla."
   },
   {
@@ -1730,7 +1730,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/parnim-vlakem-do-krystofova-udoli/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/parnim-vlakem-do-krystofova-udoli-2026.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-do-krystofova-udoli-plakat-1.jpg",
    "popis": "Zimní jízdy parním vlakem s Mikulášskou družinou na trase Liberec – Kryštofovo údolí – Křižany a zpět."
   },
   {
@@ -2558,6 +2558,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-z-loun-do-slaneho/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-z-loun-do-slaneho-2026.jpg",
    "popis": "Tradiční mikulášský vlak z Loun přes Zlonice do Slaného a zpět, který pořádá Dobrovolný svazek obcí Stodesítka a město Louny."
+  },
+  {
+   "id": "1573d080aa26",
+   "nazev": "Mikulášský vlak",
+   "zacatek": "2026-12-05T12:15:00+01:00",
+   "konec": "2026-12-05T17:18:00+01:00",
+   "misto": "Železniční stanice Most",
+   "adresa": "Most",
+   "obec": "Most",
+   "kraj": "Ústecký kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-doupovska-draha/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-doupovska-draha-jizdni-rad-2026.jpg",
+   "popis": "Mikulášský vlak s Mikulášem, čertem a andělem z Mostu přes Chomutov a Kadaň po Doupovské dráze do Kadaňského Rohozce a zpět, v cíli občerstvení."
   },
   {
    "id": "5fca218c7c40",
