@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-21T08:22:43.708Z",
+ "aktualizovano": "2026-11-23T09:14:59.043Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 203,
+ "pocet": 213,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1574,6 +1574,22 @@
    "popis": "Kouzelně osvětlená zahrada s vánoční tematikou a zahradní železnicí velikosti G, vstupné dobrovolné."
   },
   {
+   "id": "716170ee8d7d",
+   "nazev": "Vánočně nazdobený autobus MHD v Českém Těšíně",
+   "zacatek": "2026-11-27",
+   "konec": "2027-01-06",
+   "misto": "MHD Český Těšín",
+   "adresa": "Český Těšín",
+   "obec": "Český Těšín",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-autobus-cesky-tesin/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-autobus-cesky-tesin.jpg",
+   "popis": "Vánočně vyzdobený autobus městské hromadné dopravy jezdí na pravidelných linkách MHD v Českém Těšíně od 27. 11. 2026 do 6. 1. 2027."
+  },
+  {
    "id": "6f3f2e0a751c",
    "nazev": "Adventní jízdy a Mikuláš na Žitavské úzkokolejce 2026",
    "zacatek": "2026-11-28",
@@ -2204,22 +2220,6 @@
    "popis": "Čertovské jízdy úzkorozchodného parního vláčku z Kolína-Sendražic do Býchor."
   },
   {
-   "id": "60ba9cff4ff0",
-   "nazev": "Mikulášské jízdy s peklem ve štole",
-   "zacatek": "2026-12-05",
-   "konec": "2026-12-05",
-   "misto": "Skanzen Solvayovy lomy",
-   "adresa": "Svatý Jan pod Skalou",
-   "obec": "Svatý Jan pod Skalou",
-   "kraj": "Středočeský kraj",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-jizdy-s-peklem-ve-stole-solvayovy-lomy/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-jizdy-s-peklem-ve-stole-solvayovy-lomy.jpg",
-   "popis": "Jízdy motorového vlaku a program ve štole pro děti ve Skanzenu Solvayovy lomy v Českém krasu."
-  },
-  {
    "id": "c8049bbb7292",
    "nazev": "Pohádkové muzeum 2026",
    "zacatek": "2026-12-05",
@@ -2496,22 +2496,6 @@
    "popis": "Mikulášská plavba po Labi s Mikulášem, andělem, čertem a nadílkou pro děti."
   },
   {
-   "id": "685c63ac0200",
-   "nazev": "Mikulášská jízda parním vlakem z Brna do Ivančic",
-   "zacatek": "2026-12-05T10:00+01:00",
-   "konec": "2026-12-05T15:00+01:00",
-   "misto": "Brno dolní nádraží",
-   "adresa": "Rosická, Brno",
-   "obec": "Brno",
-   "kraj": "Jihomoravský kraj",
-   "typy": [
-    "vlaky"
-   ],
-   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-parnim-vlakem-brno-ivancice/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-brno-ivancice-2026.jpg",
-   "popis": "Mikulášská jízda parní lokomotivou 213.901 s historickými vozy z Brna dolního nádraží do Ivančic a zpět, s mikulášskou družinou a sladkou odměnou pro děti."
-  },
-  {
    "id": "37726b6f2f71",
    "nazev": "Mikulášská parní jízda",
    "zacatek": "2026-12-05T10:05",
@@ -2526,6 +2510,38 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-parni-jizda-jindrichuv-hradec-kamenice-nad-lipou/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/plakat-mikulasska-parni-jizda-kamenice-2026.jpg",
    "popis": "Mikulášská jízda parním vlakem Jindřichohradecké úzkokolejky z Jindřichova Hradce do Kamenice nad Lipou a zpět, ve vlaku Mikuláš, anděl a čert a drobná odměna pro děti."
+  },
+  {
+   "id": "ad366b8e8fbe",
+   "nazev": "Mikulášská jízda parním vlakem z Brna do Ivančic",
+   "zacatek": "2026-12-05T10:15+01:00",
+   "konec": "2026-12-05T14:57+01:00",
+   "misto": "Brno dolní nádraží",
+   "adresa": "Rosická, Brno",
+   "obec": "Brno",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-jizda-parnim-vlakem-brno-ivancice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-jizda-brno-ivancice-2026.jpg",
+   "popis": "Mikulášská jízda parní lokomotivou 213.901 s historickými vozy z Brna dolního nádraží do Ivančic a zpět, s mikulášskou družinou a sladkou odměnou pro děti."
+  },
+  {
+   "id": "d1305805f9af",
+   "nazev": "Mikulášské jízdy s peklem ve štole",
+   "zacatek": "2026-12-05T11:00:00+01:00",
+   "konec": "2026-12-05T15:00:00+01:00",
+   "misto": "Skanzen Solvayovy lomy",
+   "adresa": "Svatý Jan pod Skalou",
+   "obec": "Svatý Jan pod Skalou",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-jizdy-s-peklem-ve-stole-solvayovy-lomy/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-jizdy-s-peklem-ve-stole-solvayovy-lomy.jpg",
+   "popis": "Jízdy motorového vlaku a program ve štole pro děti ve Skanzenu Solvayovy lomy v Českém krasu."
   },
   {
    "id": "d05cfcabce33",
@@ -2608,6 +2624,22 @@
    "popis": "Mikulášská jízda vlakem mezi Krásnou Lípou a Mikulášovicemi s Mikulášem, čertem a andělem, sladkou odměnou pro děti a programem ve stanicích."
   },
   {
+   "id": "4acb2fe2241b",
+   "nazev": "Mikulášský vláček",
+   "zacatek": "2026-12-05T14:58:00+01:00",
+   "konec": "2026-12-05T23:30:00+01:00",
+   "misto": "Železniční stanice Pardubice hlavní nádraží",
+   "adresa": "Pardubice",
+   "obec": "Pardubice",
+   "kraj": "Pardubický kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlacek-z-pardubic/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlacek-z-pardubic-plakat-2026.jpg",
+   "popis": "Mikulášská jízda historickým motorovým vozem M 131.1228 s Mikulášem, andělem, čertem a nadílkou pro děti z Pardubic přes Praskačku, Chlumec nad Cidlinou a Nymburk do Poděbrad."
+  },
+  {
    "id": "0cb196b89084",
    "nazev": "S Mikulášem, čerty a anděly po jihočeské Bechyňce",
    "zacatek": "2026-12-05T15:20:00+01:00",
@@ -2622,6 +2654,23 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/s-mikulasem-certy-a-andely-po-jihoceske-bechynce/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/s-mikulasem-po-jihoceske-bechynce-og.jpg",
    "popis": "Mikulášský historický elektrický vlak s lokomotivou Bobinka (E 422.0) z Tábora do Bechyně a zpět, ve vlaku Mikuláš, andělé a čerti s dárky pro hodné děti, v Bechyni remíza s modelovým kolejištěm."
+  },
+  {
+   "id": "e1feb5ce4abe",
+   "nazev": "Mikulášský expres",
+   "zacatek": "2026-12-05T15:28:00+01:00",
+   "konec": "2026-12-05T18:33:00+01:00",
+   "misto": "Železniční stanice Třemešná ve Slezsku",
+   "adresa": "Třemešná",
+   "obec": "Třemešná",
+   "kraj": "Moravskoslezský kraj",
+   "typy": [
+    "vlaky",
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-expres-osoblazska-uzkokolejka/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-expres-osoblazska-uzkokolejka-plakat-2026-1.jpg",
+   "popis": "Mikulášský expres po Osoblažské úzkokolejce z Třemešné ve Slezsku do Osoblahy a zpět: mikulášská družina, vystoupení dětí ve vánočním kamionu, prodej řemeslných výrobků, mikulášský balíček 150 Kč."
   },
   {
    "id": "4a1082188d12",
@@ -2704,6 +2753,22 @@
    "popis": "Retro motoráčkem řady 810 z Plzně přes Bečov nad Teplou do Karlových Varů na vánoční trhy. Pořádají Vlaky Plzeňského kraje."
   },
   {
+   "id": "913097311071",
+   "nazev": "Vánoční výstava modelové železnice Sokolov",
+   "zacatek": "2026-12-11T10:00:00+01:00",
+   "konec": "2026-12-13T17:00:00+01:00",
+   "misto": "Dům dětí a mládeže Sokolov",
+   "adresa": "Spartakiádní 1937, 356 01 Sokolov",
+   "obec": "Sokolov",
+   "kraj": "Karlovarský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-vystava-modelove-zeleznice-sokolov/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-vystava-modelove-zeleznice-sokolov-plakat.jpg",
+   "popis": "Tradiční adventní výstava železničních modelů s kolejištěm H0 v provozu v DDM Sokolov, vstupné dobrovolné."
+  },
+  {
    "id": "fd4d35de95e3",
    "nazev": "Cyklohráček – zimní výlet na Advent na hradě Křivoklát",
    "zacatek": "2026-12-12",
@@ -2755,7 +2820,7 @@
    "id": "7254ce68d88b",
    "nazev": "Křivoklátský rychlík",
    "zacatek": "2026-12-12T09:00:00+01:00",
-   "konec": "2026-12-12T17:00:00+01:00",
+   "konec": "2026-12-12T17:13:00+01:00",
    "misto": "Praha hlavní nádraží",
    "adresa": "Praha",
    "obec": "Praha",
@@ -2832,6 +2897,38 @@
    "popis": "Vánoční den v Modelovém kolejišti Nymburk: provoz kolejiště, vánoční tvoření a prodej dekorací."
   },
   {
+   "id": "dc51fe907e74",
+   "nazev": "Den otevřených dveří hangáru – prosinec",
+   "zacatek": "2026-12-12T13:00:00+01:00",
+   "konec": "2026-12-12T18:00:00+01:00",
+   "misto": "Letiště Točná",
+   "adresa": "Praha 12",
+   "obec": "Praha 12",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "letadla"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/den-otevrenych-dveri-hangaru-letiste-tocna/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/den-otevrenych-dveri-hangaru-letiste-tocna-letadla.jpg",
+   "popis": "Den otevřených dveří hangáru leteckého muzea na letišti Točná, expozice letuschopných letadel, vstup zdarma."
+  },
+  {
+   "id": "3363c4d664c8",
+   "nazev": "Předvánoční Kolejiště naživo",
+   "zacatek": "2026-12-13T14:00:00+01:00",
+   "konec": "2026-12-13T17:15:00+01:00",
+   "misto": "DDM Praha 4 – Hobby centrum 4",
+   "adresa": "Bartákova 1200/4, Praha 4",
+   "obec": "Praha 4",
+   "kraj": "Hlavní město Praha",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/predvanocni-kolejiste-nazivo-praha-4/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/predvanocni-kolejiste-nazivo-praha-4.jpg",
+   "popis": "Vánoční provoz velkého klubového kolejiště KŽM Praha 4, děti si vyzkouší řízení vlaků. Vstup jen s rezervací."
+  },
+  {
    "id": "a0e073b40c82",
    "nazev": "Vánoční jízdy Kroměřížské dráhy – Olomouc",
    "zacatek": "2026-12-19",
@@ -2862,6 +2959,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/historickymi-vlaky-na-vanocni-trhy-olomouc/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/historickymi-vlaky-na-vanocni-trhy-olomouc-2026.jpg",
    "popis": "Zvláštní vlaky s historickými motoráčky Hurvínek a Osmsetdesítka z Kroměříže přes Prostějov na Vánoční trhy v Olomouci a jízdy kolem centra Olomouce."
+  },
+  {
+   "id": "3e2063b018d9",
+   "nazev": "Vánoční jízda 2026 na Jedlovou",
+   "zacatek": "2026-12-19T07:40:00+01:00",
+   "konec": "2026-12-19T19:00:00+01:00",
+   "misto": "Železniční stanice Slaný",
+   "adresa": "Slaný",
+   "obec": "Slaný",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "ostatni"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vanocni-jizda-vytopna-slany/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vanocni-jizda-vytopna-slany-jedlova-2026.jpg",
+   "popis": "Vánoční jízda Výtopny Slaný vozem Rybák ze Slaného do stanice Jedlová v Lužických horách."
   },
   {
    "id": "0ad909df2dcd",
@@ -3096,6 +3209,22 @@
    "popis": "První vlak roku 2027 po Mladějovské průmyslové dráze z Mladějova do Nové Vsi u Kunčiny, se zimními fotozastávkami."
   },
   {
+   "id": "0a68156b7cc0",
+   "nazev": "Dreikönigsdampfzug – Tříkrálový parní vlak Murtalbahn",
+   "zacatek": "2027-01-06T10:30:00+01:00",
+   "konec": "2027-01-06T16:25:00+01:00",
+   "misto": "Bahnhof Murau",
+   "adresa": "Bahnhofviertel 4a, 8850 Murau",
+   "obec": "Murau",
+   "kraj": null,
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/trikralovy-parni-vlak-murtalbahn-murau-tamsweg/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/trikralovy-parni-vlak-murtalbahn-2027.jpg",
+   "popis": "Zimní jízda parního vlaku Murtalbahn z Murau do Tamsweg a zpět, vlak provázejí Tři králové."
+  },
+  {
    "id": "2ad83dd5d06f",
    "nazev": "Výšlap na rozhlednu Zdenička",
    "zacatek": "2027-01-09",
@@ -3194,6 +3323,22 @@
    "popis": "35. ročník letecké akce Aviatická pouť na letišti Hradec Králové."
   },
   {
+   "id": "5c9f08d0f67c",
+   "nazev": "Veteránský okruh 2027",
+   "zacatek": "2027-06-19T08:00:00+02:00",
+   "konec": "2027-06-19T17:30:00+02:00",
+   "misto": "Areál VČAS Bakov nad Jizerou",
+   "adresa": "Čechova 959, Bakov nad Jizerou",
+   "obec": "Bakov nad Jizerou",
+   "kraj": "Středočeský kraj",
+   "typy": [
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/veteransky-okruh-bakov-nad-jizerou/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/veteransky-okruh-bakov-nad-jizerou.jpg",
+   "popis": "Setkání a soutěž historických vozidel v Bakově nad Jizerou, vstup pro diváky zdarma, od 13:30 dětský den s úkoly."
+  },
+  {
    "id": "15d756498680",
    "nazev": "Veteranfest 2027",
    "zacatek": "2027-06-26",
@@ -3272,6 +3417,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/hornoplanska-traktoriada-lipno/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/hornoplanska-traktoriada-traktory-na-louce.jpg",
    "popis": "Soutěžní jízdy traktorů na hřišti Dobrá Voda v Horní Plané, 11. ročník."
+  },
+  {
+   "id": "b87f6487237a",
+   "nazev": "Veterán Tour 2027",
+   "zacatek": "2027-09-04T08:00:00+02:00",
+   "konec": "2027-09-04T16:00:00+02:00",
+   "misto": "Pivovar Rohozec",
+   "adresa": "Malý Rohozec 29, Turnov",
+   "obec": "Turnov",
+   "kraj": "Liberecký kraj",
+   "typy": [
+    "auta"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/veteran-tour-pivovar-rohozec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/veteran-tour-pivovar-rohozec.jpg",
+   "popis": "VI. ročník pohodové orientační jízdy historických vozidel po Turnovsku a Českém ráji, start a cíl v Pivovaru Rohozec."
   },
   {
    "id": "d33268122f33",
