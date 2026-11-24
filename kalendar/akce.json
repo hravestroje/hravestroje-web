@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-23T09:14:59.043Z",
+ "aktualizovano": "2026-11-24T11:08:18.017Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 213,
+ "pocet": 215,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1734,6 +1734,22 @@
    "popis": "Modeláři Nová Paka zvou na den otevřených dveří na modelovém kolejišti s výstavou modelů, hosté SŽM Liptákov z Chuchelny u Semil."
   },
   {
+   "id": "dfefcfbda3a4",
+   "nazev": "Turistický vláček Jindřichův Hradec – adventní jízdy",
+   "zacatek": "2026-11-28T09:00:00+01:00",
+   "konec": "2026-12-20T17:09:00+01:00",
+   "misto": "Zahradní centrum pod Kloboukem, Jindřichův Hradec",
+   "adresa": "Jindřichův Hradec",
+   "obec": "Jindřichův Hradec",
+   "kraj": "Jihočeský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-turisticky-vlacek-jindrichuv-hradec/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/turisticky-vlacek-jindrichuv-hradec-advent-2026.jpg",
+   "popis": "Turistický vláček jezdí o adventních víkendech po Jindřichově Hradci ze Zahradního centra pod Kloboukem přes nábřeží a Masarykovo náměstí k nádraží úzkokolejky. 10 spojů denně, jízdné 50 Kč."
+  },
+  {
    "id": "d19bdf6c99b8",
    "nazev": "Parním vlakem do Kryštofova údolí",
    "zacatek": "2026-11-28T09:08:00+01:00",
@@ -1778,7 +1794,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-vlaky-pardubice-praskacka/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-pardubice-praskacka-2026-mikulassky-vlak-2.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-vlaky-pardubice-praskacka-plakat.jpg",
    "popis": "Dva páry historických motorových vlaků Pardubice – Praskačka a zpět s Mikulášem a čertem, v cíli program v Museu bednářství Jaroslava Tománka a čertovská nadílka. Pořádá Pardubický spolek historie železniční dopravy."
   },
   {
@@ -2461,7 +2477,7 @@
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/adventni-oybin-parnim-vlakem-zitava-z-liberce/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/adventni-oybin-parnim-vlakem-zitava-2026.jpg",
-   "popis": "Výlet z Liberce s průvodcem: adventní trhy v Žitavě, parním vlakem Žitavské úzkokolejky do Oybinu a hrad a klášter Oybin. Termíny 5. (obsazeno), 6., 7., 11. a 13. 12. 2026."
+   "popis": "Výlet z Liberce s průvodcem: adventní trhy v Žitavě, parním vlakem Žitavské úzkokolejky do Oybinu a hrad a klášter Oybin. Termíny 5., 6. a 13. 12. (obsazeno), 7. a 11. 12. 2026."
   },
   {
    "id": "ac6017b9b8cc",
@@ -2846,7 +2862,7 @@
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/svarak-ve-vytopne-korenov/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zubacka-korenov-jizdy-historickych-vlaku-14-1.jpg",
-   "popis": "Poslední akce roku na Zubačce: parní vlaky Kořenov – Harrachov, historický motoráček z Tanvaldu a otevřené Muzeum ozubnicové dráhy."
+   "popis": "Poslední akce roku na Zubačce: historické vlaky Kořenov – Harrachov, historický motoráček z Tanvaldu a otevřené Muzeum ozubnicové dráhy."
   },
   {
    "id": "8bf1204fdbdc",
@@ -3125,6 +3141,23 @@
    }
   },
   {
+   "id": "6aac32ee5fb1",
+   "nazev": "Zimní modelářská výstava 2026 Hořice",
+   "zacatek": "2026-12-27T10:00:00+01:00",
+   "konec": "2026-12-28T17:00:00+01:00",
+   "misto": "Bývalé gymnázium Hořice",
+   "adresa": "Husova 1414, 508 01 Hořice",
+   "obec": "Hořice",
+   "kraj": "Královéhradecký kraj",
+   "typy": [
+    "vlaky",
+    "letadla"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/zimni-modelarska-vystava-horice/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/zimni-modelarska-vystava-horice-plakat.jpg",
+   "popis": "Tradiční Zimní modelářská výstava Klubu železničních modelářů Hořice a DDM Hořice: modelová kolejiště H0, TT, N a Z, LEGO vláčky, modely letadel, motorek a formulí, papírové modely a 3D tisk."
+  },
+  {
    "id": "d702cb609f29",
    "nazev": "Vánoční jízda Posázavský pacifik",
    "zacatek": "2026-12-27T10:30:00+01:00",
@@ -3221,7 +3254,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/trikralovy-parni-vlak-murtalbahn-murau-tamsweg/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/trikralovy-parni-vlak-murtalbahn-2027.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/trikralovy-parni-vlak-murtalbahn-2027-ilustrace.jpg",
    "popis": "Zimní jízda parního vlaku Murtalbahn z Murau do Tamsweg a zpět, vlak provázejí Tři králové."
   },
   {
@@ -3237,7 +3270,7 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/vyslap-na-rozhlednu-zdenicka-zdounky/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vyslap-zdenicka-zdounky-2027.jpg",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/vyslap-zdenicka-zdounky-2027-ilustrace.jpg",
    "popis": "Tradiční jízda zvláštního vlaku Kroměřížské dráhy do Zdounek s výšlapem na rozhlednu Zdenička."
   },
   {
