@@ -1,7 +1,7 @@
 {
- "aktualizovano": "2026-11-24T11:08:18.017Z",
+ "aktualizovano": "2026-11-26T01:58:05.687Z",
  "zdroj": "https://www.hravestroje.cz/sitemap.xml",
- "pocet": 215,
+ "pocet": 217,
  "akce": [
   {
    "id": "fde8a041b891",
@@ -1574,6 +1574,22 @@
    "popis": "Kouzelně osvětlená zahrada s vánoční tematikou a zahradní železnicí velikosti G, vstupné dobrovolné."
   },
   {
+   "id": "6be22501ffa7",
+   "nazev": "Blanenský vánoční expres",
+   "zacatek": "2026-11-27",
+   "konec": "2026-11-27",
+   "misto": "Poduklí",
+   "adresa": "Blansko",
+   "obec": "Blansko",
+   "kraj": "Jihomoravský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/blanensky-vanocni-expres-blansko/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/blanensky-vanocni-expres-blansko-2026.jpg",
+   "popis": "Dětský vánoční vláček v Poduklí v Blansku, novinka Blanenských Vánoc 2026."
+  },
+  {
    "id": "716170ee8d7d",
    "nazev": "Vánočně nazdobený autobus MHD v Českém Těšíně",
    "zacatek": "2026-11-27",
@@ -2140,10 +2156,10 @@
    "popis": "Vánoční stanice svatého Mikuláše v železničním muzeu: setkání s Mikulášem, poštovní vůz, vánoční dílny a venkovní hra."
   },
   {
-   "id": "1d003ad866bb",
+   "id": "eeac527942bf",
    "nazev": "Mikulášské a Vánoční vláčky 2026 – Slezský železniční spolek",
-   "zacatek": "2026-12-02",
-   "konec": "2026-12-20",
+   "zacatek": "2026-12-02T14:19:00+01:00",
+   "konec": "2026-12-20T19:00:00+01:00",
    "misto": "Železniční stanice Frýdek-Místek",
    "adresa": "Frýdek-Místek",
    "obec": "Frýdek-Místek",
@@ -2152,8 +2168,8 @@
     "vlaky"
    ],
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasske-a-vanocni-vlacky-ostrava-frydek-mistek/",
-   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-a-vanocni-vlacky-ostrava-2026.jpg",
-   "popis": "Vyzdobené Mikulášské a Vánoční vláčky v Ostravě, Frýdku-Místku, Karviné a Havířově s Mikulášskou družinou nebo koledami."
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasske-a-vanocni-vlacky-ostrava-plakat-2026.jpg",
+   "popis": "Vyzdobené Mikulášské a Vánoční vláčky z Frýdku-Místku, Ostravy, Karviné, Havířova a Ostravice s Mikulášskou družinou a koledami."
   },
   {
    "id": "b0827cb957a8",
@@ -2606,6 +2622,22 @@
    "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulassky-vlak-doupovska-draha/",
    "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulassky-vlak-doupovska-draha-jizdni-rad-2026.jpg",
    "popis": "Mikulášský vlak s Mikulášem, čertem a andělem z Mostu přes Chomutov a Kadaň po Doupovské dráze do Kadaňského Rohozce a zpět, v cíli občerstvení."
+  },
+  {
+   "id": "594676de7d99",
+   "nazev": "Mikulášská tramvaj",
+   "zacatek": "2026-12-05T13:00:00+01:00",
+   "konec": "2026-12-05T17:25:00+01:00",
+   "misto": "Obratiště U Zvonu",
+   "adresa": "Plzeň",
+   "obec": "Plzeň",
+   "kraj": "Plzeňský kraj",
+   "typy": [
+    "vlaky"
+   ],
+   "url": "https://www.hravestroje.cz/kalendar-dopravnich-akci/mikulasska-tramvaj-plzen/",
+   "obrazek": "https://cdn.myshoptet.com/usr/www.hravestroje.cz/user/front_images/ogImage/mikulasska-tramvaj-plzen-2026.jpg",
+   "popis": "Okružní jízdy Mikulášské tramvaje PMDP z obratiště U Zvonu v Plzni s Mikulášem, andělem a čertem."
   },
   {
    "id": "5fca218c7c40",
